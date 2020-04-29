@@ -1,0 +1,82 @@
+* {box-sizing: border-box;}
+
+/*Source Sans Pro 300, 400 & 700*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+
+/*Architects Daugther 400*/
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+/*
+font-family: 'Source Sans Pro';
+font-family: 'Architects Daughter', cursive;
+*/
+
+body {
+    max-width: 1920px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+header {
+    height: 105px;
+    border: 1px solid black;
+}
+
+div.nav {
+    max-width: 1786px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ELEMENTO DE BUSQUEDA */
+.search-bar {
+    width: 442px;
+    height: 44px;
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #707070;
+    border-radius: 22px;
+}
+
+div form {
+    padding-left: 12px;
+}
+
+.search-btn {
+    border:none;
+}
+
+.form-search {
+    border: none;
+}
+
+div.logo {
+    display: flex;
+    justify-content: center;
+}
+
+div.logo img {
+    height: 105px;
+}
+
+div.nav-menu {
+    font-size: 59px;
+}
+
+.search-bar {
+    align-self: center;
+}
+
+div.nav-left {
+    display: flex;
+}
+
+.nav-right {
+    font-size: 59px;
+    display: flex;
+    justify-content: flex-end;
+}
