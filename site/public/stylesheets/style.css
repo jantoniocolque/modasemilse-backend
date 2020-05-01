@@ -1,0 +1,150 @@
+
+/*Estilos para Celular*/
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+.container-fluid{
+  padding:0 3px 3px 3px;
+}
+header img{
+  width: 100%;
+  padding-right: 0;
+}
+.navbar span{
+  color:white;
+  font-size: 0.95em;
+}
+.input{
+  display:none;
+}
+.form-control{
+  color:white;
+  background-color: transparent;
+  border-radius: 35px;
+  border: 1.6px solid rgba(255,255,255,0.7);
+}
+.form-control::placeholder {
+  color:white;
+}
+#search{
+  opacity:0.9;
+  position: absolute;
+  top: 3px;
+  left: 239px;
+  font-size: 20px;
+  border: 0;
+  color: white;
+  background-color: transparent;
+  padding-left:5px;
+}
+#menu{
+  background-color: transparent;
+  border-radius: 14px;
+}
+.bg-primary{
+    transition: all 1s ease;
+    background-color: rgba(0, 188, 212,0.96) !important;
+}
+.logo img{
+    width: 55%;
+}
+.logo{
+  text-align: center;
+}
+.icono i{
+  color:white;
+  font-size: 0.8em;
+}
+.icono .line{
+  font-weight: 300;
+  opacity: 0.3;
+  font-size: 1.22em;
+}
+.icono .far{
+  font-size: 0.9em;
+}
+#cart-shop{
+    font-size: 65%;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: aqua;
+}
+#cart-shop span{
+  position: absolute;
+  font-size: 90%;
+  z-index: 100;
+  top:1px;
+  right: 3px;
+}
+button{
+  background-color: transparent;
+}
+#carouselExampleCaptions{
+  width:100%;
+}
+/*Estilos para tablet*/
+@media(min-width:768px){   
+.icono{
+  font-size: 1.4em;
+}
+.icono a,.line{
+  transition: all 1s ease;
+  visibility: visible !important;
+}
+
+.navbar span{
+  transition: all 1s ease;
+  font-size: 1.3em;
+}
+.logo img{
+  transition: all 1s ease;
+  width: 30%;
+}
+#cart-shop{
+  top: 7px;
+  right: 14px;
+}
+#cart-shop span{
+top:-0.5px;
+right: 4px;
+}
+}
+/*Estilos para Escritorio*/
+@media(min-width:992px){
+  .icono{
+    font-size: 1.85em;
+  }
+  .icono a,.line{
+    transition: all 1s ease;
+    visibility: visible !important;
+  }
+  
+  .navbar span{
+    transition: all 1s ease;
+    font-size: 1.9em;
+  }
+  .logo img{
+    transition: all 1s ease;
+    width: 30%;
+  }
+  #cart-shop{
+    top: 10px;
+    right: 37px;
+  }
+  #cart-shop span{
+  top:1px;
+  right: 5px;
+  } 
+  .input{
+    display:flex;
+  }
+  .form-control:focus{
+    color: white;
+    background-color:transparent;
+    border-color:transparent;
+  }
+}
