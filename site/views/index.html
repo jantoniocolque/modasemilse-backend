@@ -65,7 +65,7 @@
             <div class="row justify-content-between align-items-center m-0">
                 <!--boton del menu y el input que solamente aparecera en paginas de PC, por el momento solo use opciones de visibilidad para ocultarlo en dispositivos más pequeños-->
                 <div class="navbar col-3 col-lg-4 pl-1 pl-lg-4 justify-content-start">
-                    <button class="navbar border-0 pl-3 pl-lg-4" type="button">
+                    <button class="border-0 pl-3 pl-lg-4 pr-lg-4" type="button" data-toggle="modal" data-target="#examplemodal">
                     <span class="fa fa-bars"></span>
                     </button>
                     <div class="input col-lg-8 px-0">
@@ -94,7 +94,72 @@
         <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia inventore minima ratione soluta sit dignissimos voluptatum itaque! Voluptatum, dolor cumque labore excepturi maxime ullam eius temporibus accusantium quia quod laboriosam, adipisci nostrum aperiam et. Amet ab nesciunt odit deleniti voluptatem iusto provident cumque optio voluptates itaque! A quasi quis ipsam!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia inventore minima ratione soluta sit dignissimos voluptatum itaque! Voluptatum, dolor cumque labore excepturi maxime ullam eius temporibus accusantium quia quod laboriosam, adipisci nostrum aperiam et. Amet ab nesciunt odit deleniti voluptatem iusto provident cumque optio voluptates itaque! A quasi quis ipsam!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia inventore minima ratione soluta sit dignissimos voluptatum itaque! Voluptatum, dolor cumque labore excepturi maxime ullam eius temporibus accusantium quia quod laboriosam, adipisci nostrum aperiam et. Amet ab nesciunt odit deleniti voluptatem iusto provident cumque optio voluptates itaque! A quasi quis ipsam!</h1>
     </section>
     </div>
+    <div class="modal fade" id="examplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+          <div class="modal-content modal-setup">
+            <div class="modal-header">
+                
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <div class="row icons-navbar">
+                    <a href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter-square"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp-square"></i></a>    
+                    
+                </div>
+                <div class="row input-navbar d-lg-none">
+                    <input type="text" class="form-control-navbar" autocomplete="off" placeholder="Buscar" aria-label="Buscador">
+                    <button id="search" type="submit" class="search-input-submit" value="Buscar" aria-label="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row container justify-content-center links-navbar">
+                    <ul>
+                        <a href="#"><li>INICIO</li></a>
+                        <li class="item-with-subitems">
+                            <div class="accordion">
+                                <div class="card">
+                                    <div class="card-header" id="headingOne">
+                                      <h5 class="mb-0">
+                                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                            TIENDA
+                                          </a>
+                                      </h5>
+                                    </div>
+                                </div>
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <ul>
+                                            <a href="#"><li>CAMPERAS</li></a>
+                                            <a href="#"><li>SACOS</li></a>
+                                            <a href="#"><li>PANTALONES</li></a>
+                                            <a href="#"><li>REMERAS</li></a>
+                                        </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                        </li>
+                        <a href="#"><li>CONTACTO</li></a>
+                    </ul>
+            </div>
+            <div class="modal-footer">
+                <div class="row login-navbar">
+                <a class="col-6" href="#">Iniciar Sesion</a>
+                <a class ="col-4" href="#">Registrate</a>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
     <script src="../public/javascripts/jquery.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
     <script src="../public/javascripts/bootstrap.js"></script>
     <!--Script orientado a JQuery que permite capturar el desplazamiento de la barra en pixeles, por el momento no encuentro la equivalencia en porcentaje para que funcione con el mismo valor en cualquier dispositivo-->
     <script>
@@ -106,5 +171,6 @@
           }
         });
     </script>
+
 </body>
 </html>
