@@ -1,0 +1,242 @@
+/*
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+*/
+
+
+* {box-sizing: border-box;}
+
+/*Source Sans Pro 300, 400 & 700*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+
+/*Architects Daugther 400*/
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+/*
+font-family: 'Source Sans Pro';
+font-family: 'Architects Daughter', cursive;
+*/
+
+body {
+    max-width: 1920px;
+}
+
+.container-fluid {
+    padding: 0px;
+}
+
+header {
+    height: 105px;
+    border-bottom: 1px solid black;
+}
+
+div.nav {
+    max-width: 1786px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-btn {
+    border: none;
+}
+
+.user-btn {
+    border: none;
+}
+
+.cart-btn {
+    border: none;
+}
+
+/* ELEMENTO DE BUSQUEDA */
+.search-bar {
+    width: 442px;
+    height: 44px;
+    margin-left: 25px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #707070;
+    border-radius: 22px;
+}
+
+div form {
+    padding-left: 12px;
+}
+
+.search-btn {
+    border:none;
+}
+
+.form-search {
+    border: none;
+}
+
+.form-search:focus {
+    outline: none !important;
+    border: none;
+}
+
+div.logo {
+    display: flex;
+    justify-content: center;
+}
+
+div.logo img {
+    height: 105px;
+}
+
+div.nav-menu {
+    font-size: 59px;
+}
+
+.search-bar {
+    align-self: center;
+}
+
+div.nav-left {
+    display: flex;
+}
+
+.nav-right {
+    font-size: 59px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+div.nav-right img {
+    height: 60px;
+    align-self: center;
+    padding-left: 25.5px;
+    padding-right: 25.5px;
+}
+
+div.blank-area {
+    width: 100%;
+    height: 60vh;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid black;
+}
+
+div.footer-elements {
+    max-width: 1786px;
+    margin: auto;
+    padding: 15px;
+    text-align: center;
+}
+
+img.foot-separator {
+    width: 1px;
+    margin: 21px;
+}
+
+div.quick-nav {
+    width: 50%;
+    margin: auto;
+}
+
+.quick-nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.footer-main {
+    justify-content: center;
+}
+
+.about ul {
+    list-style: none;
+    text-align: left;
+    margin: auto;
+    width: fit-content;
+    padding: 0px;
+}
+
+.about ul li {
+    margin-right: 20px;
+}
+
+div.subscribe form {
+    padding: 0px;
+    text-align: left;
+}
+
+.form-newsletter {
+    border-radius: 50px;
+}
+
+.form-newsletter:focus {
+    outline: none !important;
+}
+
+div.subscribe button {
+    border-radius: 50px;
+}
+
+div.social-med {
+    display: flex;
+}
+
+div.social {
+    color: #ffffff;
+    width: 20px;
+    height: 20px;
+    background-color: #000000;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+div.social a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+p.app-download {
+    color: black;
+    text-align: left;
+}
+
+p.app-download a {
+    color: black;
+}
+
+/* CONTACTO */
+
+div.quick-contact {
+    width: 50%;
+    margin: auto;
+}
+
+.quick-contact ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.quick-contact ul li {
+    display: flex;
+    align-items: center;
+}
+
+li i.fas {
+    color: black;
+    font-size: xx-large;
+    padding-right: 10px;
+}
+
+div.copyright {
+    text-align: right;
+    font-weight: 100;
+}
