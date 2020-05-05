@@ -1,5 +1,6 @@
 
 /*Estilos para Celular*/
+/*Cambios en general*/
 *{
   padding: 0;
   margin:0;
@@ -20,27 +21,20 @@ button:focus{
 .container-fluid{
   padding:0 3px 3px 3px;
 }
-header img{
-  width: 100%;
-  padding-right: 0;
+/*estilos de la barra superior donde se encuentra el logo, el icono de carrito y de usuario*/
+#menu{
+  background-color: transparent;
+  border-radius: 14px;
 }
-.navbar span{
-  color:white;
-  font-size: 0.95em;
+/*Background dinamico de la barra superior con JQuery*/
+.bg-primary{
+  transition: all 1s ease;
+  background-color: rgba(0, 188, 212,0.96) !important;
 }
-.input{
+#menu .input-button-navbar{
   display:none;
 }
-.form-control{
-  color:white;
-  background-color: transparent;
-  border-radius: 35px;
-  border: 1.6px solid rgba(255,255,255,0.7);
-}
-.form-control::placeholder {
-  color:white;
-}
-#search{
+#menu .input-button-navbar #search{
   opacity:0.9;
   position: absolute;
   top: 3px;
@@ -51,40 +45,41 @@ header img{
   background-color: transparent;
   padding-left:5px;
 }
-#menu{
+#menu .input-button-navbar .form-control{
+  color:white;
   background-color: transparent;
-  border-radius: 14px;
+  border-radius: 35px;
+  border: 1.6px solid rgba(255,255,255,0.7);
 }
-.bg-primary{
-    transition: all 1s ease;
-    background-color: rgba(0, 188, 212,0.96) !important;
+.form-control::placeholder {
+  color:white;
 }
-.logo img{
+#menu .logo img{
     width: 55%;
 }
-.logo{
+#menu .logo{
   text-align: center;
 }
-.icono i{
+#menu .icono-shop-user i{
   color:white;
   font-size: 0.8em;
 }
-.icono .line{
+#menu .icono-shop-user .line{
   font-weight: 300;
   opacity: 0.3;
   font-size: 1.22em;
 }
-.icono .far{
+#menu .icono-shop-user .far{
   font-size: 0.9em;
 }
-#cart-shop{
+#menu .icono-shop-user #cart-shop{
     font-size: 65%;
     position: absolute;
     top: 5px;
     right: 10px;
     color: aqua;
 }
-#cart-shop span{
+#menu .icono-shop-user #cart-shop span{
   position: absolute;
   font-size: 90%;
   z-index: 100;
@@ -93,10 +88,14 @@ header img{
 }
 #menu .line-menu{
   background-color: transparent;
+  color:white;
 }
+/*configuraciones dentro del area de carousel*/
 #carouselExampleCaptions{
   width:100%;
 }
+
+/*estilos correspondientes al navbar que se usa con un modal emergente*/
 .modal.fade .modal-dialog{
       -webkit-transform: translate(-400px,0);
     transform: translate(-400px, 0);
@@ -112,23 +111,23 @@ header img{
 .modal-dialog-scrollable .modal-body {
   overflow-y: hidden;
 }
-.modal-dialog{
+.modal .modal-dialog{
   max-width:70vw;
   margin:0;
 }
-.modal-setup {
+.modal .modal-setup {
   height: 100vh;
   overflow-y: scroll;
   display:block;
 }
-.modal-setup .modal-header .icons-navbar{
+.modal .modal-setup .modal-header .icons-navbar{
   display:inline-block;
 }
-.modal-setup .modal-header .icons-navbar img{
+.modal .modal-setup .modal-header .icons-navbar img{
   width:14%;
   margin:2px;
 }
-.modal-dialog-scrollable .modal-content {
+.modal .modal-dialog-scrollable .modal-content {
   max-height: 100vh;
   overflow:scroll;
   overflow-x:auto;
@@ -136,57 +135,60 @@ header img{
 .modal-open {
   overflow: auto;
 }
-.modal-header{
+.modal .modal-header{
   flex-direction: column;
   width:100%;
   padding-bottom: 3px;
 }
-.modal-header .close{
+.modal .modal-header .close{
   padding: 0rem 0.5rem;
   font-size: 2.2rem;
 }
-.modal-header .input-navbar{
+.modal .modal-header .input-navbar{
   width:117%;
   padding-top:10px;
 }
-.modal-header .input-navbar .form-control-navbar{
+.modal .modal-header .input-navbar .form-control-navbar{
   width:100%;
   border:none;
   height: 40px;
   background-color: rgb(241, 243, 243);
 }
-.modal-header #search{
+.modal .modal-header #search{
   position: absolute;
   left:86%;
-  top:34%;
+  top:29%;
   color:black;
   font-size: 20px;
+  background: transparent;
+  border:0;
 }
-.modal-body .links-navbar ul{
+.modal .modal-body .links-navbar ul{
   line-height: 40px;
   list-style: none;
 }
-.modal-body .links-navbar ul a{
+.modal .modal-body .links-navbar ul a{
   color:black;
 }
-.modal-body .links-navbar ul a:hover{
+.modal .modal-body .links-navbar ul a:hover{
   text-decoration: none;
 }
-.modal-body .links-navbar ul .arrows-navbar{
+.modal .modal-body .links-navbar ul .arrows-navbar{
   margin-left: 102px;
 }
-.modal-body .links-navbar .card-header{
+.modal .modal-body .links-navbar .card-header{
   border-bottom: 0;
   background:white;
 }
-.modal-footer .login-navbar li{
+.modal .modal-footer .login-navbar li{
   list-style: none;
   display:inline-block;
 }
-.modal-footer .login-navbar li a:hover{
+.modal .modal-footer .login-navbar li a:hover{
   text-decoration: none;
   color:black;
 }
+/*scroll de la ventana principal en escritorio*/
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -198,104 +200,103 @@ header img{
 }
 /*Estilos para tablet*/
 @media(min-width:768px){   
-.icono{
+#menu .icono-shop-user{
   font-size: 1.4em;
 }
-.icono a,.line{
+#menu .icono-shop-user a, #menu .icono-shop-user .line{
   transition: all 1s ease;
   visibility: visible !important;
 }
 
-.navbar span{
+#menu span.fas{
   transition: all 1s ease;
   font-size: 1.3em;
 }
-.logo img{
+#menu .logo img{
   transition: all 1s ease;
   width: 30%;
 }
-#cart-shop{
+#menu .icono-shop-user #cart-shop{
   top: 7px;
   right: 14px;
 }
-#cart-shop span{
+#menu .icono-shop-user #cart-shop span{
 top:-0.5px;
 right: 4px;
 }
-.modal-dialog{
+.modal .modal-dialog{
   max-width:40vw;
   margin:0;
 }
-.modal-header .input-navbar{
+.modal .modal-header .input-navbar{
   width:111%;
   padding-top:15px;
 }
-.modal-header #search{
+.modal .modal-header #search{
   left:89%;
-  top:42%;
+  top:34%;
 }
-.modal-body .links-navbar ul .arrows-navbar{
+.modal .modal-body .links-navbar ul .arrows-navbar{
   margin-left: 186px;
 }
 }
 /*Estilos para Escritorio*/
 @media(min-width:992px){
-  .icono{
+  #menu .icono-shop-user{
     font-size: 1.85em;
   }
-  .icono a,.line{
+  #menu .icono-shop-user a, #menu .icono-shop-user .line{
     transition: all 1s ease;
     visibility: visible !important;
   }
-  
-  .navbar span{
+  #menu span.fas{
     transition: all 1s ease;
     font-size: 1.9em;
   }
-  .logo img{
+  #menu .logo img{
     transition: all 1s ease;
     width: 30%;
   }
-  #cart-shop{
+  #menu .icono-shop-user #cart-shop{
     top: 10px;
     right: 37px;
   }
-  #cart-shop span{
+  #menu .icono-shop-user #cart-shop span{
   top:1px;
   right: 5px;
   } 
-  .input{
+  #menu .input-button-navbar{
     display:flex;
   }
-  .form-control:focus{
+  #menu .input-button-navbar .form-control:focus{
     color: white;
     background-color:transparent;
     border-color:transparent;
   }
-  .modal-dialog{
+  .modal .modal-dialog{
     max-width:28vw;
     margin:0;
   }
-  .modal-header{
+  .modal .modal-header{
     flex-direction: column;
     width:100%;
     padding-bottom: 15px;
   }
 
-  .modal-header .login-navbar{
+  .modal .modal-header .login-navbar{
     display:flex !important;
     width:109%;
     justify-content: center;
   }
-  .modal-header .login-navbar li{
+  .modal .modal-header .login-navbar li{
     list-style: none;
     display:inline-block;
   }
-  .modal-header .login-navbar li a:hover{
+  .modal .modal-header .login-navbar li a:hover{
     text-decoration: none;
     color:black;
   }
-  .modal-body .links-navbar ul .arrows-navbar{
+  .modal .modal-body .links-navbar ul .arrows-navbar{
     margin-left: 250px;
   }
 }
