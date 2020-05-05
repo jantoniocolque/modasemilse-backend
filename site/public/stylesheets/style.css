@@ -281,3 +281,40 @@ div.copyright {
         display: none;
     }
 }
+
+
+/* Estilos adicionales para sección de registro */
+
+article.register {
+    margin: auto;
+    width: 50%;
+}
+
+p.bienvenido {
+    margin-top: 10%;
+    font-weight: 400;
+    text-align: center;
+}
+
+div.register-area {
+    display: flex;
+    width: 100%;
+    border: 1px solid #707070;
+    border-radius: 20px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+div.register-ico {
+    font-size: 40vh;
+}
+
+div.register-form {
+    width: 60%;
+}
+
+form input {
+    width: 40%;
+}
