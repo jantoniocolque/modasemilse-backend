@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container-fluid">
-        <!--Carusel del inicio que aparecera unicamente en el home. Use las grillas y un poco de las clases de bootsrap para el diseño-->
+        
         <header class="cover" id="header">
             <div class="cover-text">
                 <div class="container-fluid">
@@ -65,8 +65,8 @@
             <div class="row justify-content-between align-items-center m-0">
                 <!--boton del menu y el input que solamente aparecera en paginas de PC, por el momento solo use opciones de visibilidad para ocultarlo en dispositivos más pequeños-->
                 <div class="navbar col-3 col-lg-4 pl-1 pl-lg-4 justify-content-start">
-                    <button class="border-0 pl-3 pl-lg-4 pr-lg-4" type="button" data-toggle="modal" data-target="#examplemodal">
-                    <span class="fa fa-bars"></span>
+                    <button class="line-menu border-0 pl-3 pl-lg-4 pr-lg-4" type="button" data-toggle="modal" data-target="#examplemodal">
+                    <span class="fas fa-align-justify"></span>
                     </button>
                     <div class="input col-lg-8 px-0">
                         <input type="text" class="form-control" autocomplete="off" placeholder="Buscar" aria-label="Buscador">
@@ -94,72 +94,89 @@
         <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia inventore minima ratione soluta sit dignissimos voluptatum itaque! Voluptatum, dolor cumque labore excepturi maxime ullam eius temporibus accusantium quia quod laboriosam, adipisci nostrum aperiam et. Amet ab nesciunt odit deleniti voluptatem iusto provident cumque optio voluptates itaque! A quasi quis ipsam!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia inventore minima ratione soluta sit dignissimos voluptatum itaque! Voluptatum, dolor cumque labore excepturi maxime ullam eius temporibus accusantium quia quod laboriosam, adipisci nostrum aperiam et. Amet ab nesciunt odit deleniti voluptatem iusto provident cumque optio voluptates itaque! A quasi quis ipsam!Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia inventore minima ratione soluta sit dignissimos voluptatum itaque! Voluptatum, dolor cumque labore excepturi maxime ullam eius temporibus accusantium quia quod laboriosam, adipisci nostrum aperiam et. Amet ab nesciunt odit deleniti voluptatem iusto provident cumque optio voluptates itaque! A quasi quis ipsam!</h1>
     </section>
     </div>
+    <!--Aqui inicia el codigo de la ventana modal, es decir el menu de navegacion de nuestra pagina, con un buscador que unicamente aparecera en pantallas moviles-->
     <div class="modal fade" id="examplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable" role="document">
-          <div class="modal-content modal-setup">
-            <div class="modal-header">
-                
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-
-                <div class="row icons-navbar">
-                    <a href="#"><i class="fab fa-facebook-square"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter-square"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp-square"></i></a>    
-                    
-                </div>
-                <div class="row input-navbar d-lg-none">
-                    <input type="text" class="form-control-navbar" autocomplete="off" placeholder="Buscar" aria-label="Buscador">
-                    <button id="search" type="submit" class="search-input-submit" value="Buscar" aria-label="Buscar">
-                        <i class="fas fa-search"></i>
+            <div class="modal-content modal-setup">
+                <!--aqui inicia la cabecera del menu de navegacion con los iconos y el boton de cerrado del menu-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
                     </button>
+
+                    <div class="row icons-navbar">
+                        <a href="#"><img src="../public/images/emilse_icons/facebook.ico" alt="logo facebook"></a>
+                        <a href="#"><img src="../public/images/emilse_icons/instagram.ico" alt="logo de instagram"></a>
+                        <a href="#"><img src="../public/images/emilse_icons/twitter.ico" alt="logo de twitter"></a>    
+                        
+                    </div>
+                    <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
+                    <div class="row input-navbar d-lg-none mt-3">
+                        <input type="text" class="form-control-navbar" autocomplete="off" placeholder="Buscar" aria-label="Buscador">
+                        <button id="search" type="submit" class="search-input-submit" value="Buscar" aria-label="Buscar">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="row login-navbar mt-5 d-none">
+                        <ul class="mb-0">
+                            <li class="mr-5"><a class="" href="#">Iniciar sesión</a></li>
+                            <li class=""><a class ="" href="#">Crear cuenta</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="modal-body">
-                <div class="row container justify-content-center links-navbar">
-                    <ul>
-                        <a href="#"><li>INICIO</li></a>
-                        <li class="item-with-subitems">
-                            <div class="accordion">
-                                <div class="card">
-                                    <div class="card-header" id="headingOne">
-                                      <h5 class="mb-0">
-                                        <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                            TIENDA
-                                          </a>
-                                      </h5>
+                <!--por otro lado tenemos en esta área los links de navegacion-->
+                <div class="modal-body pr-0 mt-2">
+                    <div class="row container pr-0 mr-0 links-navbar">
+                        <ul>
+                            <a href="#"><li>INICIO</li></a>
+                            <li>
+                                <div class="accordion" id="accordionExample">
+                                <div class="card border-0">
+                                    <div class="card-header p-0" id="headingOne">
+                                        <a href="#">TIENDA</a>
+                                        <button class="arrows-navbar p-0 btn shadow-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i>
+                                        </button>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body py-0"><a href="#">CAMPERAS</a>
+                                        </div>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body py-0">
+                                            <a href="#">PANTALONES</a>
+                                        </div>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body py-0">
+                                            <a href="#">SACOS</a>
+                                        </div>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body py-0">
+                                            <a href="#">REMERAS</a>
+                                        </div>
                                     </div>
                                 </div>
-                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                                    <div class="card-body">
-                                        <ul>
-                                            <a href="#"><li>CAMPERAS</li></a>
-                                            <a href="#"><li>SACOS</li></a>
-                                            <a href="#"><li>PANTALONES</li></a>
-                                            <a href="#"><li>REMERAS</li></a>
-                                        </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                            </div>
-                        </li>
-                        <a href="#"><li>CONTACTO</li></a>
-                    </ul>
-            </div>
-            <div class="modal-footer">
-                <div class="row login-navbar">
-                <a class="col-6" href="#">Iniciar Sesion</a>
-                <a class ="col-4" href="#">Registrate</a>
+                            </div></li>
+                            <a href="#"><li>CONTACTO</li></a>
+                        </ul>
+                    </div>
+                </div>
+                <!--y por ultimo tenemos el área de registro, aunque aun falta agregar un icono. El mismo aparece en la parte posterior del modal en dispositivos moviles y tablets. Mientras que en escritorio pasa a tomar lugar en el header-->
+                <div class="modal-footer justify-content-center">
+                    <div class="row login-navbar mt-3 d-lg-none">
+                        <ul>
+                            <li class="mr-4"><a class="" href="#">Iniciar sesión</a></li>
+                            <li class=""><a class ="" href="#">Crear cuenta</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
       
     <script src="../public/javascripts/jquery.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
     <script src="../public/javascripts/bootstrap.js"></script>
     <!--Script orientado a JQuery que permite capturar el desplazamiento de la barra en pixeles, por el momento no encuentro la equivalencia en porcentaje para que funcione con el mismo valor en cualquier dispositivo-->
     <script>

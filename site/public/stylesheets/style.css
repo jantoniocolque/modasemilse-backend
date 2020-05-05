@@ -5,7 +5,18 @@
   margin:0;
   box-sizing: border-box;
 }
-
+a{
+  color:black;
+  text-decoration: none;
+}
+a:focus{
+  text-decoration: none;
+  color:black;
+}
+button:focus{
+  border:0;
+  outline:0;
+}
 .container-fluid{
   padding:0 3px 3px 3px;
 }
@@ -80,7 +91,7 @@ header img{
   top:1px;
   right: 3px;
 }
-button{
+#menu .line-menu{
   background-color: transparent;
 }
 #carouselExampleCaptions{
@@ -108,13 +119,14 @@ button{
 .modal-setup {
   height: 100vh;
   overflow-y: scroll;
+  display:block;
 }
-.modal-setup .modal-header .icons-navbar i{
-  width:18px;
-  height: 18px;
-  color:black;
-  font-size: 26px;
-  margin:5px;
+.modal-setup .modal-header .icons-navbar{
+  display:inline-block;
+}
+.modal-setup .modal-header .icons-navbar img{
+  width:14%;
+  margin:2px;
 }
 .modal-dialog-scrollable .modal-content {
   max-height: 100vh;
@@ -131,6 +143,7 @@ button{
 }
 .modal-header .close{
   padding: 0rem 0.5rem;
+  font-size: 2.2rem;
 }
 .modal-header .input-navbar{
   width:117%;
@@ -144,8 +157,8 @@ button{
 }
 .modal-header #search{
   position: absolute;
-  left:182px;
-  top:18%;
+  left:86%;
+  top:34%;
   color:black;
   font-size: 20px;
 }
@@ -159,7 +172,20 @@ button{
 .modal-body .links-navbar ul a:hover{
   text-decoration: none;
 }
-.modal-footer .login-navbar{
+.modal-body .links-navbar ul .arrows-navbar{
+  margin-left: 102px;
+}
+.modal-body .links-navbar .card-header{
+  border-bottom: 0;
+  background:white;
+}
+.modal-footer .login-navbar li{
+  list-style: none;
+  display:inline-block;
+}
+.modal-footer .login-navbar li a:hover{
+  text-decoration: none;
+  color:black;
 }
 ::-webkit-scrollbar {
   width: 10px;
@@ -196,6 +222,21 @@ button{
 top:-0.5px;
 right: 4px;
 }
+.modal-dialog{
+  max-width:40vw;
+  margin:0;
+}
+.modal-header .input-navbar{
+  width:111%;
+  padding-top:15px;
+}
+.modal-header #search{
+  left:89%;
+  top:42%;
+}
+.modal-body .links-navbar ul .arrows-navbar{
+  margin-left: 186px;
+}
 }
 /*Estilos para Escritorio*/
 @media(min-width:992px){
@@ -231,9 +272,30 @@ right: 4px;
     background-color:transparent;
     border-color:transparent;
   }
-  
-.modal-dialog{
-  max-width:40vw;
-  margin:0;
-}
+  .modal-dialog{
+    max-width:28vw;
+    margin:0;
+  }
+  .modal-header{
+    flex-direction: column;
+    width:100%;
+    padding-bottom: 15px;
+  }
+
+  .modal-header .login-navbar{
+    display:flex !important;
+    width:109%;
+    justify-content: center;
+  }
+  .modal-header .login-navbar li{
+    list-style: none;
+    display:inline-block;
+  }
+  .modal-header .login-navbar li a:hover{
+    text-decoration: none;
+    color:black;
+  }
+  .modal-body .links-navbar ul .arrows-navbar{
+    margin-left: 250px;
+  }
 }
