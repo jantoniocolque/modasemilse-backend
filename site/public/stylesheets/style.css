@@ -13,7 +13,8 @@ font-family: 'Architects Daughter', cursive;
 
 /* Estructura general del documento */
 body {
-    max-width: 1920px;
+    max-width: 1440px;
+    margin: auto;
 }
 
 .container-fluid {
@@ -27,7 +28,7 @@ header {
 }
 
 div.nav {
-    max-width: 1786px;
+    max-width: 1440px;
     margin: auto;
     justify-content: space-between;
     align-items: center;
@@ -123,7 +124,7 @@ footer h4 {
 }
 
 div.footer-elements {
-    max-width: 1786px;
+    max-width: 1440px;
     margin: auto;
     padding: 15px;
     text-align: center;
