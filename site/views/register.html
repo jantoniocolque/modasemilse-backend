@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modas Emilse | Registro </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+</head>
+<body>
+    <!--definición de tamaños, fuentes, iconos-->
+    <div class="container-fluid">
+        <header>
+            <div>
+                <!--banner-->
+            </div>
+            <div class="row nav">
+                <div class="col-4 nav-left">
+                    <div class="nav-menu">
+                        <button class="menu-btn"><i class="fas fa-align-justify"></i></button>
+                    </div>
+    
+                    <div class="search-bar">
+                        <form>
+                            <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
+                            <input class="form-search" type="search" placeholder="Buscar" aria-label="Search" size="45">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-4 logo">
+                    <a href="/"><img src="/images/icons/logo.png" alt="" srcset=""></a>
+                </div>
+
+                <div class="col-4 nav-right">
+                    <button class="user-btn"><i class="far fa-user-circle"></i></button>
+                    <img src="/images/icons/SeparatorNav.png" alt="" srcset="">
+                    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </header>
+        
+        <section>
+            <article class="register">
+                <p class="bienvenido">Bienvenidos a <i>Modas Emilse</i>, registrate para disfrutar todas nuestras novedades.</p>
+                <div class="register-area">
+                    <div class="register-ico">
+                        <i class="far fa-user-circle"></i>
+                    </div>
+                    <div class="register-form">
+                        <form action="" method="post">
+                            <input required type="text" name="nombre" id="nombre" placeholder="Nombre">
+                            <input required type="text" name="nombre" id="apellido" placeholder="Apellido">
+                            <br />
+                            <input required type="email" name="mail" id="mail" placeholder="Correo">
+                            <input required type="password" name="password" id="password" placeholder="Contraseña">
+                            <br />
+                            <input type="text" placeholder="Fecha de nacimiento"
+                                    onfocus="(this.type='date')"
+                                    onblur="(this.type='text')">
+                            <select required id="sexo">
+                                <option value="" disabled selected hidden>Sexo</option>
+                                <option value="mujer">Mujer</option>
+                                <option value="hombre">Hombre</option>
+                            </select>
+                            <br />
+                            <input type="checkbox" name="newletter-yes" id="newletter-yes"> Deseo recibir ofertas personalizadas
+                            <br />
+                            <button type="submit">Registrarme >></button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!--Footer de la página-->
+        <footer>
+            <div class="footer-elements">
+                <div class="quick-nav">
+                    <ul>
+                        <li><a href="/">INICIO</a></li>
+                        <li><a href="#">TIENDA</a></li>
+                        <li><a href="#">CONTACTO</a></li>
+                    </ul>
+                </div>
+        
+                <div class="row footer-main">
+                    <div class="col-3 payments">
+                        <h4>Medios de pago</h4>
+                        <div class="pmts">
+                          <img src="/images/icons/pmt-visa.png" alt="Visa">
+                          <img src="/images/icons/pmt-amex.png" alt="American Express">
+                          <img src="/images/icons/pmt-diners.png" alt="Diners Club">
+                          <img src="/images/icons/pmt-mastercard.png" alt="MasterCard">
+                        </div>
+                        <div class="pmts">
+                          <img class="large-ico" src="/images/icons/pmt-mercadopago.png" alt="Visa">
+                          <img class="square-ico" src="/images/icons/pmt-pagofacil.png" alt="American Express">
+                          <img class="large-ico" src="/images/icons/pmt-rapipago.png" alt="Diners Club">
+                        </div>
+                    </div>
+                    <img class="foot-separator" src="/images/icons/SeparatorNav.png" alt="" srcset="">
+                    <div class="col-3 about">
+                        <h4>Sobre la empresa</h4>
+                        <ul>
+                            <li>Locales</li>
+                            <li>Preguntas Frecuentes</li>
+                            <li>Quiénes somos</li>
+                            <li>Consejos</li>
+                        </ul>
+                    </div>
+                    <img class="foot-separator" src="/images/icons/SeparatorNav.png" alt="" srcset="">
+                    <div class="col-3 subscribe">
+                        <h4>Suscribite</h4>
+                        <form>
+                            <input class="form-newsletter" type="email" name="" id="" placeholder="Email" size="25">
+                            <button class="female-btn">Soy mujer</button> <button class="male-btn">Soy hombre</button>
+                        </form>
+                        <div class="social-med">
+                          <a href="#"><img src="/images/icons/facebook.ico" alt="Facebook"></a>
+                          <a href="#"><img src="/images/icons/twitter.ico" alt="Twitter"></a>
+                          <a href="#"><img src="/images/icons/instagram.ico" alt="Instagram"></a>
+                        </div>
+                        <img class="data-fiscal" src="/images/icons/data-fiscal.png" alt="">
+                        <p class="app-download"><a href="#"><i class="fab fa-android"></i></a> Descarga grátis la app de Modas Emilse <a href="#"><i class="fab fa-apple"></i></a></p>
+                    </div>
+                </div>
+        
+                <div class="quick-contact">
+                    <ul>
+                        <li><i class="fas fa-phone-alt"></i><a href="tel:+4442-6950">4442-6950</a></li>
+                        <li><i class="fas fa-envelope"></i><a href="mailto:modasemilse@gmail.com">modasemilse@gmail.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <a href="https://goo.gl/maps/83qyLz1vowkC9u9n6" target="_blank">Joaquin V Gonzales</a></li>
+                    </ul>
+                </div>
+                <div class="copyright">Todos los derechos reservados a @Emilse</div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!--SCRIPTS-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
