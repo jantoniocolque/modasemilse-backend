@@ -7,9 +7,14 @@
     <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../public/stylesheets/bootstrap.css">
     <link rel="stylesheet" href="../public/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+    <!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
 <body>
     <div class="container-fluid">
+        <div class="banner-dinamic-news"><p class="mb-0">AQUI TENDREMOS LAS NOTICIAS MAS ACTUALIZADAS CON DIFERENTES EFECTOS PARA SU FUNCIONAMIENTO</p></div>
         <header class="cover">
         <!--Aqui inicia la barra de navegacion responsive, donde use tres secciones, la del boton del menu, la del logo y la de los iconos de la derecha. Ademas tiene un script dinamico que permite capturar el scroll de la pagina y asi cambiar el background de la barra de navegacion, el script esta escrito abajo de todo.-->
         <nav class="navbar fixed-top p-0" id="menu">
@@ -27,7 +32,7 @@
                     </div>
                 </div>
                 <!--En esta seccion aparece el logo que cambia su tamaño de acuerdo al tipo de dispositivo, ademas será un link al mismo Home de la pagina web-->
-                <div class="navbar logo col-5 col-lg-4 ml-lg-5 pl-lg-5 text-lg-left">
+                <div class="navbar logo col-5 col-lg-4 ml-lg-5 pl-lg-4 text-lg-left">
                     <a class="" href="#header">
                         <img class="" src="../public/images/logo-borde-blanco.png" alt="Logo de la empresa">
                     </a>
@@ -52,9 +57,9 @@
                     </button>
 
                     <div class="row icons-navbar">
-                        <a href="#"><img src="../public/images/emilse_icons/facebook.ico" alt="logo facebook"></a>
-                        <a href="#"><img src="../public/images/emilse_icons/instagram.ico" alt="logo de instagram"></a>
-                        <a href="#"><img src="../public/images/emilse_icons/twitter.ico" alt="logo de twitter"></a>    
+                        <a href="#"><img src="../public/images/iconos/facebook.ico" alt="logo facebook"></a>
+                        <a href="#"><img src="../public/images/iconos/instagram.ico" alt="logo de instagram"></a>
+                        <a href="#"><img src="../public/images/iconos/twitter.ico" alt="logo de twitter"></a>    
                         
                     </div>
                     <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
@@ -123,56 +128,163 @@
         </div>
         </header>
         <main>
-            <div class="cover-text">
-                <div class="container-fluid">
-                    <div class="row justify-content-center m-0">
-                        <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                            <ol class="carousel-indicators">
-                              <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                              <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                            </ol>
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src="../public/images/pulover-piel-de-mono.jpeg" class="d-block w-100" alt="...">
+            <!--Banner gigante con imagenes sobre las ultimas novedades de la pagina, ademas lleva consigo un boton que dirige a detalle de productos mas actuales-->
+            <section class="banner">
+                <div class="cover">
+                    <div class="container-fluid">
+                        <div class="row justify-content-center m-0">
+                            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                                <ol class="carousel-indicators">
+                                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                                </ol>
+                                    <div class="row button-news align-items-center minh-100">
+                                        <div class="col-lg-12 text-center">
+                                            <a id="prueba" class="btn button-setup-news btn-lg" href="#" role="button">VER NOVEDADES</a>
+                                        </div>
+                                    </div>
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="../public/images/pulover-piel-de-mono.jpeg" class="d-block w-100" alt="...">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h2>Pulover - Temporada Invierno</h2>
+                                            <p>¡Ya empezó el frio! tenemos lo adecuado para ti</p>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <img src="../public/images/saco-peluche-con-botones.jpeg" class="d-block w-100" alt="...">
                                     <div class="carousel-caption d-none d-md-block">
-                                        <h5>First slide label</h5>
-                                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                                    <h2>Saco de Peluche</h2>
+                                    <p>Algo elegante y cubierto de peluche blanco en el interior</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../public/images/saco-peluche-con-botones.jpeg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5>Second slide label</h5>
-                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <div class="carousel-item">
+                                    <img src="../public/images/saco-polar-con-botones.jpeg" class="d-block w-100" alt="...">
+                                    <div class="carousel-caption d-none d-md-block">
+                                    <h2>Saco de Polar</h2>
+                                    <p>Polar antipeeling de alta costura que ademas cuenta con bolsillos de recubrimiento</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../public/images/saco-polar-con-botones.jpeg" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                  <h5>Third slide label</h5>
-                                  <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                                 </div>
-                              </div>
+                                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                </a>
+                                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                </a>
                             </div>
-                            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Previous</span>
-                            </a>
-                            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                              <span class="sr-only">Next</span>
-                            </a>
-                          </div>
-
+                        </div>
                     </div>
                 </div>
-            </div>
-        <section>
-            <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia inventore minima ratione soluta sit dignissimos voluptatum itaque! Voluptatum, dolor cumque labore</h1>
-        </section>
-        </div>
+            </section>
+            <!--Seccion de fotos e imagenes de lo mas vendido y actual del momento-->
+            <section class="photo-box">
+                <div class="container-fluid">
+                    <div class="row first-row-photo">
+                    <article class="col-12 col-lg-6">
+                        <a href="#"><img src="../public/images/conjunto-cool-invierno.JPG" alt="Conjunto micropanal">
+                        <h2>live with freedom</h2>
+                        </a>
+                    </article>
+                        <div class="row second-row-photo col-12 col-lg-6">
+                            <article class="col-12 col-lg-12">
+                                <img src="https://png.pngtree.com/thumb_back/fw800/background/20190221/ourmid/pngtree-chinese-style-landscape-banner-background-image_22660.jpg" alt="Paisaje de fondo">
+                                <h3 class="">Nueva Temporada Invierno '20</h3>
+                            </article>
+                            <article class="col-4 col-lg-4">
+                                <a href="#"><img src="../public/images/campera-modal.jpeg" alt="Campera modal">
+                                <h4>feel comfortable</h4>
+                                </a>
+                            </article>
+                            <article class="col-4 col-lg-4">
+                                <a href="#"><img src="../public/images/campera-plush.jpeg" alt="Campera plush">
+                                <h4>being different</h4>
+                                </a>
+                            </article>
+                            <article class="col-4 col-lg-4">
+                                <a href=""><img src="../public/images/pantalon-modal.jpg" alt="Pantalon modal">
+                                <h4>look to the future</h4>
+                                </a>
+                            </article>
+                            <article class="promo-photo mt-3 col-12">
+                            <img src="https://www.cordobashopping.com.ar/wp-content/uploads/CS-Banner1100x450px-1.jpg" alt="banner para promociones">
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--una seccion que cambia dependiendo de la pantalla, en mobile se trata de un carousel, mientras que en tablet y escritorio solo se trata de tarjetas estaticas-->
+            <section class="icons-send-box my-5">
+                <div class="container-fluid">
+                    <div class="row setup m-0">
+                        <div class="cards-info mt-5 d-none d-md-flex">
+                            <div class="card col-md-4 border-0">
+                                <i class="fas fa-truck"></i>
+                                <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card col-md-4 border-0">
+                                <i class="fas fa-credit-card"></i>
+                                <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.</p>
+                                </div>
+                            </div>
+                            <div class="card col-md-4 border-0">
+                                <i class="fas fa-shield-alt"></i>
+                                <div class="card-body">
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="multi-item-example" class="d-md-none carousel slide carousel-multi-item" data-ride="carousel">
+                            <a class="carousel-control-prev" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+                            <a class="carousel-control-next" href="#multi-item-example" data-slide="next"><i
+                                class="fas fa-chevron-right"></i></a>
+                            <ol class="carousel-indicators">
+                            <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                            <li data-target="#multi-item-example" data-slide-to="1"></li>
+                            <li data-target="#multi-item-example" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner" role="listbox">
+                                <div class="carousel-item active">
+                                    <div class="card mb-2">
+                                        <i class="fas fa-truck"></i>
+                                        <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                            card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="card mb-2">
+                                        <i class="fas fa-credit-card"></i>
+                                        <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                            card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="card mb-2">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <div class="card-body">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                            card's content.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
+    </div>
 
     <script src="../public/javascripts/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
