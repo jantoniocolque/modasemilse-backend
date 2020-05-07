@@ -1,0 +1,54 @@
+.row{
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.caja{
+    width: 30%;
+    margin: 0px 10px 10px 10px;
+}
+
+.flotar{
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+.art4{
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.masVendidos{
+    margin: auto;
+}
+
+.art5{
+    margin-left:250px ;
+}
+
+body{
+    align-items: center;
+    margin: 0% 20%;
+    margin-bottom: 60px;
+    flex-wrap: nowrap;
+}
+
+ul {
+    list-style: none;
+}
+
+button{
+    height: 40px;
+    width: 250px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color: #7952B3  ;
+    color: white;
+}
+
