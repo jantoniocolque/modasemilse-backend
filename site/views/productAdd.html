@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Modas Emilse | Registro</title>
+        <title>Modas Emilse | Administración </title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <!-- Estilos personalizados -->
         <link rel="stylesheet" href="../public/stylesheets/style.css">
@@ -13,69 +13,164 @@
         <!-- FontAwesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     </head>
-    
     <body>
-        <div class="container register">
-            <p class="intro" >Bienvenidos a <i>Modas Emilse</i>, registrate para disfrutar de todas nuestras novedades.</p>
-            <div class="mt-3 register-area">
-                <div class="container register-form">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-3"> 
-                                <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-circle" class="svg-inline--fa fa-user-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 496 512">
-                                    <path fill="currentColor" d="M248 104c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 144c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm0-240C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-49.7 0-95.1-18.3-130.1-48.4 14.9-23 40.4-38.6 69.6-39.5 20.8 6.4 40.6 9.6 60.5 9.6s39.7-3.1 60.5-9.6c29.2 1 54.7 16.5 69.6 39.5-35 30.1-80.4 48.4-130.1 48.4zm162.7-84.1c-24.4-31.4-62.1-51.9-105.1-51.9-10.2 0-26 9.6-57.6 9.6-31.5 0-47.4-9.6-57.6-9.6-42.9 0-80.6 20.5-105.1 51.9C61.9 339.2 48 299.2 48 256c0-110.3 89.7-200 200-200s200 89.7 200 200c0 43.2-13.9 83.2-37.3 115.9z"></path>
-                                </svg>
-                            </div>
-                            <form class="col-md-8 container ">
-                                <div class="form-group row"> 
-                                    <input type="text" class="col-6 form-control" id="formInput29" placeholder="Nombre">
-                                    <input type="text" class="col-6 form-control" id="formInput29" placeholder="Apellido"> 
-                                </div>
-                                <div class="form-group row"> 
-                                    <input required type="email" class="col-6 form-control" name="mail" id="mail" placeholder="Correo">
-                                    <input required type="password" class="col-6 form-control" name="password" id="password" placeholder="Contraseña">
-                                </div>
-                                <div class="form-group row"> 
-                                    <input type="text" class="col-6 form-control" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
-                                    <select required class="col-6 form-control" id="sexo">
-                                        <option value="" disabled selected hidden>Sexo</option>
-                                        <option value="mujer">Mujer</option>
-                                        <option value="hombre">Hombre</option>
-                                    </select>
-                                </div>
-                                <center>
-                                    <input type="checkbox" name="newletter-yes" id="newletter-yes"> Deseo recibir ofertas personalizadas
-                                </center>
-                                <br/>
-                                <div class="form-group row">
-                                    <button type="submi" class="col-12" data-toggle="modal" data-target="#exampleModal">
-                                        <b>Registrarme >></b>
-                                    </button>
-                                <!-- Modal -->
-                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                            <center><img src="../public/../public/images/icons/logo.png" width="30%"></center>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            </div>
-                                            <div class="row modal-body">
-                                                <div class="col-12">¡Gracias por registrarte!, te hemos enviado un email de bienvenida.</div>
-                                                <button type="button" class="col-12">Volver al inicio</button>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <!--Area de administración/alta de artículos-->
+
+        <div class="contents-box">
+            <div class="container admin">
+                <div class="adm-title">
+                    <h1>Alta de artículos nuevos</h1>
+                    <img class="logo" src="../public/images/icons/logo.png" alt="logo-modasemilse" srcset="">
                 </div>
+
+                
+                    <form class="row admin-addproduct">
+
+                        <div class="col-3 admin-addphotos">
+                            <div class="card">
+                                <img src="../public/images/placeholder.png" class="card-img-top" alt="...">
+                                <div class="photo-menu">
+                                    <i class="far fa-trash-alt"></i>
+                                    |
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="../public/images/placeholder.png" class="card-img-top" alt="...">
+                                <div class="photo-menu">
+                                    <i class="far fa-trash-alt"></i>
+                                    |
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="../public/images/placeholder.png" class="card-img-top" alt="...">
+                                <div class="photo-menu">
+                                    <i class="far fa-trash-alt"></i>
+                                    |
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-8 admin-form">
+                            <div class="form-header">
+                                <div class="row form-group new-product-code"> 
+                                    <label class="col-2" for="codigo">Código |</label>
+                                    <input required type="number" class="col-2 form-control" id="codigo">
+                                </div>
+
+                                <div class="sex-select">
+                                    <input type="checkbox" name="mujer" id="mujer">Mujer
+                                    <input type="checkbox" name="hombre" id="hombre">Hombre
+                                    <input type="checkbox" name="mujer" id="mujer">Unisex
+                                </div>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="tela">Tela</label>
+                                <select required class="col form-control" id="tela">
+                                    <option value="" disabled selected hidden>Seleccionar tela</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tela"> >> Nueva tela</option>
+                                    <option value="lanilla">Lanilla</option>
+                                    <option value="modal">Modal</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="tipo">Tipo</label>
+                                <select required class="col form-control" id="tipo">
+                                    <option value="" disabled selected hidden>Seleccionar tipo</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tipo"> >> Nuevo tipo</option>
+                                    <option value="mujer">Mujer</option>
+                                    <option value="hombre">Hombre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="talles">Talles</label>
+                                <select required class="col form-control" id="talles">
+                                    <option value="" disabled selected hidden>Seleccionar talle</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tipo"> >> Nueva talle</option>
+                                    <option value="mujer">Mujer</option>
+                                    <option value="hombre">Hombre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="colores">Colores</label>
+                                <select required class="col form-control" id="colores">
+                                    <option value="" disabled selected hidden>Seleccionar color</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tipo"> >> Nuevo color</option>
+                                    <option value="rojo" id="opt-rojo">Rojo</option>
+                                    <option value="negro" id="opt-negro">Negro</option>
+                                    <option value="azul" id="opt-azul">Azul</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="estampados">Estampados</label>
+                                <select required class="col form-control" id="estampados">
+                                    <option value="" disabled selected hidden>Seleccionar estampado</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tipo"> >> Nuevo estampado</option>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="unidades">Unidades disponibles</label>
+                                <input required type="number" class="col form-control" id="unidades" placeholder="Ingrese unidades disponibles">
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="precio-menor">Precio menor</label>
+                                <input required type="number" class="col form-control" id="precio-menor" placeholder="Ingrese precio menor">
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="precio-mayor">Precio mayor</label>
+                                <input required type="number" class="col form-control" id="precio-mayor" placeholder="Ingrese precio mayor">
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="fecha">Fecha</label>
+                                <input type="text" class="col form-control" placeholder="Seleccione una fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 row form-group admin-form-options">
+                            <button type="submit" class="col-3">
+                                Agregar más fotos
+                            </button>
+
+                            <button type="button" class="col-3">
+                                <b>Vista previa <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
+                            </button>
+
+                            <button type="submit" class="col-3">
+                                <b>Agregar <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
+                            </button>
+
+                            <button type="reset" class="col-3">
+                                <b>Cancelar <i class="fas fa-times"></i></b>
+                            </button>
+                        </div>
+                    </form>
             </div>
         </div>
-
+        
+        <!--coming soon
+        <i class="fas fa-chevron-down"></i>
+        <i class="fas fa-chevron-right"></i>
+        <i class="fas fa-times"></i>
+        -->
         <!--Inicio Footer-->
         <footer class="footer">
             <div class="container"></div>

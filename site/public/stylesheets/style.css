@@ -24,12 +24,14 @@ body {
 }
 
 body > .container {
-    padding: 60px 15px 120px;
+    padding: 60px 15px 120px;   
+}
+
+div.register {
     background-image: url(../images/register-bigwall.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    
 }
 
 p.intro {
@@ -68,6 +70,82 @@ div.form-group button {
     border-radius: 0.25rem;
     background-color: #FFFFFF;
 }
+
+/* area de administración */
+.contents-box {
+    padding: 60px 15px 120px; 
+    background-image: url(../images/adm-wall.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.admin {
+    background-color:  rgba(238, 238, 238, 0.75);
+    border-radius: 20px;
+}
+
+.adm-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bolder;
+}
+
+img.logo {
+    width: 20%;
+}
+
+.admin-addproduct {
+    margin: auto;
+    width: 85%;
+}
+
+.admin-addphotos {
+
+}
+
+.card {
+    padding: 0px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 25px;
+}
+
+div.card img {
+    cursor: all-scroll;
+}
+
+.photo-menu {
+    position: absolute;
+    margin: 10px;
+    right: 0px;
+    bottom: 0px;   
+}
+
+.photo-menu i {
+    cursor: pointer;
+}
+
+.form-header {
+    text-align: right;
+}
+
+
+.new-product-code {
+    justify-content: flex-end !important;
+}
+
+.sex-select {
+    margin: 25px 0px 25px 0px;
+}
+
+
+/* colores selección */
+
+#opt-rojo { color: rgb(255, 0, 0); }
+#opt-negro { color: rgb(0, 0, 0); }
+#opt-azul { color: rgb(0, 0, 255); }
 
 /* estilos para el footer */
 .footer {
@@ -200,7 +278,7 @@ div.quick {
 }
 
 @media (max-width: 768px) {
-    body > .container {
+    div.register {
         background-image: url(../images/register-mobile.png);
     }
 
@@ -249,10 +327,10 @@ div.quick {
 
 @media (max-width: 320px) {
     body {
-        font-size: x-small;
+        font-size: small;
     }
 
-    body > .container {
+    div.register {
         background-image: linear-gradient(to bottom, rgb(238, 238, 238), rgba(0, 47, 255, 0.103));
     }
 
