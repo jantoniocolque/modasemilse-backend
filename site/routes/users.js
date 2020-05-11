@@ -9,5 +9,4 @@ router.get('/', function(req, res, next) {
 
 router.use('/register', usersController.register)
 
-
 module.exports = router;

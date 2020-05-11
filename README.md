@@ -25,6 +25,9 @@ Como objetivo principal tengo el de aprender distintas tecnologías que hasta ah
 **Jhonnier Zapata**, tengo 23 años. Trabajo como diseñador Freelancer y ahora estoy explorando el mundo de la programación web FullStack que me permita inciar 
 y terminar proyectos de forma más sólida.
 
+## Tablero de trabajo:
+[URL del tablero](https://trello.com/b/LaHJRFgi/proyecto-final-dh)
+
 ## Paginas de referencia:
 
 * https://valkymia.com/ -> tomada como referencia al momento de diseñar el background y el footer de nuestra pagina.
