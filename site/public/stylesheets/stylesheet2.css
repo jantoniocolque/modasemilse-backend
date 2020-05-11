@@ -58,7 +58,7 @@ body{
  }
 
 .boton-100 button{
-    height: 40px;
+    height: 30px;
     width: 315px;
     font-size: 15px;
 
@@ -70,8 +70,8 @@ body{
     color: white;
 }
 
-.boton-80 button{
-    height: 40px;
+.boton-80 input{
+    height: 30px;
     width: 230px;
     font-size: 15px;
 
@@ -79,12 +79,12 @@ body{
     background-position: 50%;
     border-radius: 13px;
     background-size: 100% auto;
-    background-color: #7952B3  ;
-    color: #c7aaf0;
+    background-color: white ;
+    color: #7952B3;
 }
 
 .boton-20 button{
-    height: 40px;
+    height: 30px;
     width: 75px;
     font-size: 15px;
 
@@ -92,7 +92,20 @@ body{
     background-position: 50%;
     border-radius: 13px;
     background-size: 100% auto;
-    background-color: #7952B3  ;
+    background-color: white;
+    color: #7952B3;
+}
+
+.boton-100-claro button{
+    height: 30px;
+    width: 315px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color:  #c7c0d1;  ;
     color: white;
 }
 
@@ -132,4 +145,5 @@ p{
 .cuotas{
     font-size: 13px;
     padding-top: -15px;
+    text-decoration: underline;
 }
