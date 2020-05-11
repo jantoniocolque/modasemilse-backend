@@ -102,6 +102,7 @@ img.logo {
     margin-bottom: 30px;
     border: 1px solid rgba(0,0,0,.125);
     border-radius: 25px;
+    background-color: rgb(238, 238, 238);
 }
 
 div.card img {
@@ -415,6 +416,7 @@ div.quick {
         border: 1px solid #000000;
         border-radius: 21px;
     }
+  }
 /*Source Sans Pro 300, 400 & 700*/
 /*Architects Daugther 400*/
 
@@ -603,7 +605,7 @@ button:focus{
   text-decoration: none;
 }
 .modal .modal-body .links-navbar ul .arrows-navbar{
-  margin-left: 101px;
+  margin-left: 64px;
 }
 .modal .modal-body .links-navbar .card-header{
   border-bottom: 0;
@@ -692,6 +694,7 @@ button:focus{
 }
 .icons-send-box .carousel .carousel-item .card{
   border:0;
+  background-color: rgb(238, 238, 238);
 }
 .icons-send-box .setup .card i{
   font-size:85px;
@@ -785,7 +788,7 @@ right: 4px;
   top:25%;
 }
 .modal .modal-body .links-navbar ul .arrows-navbar{
-  margin-left: 185px;
+  margin-left: 145px;
 }
 /*estilos del area de imagenes*/
 .photo-box article h2{
@@ -858,7 +861,7 @@ right: 4px;
     color:black;
   }
   .modal .modal-body .links-navbar ul .arrows-navbar{
-    margin-left: 250px;
+    margin-left: 220px;
   }
   .banner #carouselExampleCaptions .button-news .button-setup-news{
     font-size:1.5rem;
