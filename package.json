@@ -1,0 +1,25 @@
+{
+  "name": "grupo-5-modasemilse",
+  "version": "1.0.0",
+  "description": ">Se trata de un E-Commerce responsive dedicada a la venta de ropa femenina dirigido a personas de Talles Especiales.",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jAntonio/grupo-5-modasemilse.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jAntonio/grupo-5-modasemilse/issues"
+  },
+  "homepage": "https://github.com/jAntonio/grupo-5-modasemilse#readme"
+}
