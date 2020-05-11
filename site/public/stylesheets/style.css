@@ -1,0 +1,453 @@
+/*Source Sans Pro 300, 400 & 700*/
+/*Architects Daugther 400*/
+
+/*Estilos para Celular*/
+/*Cambios en general*/
+*{
+  padding: 0;
+  margin:0;
+  box-sizing: border-box;
+  font-family: 'Source Sans Pro',sans-serif;
+}
+a{
+  color:black;
+  text-decoration: none;
+}
+a:focus{
+  text-decoration: none;
+  color:black;
+}
+button:focus{
+  border:0;
+  outline:0;
+}
+.container-fluid{
+  padding:0 0px 3px 0px;
+}
+.banner-dinamic-news{
+  padding: 0;
+  margin:0;
+  background-color: #E91E63;
+  color:white;
+  border:0;
+  text-align: center;
+  font-size: xx-small;
+}
+/*estilos de la barra superior donde se encuentra el logo, el icono de carrito y de usuario*/
+#menu{
+  background-color: transparent;
+  border-radius: 14px;
+  top:26px;
+}
+/*Background dinamico de la barra superior con JQuery*/
+.bg-primary{
+  transition: all 0.8s ease;
+  background-color: rgba(0, 188, 212,0.96) !important;
+  position:fixed;
+  top:0px !important;
+}
+#menu .input-button-navbar{
+  display:none;
+}
+#menu .input-button-navbar #search{
+  opacity:0.9;
+  position: absolute;
+  top: 3px;
+  left: 239px;
+  font-size: 20px;
+  border: 0;
+  color: white;
+  background-color: transparent;
+  padding-left:5px;
+}
+#menu .input-button-navbar .form-control{
+  color:white;
+  background-color: transparent;
+  border-radius: 35px;
+  border: 1.6px solid rgba(255,255,255,0.7);
+}
+.form-control::placeholder {
+  color:white;
+}
+#menu .logo img{
+    width: 55%;
+}
+#menu .logo{
+  text-align: center;
+}
+#menu .icono-shop-user i{
+  color:white;
+  font-size: 0.8em;
+}
+#menu .icono-shop-user .line{
+  font-weight: 300;
+  opacity: 0.3;
+  font-size: 1.22em;
+}
+#menu .icono-shop-user .far{
+  font-size: 0.9em;
+}
+#menu .icono-shop-user #cart-shop{
+    font-size: 65%;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: aqua;
+}
+#menu .icono-shop-user #cart-shop span{
+  position: absolute;
+  font-size: 90%;
+  z-index: 100;
+  top:1px;
+  right: 3px;
+}
+#menu .line-menu{
+  background-color: transparent;
+  color:white;
+}
+/*estilos correspondientes al navbar que se usa con un modal emergente*/
+.modal.fade .modal-dialog{
+      -webkit-transform: translate(-400px,0);
+    transform: translate(-400px, 0);
+}
+
+.modal.show .modal-dialog{
+  -webkit-transform: none;
+  transform:none;
+}
+.modal{
+  overflow-y: scroll;
+}
+.modal-dialog-scrollable .modal-body {
+  overflow-y: hidden;
+}
+.modal .modal-dialog{
+  max-width:70vw;
+  margin:0;
+}
+.modal .modal-setup {
+  height: 100vh;
+  overflow-y: scroll;
+  display:block;
+}
+.modal .modal-setup .modal-header .icons-navbar{
+  display:inline-block;
+}
+.modal .modal-setup .modal-header .icons-navbar img{
+  width:14%;
+  margin:2px;
+}
+.modal .modal-dialog-scrollable .modal-content {
+  max-height: 100vh;
+  overflow:scroll;
+  overflow-x:auto;
+}
+.modal-open {
+  overflow: auto;
+}
+.modal .modal-header{
+  flex-direction: column;
+  width:100%;
+  padding-bottom: 3px;
+}
+.modal .modal-header .close{
+  padding: 0rem 0.5rem;
+  font-size: 2.2rem;
+}
+.modal .modal-header .input-navbar{
+  width:117%;
+  padding-top:10px;
+}
+.modal .modal-header .input-navbar .form-control-navbar{
+  width:100%;
+  border:none;
+  height: 40px;
+  background-color: rgb(241, 243, 243);
+}
+.modal .modal-header #search{
+  position: absolute;
+  left:86%;
+  top:25%;
+  color:black;
+  font-size: 20px;
+  background: transparent;
+  border:0;
+}
+.modal .modal-body .links-navbar ul{
+  line-height: 40px;
+  list-style: none;
+  font-weight: bolder;
+  font-size:1.1rem;
+}
+.modal .modal-body .links-navbar ul a{
+  color:black;
+}
+.modal .modal-body .links-navbar ul a:hover{
+  text-decoration: none;
+}
+.modal .modal-body .links-navbar ul .arrows-navbar{
+  margin-left: 101px;
+}
+.modal .modal-body .links-navbar .card-header{
+  border-bottom: 0;
+  background:white;
+}
+.modal .modal-footer .login-navbar li{
+  list-style: none;
+  display:inline-block;
+}
+.modal .modal-footer .login-navbar li a:hover{
+  text-decoration: none;
+  color:black;
+}
+
+/*configuraciones dentro del area de carousel*/
+#carouselExampleCaptions{
+  width:100%;
+}
+.banner #carouselExampleCaptions .minh-100{
+  height: 100vh;
+  width:100vw;
+}
+.banner #carouselExampleCaptions .button-news{
+  position:absolute;
+  z-index: 101;
+}
+.banner #carouselExampleCaptions .button-news .button-setup-news{
+  background: transparent;
+  border:2px solid white;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size:1rem;
+  color:white;
+}
+.banner #carouselExampleCaptions .carousel-item p{
+  font-size:1.5rem;
+  font-weight: bold;
+}
+/*estilos para las secciones de imagenes*/
+.photo-box article img{
+  width:100%;
+  position:relative;
+}
+.photo-box article h2{
+  position: absolute;
+  top:30%;
+  left:0;
+  right: 0;
+  color:white;
+  text-align:center;
+  font-weight: bolder;
+  font-size: 3.5rem;
+}
+.photo-box article h3{
+  position: absolute;
+  top:25%;
+  left:0;
+  right: 0;
+  color:white;
+  text-align:center;
+  font-weight: bolder;
+  font-family: 'Architects Daughter', cursive;
+}
+.photo-box article h4{
+  position: absolute;
+  top:74%;
+  left:0;
+  right: 0;
+  color:white;
+  text-align:center;
+  font-weight: bolder;
+  font-size: 1rem;
+}
+.photo-box .first-row-photo{
+  width: 100%;
+  margin:0;
+}
+.photo-box .first-row-photo article{
+  padding: 6px;
+}
+
+/*estilos para el carousel de iconos informativos*/
+.icons-send-box .setup{
+  width:100%;
+  padding:6px;
+}
+.icons-send-box .carousel .carousel-item .card{
+  border:0;
+}
+.icons-send-box .setup .card i{
+  font-size:85px;
+  text-align: center;
+}
+.icons-send-box .setup .card .card-body p{
+  text-align: center;
+}
+.icons-send-box .setup .carousel .carousel-indicators li{
+  width: 10px;
+  border-radius: 100%;
+  background: black;
+  opacity:0.2;
+}
+.icons-send-box .setup .carousel ol{
+  margin:0;
+}
+.icons-send-box .setup .carousel .carousel-control-prev{
+  width:4%;
+  color: black;
+}
+.icons-send-box .setup .carousel .carousel-control-next{
+  width:4%;
+  color: black;
+}
+.icons-send-box .setup .carousel .carousel-indicators .active {
+  opacity: 0.7;
+}
+.second-row-photo{
+  padding:0;
+  margin:0;
+  height: 100%;
+}
+.second-row-photo .promo-photo{
+  padding:6px
+}
+
+/*scroll de la ventana principal en escritorio*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+/*Estilos para tablet*/
+@media(min-width:768px){   
+  #menu{
+    top:18px;
+  }
+  .banner-dinamic-news{
+    font-size: small;
+  }
+#menu .icono-shop-user{
+  font-size: 1.4em;
+}
+#menu .icono-shop-user a, #menu .icono-shop-user .line{
+  transition: all 1s ease;
+  visibility: visible !important;
+  font-family:none;
+}
+
+#menu span.fas{
+  transition: all 1s ease;
+  font-size: 1.3em;
+}
+#menu .logo img{
+  transition: all 1s ease;
+  width: 30%;
+}
+#menu .icono-shop-user #cart-shop{
+  top: 7px;
+  right: 14px;
+}
+#menu .icono-shop-user #cart-shop span{
+top:-0.5px;
+right: 4px;
+}
+.modal .modal-dialog{
+  max-width:40vw;
+  margin:0;
+}
+.modal .modal-header .input-navbar{
+  width:111%;
+  padding-top:15px;
+}
+.modal .modal-header #search{
+  left:89%;
+  top:25%;
+}
+.modal .modal-body .links-navbar ul .arrows-navbar{
+  margin-left: 185px;
+}
+/*estilos del area de imagenes*/
+.photo-box article h2{
+  font-size: 5rem;
+}
+
+.photo-box article h3{
+  top:28%;
+  font-size: 3rem;
+}
+.photo-box article h4{
+  font-size: 2rem;
+}
+}
+/*Estilos para Escritorio*/
+@media(min-width:992px){
+  #menu .icono-shop-user{
+    font-size: 1.85em;
+  }
+  #menu .icono-shop-user a, #menu .icono-shop-user .line{
+    transition: all 1s ease;
+    visibility: visible !important;
+    font-family: none;
+  }
+  #menu span.fas{
+    transition: all 1s ease;
+    font-size: 1.9em;
+  }
+  #menu .logo img{
+    transition: all 1s ease;
+    width: 30%;
+  }
+  #menu .icono-shop-user #cart-shop{
+    top: 10px;
+    right: 37px;
+  }
+  #menu .icono-shop-user #cart-shop span{
+  top:1px;
+  right: 5px;
+  } 
+  #menu .input-button-navbar{
+    display:flex;
+  }
+  #menu .input-button-navbar .form-control:focus{
+    color: white;
+    background-color:transparent;
+    border-color:transparent;
+  }
+  .modal .modal-dialog{
+    max-width:28vw;
+    margin:0;
+  }
+  .modal .modal-header{
+    flex-direction: column;
+    width:100%;
+    padding-bottom: 15px;
+  }
+
+  .modal .modal-header .login-navbar{
+    display:flex !important;
+    width:109%;
+    justify-content: center;
+  }
+  .modal .modal-header .login-navbar li{
+    list-style: none;
+    display:inline-block;
+  }
+  .modal .modal-header .login-navbar li a:hover{
+    text-decoration: none;
+    color:black;
+  }
+  .modal .modal-body .links-navbar ul .arrows-navbar{
+    margin-left: 250px;
+  }
+  .banner #carouselExampleCaptions .button-news .button-setup-news{
+    font-size:1.5rem;
+  }
+  /*seccion de fotos*/
+  .photo-box article h3{
+    top:40%;
+  }
+}
