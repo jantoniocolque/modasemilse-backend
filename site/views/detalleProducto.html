@@ -6,16 +6,17 @@
         <!-- Font Awesome Stylesheet -->
     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 	    <!-- Bootstrap Grid Stylesheet -->
-	    <link rel="stylesheet" href="/css/bootstrap-grid.min.css">
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	    <!-- Own Stylesheet -->
         <link rel="stylesheet" href="../public/stylesheets/stylesheet.css">
     </head>
 
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
-                <div class="col-4 col-sm-0 col-md-0 col-lg-0 col-xl-0">
-                    <section id="seccion1">
+                <div class="col-2 col-sm-0 col-md-0 col-lg-0 col-xl-0">
+                    <section id="list-none">
                         <ul>
                             <li><img src="../public/images/pict1.jpg" alt="" height="120" width="80"></li>
                             <li><img src="../public/images/pict2.jpg" alt="" height="120" width="80"></li>
@@ -25,14 +26,14 @@
                     </section>    
                 </div>
 
-                <section class="col-4 col-lg-6 ml-lg-6 pl-lg-6">
-                    <div class="art2">
-                        <img src="../public/images/pict1.jpg" alt="" height="680" width="450">
+                <section class="col-5 col-lg-4 ml-lg-6 pl-lg-6">
+                    <div class="main-img">
+                        <img src="../public/images/pict1.jpg" alt="" height="700" width="350">
                     </div>
                 </section>
 
-                <section>
-                    <div class="col-4 col-lg-6 ml-lg-6 pl-lg-6">
+                <section class="col-5 col-lg-6 ml-lg-6 pl-lg-6">
+                    <div class ="clothes-main-title">
                         <p id="centrar"> Vestido estampado azul</p>
                     </div>
 
@@ -50,56 +51,77 @@
                         <p> TALLES</p>
                     </div>
 
-                    <div class="custom-select">
-                        <select class="select-80">
-                            <option value="value1">M</option> 
-                            <option value="value2">L</option>
-                            <option value="value3">XL</option>
-                            <option value="value4">XXL</option>
-                        </select>
+                    <div class="row">
+                        <div class="form-row align-items-center">
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <option selected>Talle</option>
+                                        <option value="1">M</option>
+                                        <option value="2">L</option>
+                                        <option value="3">XL</option>
+                                        <option value="4">XXL</option>
+                                    </select>
+                            </div>
+                        </div>
 
-                        <select class="select-20">
-                            <option value="value1">1</option> 
-                            <option value="value2">2</option>
-                            <option value="value3">3</option>
-                            <option value="value4">4</option>
-                            <option value="value5">5</option>
-                            <option value="value6">6</option>
-                        </select>
+                        <div class="form-row align-items-center">
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <option selected>Cantidad</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="">
-                        <a target="" href="https://www.facebook.com/Farmacity/"><i class="fas fa-share-alt"></i></a>
-
-                        <a target="" href="https://www.facebook.com/Farmacity/"></a><i class="fas fa-heart"></i></a>
-
-                        <a class="boton"><button type="button">Añadir al carrito</button></a> 
-                    </div>
-
-                    <p> Otros colores</p>
-
                     <div class="row">
-                        <div class="art3">
-                            <img src="../public/images/pict5.jpg" alt="" height="115" width="75">
+                        <div class="size-icon row">
+                            <a class ="novedades" target="" href=""><i class="fas fa-share-alt"></i></a>
+                            <a class ="novedades" target="" href=""><i class="fas fa-heart"></i></a>
                         </div>
 
-                        <div class="art3">
-                            <img src="../public/images/pict9.jpg" alt="" height="115" width="75">
+                        <div class="col-auto my-1">
+                            <button type="submit" class="btn btn-primary justify-content-between align-items-center">Añadir al carrito</button>
+                          </div>
                         </div>
                     </div>
 
-                    <div class="descripcion"><p>Descripción:</p></div>
-                    <div class="descripcion"><p>Material: algodón</p></div>
-                    <div class="descripcion"><p>Código del artículo: AR1105X890</p></div>
+                    <div>
+                        <p> Otros colores</p>
+
+                        <div class="">
+                            <div class="">
+                                <img src="../public/images/pict5.jpg" alt="" height="115" width="75">
+                            </div>
+
+                            <div class="">
+                                <img src="../public/images/pict9.jpg" alt="" height="115" width="75">
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="descripcion"><p>Descripción:</p></div>
+                            <div class="descripcion"><p>Material: algodón</p></div>
+                            <div class="descripcion"><p>Código del artículo: AR1105X890</p></div>
+                        </div>
+                    </div>
+                    
 
                     <div class="look"><p>COMPLETA EL LOOK</p></div>
 
                     <div class="row">
-                        <div class="art4">
+                        <div class="">
                             <img src="../public/images/pict7.jpg" alt="" height="100" width="70">
                         </div>
 
-                        <div class="art4">
+                        <div class="">
                             <img src="../public/images/pict8.jpg" alt="" height="100" width="70">
                         </div>
                     </div>
@@ -107,7 +129,7 @@
             </div> 
         </div>
     
-        <div class="container">
+        <!-- <div class="container">
             <div class="row">
                 <div class="col-6">
                     <p id="uno">VISTOS RECIENTEMENTE</p>
@@ -125,20 +147,23 @@
                     <p id="dos">¡HOT SALE!</p>
 
                     <section class="f2" id="seccion2">
-                        <div class="art5">
+                        <div class="">
                             <img src="../public/images/pict13.jpg" alt="" height="130" width="90">
                         </div>
-                        <div class="art5">
+                        <div class="">
                             <img src="../public/images/pict14.jpg" alt="" height="130" width="90">
                         </div>
-                        <div class="art5">
+                        <div class="">
                             <img src="../public/images/pict15.jpg" alt="" height="130" width="90">
                         </div>
                     </section>
                 </div>
             </div>
-        </div>
+        </div> --> 
 
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </body>
 
 
