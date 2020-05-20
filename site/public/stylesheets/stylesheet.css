@@ -9,18 +9,24 @@
 }
 
 .main-img{
-    align-self: center;
+    align-self: left;
 }
 
 .btn-primary {
     background-color: #7952B3;
     border-color: #7952B3;
-    margin-left: 5px;
+    width: 150px;
+    border-radius: 13px;
 }
 
 .size-icon {
-    height: 40 ;
-    width: 40;
+    height: 150px ;
+    width: 40px;
+}
+
+.align-right-icon{
+    margin-right: 10px;
+   /**justify-content: space-between; **/
 }
 
 ul {
@@ -36,7 +42,72 @@ ul {
 .novedades{
     
 }
-.novedades i{
-    font-size: 25px;
-   color: black;
+.size-color-icon i{
+    font-size: 20px;
+    color: black;
+}
+
+.ubicar-icons{
+    margin-top: 10px;
+}
+
+.secondary-img{
+
+}
+
+.details-secondary-level p{
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 2px;
+}
+
+.box-in-middle{
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 200px;
+    margin-right: 20px;
+    margin-left: 120px;
+}
+
+.box-in-middle div{
+    justify-content: space-between;
+    margin: 2px 2px;
+}
+
+.ubicar-izquierda{
+    justify-content: flex-start;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+.ubicar-izquierda div{
+    margin: 0px 0px;
+}
+.ubicar-derecha{
+    justify-content: flex-end;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+.line-up{
+    border-top: 1px #7952B3 solid;
+    margin-top: 30px;
+}
+
+@media(min-width:320px){
+
+    .main-img{
+        align-self: left;
+    }
+
+}
+
+@media (min-width: 768px){
 }
