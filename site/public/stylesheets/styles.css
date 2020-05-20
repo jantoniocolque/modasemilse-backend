@@ -27,6 +27,22 @@ body > .container {
     padding: 60px 15px 120px;   
 }
 
+/* ASPECTOS DE LOS BOTONES/LINKS ¿? */
+
+button:hover {
+    color: #FFFFFF !important;
+    background-color: #7952B3 !important;
+    text-decoration: none;
+}
+
+a {
+    color: #03A9F4;
+}
+
+a:hover {
+    color: #7952B3;
+}
+
 div.register {
     background-image: url(../images/register-bigwall.png);
     background-repeat: no-repeat;
@@ -222,8 +238,20 @@ p.app-download a {
 }
 
 form div.form-group {
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
+}
+
+form div input:focus {
+    outline: none !important;
+    border-color: #7952B3 !important;
+    box-shadow: 0 0 10px #7952B3 !important;
+}
+
+form div select:focus {
+    outline: none !important;
+    border-color: #7952B3 !important;
+    box-shadow: 0 0 10px #7952B3 !important;
 }
 
 div.subscribe form input {
