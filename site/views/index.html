@@ -3,131 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EMILSE</title>
+    <title>EMILSE-Home</title>
+    <!--Iconos para la pagina-->
     <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
+    <!--Estilos de la pagina Home-->
     <link rel="stylesheet" href="../public/stylesheets/bootstrap.css">
     <link rel="stylesheet" href="../public/stylesheets/style.css">
-    <link rel="stylesheet" href="../public/stylesheets/index.css">
+    <!--Fuentes para toda la pagina-->
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
     <!-- Font Awesome Stylesheet -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
 </head>
 <body>
-    <div class="container-fluid">
+    <div class="container-home">
         <div class="banner-dinamic-news"><p class="mb-0">AQUI TENDREMOS LAS NOTICIAS MAS ACTUALIZADAS CON DIFERENTES EFECTOS PARA SU FUNCIONAMIENTO</p></div>
         <header class="cover">
-            <!--Aqui inicia la barra de navegacion responsive, donde use tres secciones, la del boton del menu, la del logo y la de los iconos de la derecha. Ademas tiene un script dinamico que permite capturar el scroll de la pagina y asi cambiar el background de la barra de navegacion, el script esta escrito abajo de todo.-->
-            <nav class="navbar fixed-top p-0" id="menu">
-                <div class="row justify-content-between align-items-center m-0">
-                    <!--boton del menu y el input que solamente aparecera en paginas de PC, por el momento solo use opciones de visibilidad para ocultarlo en dispositivos más pequeños-->
-                    <div class="navbar col-3 col-lg-4 pl-1 pl-lg-4 justify-content-start">
-                        <button class="line-menu border-0 pl-3 pl-lg-4 pr-lg-4" type="button" data-toggle="modal" data-target="#examplemodal">
-                        <span class="fas fa-align-justify"></span>
-                        </button>
-                        <div class="input-button-navbar col-lg-8 px-0">
-                            <input type="text" class="form-control" autocomplete="off" placeholder="Buscar" aria-label="Buscador">
-                            <button id="search" type="submit" class="search-input-submit" value="Buscar" aria-label="Buscar">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <!--En esta seccion aparece el logo que cambia su tamaño de acuerdo al tipo de dispositivo, ademas será un link al mismo Home de la pagina web-->
-                    <div class="navbar logo col-5 col-lg-4 ml-lg-5 pl-lg-4 text-lg-left">
-                        <a class="" href="index.html">
-                            <img class="" src="../public/images/logo-borde-blanco.png" alt="Logo de la empresa">
-                        </a>
-                    </div>
-                    <!--Aqui tenemos los iconos que llevaran a las paginas de Registro o Inicio de Sesion y carrito de compras. IMPORTANTE! En dispositivos pequeños como celulares y tablets unicamente estara disponible el icono de carrito, ademas la idea es que funcionen al igual que el menu apareciendo una pequeña ventana en la misma pagina que se encuentra el usuario-->
-                    <div class="icono-shop-user col-3 col-lg-2 mb-1 pr-lg-5 pr-3 pr-sm-4 text-right">
-                        <a class="invisible" href="register.html"><i class="far fa-user-circle"></i></a>
-                        <i class="line invisible">|</i>
-                        <a href="carrito.html"><i class="fas fa-shopping-cart"></i></a><i class="fas fa-circle" id="cart-shop"><span class="text-white">0</span></i>
+        <!--Aqui inicia la barra de navegacion responsive, donde use tres secciones, la del boton del menu, la del logo y la de los iconos de la derecha. Ademas tiene un script dinamico que permite capturar el scroll de la pagina y asi cambiar el background de la barra de navegacion, el script esta escrito abajo de todo.-->
+        <nav class="navbar fixed-top p-0" id="menu">
+            <div class="row justify-content-between align-items-center m-0">
+                <!--boton del menu y el input que solamente aparecera en paginas de PC, por el momento solo use opciones de visibilidad para ocultarlo en dispositivos más pequeños-->
+                <div class="navbar col-3 col-lg-5 pl-1 pl-lg-4 justify-content-start">
+                    <button class="line-menu border-0 pl-3 pl-lg-4 pr-lg-4" type="button" data-toggle="modal" data-target="#examplemodal">
+                    <span class="fas fa-align-justify"></span>
+                    </button>
+                    <div class="input-button-navbar d-lg-block col-lg-8 col-xl-7 px-0">
+                        <form action="" method="GET" class="search-form">
+                            <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscador" name="keywords">
+                            <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
+                        </form>
                     </div>
                 </div>
-            </nav>
-            
-            <!--Aqui inicia el codigo de la ventana modal, es decir el menu de navegacion de nuestra pagina, con un buscador que unicamente aparecera en pantallas moviles-->
-            <div class="modal fade" id="examplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable" role="document">
-                <div class="modal-content modal-setup">
-                    <!--aqui inicia la cabecera del menu de navegacion con los iconos y el boton de cerrado del menu-->
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                <!--En esta seccion aparece el logo que cambia su tamaño de acuerdo al tipo de dispositivo, ademas será un link al mismo Home de la pagina web-->
+                <div class="navbar logo col-5 col-lg-4 text-lg-left">
+                    <a class="" href="#header">
+                        <img class="" src="../public/images/logo-borde-blanco.png" alt="Logo de la empresa">
+                    </a>
+                </div>
+                <!--Aqui tenemos los iconos que llevaran a las paginas de Registro o Inicio de Sesion y carrito de compras. IMPORTANTE! En dispositivos pequeños como celulares y tablets unicamente estara disponible el icono de carrito, ademas la idea es que funcionen al igual que el menu apareciendo una pequeña ventana en la misma pagina que se encuentra el usuario-->
+                <div class="icono-shop-user col-3 col-lg-2 mb-1 pr-lg-5 pr-3 text-right">
+                    <a class="invisible" href="#"><i class="far fa-user-circle"></i></a>
+                    <i class="line invisible">|</i>
+                    <a href="#"><i class="fas fa-shopping-cart"></i></a><i class="fas fa-circle" id="cart-shop"><span class="text-white">0</span></i>
+                </div>
+            </div>
+        </nav>
         
-                        <div class="row icons-navbar">
-                            <a href="#"><img src="../public/images/icons/facebook.ico" alt="logo facebook"></a>
-                            <a href="#"><img src="../public/images/icons/instagram.ico" alt="logo de instagram"></a>
-                            <a href="#"><img src="../public/images/icons/twitter.ico" alt="logo de twitter"></a>    
-                            
-                        </div>
-                        <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
-                        <div class="row input-navbar d-lg-none mt-3">
-                            <input type="text" class="form-control-navbar" autocomplete="off" placeholder="Buscar" aria-label="Buscador">
-                            <button id="search" type="submit" class="search-input-submit" value="Buscar" aria-label="Buscar">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                        <div class="row login-navbar mt-5 d-none">
-                            <ul class="mb-0">
-                                <li class="mr-5"><a class="" href="productAdd.html">Administrador</a></li>
-                                <li class=""><a class ="" href="register.html">Crear cuenta</a></li>
-                            </ul>
-                        </div>
+        <!--Aqui inicia el codigo de la ventana modal, es decir el menu de navegacion de nuestra pagina, con un buscador que unicamente aparecera en pantallas moviles-->
+        <div class="modal fade" id="examplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable" role="document">
+            <div class="modal-content modal-setup">
+                <!--aqui inicia la cabecera del menu de navegacion con los iconos y el boton de cerrado del menu-->
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
+                    <div class="row icons-navbar mb-lg-5">
+                        <a href="#"><img src="../public/images/iconos/facebook.ico" alt="logo facebook"></a>
+                        <a href="#"><img src="../public/images/iconos/instagram.ico" alt="logo de instagram"></a>
+                        <a href="#"><img src="../public/images/iconos/twitter.ico" alt="logo de twitter"></a>    
+                        
                     </div>
-                    <!--por otro lado tenemos en esta área los links de navegacion-->
-                    <div class="modal-body pr-0 mt-2">
-                        <div class="row container pr-0 mr-0 links-navbar">
-                            <ul>
-                                <a href="index.html"><li>INICIO</li></a>
-                                <li>
-                                    <div class="accordion" id="accordionExample">
-                                    <div class="card border-0">
-                                        <div class="card-header p-0" id="headingOne">
-                                            <a href="detalleProducto.html">TIENDA</a>
-                                            <button class="arrows-navbar p-0 btn shadow-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i>
-                                            </button>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <div class="card-body py-0"><a href="#">CAMPERAS</a>
-                                            </div>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <div class="card-body py-0">
-                                                <a href="#">PANTALONES</a>
-                                            </div>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <div class="card-body py-0">
-                                                <a href="#">SACOS</a>
-                                            </div>
-                                        </div>
-                                        <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                            <div class="card-body py-0">
-                                                <a href="#">REMERAS</a>
-                                            </div>
+                    <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
+                    <div class="row input-navbar d-lg-none">
+                        <form action="" method="GET" class="search-form">
+                        <input type="text" class="form-control-navbar" placeholder="Buscar" name="keywords" aria-label="Buscador">
+                        <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
+                            <a class="d-block col-6 text-center p-0" href="#"><i class="fas fa-user"></i>  Iniciar sesión</a>
+                            <a class ="d-block col-6 text-center p-0" href="#">Crear cuenta</a>
+                    </div>
+                </div>
+                <!--por otro lado tenemos en esta área los links de navegacion-->
+                <div class="modal-body pr-0 mt-2">
+                    <div class="row container pr-0 mr-0 links-navbar">
+                        <ul>
+                            <a href="#"><li>INICIO</li></a>
+                            <li class="item-list-accordion">
+                                <div class="accordion" id="accordionExample">
+                                <div class="card border-0">
+                                    <div class="card-header p-0" id="headingOne">
+                                        <a href="#">TIENDA</a>
+                                        <button class="arrows-navbar p-0 btn shadow-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i>
+                                        </button>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body py-0"><a href="#">CAMPERAS</a>
                                         </div>
                                     </div>
-                                </div></li>
-                                <a href="#"><li>CONTACTO</li></a>
-                            </ul>
-                        </div>
-                    </div>
-                    <!--y por ultimo tenemos el área de registro, aunque aun falta agregar un icono. El mismo aparece en la parte posterior del modal en dispositivos moviles y tablets. Mientras que en escritorio pasa a tomar lugar en el header-->
-                    <div class="modal-footer justify-content-center">
-                        <div class="row login-navbar mt-3 d-lg-none">
-                            <ul>
-                                <li class="mr-4"><a class="" href="productAdd.html">Administrador</a></li>
-                                <li class=""><a class ="" href="register.html">Crear cuenta</a></li>
-                            </ul>
-                        </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body py-0">
+                                            <a href="#">PANTALONES</a>
+                                        </div>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body py-0">
+                                            <a href="#">SACOS</a>
+                                        </div>
+                                    </div>
+                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                        <div class="card-body py-0">
+                                            <a href="#">REMERAS</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div></li>
+                            <a href="#"><li>CONTACTO</li></a>
+                        </ul>
                     </div>
                 </div>
+                <!--y por ultimo tenemos el área de registro, aunque aun falta agregar un icono. El mismo aparece en la parte posterior del modal en dispositivos moviles y tablets. Mientras que en escritorio pasa a tomar lugar en el header-->
+                <div class="modal-footer justify-content-center d-lg-none">
+                    <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
+                        <a class="d-block col-12 col-sm-6 text-center p-0 my-2 my-sm-0" href="#"><i class="fas fa-user"></i>  Iniciar sesión</a>
+                        <a class ="d-block col-12 col-sm-6 text-center p-0" href="#">Crear cuenta</a>
+                </div>
+                </div>
             </div>
-            </div>
-            </header>
+        </div>
+        </div>
+        </header>
         <main>
             <!--Banner gigante con imagenes sobre las ultimas novedades de la pagina, ademas lleva consigo un boton que dirige a detalle de productos mas actuales-->
             <section class="banner">
@@ -141,7 +139,7 @@
                                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
                                 </ol>
                                     <div class="row button-news align-items-center minh-100">
-                                        <div class="col-lg-12 text-center">
+                                        <div class="col-12 text-center">
                                             <a id="prueba" class="btn button-setup-news btn-lg" href="#" role="button">VER NOVEDADES</a>
                                         </div>
                                     </div>
@@ -184,9 +182,13 @@
                 <div class="container-fluid">
                     <div class="row first-row-photo">
                     <article class="col-12 col-lg-6">
-                        <a href="#"><img src="../public/images/conjunto-cool-invierno.JPG" alt="Conjunto micropanal">
-                        <h2>live with freedom</h2>
-                        </a>
+                        <div class="product-div2">
+                            <a href="#"><img src="../public/images/conjunto-cool-invierno.JPG" alt="Conjunto micropanal" class="transition">
+                            <div class="text-view transition">
+                                <h2>live with freedom</h2>
+                            </div>
+                            </a>
+                        </div>  
                     </article>
                         <div class="row second-row-photo col-12 col-lg-6">
                             <article class="col-12 col-lg-12">
@@ -194,19 +196,25 @@
                                 <h3 class="">Nueva Temporada Invierno '20</h3>
                             </article>
                             <article class="col-4 col-lg-4">
-                                <a href="#"><img src="../public/images/campera-modal.jpeg" alt="Campera modal">
-                                <h4>feel comfortable</h4>
-                                </a>
+                                <div class="product-div1">
+                                    <div class="img-div1">
+                                        <a href="#"><img src="../public/images/campera-modal.jpeg" class="transition"></a>
+                                    </div>
+                                </div>
                             </article>
                             <article class="col-4 col-lg-4">
-                                <a href="#"><img src="../public/images/campera-plush.jpeg" alt="Campera plush">
-                                <h4>being different</h4>
-                                </a>
+                                <div class="product-div1">
+                                    <div class="img-div1">
+                                        <a href="#"><img src="../public/images/campera-plush.jpeg" alt="Campera plush" class="transition"></a>
+                                    </div>
+                                </div>
                             </article>
                             <article class="col-4 col-lg-4">
-                                <a href="detalleProducto.html"><img src="../public/images/pict1.jpg" alt="Pantalon modal">
-                                <h4>look to the future</h4>
-                                </a>
+                                <div class="product-div1">
+                                    <div class="img-div1">
+                                        <a href=""><img src="../public/images/pantalon-modal.jpg" alt="Pantalon modal" class="transition"></a>
+                                    </div>
+                                </div>
                             </article>
                             <article class="promo-photo mt-3 col-12">
                             <img src="https://www.cordobashopping.com.ar/wp-content/uploads/CS-Banner1100x450px-1.jpg" alt="banner para promociones">
@@ -285,169 +293,6 @@
                 </div>
             </section>
         </main>
-        <footer class="footer">
-            <div class="container"></div>
-            <ul class="nav"> 
-                <li class="nav-item"> 
-                    <a class="nav-link active" href="#">INICIO</a> 
-                </li>                 
-                <li class="nav-item"> 
-                    <a class="nav-link" href="#">TIENDA</a> 
-                </li>                 
-                <li class="nav-item"> 
-                    <a class="nav-link" href="#">CONTACTO</a> 
-                </li>                 
-            </ul>
-            <div class="row main-container">
-                <div class="container col-4  pmts">
-                    <h5>Medios de pago</h5>
-                    <div class="row">
-                        <div class="col-md-3"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-visa.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-3"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-amex.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-3"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-diners.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-3"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-mastercard.png" alt=""> </a> 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-mercadopago.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-3"> 
-                            <center>
-                                <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-pagofacil.png" alt=""> </a> 
-                            </center>
-                        </div>
-                        <div class="col-md-5"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-rapipago.png" alt=""> </a> 
-                        </div>
-                    </div>
-                </div>
-                <div class="container col-4 about">
-                    <h5>Sobre la empresa</h5>
-                    <ul> 
-                        <li>Locales</li>
-                        <li>Preguntas Frecuentes</li>
-                        <li>Quiénes somos</li>
-                        <li>Consejos</li>                         
-                    </ul>
-                </div>
-                <div class="container col-4 subscribe">
-                    <h5>Suscribete</h5>
-                    <form class="align-items-center align-middle form-group justify-content-around row"> 
-                        <input type="email" class="col-7 form-control" id="formInput17" placeholder="E-mail">
-                        <button type="button" class="col-2 btn btn-light">Soy mujer</button>
-                        <button type="button" class="col-2 btn btn-light">Soy hombre</button>
-                    </form>
-                    <div class="social-icos">
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/facebook.ico" alt="Facebook"></a>
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/twitter.ico" alt="Twitter"></a>
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/instagram.ico" alt="Instagram"></a>
-                    </div>
-                    <img class="data-fiscal" src="../public/images/icons/data-fiscal.png" alt="">
-                    <p class="app-download"> <a href="#"><i class="fab fa-android"></i></a> Descarga grátis la app de Modas Emilse <a href="#"><i class="fab fa-apple"></i></a> </p>
-                </div>
-            </div>
-
-            <div class="row main-container-mobile">
-                <div class="row container col-12 subscribe-special">
-                    <div class="col-12">
-                        <h5>Suscribete</h5>
-                    </div>
-                    <form class="col-12 align-items-center align-middle form-group justify-content-around row"> 
-                        <input type="email" class="col-12 form-control" id="formInput17" placeholder="E-mail">
-                        <br>
-                        <button type="button" class="col-6 btn btn-light">Soy mujer</button>
-                        <button type="button" class="col-6 btn btn-light">Soy hombre</button>
-                    </form>
-                    <div class="social-icos">
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/facebook.ico" alt="Facebook"></a>
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/twitter.ico" alt="Twitter"></a>
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/instagram.ico" alt="Instagram"></a>
-                    </div>
-                </div>
-                <div class="container col-6 about">
-                    <h5>Sobre la empresa</h5>
-                    <ul> 
-                        <li>Locales</li>
-                        <li>Preguntas Frecuentes</li>
-                        <li>Quiénes somos</li>
-                        <li>Consejos</li>                         
-                    </ul>
-                </div>
-                <div class="container col-6 quick">
-                    <ul> 
-                        <li class="nav-item"> 
-                            <a class="nav-link active" href="#">INICIO</a> 
-                        </li>                         
-                        <li class="nav-item"> 
-                            <a class="nav-link" href="#">TIENDA</a> 
-                        </li>                         
-                        <li class="nav-item"> 
-                            <a class="nav-link" href="#">CONTACTO</a> 
-                        </li>                         
-                    </ul>
-                </div>
-                <div class="container col-6 subscribe">
-                    <h5>Suscribete</h5>
-                    <form class="align-items-center align-middle form-group justify-content-around row"> 
-                        <input type="email" class="col-7 form-control" id="formInput17" placeholder="E-mail">
-                        <button type="button" class="col-2 btn btn-light">Soy mujer</button>
-                        <button type="button" class="col-2 btn btn-light">Soy hombre</button>
-                    </form>
-                    <div class="social-icos">
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/facebook.ico" alt="Facebook"></a>
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/twitter.ico" alt="Twitter"></a>
-                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/instagram.ico" alt="Instagram"></a>
-                    </div>
-                </div>
-                <div class="container col-12  pmts">
-                    <div class="row">
-                        <div class="col-md-2 col-2"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-visa.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-2 col-2"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-amex.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-2 col-2"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-diners.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-2 col-2"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-mastercard.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-2 col-2"> 
-                            <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-mercadopago.png" alt=""> </a> 
-                        </div>
-                        <div class="col-md-2 col-2"> 
-                            <center>
-                                <a href="#"> <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-pagofacil.png" alt=""> </a> 
-                            </center>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <ul class="nav bottom"> 
-                <li class="nav-item"> 
-                    <i class="fas fa-phone-alt"></i>
-                    <a href="tel:+4442-6950">4442-6950</a>
-                </li>                 
-                <li class="nav-item"> 
-                    <i class="fas fa-envelope"></i>
-                    <a href="mailto:modasemilse@gmail.com">modasemilse@gmail.com</a> 
-                </li>                 
-                <li class="nav-item"> 
-                    <i class="fas fa-map-marker-alt"></i> 
-                    <a href="https://goo.gl/maps/83qyLz1vowkC9u9n6" target="_blank">Joaquin V Gonzales</a>
-                </li>                 
-            </ul>
-            <div class="copyright">Todos los derechos reservados a @Emilse</div>
-        </footer>
     </div>
 
     <script src="../public/javascripts/jquery.js"></script>
