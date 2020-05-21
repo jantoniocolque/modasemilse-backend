@@ -1,19 +1,10 @@
-.row{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-body{
-    align-items: center;
-    margin: 0% 10%;
-    margin-bottom: 60px;
-    flex-wrap: nowrap;
-}
-
-.descripcion{
+.description-product-sale{
     margin-bottom: -14px;
-    font-size: 15px;
-    
+    font-size: 15px;   
+}
+
+.clothes-color{
+    color:gray;
 }
 
 .red{
@@ -113,8 +104,8 @@ body{
     margin-top: 25px;
 }
 
-.caja{
-    border: 40px white solid;
+.box-container-format{
+    border: 40px;
 }
 
 .caja-dos{
