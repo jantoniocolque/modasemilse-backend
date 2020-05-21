@@ -1,0 +1,9 @@
+Tamaños:
+
+min 320
+768
+992
+max 1024
+
+celulares
+tablet
