@@ -15,7 +15,7 @@ a{
 }
 a:hover{
   text-decoration: none;
-  color:black;
+  color: #7952B3;
 }
 button:focus{
   border:0;
@@ -195,6 +195,7 @@ header .modal .modal-body .links-navbar ul a{
   color:black;
 }
 header .modal .modal-body .links-navbar ul a:hover{
+  color: #7952B3;
   text-decoration: none;
 }
 header .modal .modal-body .links-navbar ul .arrows-navbar{
@@ -222,7 +223,7 @@ main .banner #carouselExampleCaptions .minh-100{
 }
 main .banner #carouselExampleCaptions .button-news{
   position:absolute;
-  z-index: 101;
+  z-index: 1;
 }
 main .banner #carouselExampleCaptions .button-news .button-setup-news{
   background: transparent;
@@ -231,6 +232,10 @@ main .banner #carouselExampleCaptions .button-news .button-setup-news{
   font-weight: bold;
   font-size:1rem;
   color:white;
+}
+main .banner #carouselExampleCaptions .button-news .button-setup-news:hover{
+    background-color: #7952B3 !important;
+    text-decoration: none;
 }
 main .banner #carouselExampleCaptions .carousel-item p{
   font-size:1.5rem;
