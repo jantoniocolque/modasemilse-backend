@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--Head de la página-->
+    <%- include('./partials/head') %>
+<body>
+    <!--Area de administración/alta de artículos-->
+    <div class="contents-box">
+        <div class="container admin">
+            <div class="adm-title">
+                <h1>Alta de artículos nuevos</h1>
+                <img class="logo" src="../images/icons/logo.png" alt="logo-modasemilse" srcset="">
+            </div>
+
+            
+                <form class="row admin-addproduct">
+
+                    <div class="col-3 admin-addphotos">
+                        <div class="card">
+                            <img src="../images/placeholder.png" class="card-img-top" alt="...">
+                            <div class="photo-menu">
+                                <i class="far fa-trash-alt"></i>
+                                |
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="../images/placeholder.png" class="card-img-top" alt="...">
+                            <div class="photo-menu">
+                                <i class="far fa-trash-alt"></i>
+                                |
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="../images/placeholder.png" class="card-img-top" alt="...">
+                            <div class="photo-menu">
+                                <i class="far fa-trash-alt"></i>
+                                |
+                                <i class="fas fa-camera"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-8 admin-form">
+                        <div class="form-header">
+                            <div class="row form-group new-product-code"> 
+                                <label class="col-2" for="codigo">Código |</label>
+                                <input required type="number" class="col-2 form-control" id="codigo">
+                            </div>
+
+                            <div class="sex-select">
+                                <input type="checkbox" name="mujer" id="mujer">Mujer
+                                <input type="checkbox" name="hombre" id="hombre">Hombre
+                                <input type="checkbox" name="mujer" id="mujer">Unisex
+                            </div>
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="tela">Tela</label>
+                            <select required class="col form-control" id="tela">
+                                <option value="" disabled selected hidden>Seleccionar tela</option>
+                                <option value="n/a"> >> N/A</option>
+                                <option value="new-tela"> >> Nueva tela</option>
+                                <option value="lanilla">Lanilla</option>
+                                <option value="modal">Modal</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="tipo">Tipo</label>
+                            <select required class="col form-control" id="tipo">
+                                <option value="" disabled selected hidden>Seleccionar tipo</option>
+                                <option value="n/a"> >> N/A</option>
+                                <option value="new-tipo"> >> Nuevo tipo</option>
+                                <option value="mujer">Mujer</option>
+                                <option value="hombre">Hombre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="talles">Talles</label>
+                            <select required class="col form-control" id="talles">
+                                <option value="" disabled selected hidden>Seleccionar talle</option>
+                                <option value="n/a"> >> N/A</option>
+                                <option value="new-tipo"> >> Nueva talle</option>
+                                <option value="mujer">Mujer</option>
+                                <option value="hombre">Hombre</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="colores">Colores</label>
+                            <select required class="col form-control" id="colores">
+                                <option value="" disabled selected hidden>Seleccionar color</option>
+                                <option value="n/a"> >> N/A</option>
+                                <option value="new-tipo"> >> Nuevo color</option>
+                                <option value="rojo" id="opt-rojo">Rojo</option>
+                                <option value="negro" id="opt-negro">Negro</option>
+                                <option value="azul" id="opt-azul">Azul</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="estampados">Estampados</label>
+                            <select required class="col form-control" id="estampados">
+                                <option value="" disabled selected hidden>Seleccionar estampado</option>
+                                <option value="n/a"> >> N/A</option>
+                                <option value="new-tipo"> >> Nuevo estampado</option>
+                                <option value="si">Si</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="unidades">Unidades disponibles</label>
+                            <input required type="number" class="col form-control" id="unidades" placeholder="Ingrese unidades disponibles">
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="precio-menor">Precio menor</label>
+                            <input required type="number" class="col form-control" id="precio-menor" placeholder="Ingrese precio menor">
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="precio-mayor">Precio mayor</label>
+                            <input required type="number" class="col form-control" id="precio-mayor" placeholder="Ingrese precio mayor">
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="fecha">Fecha</label>
+                            <input type="text" class="col form-control" placeholder="Seleccione una fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
+                        </div>
+
+                    </div>
+
+                    <div class="col-12 row form-group admin-form-options">
+                        <button type="submit" class="col-3">
+                            Agregar más fotos
+                        </button>
+
+                        <button type="button" class="col-3">
+                            <b>Vista previa <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
+                        </button>
+
+                        <button type="submit" class="col-3">
+                            <b>Agregar <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
+                        </button>
+
+                        <button type="reset" class="col-3">
+                            <b>Cancelar <i class="fas fa-times"></i></b>
+                        </button>
+                    </div>
+                </form>
+        </div>
+    </div>
+    <!--Footer de la página-->
+    <%- include('./partials/footer') %>
+</body>
+</html>

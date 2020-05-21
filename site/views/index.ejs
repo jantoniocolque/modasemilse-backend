@@ -1,65 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %> | Home</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-    <!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-</head>
+    <!--Head de la página-->
+    <%- include('./partials/head') %>
 <body>
-    <!--definición de tamaños, fuentes, iconos-->
-    <div class="container-fluid">
-        <header>
-            <div>
-                <!--banner-->
-            </div>
-            <div class="row nav">
-                <div class="col-4 nav-left">
-                    <div class="nav-menu">
-                        <button class="menu-btn"><i class="fas fa-align-justify"></i></button>
-                    </div>
-    
-                    <div class="search-bar">
-                        <form>
-                            <button class="search-btn" type="submit"><i class="fas fa-search"></i></button>
-                            <input class="form-search" type="search" placeholder="Buscar" aria-label="Search" size="45">
-                        </form>
-                    </div>
-                </div>
-
-                <div class="col-4 logo">
-                    <a href="/"><img src="/images/icons/logo.png" alt="" srcset=""></a>
-                </div>
-
-                <div class="col-4 nav-right">
-                    <button class="user-btn"><i class="far fa-user-circle"></i></button>
-                    <img src="/images/icons/SeparatorNav.png" alt="" srcset="">
-                    <button class="cart-btn"><i class="fas fa-shopping-cart"></i></button>
-                </div>
-            </div>
-        </header>
-        
-        <section>
-            <article>
-                <div class="blank-area">
-                    <!--Espacio temporal/espacio para contenidos-->
-                </div>
-            </article>
-        </section>
-
-        <!--Footer de la página-->
-        <%- include('./partials/footer') %> 
-
-    </div>
-
-    <!--SCRIPTS-->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!--Footer de la página-->
+    <%- include('./partials/footer') %>
 </body>
 </html>
