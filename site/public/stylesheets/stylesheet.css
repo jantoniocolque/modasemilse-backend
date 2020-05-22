@@ -37,11 +37,13 @@
 }
 
 #circle-cloth{
-   /* los siguientes valores son independientes del tamaño del círculo */
    background-repeat: no-repeat;
    background-position: 50%;
    border-radius: 50%;
    background-size: 100% auto;
+
+   margin-right: 10px;
+   margin-bottom: 10px;
 }
 
 ul {
@@ -70,12 +72,10 @@ ul {
 }
 
 .box-in-middle{
-    padding: 20px;
+    padding: 10px;
     border: 5px;
     width: 500px;
     height: 200px;
-    margin-right: 20px;
-    margin-left: 120px;
 }
 
 .box-in-middle div{
@@ -109,11 +109,30 @@ ul {
     margin-top: 30px;
 }
 
+.complete-look{
+    margin-top: 10px;    
+}
+
+.complete-look div img{
+    margin: 0px 15px;
+}
+
+#align-center-subtitle{
+    text-align: center;
+}
+
+.align-left-subtitle{
+    text-align: left;
+}
+
+.design-to-size{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 @media(min-width:320px){
 
     .main-img{
         align-self: center;
     }
-
 }
-
