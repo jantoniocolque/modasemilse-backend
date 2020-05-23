@@ -29,7 +29,7 @@
    /**justify-content: space-between; **/
 }
 
-#old-price{
+#price-decoration{
     margin-bottom: -14px;
     font-size: 13px;
     text-decoration:line-through;
@@ -92,9 +92,6 @@ ul {
     margin: 0px 35px;
 }
 
-.situate-left div{
-    margin: 0px 0px;
-}
 .situate-right{
     justify-content: flex-end;
     padding: 20px;
@@ -130,9 +127,55 @@ ul {
     margin-bottom: 5px;
 }
 
+/*Estilos para celulares*/
 @media(min-width:320px){
-
-    .main-img{
-        align-self: center;
+    section .main-img img { 
+        /*transition: all 1s ease; */
+        width: 50%;
+        height: 280px;
     }
+
+    section .clothes-main-title p {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    #price-decoration{
+        margin-bottom: -20px;
+        font-size: 10px;
+        text-decoration:line-through;
+        text-decoration-color: red;
+    }
+
+    div #price p{
+        font-size: 15px;
+    }
+
+    #circle-cloth{
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 50%;
+        background-size: 100% auto;   
+        margin-right: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        width: 40px;
+     }
+
+    #align-to-size{
+        margin-top: -25px;
+    }
+
+    .align-to-shop i{
+        margin-top: 12px;
+    }
+}
+
+/*Estilos para tablet*/
+@media(min-width:768px) {
+    section .main-img img { 
+        /*transition: all 1s ease; */
+        width: 80%;
+        height: 60%;
+      }
 }
