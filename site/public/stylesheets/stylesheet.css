@@ -2,7 +2,18 @@
   /**  background-color: #7952B3  ;
     background: white;
     border: 1px solid #7952B3; **/
- 
+.boton-100 button{
+    height: 30px;
+    width: 315px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color: #7952B3  ;
+    color: white;
+}
 
 #list-none ul li{
     list-style: none;
