@@ -9,7 +9,7 @@
                     <span class="fas fa-align-justify"></span>
                     </button>
                     <div class="input-button-navbar d-lg-block col-lg-8 col-xl-7 px-0">
-                        <form action="" method="GET" class="search-form">
+                        <form action="/search" method="POST" class="search-form">
                             <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscador" name="keywords">
                             <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
                         </form>
@@ -48,7 +48,7 @@
                     </div>
                     <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
                     <div class="row input-navbar d-lg-none">
-                        <form action="" method="GET" class="search-form">
+                        <form action="/search" method="POST" class="search-form">
                         <input type="text" class="form-control-navbar" placeholder="Buscar" name="keywords" aria-label="Buscador">
                         <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
                         </form>
@@ -67,7 +67,7 @@
                                 <div class="accordion" id="accordionExample">
                                 <div class="card border-0">
                                     <div class="card-header p-0" id="headingOne">
-                                        <a href="#">TIENDA</a>
+                                        <a href="/products">TIENDA</a>
                                         <button class="arrows-navbar p-0 btn shadow-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i>
                                         </button>
                                     </div>

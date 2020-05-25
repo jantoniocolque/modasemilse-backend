@@ -351,6 +351,74 @@ main .second-row-photo .promo-photo{
   padding:6px
 }
 
+/************************************************************/
+
+/*Estilos para TIENDA*/
+.container-store .banner-store img{
+  width:100%;
+}
+.container-store .links-products .list-links-products{
+  display:flex;
+  padding:1rem;
+}
+.container-store .links-products .list-links-products, .container-store .sidebar ul{
+  list-style: none;
+}
+.container-store .container-photos .product-box_image img{
+  width:100%;
+}
+.container-store .page-content .sidebar li{
+  display:blocK;
+  font-size:1.3rem;
+  font-weight: bold;
+  padding-bottom: 1rem;
+}
+.container-store .page-content .sidebar a{
+  color:#666666;
+}
+.container-store .page-content .sidebar a:hover{
+  color: #7952B3;
+}
+.products-title {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666666;
+}
+.product-box {
+  background-color: white;
+  border-radius: 5px;
+  overflow: hidden;
+  transition: 300ms;
+  margin: 20px 0;
+}
+.product-box_image {
+  border-bottom: 1px solid white;
+}
+.product-box_data {
+  padding: 5px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.product-box_data p{
+  font-size: 1.5em;
+  width: 100%;
+  color: #666666;
+  margin: 0;
+  height: 0;
+  transition: 300ms;
+  overflow: hidden;
+}
+.product-box:hover{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.product-box:hover p{
+  height: 40px;
+  margin-top: 15px;
+}
+
+
 /*scroll de la ventana principal en escritorio*/
 ::-webkit-scrollbar {
   width: 10px;
