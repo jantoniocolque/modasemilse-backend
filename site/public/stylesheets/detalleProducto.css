@@ -1,0 +1,119 @@
+
+  /**  background-color: #7952B3  ;
+    background: white;
+    border: 1px solid #7952B3; **/
+ 
+
+#list-none ul li{
+    list-style: none;
+}
+
+.main-img{
+    align-self: left;
+}
+
+.btn-primary {
+    background-color: #7952B3;
+    border-color: #7952B3;
+    width: 150px;
+    border-radius: 13px;
+}
+
+.size-icon {
+    height: 150px ;
+    width: 40px;
+}
+
+.align-right-icon{
+    margin-right: 10px;
+   /**justify-content: space-between; **/
+}
+
+#old-price{
+    margin-bottom: -14px;
+    font-size: 13px;
+    text-decoration:line-through;
+    text-decoration-color: red;
+}
+
+#circle-cloth{
+   /* los siguientes valores son independientes del tamaño del círculo */
+   background-repeat: no-repeat;
+   background-position: 50%;
+   border-radius: 50%;
+   background-size: 100% auto;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 0px;
+}
+    
+.size-color-icon i{
+    font-size: 20px;
+    color: black;
+}
+
+.ubicar-icons{
+    margin-top: 10px;
+}
+
+.details-secondary-level p{
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 2px;
+}
+
+.box-in-middle{
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 200px;
+    margin-right: 20px;
+    margin-left: 120px;
+}
+
+.box-in-middle div{
+    justify-content: space-between;
+    margin: 2px 2px;
+}
+
+.situate-left{
+    justify-content: flex-start;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+.situate-left div{
+    margin: 0px 0px;
+}
+.situate-right{
+    justify-content: flex-end;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+.line-up{
+    border-top: 1px #7952B3 solid;
+    margin-top: 30px;
+}
+
+@media(min-width:320px){
+
+    .main-img{
+        align-self: center;
+    }
+
+}
+

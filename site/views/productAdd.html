@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Modas Emilse | Administración </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- Estilos personalizados -->
+        <link rel="stylesheet" href="../public/stylesheets/styles.css">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    </head>
+    <body>
+        <!--Area de administración/alta de artículos-->
+
+        <div class="contents-box">
+            <div class="container admin">
+                <div class="adm-title">
+                    <h1>Alta de artículos nuevos</h1>
+                    <img class="logo" src="../public/images/icons/logo.png" alt="logo-modasemilse" srcset="">
+                </div>
+
+                
+                    <form class="row admin-addproduct">
+
+                        <div class="col-3 admin-addphotos">
+                            <div class="card">
+                                <img src="../public/images/placeholder.png" class="card-img-top" alt="...">
+                                <div class="photo-menu">
+                                    <i class="far fa-trash-alt"></i>
+                                    |
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="../public/images/placeholder.png" class="card-img-top" alt="...">
+                                <div class="photo-menu">
+                                    <i class="far fa-trash-alt"></i>
+                                    |
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="../public/images/placeholder.png" class="card-img-top" alt="...">
+                                <div class="photo-menu">
+                                    <i class="far fa-trash-alt"></i>
+                                    |
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-8 admin-form">
+                            <div class="form-header">
+                                <div class="row form-group new-product-code"> 
+                                    <label class="col-2" for="codigo">Código |</label>
+                                    <input required type="number" class="col-2 form-control" id="codigo">
+                                </div>
+
+                                <div class="sex-select">
+                                    <input type="checkbox" name="mujer" id="mujer">Mujer
+                                    <input type="checkbox" name="hombre" id="hombre">Hombre
+                                    <input type="checkbox" name="mujer" id="mujer">Unisex
+                                </div>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="tela">Tela</label>
+                                <select required class="col form-control" id="tela">
+                                    <option value="" disabled selected hidden>Seleccionar tela</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tela"> >> Nueva tela</option>
+                                    <option value="lanilla">Lanilla</option>
+                                    <option value="modal">Modal</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="tipo">Tipo</label>
+                                <select required class="col form-control" id="tipo">
+                                    <option value="" disabled selected hidden>Seleccionar tipo</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tipo"> >> Nuevo tipo</option>
+                                    <option value="mujer">Mujer</option>
+                                    <option value="hombre">Hombre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="talles">Talles</label>
+                                <select required class="col form-control" id="talles">
+                                    <option value="" disabled selected hidden>Seleccionar talle</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tipo"> >> Nueva talle</option>
+                                    <option value="mujer">Mujer</option>
+                                    <option value="hombre">Hombre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="colores">Colores</label>
+                                <select required class="col form-control" id="colores">
+                                    <option value="" disabled selected hidden>Seleccionar color</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tipo"> >> Nuevo color</option>
+                                    <option value="rojo" id="opt-rojo">Rojo</option>
+                                    <option value="negro" id="opt-negro">Negro</option>
+                                    <option value="azul" id="opt-azul">Azul</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="estampados">Estampados</label>
+                                <select required class="col form-control" id="estampados">
+                                    <option value="" disabled selected hidden>Seleccionar estampado</option>
+                                    <option value="n/a"> >> N/A</option>
+                                    <option value="new-tipo"> >> Nuevo estampado</option>
+                                    <option value="si">Si</option>
+                                    <option value="no">No</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="unidades">Unidades disponibles</label>
+                                <input required type="number" class="col form-control" id="unidades" placeholder="Ingrese unidades disponibles">
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="precio-menor">Precio menor</label>
+                                <input required type="number" class="col form-control" id="precio-menor" placeholder="Ingrese precio menor">
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="precio-mayor">Precio mayor</label>
+                                <input required type="number" class="col form-control" id="precio-mayor" placeholder="Ingrese precio mayor">
+                            </div>
+
+                            <div class="form-group row"> 
+                                <label class="col-4" for="fecha">Fecha</label>
+                                <input type="text" class="col form-control" placeholder="Seleccione una fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            </div>
+
+                        </div>
+
+                        <div class="col-12 row form-group admin-form-options">
+                            <button type="submit" class="col-3">
+                                Agregar más fotos
+                            </button>
+
+                            <button type="button" class="col-3">
+                                <b>Vista previa <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
+                            </button>
+
+                            <button type="submit" class="col-3">
+                                <b>Agregar <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
+                            </button>
+
+                            <button type="reset" class="col-3">
+                                <b>Cancelar <i class="fas fa-times"></i></b>
+                            </button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+        
+        <!--coming soon
+        <i class="fas fa-chevron-down"></i>
+        <i class="fas fa-chevron-right"></i>
+        <i class="fas fa-times"></i>
+        -->
+        <!--Inicio Footer-->
+        <footer class="footer">
+            <div class="container"></div>
+            <ul class="nav"> 
+                <li class="nav-item"> 
+                    <a class="nav-link active" href="#">INICIO</a> 
+                </li>                 
+                <li class="nav-item"> 
+                    <a class="nav-link" href="#">TIENDA</a> 
+                </li>                 
+                <li class="nav-item"> 
+                    <a class="nav-link" href="#">CONTACTO</a> 
+                </li>                 
+            </ul>
+            <div class="row main-container">
+                <div class="container col-4  pmts">
+                    <h5>Medios de pago</h5>
+                    <div class="row">
+                        <div class="col-md-3"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-visa.png" alt="">
+                        </div>
+                        <div class="col-md-3"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-amex.png" alt="">
+                        </div>
+                        <div class="col-md-3"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-diners.png" alt="">
+                        </div>
+                        <div class="col-md-3"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-mastercard.png" alt="">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-mercadopago.png" alt="">
+                        </div>
+                        <div class="col-md-3"> 
+                            <center>
+                                <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-pagofacil.png" alt="">
+                            </center>
+                        </div>
+                        <div class="col-md-5"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-rapipago.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="container col-4 about">
+                    <h5>Sobre la empresa</h5>
+                    <ul> 
+                        <li><a href="#">Locales</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Consejos</a></li>                         
+                    </ul>
+                </div>
+                <div class="container col-4 subscribe">
+                    <h5>Suscribete</h5>
+                    <form class="align-items-center align-middle form-group justify-content-around row"> 
+                        <input type="email" class="col-7 form-control" id="formInput17" placeholder="E-mail">
+                        <button type="button" class="col-2 btn btn-light">Soy mujer</button>
+                        <button type="button" class="col-2 btn btn-light">Soy hombre</button>
+                    </form>
+                    <div class="social-icos">
+                        <a href="#"><img class="w-100" src="../public/images/icons/facebook.ico" alt="Facebook"></a>
+                        <a href="#"><img class="w-100" src="../public/images/icons/twitter.ico" alt="Twitter"></a>
+                        <a href="#"><img class="w-100" src="../public/images/icons/instagram.ico" alt="Instagram"></a>
+                    </div>
+                    <img class="data-fiscal" src="../public/images/icons/data-fiscal.png" alt="">
+                    <p class="app-download"> <a href="#"><i class="fab fa-android"></i></a> Descarga grátis la app de Modas Emilse <a href="#"><i class="fab fa-apple"></i></a> </p>
+                </div>
+            </div>
+
+            <div class="row main-container-mobile">
+                <div class="row container col-12 subscribe-special">
+                    <div class="col-12">
+                        <h5>Suscribete</h5>
+                    </div>
+                    <form class="col-12 align-items-center align-middle form-group justify-content-around row"> 
+                        <input type="email" class="col-12 form-control" id="formInput17" placeholder="E-mail">
+                        <br>
+                        <button type="button" class="col-6 btn btn-light">Soy mujer</button>
+                        <button type="button" class="col-6 btn btn-light">Soy hombre</button>
+                    </form>
+                    <div class="social-icos">
+                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/facebook.ico" alt="Facebook"></a>
+                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/twitter.ico" alt="Twitter"></a>
+                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/instagram.ico" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="container col-6 about">
+                    <h5>Sobre la empresa</h5>
+                    <ul> 
+                        <li><a href="#">Locales</a></li>
+                        <li><a href="#">Preguntas Frecuentes</a></li>
+                        <li><a href="#">Quiénes somos</a></li>
+                        <li><a href="#">Consejos</a></li>                         
+                    </ul>
+                </div>
+                <div class="container col-6 quick">
+                    <ul> 
+                        <li class="nav-item"> 
+                            <a class="nav-link active" href="#">INICIO</a> 
+                        </li>                         
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="#">TIENDA</a> 
+                        </li>                         
+                        <li class="nav-item"> 
+                            <a class="nav-link" href="#">CONTACTO</a> 
+                        </li>                         
+                    </ul>
+                </div>
+                <div class="container col-6 subscribe">
+                    <h5>Suscribete</h5>
+                    <form class="align-items-center align-middle form-group justify-content-around row"> 
+                        <input type="email" class="col-7 form-control" id="formInput17" placeholder="E-mail">
+                        <button type="button" class="col-2 btn btn-light">Soy mujer</button>
+                        <button type="button" class="col-2 btn btn-light">Soy hombre</button>
+                    </form>
+                    <div class="social-icos">
+                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/facebook.ico" alt="Facebook"></a>
+                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/twitter.ico" alt="Twitter"></a>
+                        <a href="#"><img class="w-100 img-thumbnail" src="../public/images/icons/instagram.ico" alt="Instagram"></a>
+                    </div>
+                </div>
+                <div class="container col-12  pmts">
+                    <div class="row">
+                        <div class="col-md-2 col-2"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-visa.png" alt="">
+                        </div>
+                        <div class="col-md-2 col-2"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-amex.png" alt="">
+                        </div>
+                        <div class="col-md-2 col-2"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-diners.png" alt="">
+                        </div>
+                        <div class="col-md-2 col-2"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-mastercard.png" alt=""> 
+                        </div>
+                        <div class="col-md-2 col-2"> 
+                            <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-mercadopago.png" alt="">
+                        </div>
+                        <div class="col-md-2 col-2"> 
+                            <center>
+                                <img class="w-100 img-thumbnail" src="../public/images/icons/pmt-pagofacil.png" alt="">
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav bottom"> 
+                <li class="nav-item"> 
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+4442-6950">4442-6950</a>
+                </li>                 
+                <li class="nav-item"> 
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:modasemilse@gmail.com">modasemilse@gmail.com</a> 
+                </li>                 
+                <li class="nav-item"> 
+                    <i class="fas fa-map-marker-alt"></i> 
+                    <a href="https://goo.gl/maps/83qyLz1vowkC9u9n6" target="_blank">Joaquin V Gonzales</a>
+                </li>                 
+            </ul>
+            <div class="copyright">Todos los derechos reservados a @Emilse</div>
+        </footer> 
+
+        <!--SCRIPTS-->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </body>
+</html>

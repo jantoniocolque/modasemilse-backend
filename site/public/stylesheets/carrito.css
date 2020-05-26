@@ -1,0 +1,140 @@
+.description-product-sale{
+    margin-bottom: -14px;
+    font-size: 15px;   
+}
+
+.clothes-color{
+    color:gray;
+}
+
+.red{
+    font-size: 20px;
+}
+
+.tachado{
+    margin-bottom: -14px;
+    font-size: 13px;
+    text-decoration:line-through;
+    text-decoration-color: red;
+}
+
+.select-100 {
+    background: white;
+    border: 1px solid #7952B3;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+ }
+
+ .select-80{
+    background: white;
+    border: 1px solid #7952B3;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 80%;
+    margin-bottom: 10px;
+ }
+
+ .select-20{
+    background: white;
+    border: 1px solid #7952B3;
+    font-size: 14px;
+    height: 30px;
+    padding: 5px;
+    width: 18%;
+    margin-bottom: 10px;
+ }
+
+.boton-100 button{
+    height: 30px;
+    width: 315px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color: #7952B3  ;
+    color: white;
+}
+
+.boton-80 input{
+    height: 30px;
+    width: 230px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color: white ;
+    color: #7952B3;
+}
+
+.boton-20 button{
+    height: 30px;
+    width: 75px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color: white;
+    color: #7952B3;
+}
+
+.boton-100-claro button{
+    height: 30px;
+    width: 315px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color:  #c7c0d1;  ;
+    color: white;
+}
+
+#bajar-margen{
+    margin-top: 25px;
+}
+
+.box-container-format{
+    border: 40px;
+}
+
+.caja-dos{
+    border-left: 80px white solid;
+    padding-right: 10px;
+}
+
+.favoritos a{
+    text-align: center;
+}
+
+.descuento{
+    border-top: 53px white solid;
+}
+
+p{
+    font-family: 'Source Sans Pro', sans-serif;;
+}
+
+.espaciado{
+    font-size: 19px;
+}
+
+.linea{
+    padding-left: 40%;
+}
+
+.cuotas{
+    font-size: 13px;
+    padding-top: -15px;
+    text-decoration: underline;
+}

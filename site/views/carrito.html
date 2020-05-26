@@ -1,0 +1,135 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Emilse | Carrito</title>
+        <!-- Font Awesome Stylesheet -->
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	    <!-- Bootstrap Grid Stylesheet -->
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	    <!-- Own Stylesheet -->
+        <link rel="stylesheet" href="../public/stylesheets/carrito.css">
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row">    
+                <div class="col-3 box-container-forma">
+                    <div class="">
+                        <p>Productos en tu carrito <i class="fas fa-lock"></i></p>
+                    </div>
+
+                    <section id="seccion1">
+                        <img src="../public/images/pict1.jpg" alt="" height="120" width="80">
+                    </section>
+
+                    <div class="">
+                        <div class="tachado"> <p> $ 1899, 99</p> </div>
+                        
+                        <div class="red"><p> $ 999,99</p></div>
+                    </div>
+
+                    <div class="description-product-sale"><p class="clothes-color">Vestido de algodón color azul</p></div>
+                    <div class="description-product-sale"><p class="clothes-color">Código del artículo: AR1105X890</p></div>
+                </div>
+
+                <div class="col-4 caja" id="bajar-margen">
+                    <div class="">
+                        <p>TALLES</p>
+                    </div>
+
+                    <div class="custom-select">
+                        <select class="select-80">
+                            <option value="value1">M</option> 
+                            <option value="value2">L</option>
+                            <option value="value3">XL</option>
+                            <option value="value4">XXL</option>
+                        </select>
+
+                        <select class="select-20">
+                            <option value="value1">1</option> 
+                            <option value="value2">2</option>
+                            <option value="value3">3</option>
+                            <option value="value4">4</option>
+                            <option value="value5">5</option>
+                            <option value="value6">6</option>
+                        </select>
+                    </div>
+
+                    <div class="custom-select">
+                        <select class="select-100">
+                            <option value="value1">Azul</option> 
+                            <option value="value2">Verde</option>
+                            <option value="value3">Rojo</option>
+                        </select>
+                    </div>
+
+                    <div class="favoritos text-center">
+                        <a target="" href="https://www.facebook.com/Farmacity/" size=30px></a><i class="fas fa-heart"></i></a>
+                        <a target="" href="https://www.facebook.com/Farmacity/"><i class="fas fa-share-alt"></i></a>
+                        <a target="" href="https://www.facebook.com/Farmacity/"></a><i class="far fa-trash-alt"></i></a>
+                    </div>
+
+                    <div class="boton-100">
+                        <a class=""><button type="button">Compra rápida</button></a> 
+                    </div>
+                </div> 
+
+                <section class="col-5 box-container-format">
+                    <p>Subtotal de tu compra</p>
+                    <div class="row">
+                        <div>
+                            <div class="description-product-sale "><p>Precio unitario:</p></div>
+                            <div class="description-product-sale"><p>Descuento:</p></div>
+                            <div class="description-product-sale"><p>Precio:</p></div>
+                        </div>
+
+                        <div>
+                            <div class="description-product-sale tachado"><p>$1899,99</p></div>
+                            <div class="description-product-sale"><p>-$900</p></div>
+                            <div class="description-product-sale"><p>$999,99</p></div>
+                        </div>
+                    </div>
+
+                    <div class="row descuento">
+                        <form class="boton-80" action="" method="GET" class="search-form">
+							<input type="text" name="search" placeholder="Cód. de descuento" class="search-form_input">
+						</form>
+                        <a class="boton-20"><button type="button">Agregar</button></a> 
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-7">
+                <section id="seccion1">
+                    <img src="http://1.bp.blogspot.com/-1oQFQPKgngg/UFiI0WtCNhI/AAAAAAAAAAs/ImKo8A4bQiI/s1600/promocion-banco-nacion-septiembre.jpg" 
+                    alt="" height="200" width="650">
+                </section>
+            </div>
+
+            <div class="col-5">
+                <div class="row caja-dos">
+                    <div class="description-product-sale espaciado"><p >Total:</p></div>
+                    <div class="description-product-sale espaciado linea"><p>$999,99</p></div>
+                </div>
+                <div class="caja-dos cuotas"><p >Ver cuotas</p></div>
+
+                <div class="boton-100 caja-dos">
+                    <a class=""><button type="button">Finalizar compra</button></a> 
+                </div>
+
+                <div class="boton-100-claro caja-dos">
+                    <a class=""><button type="button">Seguir comprando</button></a> 
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+
+</html>

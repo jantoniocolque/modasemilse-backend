@@ -1,0 +1,454 @@
+* {box-sizing: border-box;}
+
+/*Source Sans Pro 300, 400 & 700*/
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+
+/*Architects Daugther 400*/
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+
+/*
+font-family: 'Source Sans Pro';
+font-family: 'Architects Daughter', cursive;
+*/
+
+/* Estructura general del documento */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: rgb(238, 238, 238);
+}
+
+body > .container {
+    padding: 60px 15px 120px;   
+}
+
+/* ASPECTOS DE LOS BOTONES/LINKS ¿? */
+
+button:hover {
+    color: #FFFFFF !important;
+    background-color: #7952B3 !important;
+    text-decoration: none;
+}
+
+a {
+    color: #03A9F4;
+}
+
+a:hover {
+    color: #7952B3;
+}
+
+div.register {
+    background-image: url(../images/register-bigwall.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+p.intro {
+    font-weight: bold;
+    text-align: center;
+}
+
+/* area de registro */
+.register-area {
+    max-width: 1024px;
+    margin: auto;
+}
+
+.register-form {
+    padding: 30px 30px 30px;
+    width: 80%;
+    border-radius: 21px;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(238,238,238));
+}
+
+form.container {
+    padding: 0px;
+    justify-content: space-between;
+}
+
+div.form-group {
+    justify-content: space-between;
+    margin: 0px 0px 10px 0px;
+}
+
+.mt-3 {
+    margin-top: 60px !important;
+}
+
+div.form-group button {
+    border-radius: 0.25rem;
+    background-color: #FFFFFF;
+}
+
+/* area de administración */
+.contents-box {
+    padding: 60px 15px 120px; 
+    background-image: url(../images/adm-wall.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.admin {
+    background-color:  rgba(238, 238, 238, 0.75);
+    border-radius: 20px;
+}
+
+.adm-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bolder;
+}
+
+img.logo {
+    width: 20%;
+}
+
+.admin-addproduct {
+    margin: auto;
+    width: 85%;
+}
+
+.admin-addphotos {
+
+}
+
+.card {
+    padding: 0px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 25px;
+}
+
+div.card img {
+    cursor: all-scroll;
+}
+
+.photo-menu {
+    position: absolute;
+    margin: 10px;
+    right: 0px;
+    bottom: 0px;   
+}
+
+.photo-menu i {
+    cursor: pointer;
+}
+
+.form-header {
+    text-align: right;
+}
+
+
+.new-product-code {
+    justify-content: flex-end !important;
+}
+
+.sex-select {
+    margin: 25px 0px 25px 0px;
+}
+
+
+/* colores selección */
+
+#opt-rojo { color: rgb(255, 0, 0); }
+#opt-negro { color: rgb(0, 0, 0); }
+#opt-azul { color: rgb(0, 0, 255); }
+
+/* estilos para el footer */
+.footer {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-top: 1px solid #000000;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+footer h5 {
+    text-align: center;
+    padding-bottom: 5%;
+}
+
+footer ul.nav {
+    margin: auto;
+    width: 60%;
+    justify-content: space-around;
+}
+
+.main-container {
+    margin: auto;
+    max-width: 1024px;
+}
+
+.main-container-mobile {
+    display: none;
+}
+
+div.pmts h5 {
+    text-align: center;
+}
+
+div.about {
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+}
+
+div.about ul {
+    list-style-type: none;
+    line-height: 23px;
+}
+
+.subscribe form button {
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    font-size: x-small;
+    border: 1px solid #000000;
+    border-radius: 10px;
+}
+
+p.app-download {
+    font-size: small;
+    padding-top: 10%;
+    color: black;
+    text-align: left;
+}
+
+img.data-fiscal {
+    position: absolute;
+    width: 15%;
+    right: 0;
+    bottom: 25%;
+}
+
+p.app-download a {
+    color: black;
+}
+
+form div.form-group {
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+form div input:focus {
+    outline: none !important;
+    border-color: #7952B3 !important;
+    box-shadow: 0 0 10px #7952B3 !important;
+}
+
+form div select:focus {
+    outline: none !important;
+    border-color: #7952B3 !important;
+    box-shadow: 0 0 10px #7952B3 !important;
+}
+
+div.subscribe form input {
+    border-radius: 50px;
+    height: 20px;
+}
+
+ul.bottom {
+    justify-content: space-around;
+}
+
+/* imagenes en el Footer */
+.img-thumbnail {
+    padding: 0px;
+    background-color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.social-icos {
+    display: flex;
+    max-width: 25%;
+    line-height: 0px;
+}
+
+ul.bottom li {
+    display: flex;
+    align-items: center;
+}
+
+li i.fas {
+    color: black;
+    font-size: xx-large;
+    padding-right: 10px;
+}
+
+/* barra copyright */
+div.copyright {
+    margin: auto;
+    max-width: 1024px;
+    text-align: right;
+    font-weight: 100;
+}
+
+/* complementos */
+.subscribe-special {
+    display: none;
+}
+
+div.quick {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    div.register {
+        background-image: url(../images/register-mobile.png);
+    }
+
+    .register-form {
+        background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(238,238,238));
+    }
+
+    /* FOOTER */
+    .main-container {
+        display: none;
+    }
+
+    .main-container-mobile {
+        display: flex;
+        margin: auto;
+        max-width: 720px;
+    }
+
+    div.copyright {
+        max-width: 720px;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    ul.nav {
+        width: 80% !important;
+    }
+
+    .pmts {
+        margin: auto;
+        max-width: 720px;
+    }
+
+    /* complementos */
+    .subscribe-special {
+        display: none;
+    }
+
+    div.quick {
+        display: none;
+    }
+    div.about {
+        border-left: none;
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        font-size: small;
+    }
+
+    div.register {
+        background-image: linear-gradient(to bottom, rgb(238, 238, 238), rgba(0, 47, 255, 0.103));
+    }
+
+    .register-form {
+        background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(238,238,238));
+    }
+
+    /* FOOTER */
+    .main-container {
+        display: none;
+    }
+
+    .main-container-mobile {
+        display: flex;
+        margin: auto;
+        max-width: 320px;
+    }
+
+    div.copyright {
+        max-width: 320px;
+        text-align: center;
+        font-weight: 100;
+    }
+
+    ul.nav {
+        display: none;
+    }
+
+    .pmts {
+        margin: auto;
+        max-width: 320px;
+    }
+
+    .social-icos {
+        display: none;
+    }
+
+    .subscribe {
+        display: none;
+    }
+
+    .subscribe-special {
+        display: flex;
+        margin: auto;
+    }
+
+    div.subscribe-special form input {
+        border-radius: 50px;
+        height: 20px;
+    }
+
+    .subscribe-special form button {
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+        font-size: x-small;
+        border: 1px solid #000000;
+        border-radius: 10px;
+    }
+
+    div.quick {
+        display: flex;
+    }
+
+    div.quick ul {
+        list-style: none;
+        font-size: large;
+        padding: 0px;
+    }
+
+    div.quick ul li {
+        line-height: 150%;;
+    }
+    div.about ul {
+        padding: 0px;
+    }
+
+    div.about ul li {
+        line-height: 150%;
+    }
+
+    div.about h5 {
+        text-align: left;
+        font-size: small;
+    }
+
+    .register-form {
+        padding: 15px 15px 15px;
+        width: 95%;
+        border: 1px solid #000000;
+        border-radius: 21px;
+    }
+}
