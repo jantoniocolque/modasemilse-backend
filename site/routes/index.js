@@ -1,9 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const indexController=require('../controllers/indexController');
+var express = require('express');
+var router = express.Router();
 
 /* GET home page. */
-router.get('/',indexController.root);
-router.post('/search/',indexController.search);
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Modas Emilse | Inicio' })});
 
 module.exports = router;
