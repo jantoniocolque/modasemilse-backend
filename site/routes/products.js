@@ -1,17 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const fs = require('fs');
-const path = require('path');
+const productsController = require('../controllers/productsController');
 
-const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
+/* GET products page. */
+router.get('/', productsController.root);
+router.get('/type/:type/',productsController.filter);
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('tienda', { 
-      title: 'Tienda - Emilse',
-      products:products,
-    })
-});
+router.get('/create/',productsController.create);
+router.post('/create/',productsController.store);
 
 module.exports = router;
