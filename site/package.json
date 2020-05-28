@@ -1,7 +1,7 @@
 {
   "name": "site",
   "version": "0.0.0",
-  "main":"appp-js",
+  "main": "appp.js",
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www"
@@ -9,10 +9,15 @@
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
-    "ejs": "^2.6.2",
+    "ejs": "^2.7.4",
     "express": "^4.16.4",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.3"
-  }
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
