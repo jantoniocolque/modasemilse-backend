@@ -42,12 +42,83 @@ const controller = {
         });
     },
 
-    create:(req,res) => {
-        res.send('crear');
+    create:(req,res,next) => {
+        res.send('productAdd');
     },
 
     store:(req,res) => {
-        res.send('Guardado');
+        const newId = products[products.length-1].id + 1;
+		const newProduct = {
+			id:newId,
+			idArticle: req.body.idArticle,
+			gender: req.body.gender,
+			cloth: req.body.cloth,
+			type:req.body.type,
+			image:[req.files[0].filename],
+            talle:req.body.talle,
+            colour: req.body.colour,
+            print: req.body.print,
+            unit: req.body.unit,
+            price: req.body.price,
+            priceDiscount: req.body.priceDiscount,
+            fecha: req.body.fecha
+		};
+
+		const finalProduct = [...products,newProduct];
+		fs.writeFileSync(productsFilePath,JSON.stringify(finalProduct, null, ' '));
+		res.redirect('/products');
+    },
+
+    edit:(req,res) => {
+        let idEdit = req.params.productId;
+		let productEdit;
+		products.forEach(product => {
+			if(idEdit == product.id){
+				productEdit=product;
+			}
+		});
+		res.send('productAdd', {
+			productEdit:productEdit,
+			idEdit:idEdit,
+		});
+    },
+
+    update: (req,res) => {
+        let idEdit=req.params.productId;
+		const newProducts = products.map(product =>{
+			if(product.id == idEdit)
+			{
+                idArticle = req.body.idArticle;
+                gender = req.body.gender;
+                cloth = req.body.cloth;
+                type = req.body.type;
+                talle = req.body.talle;
+                colour = req.body.colour;
+                print = req.body.print;
+                unit = req.body.unit;
+                price = req.body.price;
+                priceDiscount = req.body.priceDiscount;
+                fecha = req.body.fecha;
+			}
+			return product;
+		});
+		fs.writeFileSync(productsFilePath,JSON.stringify(newProducts,null, ' '));
+		res.redirect('/products');
+    },
+
+    delete:(req,res) => {
+        const idDelete = req.params.productId;
+		let newID=1;
+		const newProducts=products.filter(product =>{
+			if(product.id != idDelete){
+				product.id=newID;
+				newID+=1;
+				return product;
+			}
+        });
+        
+		fs.writeFileSync(productsFilePath,JSON.stringify(newProducts,null, ' '));
+		res.redirect('/');
     }
 }
 
