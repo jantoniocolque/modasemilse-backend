@@ -9,8 +9,8 @@
                     <span class="fas fa-align-justify"></span>
                     </button>
                     <div class="input-button-navbar d-lg-block col-lg-8 col-xl-7 px-0">
-                        <form action="" method="GET" class="search-form">
-                            <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscador" name="keywords">
+                        <form action="/search" method="GET" class="search-form">
+                            <input type="text" class="form-control" placeholder="Buscar" name="keywords">
                             <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
@@ -48,9 +48,9 @@
                     </div>
                     <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
                     <div class="row input-navbar d-lg-none">
-                        <form action="" method="GET" class="search-form">
-                        <input type="text" class="form-control-navbar" placeholder="Buscar" name="keywords" aria-label="Buscador">
-                        <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
+                        <form action="/search" method="GET" class="search-form">
+                            <input type="text" class="form-control-navbar" placeholder="Buscar" name="keywords">
+                            <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
                     <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
