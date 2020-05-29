@@ -15,7 +15,7 @@ a{
 }
 a:hover{
   text-decoration: none;
-  color:black;
+  color: #7952B3;
 }
 button:focus{
   border:0;
@@ -195,6 +195,7 @@ header .modal .modal-body .links-navbar ul a{
   color:black;
 }
 header .modal .modal-body .links-navbar ul a:hover{
+  color: #7952B3;
   text-decoration: none;
 }
 header .modal .modal-body .links-navbar ul .arrows-navbar{
@@ -222,7 +223,7 @@ main .banner #carouselExampleCaptions .minh-100{
 }
 main .banner #carouselExampleCaptions .button-news{
   position:absolute;
-  z-index: 101;
+  z-index: 1;
 }
 main .banner #carouselExampleCaptions .button-news .button-setup-news{
   background: transparent;
@@ -231,6 +232,10 @@ main .banner #carouselExampleCaptions .button-news .button-setup-news{
   font-weight: bold;
   font-size:1rem;
   color:white;
+}
+main .banner #carouselExampleCaptions .button-news .button-setup-news:hover{
+    background-color: #7952B3 !important;
+    text-decoration: none;
 }
 main .banner #carouselExampleCaptions .carousel-item p{
   font-size:1.5rem;
@@ -346,6 +351,125 @@ main .second-row-photo .promo-photo{
   padding:6px
 }
 
+/*************************************************************/
+
+/*Estilos de la pagina TIENDA*/
+.container-store .banner-store img{
+  width:100%;
+}
+.container-store .links-products .list-links-products{
+  display:flex;
+  font-size:1.2rem;
+  padding:1rem;
+  font-weight: 500;
+  cursor:pointer;
+}
+.container-store .page-content .container-photos .products-title {
+  font-size: 1.6em;
+  font-weight: 400;
+  color: #666666;
+  cursor:context-menu;
+}
+.container-store .sidebar{
+  height: 100vh;
+  padding-top:2rem;
+  position: sticky;
+  top:60px;
+  float:left;
+}
+.container-store .sidebar ul{
+  list-style:none;
+  font-size:1.3rem;
+  font-weight: 600;
+  color:#666;
+  line-height: 4rem;
+}
+.container-store .container-photos .product-box img{
+  width:100%;
+  height: 70vw;
+}
+.container-store .page-content .card-store:nth-child(even){
+  padding-left:7.5px;
+}
+.container-store .page-content .card-store:nth-child(odd){
+  padding-right:7.5px;
+}
+.container-store .page-content .product-box {
+  background-color: #ffffff;
+  border-radius: 7px;
+  overflow: hidden;
+  transition: 300ms;
+  margin: 10px 0;
+}
+.container-store .page-content .product-box a {
+  display: block;
+}
+.container-store .page-content .product-box_image {
+  border-bottom: 1px solid white;
+}
+.container-store .page-content .product-box_data {
+  padding: 12px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.container-store .page-content .product-box_data h4{
+  font-size: 1em;
+  font-weight: 300;
+  margin: 0;
+  height: 0px;
+  line-height: 1.4;
+}
+.container-store .page-content .product-box_data span{
+  font-size: 1.1em;
+  font-weight: 400;
+  color: #E91E63;
+  margin: 0 0 0 10px;
+  text-align:right;
+}
+.container-store .page-content .product-box_data p {
+  font-size: 1.3em;
+  width: 100%;
+  color: #666666;
+  margin: 0;
+  height: 0;
+  transition: 300ms;
+  overflow: hidden;
+}
+/*
+.product-box_data i {
+  color: var(--green);
+  font-size: 1.8em;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  border: solid 1px;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  right: 15px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 300ms;
+}
+*/
+.container-store .page-content .product-box:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.container-store .page-content .product-box:hover p {
+  height: 40px;
+  margin-top: 15px;
+}
+/*
+.product-box:hover i {
+  transform: rotate(360deg);
+  box-shadow: 0 0 5px var(--green);
+}*/
+
 /*scroll de la ventana principal en escritorio*/
 ::-webkit-scrollbar {
   width: 10px;
@@ -413,6 +537,21 @@ main .second-row-photo .promo-photo{
   .first-row-photo article .product-div2 .text-view h2{
     font-size: 5rem;
   }
+  .container-store .container-photos .product-box img{
+    height: 55vw;
+  }
+  .container-store .page-content .card-store:nth-child(3n+3){
+    padding-left:0;
+    padding-right: 22.5px;
+  }
+  .container-store .page-content .card-store:nth-child(3n+1){
+    padding-right:7.5px;
+    padding-left:15px;
+  }
+  .container-store .page-content .card-store:nth-child(3n+2){
+    padding-left:7.5px;
+    padding-right: 15px;
+  }
 }
 /*Estilos para Escritorio*/
 @media(min-width:1024px){
@@ -467,5 +606,35 @@ main .second-row-photo .promo-photo{
   }
   main .banner #carouselExampleCaptions .button-news .button-setup-news{
     font-size:1.5rem;
+  }
+  .container-store .container-photos .product-box img{
+    height: 35vw;
+  }
+  .container-store .page-content .card-store:nth-child(4n+3){
+    padding-left:0;
+    padding-right: 15px;
+  }
+  .container-store .page-content .card-store:nth-child(4n+1){
+    padding-right:15px;
+    padding-left:0;
+  }
+  .container-store .page-content .card-store:nth-child(4n+2){
+    padding-left:0;
+    padding-right: 15px;
+  }
+  .container-store .page-content .card-store:nth-child(4n+4){
+    padding-left:0px;
+    padding-right: 15px;
+  }
+  .container-store .page-content .product-box_data h4{
+    font-size: 1.3em;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+  .container-store .page-content .product-box_data span{
+    font-size: 1.4em;
+  }
+  .container-store .page-content .product-box_data p {
+    font-size: 1.5em;
   }
 }

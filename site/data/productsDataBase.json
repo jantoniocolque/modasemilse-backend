@@ -1,0 +1,180 @@
+[
+ {
+  "id": 1,
+  "idArticle": "E001",
+  "gender": "Femenino",
+  "title": "Campera Modal",
+  "description": "Entalladas con bosillo",
+  "type": "Campera",
+  "image": [
+   "campera-modal.jpeg"
+  ],
+  "talle": 3,
+  "colour": "Negro",
+  "print": "none",
+  "units": 100,
+  "price": 400,
+  "priceDiscount": 350,
+  "fecha": "06/03/2020"
+ },
+ {
+  "id": 2,
+  "idArticle": "E002",
+  "title": "Conjunto Micropanal",
+  "description": "Deportivas con friza",
+  "type": "Conjunto",
+  "image": [
+   "conjunto-cool-invierno.JPG"
+  ],
+  "talle": "10",
+  "colour": "Gris Topo",
+  "print": "none",
+  "price": "1400",
+  "priceDiscount": "1200",
+  "fecha": "12/05/2020"
+ },
+ {
+  "id": 3,
+  "idArticle": "E003",
+  "gender": "Femenino",
+  "title": "Campera Plush",
+  "description": "Camperas juveniles con capucha",
+  "type": "Campera",
+  "image": [
+   "campera-plush.jpeg"
+  ],
+  "talle": 5,
+  "colour": "Negro",
+  "print": "none",
+  "units": 30,
+  "price": 650,
+  "priceDiscount": 600,
+  "fecha": "07/06/2019"
+ },
+ {
+  "id": 4,
+  "idArticle": "E004",
+  "gender": "Femenino",
+  "title": "Pulover Piel de Mono",
+  "description": "Color brillante y frizado por dentro",
+  "type": "Pulover",
+  "image": [
+   "pulover-piel-de-mono.jpeg"
+  ],
+  "talle": 10,
+  "colour": "Negro",
+  "print": "none",
+  "units": 10,
+  "price": 900,
+  "priceDiscount": 850,
+  "fecha": "11/04/2020"
+ },
+ {
+  "id": 5,
+  "idArticle": "E005",
+  "gender": "Femenino",
+  "title": "Saco de Peluche",
+  "description": "Saco con peluche blanco dentro y botones negros",
+  "type": "Saco",
+  "image": [
+   "saco-peluche-con-botones.jpeg"
+  ],
+  "talle": 8,
+  "colour": "Negro",
+  "print": "none",
+  "units": 15,
+  "price": 1500,
+  "priceDiscount": 1200,
+  "fecha": "30/05/2019"
+ },
+ {
+  "id": 6,
+  "idArticle": "E006",
+  "gender": "Femenino",
+  "title": "Pantalon Modal",
+  "description": "Pantalon tipo babucha con puño o tira abajo",
+  "type": "Pantalon",
+  "image": [
+   "pantalon-modal.jpg"
+  ],
+  "talle": 5,
+  "colour": "Azul Marino",
+  "print": "none",
+  "units": 25,
+  "price": 450,
+  "priceDiscount": 400,
+  "fecha": "12/01/2020"
+ },
+ {
+  "id": 7,
+  "idArticle": "E007",
+  "gender": "Femenino",
+  "title": "Saco de polar Anteepiling",
+  "description": "Con cinturon y botones perfectos para invierno",
+  "type": "Saco",
+  "image": [
+   "saco-polar-con-botones.jpeg"
+  ],
+  "talle": 12,
+  "colour": "Negro",
+  "print": "none",
+  "units": 20,
+  "price": 1500,
+  "priceDiscount": 1300,
+  "fecha": "01/04/2020"
+ },
+ {
+  "id": 8,
+  "idArticle": "E008",
+  "gender": "Femenino",
+  "title": "Vestido de Fibrana",
+  "description": "Vestidos tipo playero",
+  "type": "Vestido",
+  "image": [
+   "pict1.jpg"
+  ],
+  "talle": 6,
+  "colour": "none",
+  "print": "pict1.jpg",
+  "units": 10,
+  "price": 1900,
+  "priceDiscount": 1000,
+  "fecha": "15/03/2020"
+ },
+ {
+  "id": 9,
+  "idArticle": "E001",
+  "gender": "Femenino",
+  "title": "Campera Modal",
+  "description": "Entalladas con bosillo",
+  "type": "Campera",
+  "image": [
+   "campera-modal.jpeg"
+  ],
+  "talle": 12,
+  "colour": "Gris Melange",
+  "print": "campera-modal.jpeg",
+  "units": 30,
+  "price": 400,
+  "priceDiscount": 350,
+  "fecha": "13/09/2019"
+ },
+ {
+  "id": 10,
+  "idArticle": "E009",
+  "gender": "Femenino",
+  "title": "Remera Morley",
+  "description": "Remera lisa manga corta",
+  "type": "Remera",
+  "image": [
+   "imagen-producto-1590757315423.jpeg"
+  ],
+  "talle": "8",
+  "colour": "Gris Melange",
+  "print": "Liso",
+  "unit": "20",
+  "price": "400",
+  "priceDiscount": "360",
+  "fecha": "2020-05-29"
+ }
+]

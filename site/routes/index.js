@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+const indexController = require('../controllers/indexController');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Modas Emilse | Inicio' });
+router.get('/', indexController.root);
 
-
+/*GET search page*/
+router.get('/search',indexController.search);
 module.exports = router;
