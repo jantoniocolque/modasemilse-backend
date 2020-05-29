@@ -18,11 +18,11 @@ const productsController = require('../controllers/productsController');
 
 /* GET products page. */
 router.get('/', productsController.root);
-router.get('/type/:type/',productsController.filter);
+router.get('/type/:type',productsController.filter);
 
 /*GET products create page */
-router.get('/create/',productsController.create);
-router.post('/create/',upload.any(),productsController.store);
+router.get('/create',productsController.create);
+router.post('/create',upload.any(),productsController.store);
 
 /*GET products edit page*/
 router.get('/edit/:productId', productsController.edit); /* GET - Form to create */
