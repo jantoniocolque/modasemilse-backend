@@ -18,3 +18,15 @@ requerido. Por tanto en nuestra puesta en comun compartimos la idea de escribir 
 atencion finalizando el eje principal de la consigna.
 
 **STOP DOING** - Por el momento no encontramos algun tipo de desacuerdo o estorbo dentro del area de trabajo.
+
+### Sprint 2 - HTML + CSS
+
+**START DOING** - En esta ocasión vimos necesario la colaboracion entre nosotros en cuanto a uso de la plataforma Git, por tanto realizamos las operaciones de Merge juntos para resvolver los conflictos y aprender de ellos. Por otra parte se empezo a usar la rama Master para unificar el proyecto pre-entrega.
+
+**MORE OF** - Decidimos invertir mas tiempo en cuanto al desarrollo del proyecto, y la comunicacion para una mayor coordinacion al momento de unir lo que fue programando cada uno.
+
+**KEEP DOING** - Por otra parte decidimos seguir trabajando en ramas distintas para una mayor organizacion.
+
+**LESS OFF** - En esta situacion entendimos que hay muchas formas de complicarnos al momento de plasmar nuestras ideas al codigo, hay distintas funcionalidades que vimos sobresalientes pero aún no contamos con el conocimiento suficiente para realizarlos, por esto dejamos de buscar agregar mas funcionalidades al proyecto.
+
+**STOP DOING** - Algo que decidimos parar de hacer y cambiar a partir del proximo sprint es el trabajo en diferentes ramas individuales pues nos dimos cuenta que esto no explota en su totalidad la herramienta de control de versiones Git.
