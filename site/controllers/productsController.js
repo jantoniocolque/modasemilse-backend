@@ -16,6 +16,8 @@ function removeDuplicates(originalArray, nameProperty) {
      return newArray;
 }
 
+//function productDetails(originalArray, productId){}
+
 const controller = {
     root:(req,res) => {
         /*const newPrueba = {a:1,b:5124,c:5,d:613};
@@ -119,7 +121,12 @@ const controller = {
         
 		fs.writeFileSync(productsFilePath,JSON.stringify(newProducts,null, ' '));
 		res.redirect('/');
-    }
+    },
+
+    detail:(req,res) => {
+        res.render('detalleProducto');
+    },
+
 }
 
 module.exports = controller;
