@@ -10,7 +10,6 @@
   font-family: 'Source Sans Pro',sans-serif;
 }
 a{
-  color:black;
   text-decoration: none;
 }
 a:hover{
@@ -21,6 +20,7 @@ button:focus{
   border:0;
   outline:0;
 }
+
 /* Estilos para el banner del inicio de la pagina*/
 .banner-dinamic-news{
   padding: 0;
@@ -208,6 +208,10 @@ header .modal .modal-body .links-navbar .card-header{
 header .modal .modal-body .item-list-accordion{
   width:60vw;
 }
+header button:hover {
+  background-color: transparent !important;
+  text-decoration: none;
+}
 
 main .container-fluid{
   padding:0px;
@@ -384,6 +388,12 @@ main .second-row-photo .promo-photo{
   font-weight: 600;
   color:#666;
   line-height: 4rem;
+}
+.container-store .sidebar ul a{
+  color:black;
+}
+.container-store .sidebar ul a:hover{
+  color:#7952B3;
 }
 .container-store .container-photos .product-box img{
   width:100%;
