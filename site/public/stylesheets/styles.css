@@ -11,7 +11,8 @@ font-family: 'Source Sans Pro';
 font-family: 'Architects Daughter', cursive;
 */
 
-/* Estructura general del documento */
+
+/* Estructura general del documento 
 html {
     position: relative;
     min-height: 100%;
@@ -25,9 +26,9 @@ body {
 
 body > .container {
     padding: 60px 15px 120px;   
-}
+} */
 
-/* ASPECTOS DE LOS BOTONES/LINKS ¿? */
+/* ASPECTOS DE LOS BOTONES/LINKS ¿? 
 
 button:hover {
     color: #FFFFFF !important;
@@ -53,9 +54,9 @@ div.register {
 p.intro {
     font-weight: bold;
     text-align: center;
-}
+} */
 
-/* area de registro */
+/* area de registro 
 .register-area {
     max-width: 1024px;
     margin: auto;
@@ -85,9 +86,9 @@ div.form-group {
 div.form-group button {
     border-radius: 0.25rem;
     background-color: #FFFFFF;
-}
+} */
 
-/* area de administración */
+/* area de administración
 .contents-box {
     padding: 60px 15px 120px; 
     background-image: url(../images/adm-wall.jpg);
@@ -154,7 +155,7 @@ div.card img {
 
 .sex-select {
     margin: 25px 0px 25px 0px;
-}
+}  */
 
 
 /* colores selección */
@@ -163,7 +164,7 @@ div.card img {
 #opt-negro { color: rgb(0, 0, 0); }
 #opt-azul { color: rgb(0, 0, 255); }
 
-/* estilos para el footer */
+/* estilos para el footer 
 .footer {
     width: 100%;
     height: 60px;
@@ -231,7 +232,7 @@ img.data-fiscal {
     width: 15%;
     right: 0;
     bottom: 25%;
-}
+} 
 
 p.app-download a {
     color: black;
@@ -261,9 +262,9 @@ div.subscribe form input {
 
 ul.bottom {
     justify-content: space-around;
-}
+} */
 
-/* imagenes en el Footer */
+/* imagenes en el Footer
 .img-thumbnail {
     padding: 0px;
     background-color: #fff;
@@ -286,17 +287,17 @@ li i.fas {
     color: black;
     font-size: xx-large;
     padding-right: 10px;
-}
+}  */
 
-/* barra copyright */
+/* barra copyright
 div.copyright {
     margin: auto;
     max-width: 1024px;
     text-align: right;
     font-weight: 100;
-}
+}  */
 
-/* complementos */
+/* complementos 
 .subscribe-special {
     display: none;
 }
@@ -312,9 +313,9 @@ div.quick {
 
     .register-form {
         background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(238,238,238));
-    }
+    } */
 
-    /* FOOTER */
+    /* FOOTER 
     .main-container {
         display: none;
     }
@@ -338,9 +339,9 @@ div.quick {
     .pmts {
         margin: auto;
         max-width: 720px;
-    }
+    } */
 
-    /* complementos */
+    /* complementos 
     .subscribe-special {
         display: none;
     }
@@ -364,9 +365,9 @@ div.quick {
 
     .register-form {
         background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(238,238,238));
-    }
+    } */
 
-    /* FOOTER */
+    /* FOOTER 
     .main-container {
         display: none;
     }
@@ -451,4 +452,264 @@ div.quick {
         border: 1px solid #000000;
         border-radius: 21px;
     }
+}  */
+
+.boton-color-add button{
+    height: 30px;
+    width: 315px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color: #7952B3  ;
+    color: white;
 }
+
+#list-none ul li{
+    list-style: none;
+}
+
+div .main-img img{
+    align-self: left;
+}
+
+button .btn-primary p{
+    background-color: #7952B3;
+    border-color: #7952B3;
+    width: 150px;
+    border-radius: 13px;
+}
+
+div .align-right-icon i{
+    margin-right: 10px;
+   /**justify-content: space-between; **/
+}
+
+#price-decoration{
+    margin-bottom: -14px;
+    font-size: 13px;
+    text-decoration:line-through;
+    text-decoration-color: red;
+}
+
+div #circle-cloth{
+   background-repeat: no-repeat;
+   background-position: 50%;
+   border-radius: 50%;
+   background-size: 100% auto;
+
+   margin-right: 10px;
+   margin-bottom: 10px;
+}
+    
+div .size-color-icon i{
+    font-size: 20px;
+    color: black;
+}
+
+div .details-secondary-level p{
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 2px;
+}
+
+div .box-in-middle{
+    padding: 10px;
+    border: 5px;
+    width: 500px;
+    height: 200px;
+}
+
+.box-in-middle div{
+    justify-content: space-between;
+    margin: 2px 2px;
+}
+
+div .situate-left{
+    justify-content: flex-start;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+div .situate-right{
+    justify-content: flex-end;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+div .complete-look{
+    margin-top: 10px;    
+}
+
+div .complete-look div img{
+    margin: 0px 15px;
+}
+
+div #align-center-subtitle p{
+    text-align: center;
+}
+
+div #align-left-subtitle p{
+    text-align: left;
+}
+
+div .design-to-size{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*Estilos para celulares*/
+@media(min-width:320px){
+    section .main-img img { 
+        /*transition: all 1s ease; */
+        width: 50%;
+        height: 280px;
+    }
+
+    section .clothes-main-title p {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    #price-decoration{
+        margin-bottom: -20px;
+        font-size: 10px;
+        text-decoration:line-through;
+        text-decoration-color: red;
+    }
+
+    div #price p{
+        font-size: 15px;
+    }
+
+    div #circle-cloth{
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 50%;
+        background-size: 100% auto;   
+        margin-right: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        width: 40px;
+     }
+
+    div #align-to-size{
+        margin-top: -25px;
+    }
+
+    #align-to-shop i{
+        margin-top: 12px;
+    }
+
+    .boton-color-add button{
+        height: 25px;
+        width: 117px;
+        font-size: 12px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+}
+
+/*Estilos para tablet*/
+@media(min-width:768px) {
+
+    #align-to-shop i{
+        margin-top: 12px;
+    }
+
+    section .main-img img { 
+        /*transition: all 1s ease; */
+        width: 100%;
+        height: 620px;
+      }
+
+      div .situate-left {
+        justify-content: flex-start;
+        padding: 5px;
+        border: 5px;
+        width: 325px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    div .situate-right {
+        justify-content: flex-end;
+        padding: 5px;
+        border: 5px;
+        width: 325px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    .boton-color-add button{
+        height: 30px;
+        width: 148px;
+        font-size: 14px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+}
+
+/*Estilos para notebook*/
+@media(min-width:1024px) {
+    div .box-in-middle{
+        padding: 10px;
+        border: 5px;
+        width: 500px;
+        height: 200px;
+    }
+
+    div .situate-left {
+        justify-content: flex-start;
+        padding: 5px;
+        border: 5px;
+        width: 425px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    div .situate-right {
+        justify-content: flex-end;
+        padding: 5px;
+        border: 5px;
+        width: 425px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    .boton-color-add button{
+        height: 35px;
+        width: 148px;
+        font-size: 16px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+}
+
