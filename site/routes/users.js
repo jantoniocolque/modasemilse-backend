@@ -19,10 +19,13 @@ var upload = multer({ storage: storage })
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('Site under construction, please come back later :D');
+  //res.send('Site under construction, please come back later :D');
+  res.redirect('/users/login');
 });
 
 router.get('/register', usersController.register);
 router.post('/register', upload.any(), usersController.create);
+router.get('/login', usersController.login);
+router.post('/login', usersController.userValidator);
 
 module.exports = router;
