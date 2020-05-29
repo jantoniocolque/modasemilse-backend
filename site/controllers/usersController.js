@@ -10,6 +10,12 @@ let usersController = {
     'register' : function(req, res) {
         res.render('register', { title: 'Modas Emilse | Registro' });
     },
+    login : function(req, res){
+        res.render('login', { title: 'Modas Emilse | Login' })
+    },
+    userValidator : function(req, res){
+        res.redirect('/');
+    },
     create : function (req, res){
         let nuevaId = users.length + 1;
         let nuevoUsuario = {
