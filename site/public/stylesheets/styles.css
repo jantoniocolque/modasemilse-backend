@@ -78,6 +78,17 @@ div.form-group {
     margin: 0px 0px 10px 0px;
 }
 
+button#custom-button {
+    border-radius: 50px;
+    border: none;
+    background-color: unset;
+}
+
+button#custom-button:hover {
+    background-color: rgba(121, 82, 179, 0.5) !important;
+    text-decoration: none;
+}
+
 .mt-3 {
     margin-top: 60px !important;
 }
@@ -129,7 +140,7 @@ img.logo {
 }
 
 div.card img {
-    cursor: all-scroll;
+    cursor: pointer;
 }
 
 .photo-menu {
