@@ -12,11 +12,12 @@
             </div>
 
             
-                <form class="row admin-addproduct">
+                <form action="/products/create" class="row admin-addproduct" enctype="multipart/form-data" method="POST">
 
                     <div class="col-3 admin-addphotos">
                         <div class="card">
-                            <img src="../images/placeholder.png" class="card-img-top" alt="...">
+                            <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                            <img id="custom-button" src="../images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                             <div class="photo-menu">
                                 <i class="far fa-trash-alt"></i>
                                 |
@@ -24,7 +25,8 @@
                             </div>
                         </div>
                         <div class="card">
-                            <img src="../images/placeholder.png" class="card-img-top" alt="...">
+                            <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                            <img id="custom-button" src="../images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                             <div class="photo-menu">
                                 <i class="far fa-trash-alt"></i>
                                 |
@@ -32,20 +34,22 @@
                             </div>
                         </div>
                         <div class="card">
-                            <img src="../images/placeholder.png" class="card-img-top" alt="...">
+                            <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                            <img id="custom-button" src="../images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                             <div class="photo-menu">
                                 <i class="far fa-trash-alt"></i>
                                 |
                                 <i class="fas fa-camera"></i>
                             </div>
                         </div>
+                        
                     </div>
 
                     <div class="col-8 admin-form">
                         <div class="form-header">
                             <div class="row form-group new-product-code"> 
                                 <label class="col-2" for="codigo">Código |</label>
-                                <input required type="number" class="col-2 form-control" id="codigo">
+                                <input required type="number" class="col-2 form-control" id="codigo" name="codigo">
                             </div>
 
                             <div class="sex-select">
@@ -56,85 +60,59 @@
                         </div>
 
                         <div class="form-group row"> 
-                            <label class="col-4" for="tela">Tela</label>
-                            <select required class="col form-control" id="tela">
-                                <option value="" disabled selected hidden>Seleccionar tela</option>
-                                <option value="n/a"> >> N/A</option>
-                                <option value="new-tela"> >> Nueva tela</option>
-                                <option value="lanilla">Lanilla</option>
-                                <option value="modal">Modal</option>
-                            </select>
+                            <label class="col-4" for="titulo">Nuevo título</label>
+                            <input type="text" class="col form-control" name="titulo" id="titulo" placeholder="Titulo del producto">
+                        </div>
+
+                        <div class="form-group row"> 
+                            <label class="col-4" for="detalle">Descripción</label>
+                            <input type="text" class="col form-control" name="detalle" id="detalle" placeholder="Agregar descripción breve">
                         </div>
 
                         <div class="form-group row"> 
                             <label class="col-4" for="tipo">Tipo</label>
-                            <select required class="col form-control" id="tipo">
-                                <option value="" disabled selected hidden>Seleccionar tipo</option>
-                                <option value="n/a"> >> N/A</option>
-                                <option value="new-tipo"> >> Nuevo tipo</option>
-                                <option value="mujer">Mujer</option>
-                                <option value="hombre">Hombre</option>
-                            </select>
+                            <input type="text" class="col form-control" name="tipo" id="tipo" placeholder="Agregar tipo de artículo">
                         </div>
 
                         <div class="form-group row"> 
                             <label class="col-4" for="talles">Talles</label>
-                            <select required class="col form-control" id="talles">
-                                <option value="" disabled selected hidden>Seleccionar talle</option>
-                                <option value="n/a"> >> N/A</option>
-                                <option value="new-tipo"> >> Nueva talle</option>
-                                <option value="mujer">Mujer</option>
-                                <option value="hombre">Hombre</option>
-                            </select>
+                            <input type="number" class="col form-control" name="talles" id="talles" placeholder="Talles disponibles, separar con comas">
                         </div>
 
                         <div class="form-group row"> 
                             <label class="col-4" for="colores">Colores</label>
-                            <select required class="col form-control" id="colores">
-                                <option value="" disabled selected hidden>Seleccionar color</option>
-                                <option value="n/a"> >> N/A</option>
-                                <option value="new-tipo"> >> Nuevo color</option>
-                                <option value="rojo" id="opt-rojo">Rojo</option>
-                                <option value="negro" id="opt-negro">Negro</option>
-                                <option value="azul" id="opt-azul">Azul</option>
-                            </select>
+                            <input type="text" class="col form-control" name="colores" id="colores" placeholder="Colores disponibles, separar con comas">
                         </div>
 
                         <div class="form-group row"> 
                             <label class="col-4" for="estampados">Estampados</label>
-                            <select required class="col form-control" id="estampados">
-                                <option value="" disabled selected hidden>Seleccionar estampado</option>
-                                <option value="n/a"> >> N/A</option>
-                                <option value="new-tipo"> >> Nuevo estampado</option>
-                                <option value="si">Si</option>
-                                <option value="no">No</option>
-                            </select>
+                            <input type="text" class="col form-control" name="estampados" id="estampados" placeholder="Ingrese estampados">
                         </div>
 
                         <div class="form-group row"> 
                             <label class="col-4" for="unidades">Unidades disponibles</label>
-                            <input required type="number" class="col form-control" id="unidades" placeholder="Ingrese unidades disponibles">
+                            <input required type="number" class="col form-control" id="unidades" name="unidades" placeholder="Ingrese unidades disponibles">
                         </div>
 
                         <div class="form-group row"> 
                             <label class="col-4" for="precio-menor">Precio menor</label>
-                            <input required type="number" class="col form-control" id="precio-menor" placeholder="Ingrese precio menor">
+                            <input required type="number" class="col form-control" id="precio-menor" name="precio-menor" placeholder="Ingrese precio menor">
                         </div>
 
                         <div class="form-group row"> 
                             <label class="col-4" for="precio-mayor">Precio mayor</label>
-                            <input required type="number" class="col form-control" id="precio-mayor" placeholder="Ingrese precio mayor">
+                            <input required type="number" class="col form-control" id="precio-mayor" name="precio-mayor" placeholder="Ingrese precio mayor">
                         </div>
 
                         <div class="form-group row"> 
                             <label class="col-4" for="fecha">Fecha</label>
-                            <input type="text" class="col form-control" placeholder="Seleccione una fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
+                            <input type="text" class="col form-control" placeholder="Seleccione una fecha" name="fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
                         </div>
 
                     </div>
 
                     <div class="col-12 row form-group admin-form-options">
-                        <button type="submit" class="col-3">
+                        <button type="button" class="col-3">
                             Agregar más fotos
                         </button>
 
@@ -154,6 +132,16 @@
         </div>
     </div>
     <!--Footer de la página-->
+    <script>
+        // Script para boton de carga de imagenes
+
+        const realFileBtn = document.getElementById("imagen-producto");
+        const customBtn = document.getElementById("custom-button");
+
+        customBtn.addEventListener("click", function() {
+        realFileBtn.click();
+        });
+    </script>
     <%- include('./partials/footer') %>
 </body>
 </html>
