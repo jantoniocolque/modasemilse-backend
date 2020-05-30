@@ -44,21 +44,17 @@ const controller = {
         });
     },
 
-
-    create:(req,res) => {
-        res.render('productAdd',{
-            title:'Carga de Producto'
-        });
+    create:(req,res,next) => {
+        res.send('productAdd');
     },
 
-    store:(req,res,next) => {
+    store:(req,res) => {
         const newId = products[products.length-1].id + 1;
 		const newProduct = {
 			id:newId,
 			idArticle: req.body.idArticle,
-            gender: req.body.gender,
-            title:req.body.title,
-            description:req.body.description,
+			gender: req.body.gender,
+			cloth: req.body.cloth,
 			type:req.body.type,
 			image:[req.files[0].filename],
             talle:req.body.talle,
@@ -70,7 +66,7 @@ const controller = {
             fecha: req.body.fecha
 		};
 
-        const finalProduct = [...products,newProduct];
+		const finalProduct = [...products,newProduct];
 		fs.writeFileSync(productsFilePath,JSON.stringify(finalProduct, null, ' '));
 		res.redirect('/products');
     },
@@ -82,34 +78,32 @@ const controller = {
 			if(idEdit == product.id){
 				productEdit=product;
 			}
-        });
-		res.render('productEdit', {
-            title:'Editando - Modas Emilse',
+		});
+		res.send('productAdd', {
 			productEdit:productEdit,
 			idEdit:idEdit,
-        });
+		});
     },
 
     update: (req,res) => {
-        let idEdit = req.params.productId;
+        let idEdit=req.params.productId;
 		const newProducts = products.map(product =>{
 			if(product.id == idEdit)
 			{
-                product.idArticle = req.body.idArticle;
-                product.gender = req.body.gender;
-                product.title = req.body.title;
-                product.description = req.body.description;
-                product.type = req.body.type;
-                product.talle = req.body.talle;
-                product.colour = req.body.colour;
-                product.print = req.body.print;
-                product.units = req.body.units;
-                product.price = req.body.price;
-                product.priceDiscount = req.body.priceDiscount;
-                product.fecha = req.body.fecha;
+                idArticle = req.body.idArticle;
+                gender = req.body.gender;
+                cloth = req.body.cloth;
+                type = req.body.type;
+                talle = req.body.talle;
+                colour = req.body.colour;
+                print = req.body.print;
+                unit = req.body.unit;
+                price = req.body.price;
+                priceDiscount = req.body.priceDiscount;
+                fecha = req.body.fecha;
 			}
 			return product;
-        });
+		});
 		fs.writeFileSync(productsFilePath,JSON.stringify(newProducts,null, ' '));
 		res.redirect('/products');
     },
@@ -126,7 +120,6 @@ const controller = {
         });
         
 		fs.writeFileSync(productsFilePath,JSON.stringify(newProducts,null, ' '));
-
 		res.redirect('/');
     },
 
