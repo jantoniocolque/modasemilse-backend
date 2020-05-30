@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head') %>
+<body>
+    <div class="container-store">
+        <%- include('./partials/header') %>
+        <main>
+            <div class="banner-store col-12 p-0">
+                <img src="https://d26lpennugtm8s.cloudfront.net/stores/470/339/themes/new_linkedman/slide-1589425602893-200132749-6ade2d925869fd2efbcb27d5fa12228e1589425608.jpg?1176067641" alt="banner de informacion">
+            </div>
+            <div class="links-products col-12 p-0">
+                <ul class="list-links-products">
+                <li class="d-block p-1"><a href="/">Inicio</a></li>
+                <li class="d-block p-1">></li>
+                <li class="d-block p-1"><a href="/products">Tienda</a></li>
+                </ul>
+            </div>
+            <div class="sidebar col-2 d-none d-lg-block">
+                <ul>
+                    <li><a href="/products/type/camperas">Camperas</a></li>
+                    <li><a href="/products/type/pantalones">Pantalones</a></li>
+                    <li><a href="/products/type/sacos">Sacos</a></li>
+                    <li><a href="/products/type/remeras">Remeras</a></li>
+                </ul>
+            </div>
+            <div class="page-content d-lg-flex">
+                <div class="container-photos col-12 col-lg-12">
+                    <div class="row col-12 p-lg-0">
+                        <h2 class="products-title"><%= titleContent %></h2>
+                    </div>
+                    <div class="row">
+                        <% for (product of products) {%>
+                        <div class="card-store col-6 col-sm-4 col-lg-3">
+                            <section class="product-box">
+                                <a href="#">
+                                    <figure class="product-box_image m-0">
+                                        <img src="/images/products/<%= product.image[0] %>" alt="imagen de producto">
+                                    </figure>
+                                    <article class="product-box_data justify-content-md-between">
+                                        <h4>$<%= product.price %></h4>
+                                        <span><b>$<%= product.priceDiscount %></b><br>Precio por mayor</br></span>
+                                        <p><%= product.title %></p>
+                                    </article>
+                                </a>
+                            </section>
+                        </div>
+                        <%}%>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <%- include('partials/footer')%>
+</body>
+</html>

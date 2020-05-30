@@ -9,15 +9,15 @@
                     <span class="fas fa-align-justify"></span>
                     </button>
                     <div class="input-button-navbar d-lg-block col-lg-8 col-xl-7 px-0">
-                        <form action="" method="GET" class="search-form">
-                            <input type="text" class="form-control" placeholder="Buscar" aria-label="Buscador" name="keywords">
+                        <form action="/search" method="GET" class="search-form">
+                            <input type="text" class="form-control" placeholder="Buscar" name="keywords">
                             <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
                 </div>
                 <!--En esta seccion aparece el logo que cambia su tamaño de acuerdo al tipo de dispositivo, ademas será un link al mismo Home de la pagina web-->
                 <div class="navbar logo col-5 col-lg-4 text-lg-left">
-                    <a class="" href="#header">
+                    <a class="" href="/">
                         <img class="" src="/images/logo-borde-blanco.png" alt="Logo de la empresa">
                     </a>
                 </div>
@@ -43,14 +43,13 @@
                     <div class="row icons-navbar mb-lg-5">
                         <a href="#"><img src="/images/icons/facebook.ico" alt="logo facebook"></a>
                         <a href="#"><img src="/images/icons/instagram.ico" alt="logo de instagram"></a>
-                        <a href="#"><img src="/images/icons/twitter.ico" alt="logo de twitter"></a>    
-                        
+                        <a href="#"><img src="/images/icons/twitter.ico" alt="logo de twitter"></a>
                     </div>
                     <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
                     <div class="row input-navbar d-lg-none">
-                        <form action="" method="GET" class="search-form">
-                        <input type="text" class="form-control-navbar" placeholder="Buscar" name="keywords" aria-label="Buscador">
-                        <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
+                        <form action="/search" method="GET" class="search-form">
+                            <input type="text" class="form-control-navbar" placeholder="Buscar" name="keywords">
+                            <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
                     <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
@@ -62,32 +61,32 @@
                 <div class="modal-body pr-0 mt-2">
                     <div class="row container pr-0 mr-0 links-navbar">
                         <ul>
-                            <a href="#"><li>INICIO</li></a>
+                            <a href="/"><li>INICIO</li></a>
                             <li class="item-list-accordion">
                                 <div class="accordion" id="accordionExample">
-                                <div class="card border-0">
+                                <div class="card border-0 mb-0">
                                     <div class="card-header p-0" id="headingOne">
-                                        <a href="#">TIENDA</a>
+                                        <a href="/products">TIENDA</a>
                                         <button class="arrows-navbar p-0 btn shadow-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i>
                                         </button>
                                     </div>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body py-0"><a href="#">CAMPERAS</a>
+                                        <div class="card-body py-0"><a href="/products/camperas">CAMPERAS</a>
                                         </div>
                                     </div>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <div class="card-body py-0">
-                                            <a href="#">PANTALONES</a>
+                                            <a href="/products/type/pantalones">PANTALONES</a>
                                         </div>
                                     </div>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <div class="card-body py-0">
-                                            <a href="#">SACOS</a>
+                                            <a href="/products/type/sacos">SACOS</a>
                                         </div>
                                     </div>
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <div class="card-body py-0">
-                                            <a href="#">REMERAS</a>
+                                            <a href="/products/type/remeras">REMERAS</a>
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +100,7 @@
                     <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
                         <a class="d-block col-12 col-sm-6 text-center p-0 my-2 my-sm-0" href="#"><i class="fas fa-user"></i>  Iniciar sesión</a>
                         <a class ="d-block col-12 col-sm-6 text-center p-0" href="#">Crear cuenta</a>
-                </div>
+                    </div>
                 </div>
             </div>
         </div>

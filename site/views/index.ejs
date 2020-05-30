@@ -1,18 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title><%=title %></title>
-        <!--Iconos para la pagina-->
-        <script src="https://kit.fontawesome.com/a0c0bb4f74.js" crossorigin="anonymous"></script>
-        <!--Estilos de la pagina Home-->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <link rel="stylesheet" href="/stylesheets/index.css">
-        <!--Fuentes para toda la pagina-->
-        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap" rel="stylesheet">
-    </head>
+    <%-include('partials/head') %>
 <body>
     <div class="container-home">
         <%- include('partials/header') %>
@@ -35,21 +23,21 @@
                                 </div>
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img src="/images/pulover-piel-de-mono.jpeg" class="d-block w-100" alt="...">
+                                        <img src="/images/products/pulover-piel-de-mono-doble.jpeg" class="d-block w-100" alt="...">
                                         <div class="carousel-caption d-none d-md-block">
                                             <h2>Pulover - Temporada Invierno</h2>
                                             <p>¡Ya empezó el frio! tenemos lo adecuado para ti</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/images/saco-peluche-con-botones.jpeg" class="d-block w-100" alt="...">
+                                    <img src="/images/products/saco-peluche-con-botones-doble.jpeg" class="d-block w-100" alt="...">
                                     <div class="carousel-caption d-none d-md-block">
                                     <h2>Saco de Peluche</h2>
                                     <p>Algo elegante y cubierto de peluche blanco en el interior</p>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="/images/saco-polar-con-botones.jpeg" class="d-block w-100" alt="...">
+                                    <img src="/images/products/saco-polar-con-botones-doble.jpeg" class="d-block w-100" alt="...">
                                     <div class="carousel-caption d-none d-md-block">
                                     <h2>Saco de Polar</h2>
                                     <p>Polar antipeeling de alta costura que ademas cuenta con bolsillos de recubrimiento</p>
@@ -74,7 +62,7 @@
                     <div class="row first-row-photo">
                     <article class="col-12 col-lg-6">
                         <div class="product-div2">
-                            <a href="#"><img src="/images/conjunto-cool-invierno.JPG" alt="Conjunto micropanal" class="transition">
+                            <a href="#"><img src="/images/products/conjunto-cool-invierno-home.JPG" alt="Conjunto micropanal" class="transition">
                             <div class="text-view transition">
                                 <h2>live with freedom</h2>
                             </div>
@@ -89,25 +77,25 @@
                             <article class="col-4 col-lg-4">
                                 <div class="product-div1">
                                     <div class="img-div1">
-                                        <a href="#"><img src="/images/campera-modal.jpeg" class="transition"></a>
+                                        <a href="#"><img src="/images/products/campera-modal.jpeg" class="transition"></a>
                                     </div>
                                 </div>
                             </article>
                             <article class="col-4 col-lg-4">
                                 <div class="product-div1">
                                     <div class="img-div1">
-                                        <a href="#"><img src="/images/campera-plush.jpeg" alt="Campera plush" class="transition"></a>
+                                        <a href="#"><img src="/images/products/campera-plush.jpeg" alt="Campera plush" class="transition"></a>
                                     </div>
                                 </div>
                             </article>
                             <article class="col-4 col-lg-4">
                                 <div class="product-div1">
                                     <div class="img-div1">
-                                        <a href=""><img src="/images/pantalon-modal.jpg" alt="Pantalon modal" class="transition"></a>
+                                        <a href=""><img src="/images/products/pantalon-modal.jpg" alt="Pantalon modal" class="transition"></a>
                                     </div>
                                 </div>
                             </article>
-                            <article class="promo-photo mt-3 col-12">
+                            <article class="promo-photo col-12">
                             <img src="https://www.cordobashopping.com.ar/wp-content/uploads/CS-Banner1100x450px-1.jpg" alt="banner para promociones">
                             </article>
                         </div>
@@ -185,20 +173,8 @@
             </section>
         </main>
         
+        
     </div>
-
-    <script src="/javascripts/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="/javascripts/bootstrap.js"></script>
-    <!--Script orientado a JQuery que permite capturar el desplazamiento de la barra en pixeles, por el momento no encuentro la equivalencia en porcentaje para que funcione con el mismo valor en cualquier dispositivo-->
-    <script>
-        $(window).scroll(function() {
-          if ($("#menu").offset().top > 120){
-              $("#menu").addClass("bg-primary shadow");
-          } else {
-              $("#menu").removeClass("bg-primary shadow");
-          }
-        });
-    </script>
+    <%- include('partials/footer') %>
 </body>
 </html>

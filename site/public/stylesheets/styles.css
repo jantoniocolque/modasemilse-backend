@@ -78,6 +78,17 @@ div.form-group {
     margin: 0px 0px 10px 0px;
 }
 
+button#custom-button {
+    border-radius: 50px;
+    border: none;
+    background-color: unset;
+}
+
+button#custom-button:hover {
+    background-color: rgba(121, 82, 179, 0.5) !important;
+    text-decoration: none;
+}
+
 .mt-3 {
     margin-top: 60px !important;
 }
@@ -129,7 +140,7 @@ img.logo {
 }
 
 div.card img {
-    cursor: all-scroll;
+    cursor: pointer;
 }
 
 .photo-menu {
@@ -162,6 +173,21 @@ div.card img {
 #opt-rojo { color: rgb(255, 0, 0); }
 #opt-negro { color: rgb(0, 0, 0); }
 #opt-azul { color: rgb(0, 0, 255); }
+/* Estilos inicio sesión */
+
+.login-form {
+    padding: 30px 30px 30px;
+    width: 50%;
+    border-radius: 21px;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(121, 82, 179, 0.5));
+}
+
+div.login {
+    background-image: url(../images/login-bigwall.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
 /* estilos para el footer */
 .footer {
