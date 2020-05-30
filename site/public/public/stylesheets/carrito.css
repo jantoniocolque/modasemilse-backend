@@ -1,0 +1,394 @@
+.details-secondary-level p{
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 2px;
+}
+
+#price-decoration{
+    margin-bottom: -14px;
+    font-size: 13px;
+    text-decoration:line-through;
+    text-decoration-color: red;
+}
+
+p{
+    font-family: 'Source Sans Pro', sans-serif;;
+}
+
+/*Estilos para celulares */
+@media(min-width:320px){
+
+    .align-price-details{
+        margin-left: 30px;
+    }
+    
+    div .align-size-title p{
+        margin-bottom: 15px;
+    }
+
+    .align-size-title{
+        margin-bottom: 5px;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-left: -6px;
+    }
+
+    .boton-only-mobile{
+        margin-top: 2px;
+        margin-bottom: 2px;
+        height: 20px;
+        width: 50px;
+        font-size: 12px;
+        text-align: left;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: white;
+        color: gray;
+    } 
+
+    div .size-color-icon i{
+        font-size: 10px;
+        color: black;
+    }
+
+    #align-to-shop i {
+        margin-top: 12px;
+        margin: 2px auto;
+    }
+
+    .details-secondary-level p{
+        font-size: 10px;
+        color: gray;
+        margin-bottom: 2px;
+        width: 150px;
+    }
+    
+    .boton-color-buyfast button{
+        height: 20px;
+        width: 80px;
+        font-size: 7px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+    .boton-color-buy button{
+        height: 25px;
+        width: 320px;
+        font-size: 10px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+       
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+    .boton-lightcolor-goBuy button{
+        height: 25px;
+        width: 320px;
+        font-size: 10px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+       
+        background-size: 100% auto;
+        background-color:  #c7c0d1;  ;
+        color: white;
+    }
+
+    .boton-lightcolor-addDiscount button{
+        font-weight: 700;
+        height: 20px;
+        width: 40px;
+        font-size: 7px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: white;
+        color: #7952B3;
+    }
+
+    .boton-lightcolor-discount input{
+        height: 20px;
+        width: 65px;
+        font-size: 7px;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: white ;
+        color: #7952B3;
+    }
+
+    .details-secondary-level p{
+        font-size: 7px;
+        color: gray;
+        margin-bottom: 2px;
+    }
+
+    div .align-left-title p{
+        font-size: 13px;
+        font-weight: bold;
+        align-content: center;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-left: 22px;
+        margin: auto;
+    }
+
+    .box-container-format{
+        margin-top: 25px;
+    }
+
+    p{
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 10px;
+    }
+}
+
+/*Estilos para tablet*/
+@media(min-width:768px) {
+
+    /*Botones Bs*/
+    .form-row>.col, .form-row>[class*=col-] {
+        padding-right: 0px;
+        padding-left: 2px;
+    }
+
+    .mb-1, .my-1 {
+        margin-bottom: .100rem!important;
+    }
+
+    .mt-1, .my-1 {
+        margin-right: -0.5rem!important;
+    }
+    
+    .col-auto {
+        -ms-flex: 0 0 auto;
+        flex: 0 0 auto;
+        width: auto;
+        max-width: 100%;
+    }
+
+    #price-decoration p{
+        margin-bottom: 33px;
+        font-size: 13px;
+        text-decoration: line-through;
+        text-decoration-color: red;
+    }
+
+    .align-price-details{
+        margin-left: 35px;
+    }
+
+    div .size-color-icon i{
+        font-size: 15px;
+        color: black;
+    }
+
+    #align-to-shop i {
+        margin-top: 7px;
+        margin: 11px 3px;
+    }
+
+    div .align-left-title p{
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-left: 15px;
+    }
+
+    div .banner-bank img{
+        width: 91%;
+        height: 110%;
+        margin-top: 20px;
+        margin-left: 35px;
+    }
+
+    .details-secondary-level p{
+        font-size: 10px;
+        color: gray;
+        margin-bottom: 0px;
+    }
+
+    .boton-color-buyfast button{
+        height: 30px;
+        width: 150px;
+        font-size: 15px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+    .boton-color-buy button{
+        margin: 0px auto;
+        height: 30px;
+        width: 320px;
+        font-size: 15px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+    .boton-lightcolor-goBuy button{
+        height: 30px;
+        width: 320px;
+        font-size: 15px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color:  #c7c0d1;  ;
+        color: white;
+    }
+
+    .boton-lightcolor-addDiscount button{
+        font-weight: 600;
+        height: 30px;
+        width: 70px;
+        font-size: 15px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: white;
+        color: #7952B3;
+    }
+
+    .boton-lightcolor-discount input{
+        height: 30px;
+        width: 150px;
+        font-size: 15px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: white ;
+        color: #7952B3;
+    }
+
+    p{
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 15px;
+    }
+}
+
+/*Estilos para notebook*/
+@media(min-width:1024px) {
+
+    div .banner-bank img{
+        width: 91%;
+        height: 110%;
+        margin-top: 20px;
+        margin-left: 35px;
+    }
+
+    div .size-color-icon i{
+        font-size: 15px;
+        color: black;
+    }
+
+    #align-to-shop i {
+        margin-top: 7px;
+        margin: 11px 3px;
+    }
+
+    .details-secondary-level p{
+        font-size: 14px;
+        color: gray;
+        margin-bottom: 0px;
+    }
+
+    .boton-color-buyfast button{
+        height: 30px;
+        width: 180px;
+        font-size: 15px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+    .boton-color-buy button{
+        height: 35px;
+        width: 385px;
+        font-size: 18px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 15px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+    .boton-lightcolor-goBuy button{
+        height: 35px;
+        width: 385px;
+        font-size: 18px;
+    
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 15px;
+        background-size: 100% auto;
+        background-color:  #c7c0d1;  ;
+        color: white;
+    }
+
+    .boton-lightcolor-discount input{
+        font-weight: 500;
+        height: 30px;
+        width: 155px;
+        font-size: 15px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: white ;
+        color: #7952B3;
+    }
+
+    .boton-lightcolor-addDiscount button{
+        font-weight: 500;
+        height: 30px;
+        width: 83px;
+    
+        font-size: 15px;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: white;
+        color: #7952B3;
+    }
+}

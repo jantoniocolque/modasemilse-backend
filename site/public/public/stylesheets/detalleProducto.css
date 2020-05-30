@@ -1,0 +1,259 @@
+.boton-color-add button{
+    height: 30px;
+    width: 315px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color: #7952B3  ;
+    color: white;
+}
+
+#list-none ul li{
+    list-style: none;
+}
+
+div .main-img img{
+    align-self: left;
+}
+
+button .btn-primary p{
+    background-color: #7952B3;
+    border-color: #7952B3;
+    width: 150px;
+    border-radius: 13px;
+}
+
+div .align-right-icon i{
+    margin-right: 10px;
+   /**justify-content: space-between; **/
+}
+
+#price-decoration{
+    margin-bottom: -14px;
+    font-size: 13px;
+    text-decoration:line-through;
+    text-decoration-color: red;
+}
+
+div #circle-cloth{
+   background-repeat: no-repeat;
+   background-position: 50%;
+   border-radius: 50%;
+   background-size: 100% auto;
+
+   margin-right: 10px;
+   margin-bottom: 10px;
+}
+    
+div .size-color-icon i{
+    font-size: 20px;
+    color: black;
+}
+
+div .details-secondary-level p{
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 2px;
+}
+
+div .box-in-middle{
+    padding: 10px;
+    border: 5px;
+    width: 500px;
+    height: 200px;
+}
+
+.box-in-middle div{
+    justify-content: space-between;
+    margin: 2px 2px;
+}
+
+div .situate-left{
+    justify-content: flex-start;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+div .situate-right{
+    justify-content: flex-end;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+div .complete-look{
+    margin-top: 10px;    
+}
+
+div .complete-look div img{
+    margin: 0px 15px;
+}
+
+div #align-center-subtitle p{
+    text-align: center;
+}
+
+div #align-left-subtitle p{
+    text-align: left;
+}
+
+div .design-to-size{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*Estilos para celulares*/
+@media(min-width:320px){
+    section .main-img img { 
+        /*transition: all 1s ease; */
+        width: 50%;
+        height: 280px;
+    }
+
+    section .clothes-main-title p {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    #price-decoration{
+        margin-bottom: -20px;
+        font-size: 10px;
+        text-decoration:line-through;
+        text-decoration-color: red;
+    }
+
+    div #price p{
+        font-size: 15px;
+    }
+
+    div #circle-cloth{
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 50%;
+        background-size: 100% auto;   
+        margin-right: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        width: 40px;
+     }
+
+    div #align-to-size{
+        margin-top: -25px;
+    }
+
+    #align-to-shop i{
+        margin-top: 12px;
+    }
+
+    .boton-color-add button{
+        height: 25px;
+        width: 117px;
+        font-size: 12px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+}
+
+/*Estilos para tablet*/
+@media(min-width:768px) {
+
+    #align-to-shop i{
+        margin-top: 12px;
+    }
+
+    section .main-img img { 
+        /*transition: all 1s ease; */
+        width: 100%;
+        height: 620px;
+      }
+
+      div .situate-left {
+        justify-content: flex-start;
+        padding: 5px;
+        border: 5px;
+        width: 325px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    div .situate-right {
+        justify-content: flex-end;
+        padding: 5px;
+        border: 5px;
+        width: 325px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    .boton-color-add button{
+        height: 30px;
+        width: 148px;
+        font-size: 14px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+}
+
+/*Estilos para notebook*/
+@media(min-width:1024px) {
+    div .box-in-middle{
+        padding: 10px;
+        border: 5px;
+        width: 500px;
+        height: 200px;
+    }
+
+    div .situate-left {
+        justify-content: flex-start;
+        padding: 5px;
+        border: 5px;
+        width: 425px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    div .situate-right {
+        justify-content: flex-end;
+        padding: 5px;
+        border: 5px;
+        width: 425px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    .boton-color-add button{
+        height: 35px;
+        width: 148px;
+        font-size: 16px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+}
+
