@@ -12,7 +12,7 @@
         "colour": "Negro",
         "print": "none",
         "units": 100,
-        "price": 400,
+        "price": 500,
         "priceDiscount": 350,
         "fecha": "06/03/2020"
     },
@@ -128,7 +128,7 @@
             "pict1.jpg"
         ],
         "talle": 6,
-        "colour": "none",
+        "colour": "estampado azul",
         "print": "pict1.jpg",
         "units": 10,
         "price": 1900,

@@ -124,7 +124,14 @@ const controller = {
     },
 
     detail:(req,res) => {
-        res.render('detalleProducto');
+        const idProduct = req.params.productId;
+        const product = products.filter(product => {
+            if(product.id == idProduct){
+                productDetails = product;
+            }
+        });
+        res.render('detalleProducto',  {productDetails:productDetails,}
+        );
     },
 
 }

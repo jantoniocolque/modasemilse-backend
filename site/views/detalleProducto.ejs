@@ -9,47 +9,53 @@
 	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 	    <!-- Own Stylesheet -->
-        <link rel="stylesheet" href="/stylesheets/stylo.css">
+        <link rel="stylesheet" href="/stylesheets/detalleProducto.css">
     </head>
 
     <body>
         <div class="container">
+            <%- include('./partials/header') %>
             <div class="row">
                 <div class="col-2 mt-3 secondary-img d-none d-sm-none d-md-block">
                     <section id="list-none">
+                        <!-- Dejamos como default, al menos 3 imagenes adicionales del producto.
+                            En un futuro se recorrera un array con un for-->
                         <ul>
-                            <li><img src="../public/images/products/pict1.jpg" alt="" height="120" width="80"></li>
-                            <li><img src="../public/images/products/pict2.jpg" alt="" height="120" width="80"></li>
-                            <li><img src="../public/images/products/pict6.jpg" alt="" height="120" width="80"></li>
+                            <li><img src="/images/products/default.png" alt="" height="120" width="80"></li>
+                            <li><img src="/images/products/default.png" alt="" height="120" width="80"></li>
+                            <li><img src="/images/products/default.png" alt="" height="120" width="80"></li>
                         </ul>
                     </section>    
                 </div>
 
                 <section class="col-12 col-sm-12 col-md-5 mt-3">
                     <div class="main-img">
-                        <img src="../public/images/products/pict1.jpg" class="img-responsive" alt="" height="700px" width="350px">
+                        <img src="<%= productDetails.print %>" class="img-responsive" alt="<%= productDetails.type %> <%=productDetails.colour %>" height="700px" width="350px">
                     </div>
                 </section>
 
                 <section class="col-12 col-sm-12 col-md-5 mt-3">
                     <div class ="clothes-main-title">
-                        <p id=""> Vestido estampado azul</p>
+                        <p id=""> <%= productDetails.type %> <%=productDetails.colour %> </p>
                     </div>
 
                     <div class="">
-                        <div id="price-decoration"> <p> $ 1.899, 99</p> </div>                      
-                        <div id="price"><p> $ 999,99</p></div>
+                        <div id="price-decoration"> <p> $ <%= productDetails.price %></p> </div>                      
+                        <div id="price"><p> $ <%= productDetails.priceDiscount %></p></div>
                     </div>
 
+                    <!-- Muestras de los dintos colores de la prenda. Dejamos una imagen como default, porque nuestro arch JSON
+                        no contiene estos datos. Dejamos como default la posibilidad de 3, pero se recorrería un array de 
+                        muestras con un for-->
                     <div class="row">
                         <div>
-                            <img id="circle-cloth" src="../public/images/muestra.jpg" alt="muestra de tela" height="65" width="65">
+                            <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
                         </div>
                         <div>
-                            <img id="circle-cloth" src="../public/images/muestra2.jpg" alt="muestra de tela" height="65" width="65">
+                            <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
                         </div>
                         <div>
-                            <img id="circle-cloth" src="../public/images/muestra3.jpg" alt="muestra de tela" height="65" width="65">
+                            <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
                         </div>
                     </div>               
 
@@ -103,21 +109,21 @@
 
                     <div class="details-secondary-level">
                         <div class=""><p>Descripción:</p></div>
-                        <div class=""><p>Material: algodón</p></div>
-                        <div class=""><p>Código del artículo: AR1105X890</p></div>
+                        <div class=""><p>Material: <%= productDetails.cloth %></p></div>
+                        <div class=""><p>Código del artículo: <%= productDetails.idArticle%></p></div>
                     </div>
 
                     <div class="complete-look" id="price">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
                             <div id="align-left-subtitle"><p>COMPLETA EL LOOK</p></div>
                             <div class="row">
-                                <div class=""><img src="../public/images/products/pict7.jpg" alt="" height="115" width="75"></div>            
-                                <div class=""><a href="https://www.adidas.com.ar/zapatillas-originals-mujer"><img src="../public/images/products/pict8.jpg" alt="" height="115" width="75"></a></div>
+                                <div class=""><img src="/images/products/default.png" alt="" height="115" width="75"></div>            
+                                <div class=""><a href=""><img src="/images/products/default.png" alt="" height="115" width="75"></a></div>
                             </div>
 
                             <div class="row">
                                 <div class="container-items">
-                                    <div id="price"><p>$ 2.499, 99</p></div>
+                                    <div id="price"><p>$ 0.000, 00</p></div>
                                 </div>
                             </div>
                         </div>                   
@@ -126,15 +132,16 @@
             </div>
         </div>
 
+        <!-- Los dejamos como muestra de lo que se vería-->
         <div class="container">
             <div class="row">
                 <div class="situate-left">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box-in-middle d-none d-sm-none d-md-block">
                         <div id="align-center-subtitle"><p>VISTOS RECIENTEMENTE</p></div>                               
                         <div class="row">
-                            <div class=""><img src="../public/images/products/pict10.jpg" alt="" height="115" width="75"></div>
-                            <div class=""><img src="../public/images/products/pict11.jpg" alt="" height="115" width="75"></div>
-                            <div class=""><img src="../public/images/products/pict12.jpg" alt="" height="115" width="75"></div>                               
+                            <div class=""><img src="/images/products/pict10.jpg" alt="" height="115" width="75"></div>
+                            <div class=""><img src="/images/products/pict11.jpg" alt="" height="115" width="75"></div>
+                            <div class=""><img src="/images/products/pict12.jpg" alt="" height="115" width="75"></div>                               
                         </div>
                         <div class="row">
                             <div>
@@ -159,9 +166,9 @@
                     <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box-in-middle d-none d-sm-none d-md-block">
                         <div id="align-center-subtitle"><p>¡HOT SALE!</p></div>
                         <div class="row">
-                            <div class=""><img src="../public/images/products/pict13.jpg" alt="" height="115" width="75"></div>            
-                            <div class=""><img src="../public/images/products/pict14.jpg" alt="" height="115" width="75"></div>
-                            <div class=""><img src="../public/images/products/pict15.jpg" alt="" height="115" width="75"></div>
+                            <div class=""><img src="/images/products/pict13.jpg" alt="" height="115" width="75"></div>            
+                            <div class=""><img src="/images/products/pict14.jpg" alt="" height="115" width="75"></div>
+                            <div class=""><img src="/images/products/pict15.jpg" alt="" height="115" width="75"></div>
                         </div>
                         <div class="row">
                             <div>
