@@ -13,115 +13,163 @@
     </head>
 
     <body>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">    
-                <div class="col-3 box-container-forma">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                     <div class="">
                         <p>Productos en tu carrito <i class="fas fa-lock"></i></p>
                     </div>
 
-                    <section id="seccion1">
+                    <section id="">
                         <img src="../public/images/pict1.jpg" alt="" height="120" width="80">
                     </section>
 
                     <div class="">
-                        <div class="tachado"> <p> $ 1899, 99</p> </div>
-                        
-                        <div class="red"><p> $ 999,99</p></div>
+                        <div id="price-decoration"> <p> $ 1899, 99</p> </div>                      
+                        <div class=""><p> $ 999,99</p></div>
                     </div>
 
-                    <div class="description-product-sale"><p class="clothes-color">Vestido de algodón color azul</p></div>
-                    <div class="description-product-sale"><p class="clothes-color">Código del artículo: AR1105X890</p></div>
+                    <div class="details-secondary-level">
+                        <div class=""><p class="">Vestido de algodón color azul</p></div>
+                        <div class=""><p class="">Código del artículo: AR1105X890</p></div>
+                    </div>
                 </div>
 
-                <div class="col-4 caja" id="bajar-margen">
-                    <div class="">
+                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" id="">
+                    <div class=" d-none d-sm-none d-md-block align-size-title">
                         <p>TALLES</p>
                     </div>
 
-                    <div class="custom-select">
-                        <select class="select-80">
-                            <option value="value1">M</option> 
-                            <option value="value2">L</option>
-                            <option value="value3">XL</option>
-                            <option value="value4">XXL</option>
-                        </select>
+                    <div class="row d-none d-sm-none d-md-block">
+                        <div class="form-row align-items-center" id="align-to-size">
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <option selected>Talle</option>
+                                        <option value="1">M</option>
+                                        <option value="2">L</option>
+                                        <option value="3">XL</option>
+                                        <option value="4">XXL</option>
+                                    </select>
+                            </div>
+                        </div>
 
-                        <select class="select-20">
-                            <option value="value1">1</option> 
-                            <option value="value2">2</option>
-                            <option value="value3">3</option>
-                            <option value="value4">4</option>
-                            <option value="value5">5</option>
-                            <option value="value6">6</option>
-                        </select>
+                        <div class="form-row align-items-center" id="align-to-size">
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <option selected>Cantidad</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                    </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-none d-sm-none d-md-block">
+                        <div class="form-row align-items-center" id="align-to-size">
+                            <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                        <option selected>Color</option>
+                                        <option value="1">Azul</option>
+                                        <option value="2">Rosa</option>
+                                        <option value="3">Verde</option>
+                                    </select>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="custom-select">
-                        <select class="select-100">
-                            <option value="value1">Azul</option> 
-                            <option value="value2">Verde</option>
-                            <option value="value3">Rojo</option>
+                    <div class="col-4 d-block d-sm-block d-md-none align-size-title">
+                        <select class="boton-only-mobile" name="Talle">
+                            <option value="1">M</option> 
+                            <option value="2">L</option>
+                            <option value="3">XL</option>
+                            <option value="3">XXL</option>
                         </select>
+
+                        <select class="boton-only-mobile" name="Cantidad">
+                            <option value="1">1</option> 
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">Más de 6</option>
+                        </select>
+
+                        <select class="boton-only-mobile" name="Color">
+                            <option value="1">Azul</option> 
+                            <option value="2">Rosa</option>
+                            <option value="3">Verde</option>
+                        </select> 
                     </div>
 
-                    <div class="favoritos text-center">
+                    <div class="row size-color-icon" id="align-to-shop">
                         <a target="" href="https://www.facebook.com/Farmacity/" size=30px></a><i class="fas fa-heart"></i></a>
                         <a target="" href="https://www.facebook.com/Farmacity/"><i class="fas fa-share-alt"></i></a>
                         <a target="" href="https://www.facebook.com/Farmacity/"></a><i class="far fa-trash-alt"></i></a>
-                    </div>
 
-                    <div class="boton-100">
-                        <a class=""><button type="button">Compra rápida</button></a> 
+                        <div class="boton-color-buyfast d-none d-sm-none d-md-block">
+                            <a class=""><button type="button">Compra rápida</button></a> 
+                        </div>
                     </div>
                 </div> 
 
-                <section class="col-5 box-container-format">
-                    <p>Subtotal de tu compra</p>
+                <section class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 box-container-format">
+                    <p>Subtotal</p>
                     <div class="row">
-                        <div>
-                            <div class="description-product-sale "><p>Precio unitario:</p></div>
-                            <div class="description-product-sale"><p>Descuento:</p></div>
+                        <div class="">
+                            <div class="d-none d-sm-none d-md-block description-product-sale"><p>Precio unitario:</p></div>
+                            <div class="d-none d-sm-none d-md-block description-product-sale"><p>Descuento:</p></div>
                             <div class="description-product-sale"><p>Precio:</p></div>
                         </div>
 
-                        <div>
-                            <div class="description-product-sale tachado"><p>$1899,99</p></div>
-                            <div class="description-product-sale"><p>-$900</p></div>
-                            <div class="description-product-sale"><p>$999,99</p></div>
+                        <div class="">
+                            <div class="d-none d-sm-none d-md-block description-product-sale align-price-details" id="price-decoration"><p>$1899,99</p></div>
+                            <div class="d-none d-sm-none d-md-block description-product-sale align-price-details"><p>-$900</p></div>
+                            <div class="description-product-sale align-price-details"><p>$999,99</p></div>
                         </div>
                     </div>
 
                     <div class="row descuento">
-                        <form class="boton-80" action="" method="GET" class="search-form">
+                        <form class="boton-lightcolor-discount" action="" method="GET" class="search-form">
 							<input type="text" name="search" placeholder="Cód. de descuento" class="search-form_input">
 						</form>
-                        <a class="boton-20"><button type="button">Agregar</button></a> 
+                        <a class="boton-lightcolor-addDiscount"><button type="button">Agregar</button></a> 
                     </div>
                 </section>
             </div>
         </div>
 
+        
         <div class="row">
-            <div class="col-7">
-                <section id="seccion1">
-                    <img src="http://1.bp.blogspot.com/-1oQFQPKgngg/UFiI0WtCNhI/AAAAAAAAAAs/ImKo8A4bQiI/s1600/promocion-banco-nacion-septiembre.jpg" 
-                    alt="" height="200" width="650">
-                </section>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-none d-sm-none d-md-block">
+                <div class="banner-bank">
+                    <img src="https://institucional.centraloeste.com.ar/wp-content/uploads/2019/08/Promos-bancos-01.jpg" class="img-responsive"
+                    alt="Promoción Visa" height="150" width="550">
+                </div>
             </div>
 
-            <div class="col-5">
-                <div class="row caja-dos">
-                    <div class="description-product-sale espaciado"><p >Total:</p></div>
-                    <div class="description-product-sale espaciado linea"><p>$999,99</p></div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <div class="row align-left-title">
+                    <p >Total:</p>
+                    <p>$999,99</p>
                 </div>
-                <div class="caja-dos cuotas"><p >Ver cuotas</p></div>
 
-                <div class="boton-100 caja-dos">
+                <div class="cuotas">
+                    <div class=""><p>Ver cuotas</p></div>
+                </div>
+
+                <div class="boton-color-buy">
                     <a class=""><button type="button">Finalizar compra</button></a> 
                 </div>
 
-                <div class="boton-100-claro caja-dos">
+                <div class="boton-lightcolor-goBuy">
                     <a class=""><button type="button">Seguir comprando</button></a> 
                 </div>
             </div>
