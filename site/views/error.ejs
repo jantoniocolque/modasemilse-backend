@@ -1,3 +1,20 @@
-<h1><%= message %></h1>
-<h2><%= error.status %></h2>
-<pre><%= error.stack %></pre>
+<!DOCTYPE html>
+<html lang="en">
+    <!--Head de la página-->
+    <%- include('./partials/head') %>
+<body>
+    
+    <div class="container main-error">
+        <div class="main-error-msg">
+            <h1>Upsss! :(</h1>
+            <p>No hemos podido encontrar la página que buscas.</p>
+            <p>Código de error : <strong><%= error.status %> /  <%= message %></strong></p>
+            <p>¿Quieres intentar en otro lugar ?</p>
+            <p style="font-size: x-large;"><a href="/"><i class="fas fa-home"></i></a> | <a href="/users"><i class="far fa-user-circle"></i></i></a></p>
+        </div>
+    </div>
+
+    <!--Footer de la página-->
+    <%- include('./partials/footer') %></body>
+</body>
+</html>
