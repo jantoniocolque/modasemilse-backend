@@ -28,4 +28,7 @@ router.post('/register', upload.any(), usersController.create);
 router.get('/login', usersController.login);
 router.post('/login', usersController.userValidator);
 
+router.get('/account', usersController.account);
+router.get('/account/orders', usersController.orders);
+
 module.exports = router;

@@ -209,6 +209,46 @@ div.main-error-msg {
     border-radius: 21px;
     background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(121, 82, 179, 0.5));
 }
+/* estilos para userPanel */ 
+
+div.modas-userPanel {
+    background-image: url(../images/login-bigwall.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.modas-userPanel-area {
+    max-width: 1024px;
+    margin: auto;
+}
+
+div.modas-userPanel-info {
+    padding: 30px 30px 30px;
+    border-radius: 21px;
+    background-color: rgba(0, 187, 212, 0.7);
+}
+
+div.modas-userPanel-menu {
+    border-right: 2px solid rgb(121, 82, 179);
+}
+
+ul.modas-list {
+    list-style-type: none;
+}
+
+.modas-userPanel-title {
+    font-weight: 400;
+    color: rgb(121, 82, 179);
+}
+
+a.modas-userPanel-link {
+    color: #000000;
+}
+
+a.modas-userPanel-link:hover {
+    color: #7952B3;
+}
 
 /* estilos para el footer */
 .footer {

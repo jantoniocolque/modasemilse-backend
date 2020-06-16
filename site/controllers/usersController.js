@@ -7,14 +7,14 @@ const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
 let usersController = {
-    'register' : function(req, res) {
+    register : function(req, res) {
         res.render('register', { title: 'Modas Emilse | Registro' });
     },
     login : function(req, res){
         res.render('login', { title: 'Modas Emilse | Login' })
     },
     userValidator : function(req, res){
-        res.redirect('/');
+        res.redirect('/users/account');
     },
     create : function (req, res){
         let nuevaId = users.length + 1;
@@ -34,7 +34,14 @@ let usersController = {
         fs.writeFileSync(usersFilePath, JSON.stringify(nuevosUsuarios, null, ' '));
         
         res.send('Información guardada.');
+    },
+    account : function(req, res){
+        res.render('userPanel', { title: 'Modas Emilse | Mi cuenta' });
+    },
+    orders : function(req, res){
+        res.render('userOrders', { title: 'Modas Emilse | Mis pedidos' });
     }
+    
 }
 
 module.exports = usersController;
