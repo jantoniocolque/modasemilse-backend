@@ -40,6 +40,9 @@ let usersController = {
     },
     orders : function(req, res){
         res.render('userOrders', { title: 'Modas Emilse | Mis pedidos' });
+    },
+    favorites:function(req, res){
+        res.render('userFavorites', { title: 'Modas Emilse | Favoritos' });
     }
     
 }

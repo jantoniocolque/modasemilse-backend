@@ -30,5 +30,6 @@ router.post('/login', usersController.userValidator);
 
 router.get('/account', usersController.account);
 router.get('/account/orders', usersController.orders);
+router.get('/account/favorites', usersController.favorites);
 
 module.exports = router;
