@@ -779,6 +779,25 @@ div .design-to-size{
 
 /*Estilos para notebook*/
 @media(min-width:1024px) {
+
+    .btn-primary-violet p{
+        font-size: 13px;
+        color: white;
+        width: 120px;
+        height: 25px;
+        background-color: black;
+        border-color: white;
+        border-radius: 15px;
+    }
+
+    .btn-link {
+        width: 120px;
+        height: 25px;
+        color: black;
+        text-decoration: none;
+        border-radius: 15px;
+    }
+
     .form-details{
         padding: 0px 50px 0px;
     }
