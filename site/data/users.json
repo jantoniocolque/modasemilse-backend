@@ -19,5 +19,16 @@
   "password": "$2b$10$f/Yiis5U9v.HI/dDkFOcqOHB4l40b2krQRgHtTFQ0LXj2lIcZbPPK",
   "nacimiento": "1997-06-10",
   "sexo": "hombre"
+ },
+ {
+  "id": 3,
+  "avatar": "avatar-1592430240525.jpg",
+  "nombre": "Jhonatan",
+  "apellido": "Antonio",
+  "email": "ajhonatan27@gmail.com",
+  "password": "$2b$10$EkDMh0yZjGH.fOknGxu0.Or0btwD6MxfqDwGl9vQ9Xu5eQ8CtiiWe",
+  "nacimiento": "1994-10-27",
+  "sexo": "hombre",
+  "newsletter": "on"
  }
 ]

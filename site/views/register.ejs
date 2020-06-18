@@ -9,6 +9,19 @@
         <div class="mt-3 register-area">
             <div class="container register-form">
                 <div class="container">
+                    <%if(typeof errors!='undefined'){%>
+                        <center>
+                        <p>
+                            <ul style="color:red; font-size:1.2rem; list-style: none;">
+                                <%for(let i=0;i<errors.length;i++){%>
+                                <li>
+                                    <%= errors[i].msg %>
+                                </li>
+                                <%}%>
+                            </ul>
+                        </p>
+                        </center>
+                    <%}%>
                     <form action="/users/register" class="row container" method="POST" enctype="multipart/form-data">
                         <div class="col-md-3"> 
                             <input required type="file" id="avatar" name="avatar" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
