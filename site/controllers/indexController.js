@@ -18,7 +18,7 @@ function removeDuplicates(originalArray, nameProperty) {
 
 const controller = {
     root:(req,res)=>{
-        res.render('index', { title: 'Modas Emilse | Inicio' });
+        res.render('index', { title: 'Modas Emilse | Inicio',session:req.session.userLoginSession});
     },
     
     search:(req,res)=>{
@@ -38,6 +38,7 @@ const controller = {
             title:'Tienda - Emilse',
             titleContent: 'Resultados de busqueda',
             products:removeDuplicates(findKeywords,'idArticle'),
+            session:req.session.userLoginSession
         });
     }
 }

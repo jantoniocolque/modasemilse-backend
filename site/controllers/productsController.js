@@ -29,9 +29,7 @@ const controller = {
             title: 'Tienda - Emilse',
             titleContent:'Todos los productos',
             products:productsWithoutRepeat,
-        }); 
-        res.render('tienda',{
-            products:products,
+            session:req.session.userLoginSession
         });
     },
     
@@ -41,13 +39,15 @@ const controller = {
             title: 'Tienda - Emilse',
             titleContent: req.params.type[0].toUpperCase()+req.params.type.slice(1),
             products:removeDuplicates(productsFilter,'idArticle'),
+            session:req.session.userLoginSession
         });
     },
 
 
     create:(req,res) => {
         res.render('productAdd',{
-            title:'Carga de Producto'
+            title:'Carga de Producto',
+            session:req.session.userLoginSession
         });
     },
 
@@ -92,7 +92,8 @@ const controller = {
 		res.render('productEdit', {
             title:'Editando - Modas Emilse',
 			productEdit:productEdit,
-			idEdit:idEdit,
+            idEdit:idEdit,
+            session:req.session.userLoginSession
         });
     },
 
@@ -143,7 +144,7 @@ const controller = {
                 productDetails = product;
             }
         });
-        res.render('detalleProducto',  {productDetails:productDetails,}
+        res.render('detalleProducto',  {productDetails:productDetails,session:req.session.userLoginSession}
         );
     },
 

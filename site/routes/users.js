@@ -34,7 +34,6 @@ router.post('/register',upload.any(),[
   body('email').custom(function(value){
     const usersFilePath = path.join(__dirname, '../data/users.json');
     const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-    console.log(value);
     for(let i=0;i<users.length;i++){
       if(users[i].email==value){
         return false;
@@ -48,6 +47,8 @@ router.post('/login',[
   check('email').isEmail().withMessage('Formato de email incorrecto'),
   check('password').isLength({min:5}).withMessage('La contraseña debe tener al menos 5 caracteres')
 ],usersController.userValidator);
+
+router.get('/logout',usersController.logout);
 
 router.get('/account',authUserLogin, usersController.account);
 router.get('/account/orders',authUserLogin, usersController.orders);
