@@ -31,7 +31,7 @@ atencion finalizando el eje principal de la consigna.
 
 **STOP DOING** - Algo que decidimos parar de hacer y cambiar a partir del proximo sprint es el trabajo en diferentes ramas individuales pues nos dimos cuenta que esto no explota en su totalidad la herramienta de control de versiones Git.
 
-### Sprint 2 - HTML + CSS
+### Sprint 3 - Middleware
 
 **START DOING** - Empezamos a trabajar con arquitectura de la aplicacion respentando las buenas practicas MVC, con Express en cada una de las ramas.
 
