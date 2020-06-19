@@ -24,7 +24,7 @@ body {
 }
 
 body > .container {
-    padding: 60px 15px 120px;   
+    padding: 60px 15px 120px;
 }
 
 /* ASPECTOS DE LOS BOTONES/LINKS ¿? */
@@ -44,6 +44,7 @@ a:hover {
 }
 
 div.register {
+    margin-top: 50px;
     background-image: url(../images/register-bigwall.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -110,6 +111,7 @@ div.form-group button {
 div.admin {
     background-color:  rgba(238, 238, 238, 0.75);
     border-radius: 20px;
+    margin-top: 50px;
 }
 
 .adm-title {
@@ -187,6 +189,65 @@ div.login {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+/* estilos error 404 */
+
+div.main-error {
+    height: 80vh;
+    background-image: url(../images/404.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.main-error-msg {
+    color: firebrick;
+    margin: 50px 0px 50px 0px;
+    padding: 30px 30px 30px;
+    width: 50%;
+    border-radius: 21px;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(121, 82, 179, 0.5));
+}
+/* estilos para userPanel */ 
+
+div.modas-userPanel {
+    background-image: url(../images/login-bigwall.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.modas-userPanel-area {
+    max-width: 1024px;
+    margin: auto;
+}
+
+div.modas-userPanel-info {
+    padding: 30px 30px 30px;
+    border-radius: 21px;
+    background-color: rgba(0, 187, 212, 0.7);
+}
+
+div.modas-userPanel-menu {
+    border-right: 2px solid rgb(121, 82, 179);
+}
+
+ul.modas-list {
+    list-style-type: none;
+}
+
+.modas-userPanel-title {
+    font-weight: 400;
+    color: rgb(121, 82, 179);
+}
+
+a.modas-userPanel-link {
+    color: #000000;
+}
+
+a.modas-userPanel-link:hover {
+    color: #7952B3;
 }
 
 /* estilos para el footer */
@@ -476,5 +537,307 @@ div.quick {
         width: 95%;
         border: 1px solid #000000;
         border-radius: 21px;
+    }
+}
+
+/* Estilos de Amalia */
+
+body {
+    margin-bottom: 60px;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: rgb(238, 238, 238);
+}
+
+body > .container-details{
+    padding: 0px 15px 89px;
+}
+
+.form-details{
+    padding: 60px 120px 89px;
+}
+
+.boton-color-add button{
+    height: 30px;
+    width: 315px;
+    font-size: 15px;
+
+    background-repeat: no-repeat;
+    background-position: 50%;
+    border-radius: 13px;
+    background-size: 100% auto;
+    background-color: #7952B3  ;
+    color: white;
+}
+
+div .main-img img{
+    align-self: left;
+}
+
+button .btn-primary p{
+    background-color: #7952B3;
+    border-color: #7952B3;
+    width: 150px;
+    border-radius: 13px;
+}
+
+div .align-right-icon i{
+    margin-right: 10px;
+   /**justify-content: space-between; **/
+}
+
+#price-decoration{
+    margin-bottom: -14px;
+    font-size: 13px;
+    text-decoration:line-through;
+    text-decoration-color: red;
+}
+
+div #circle-cloth{
+   background-repeat: no-repeat;
+   background-position: 50%;
+   border-radius: 50%;
+   background-size: 100% auto;
+
+   margin-right: 10px;
+   margin-bottom: 10px;
+}
+    
+div .size-color-icon i{
+    font-size: 20px;
+    color: black;
+}
+
+div .details-secondary-level p{
+    font-size: 10px;
+    color: gray;
+    margin-bottom: 2px;
+}
+
+div .box-in-middle{
+    padding: 10px;
+    border: 5px;
+    width: 500px;
+    height: 200px;
+}
+
+.box-in-middle div{
+    justify-content: space-between;
+    margin: 2px 2px;
+}
+
+div .situate-left{
+    justify-content: flex-start;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+div .situate-right{
+    justify-content: flex-end;
+    padding: 20px;
+    border: 5px;
+    width: 500px;
+    height: 250px;
+    margin: 0px 35px;
+}
+
+div .complete-look{
+    margin-top: 10px;    
+}
+
+div .complete-look div img{
+    margin: 0px 15px;
+}
+
+div #align-center-subtitle p{
+    text-align: center;
+}
+
+div #align-left-subtitle p{
+    text-align: left;
+}
+
+div .design-to-size{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/*Estilos para celulares*/
+@media(min-width:320px){
+    .form-details{
+        padding: 0px 40px 0px;
+    }
+
+    section .main-img img { 
+        /*transition: all 1s ease; */
+        width: 90%;
+        height: 220px;
+    }
+
+    section .clothes-main-title p {
+        font-size: 15px;
+        margin-bottom: 5px;
+    }
+
+    #price-decoration{
+        margin-bottom: -20px;
+        font-size: 10px;
+        text-decoration:line-through;
+        text-decoration-color: red;
+    }
+
+    div #price p{
+        font-size: 15px;
+    }
+
+    div #circle-cloth{
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 50%;
+        background-size: 100% auto;   
+        margin-right: 10px;
+        margin-bottom: 10px;
+        height: 40px;
+        width: 40px;
+     }
+
+    div #align-to-size{
+        margin-top: -25px;
+    }
+
+    #align-to-shop i{
+        margin-top: 12px;
+    }
+
+    .boton-color-add button{
+        height: 25px;
+        width: 117px;
+        font-size: 12px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+
+}
+
+/*Estilos para tablet*/
+@media(min-width:768px) {
+
+    .form-details{
+        padding: 0px 30px 0px;
+    }
+
+    #align-to-shop i{
+        margin-top: 12px;
+    }
+
+    section .main-img img { 
+        /*transition: all 1s ease; */
+        width: 100%;
+        height: 620px;
+      }
+
+      div .situate-left {
+        justify-content: flex-start;
+        padding: 5px;
+        border: 5px;
+        width: 325px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    div .situate-right {
+        justify-content: flex-end;
+        padding: 5px;
+        border: 5px;
+        width: 325px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    .boton-color-add button{
+        height: 30px;
+        width: 148px;
+        font-size: 14px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
+    }
+}
+
+/*Estilos para notebook*/
+@media(min-width:1024px) {
+
+    .btn-primary-violet p{
+        font-size: 13px;
+        color: white;
+        width: 120px;
+        height: 25px;
+        background-color: black;
+        border-color: white;
+        border-radius: 15px;
+    }
+
+    .btn-link {
+        width: 120px;
+        height: 25px;
+        color: black;
+        text-decoration: none;
+        border-radius: 15px;
+    }
+
+    .form-details{
+        padding: 0px 50px 0px;
+    }
+
+    div .box-in-middle{
+        padding: 10px;
+        border: 5px;
+        width: 500px;
+        height: 200px;
+    }
+
+    div .situate-left {
+        justify-content: flex-start;
+        padding: 5px;
+        border: 5px;
+        width: 425px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    div .situate-right {
+        justify-content: flex-end;
+        padding: 5px;
+        border: 5px;
+        width: 425px;
+        height: 200px;
+        margin: 0px 10px;
+    }
+
+    .boton-color-add button{
+        height: 35px;
+        width: 148px;
+        font-size: 16px;
+        text-align: center;
+
+        background-repeat: no-repeat;
+        background-position: 50%;
+        border-radius: 13px;
+        background-size: 100% auto;
+        background-color: #7952B3  ;
+        color: white;
     }
 }

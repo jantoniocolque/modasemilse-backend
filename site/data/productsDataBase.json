@@ -15,7 +15,7 @@
   "units": 100,
   "price": 400,
   "priceDiscount": 350,
-  "fecha": "06/03/2020"
+  "date": "06/03/2020"
  },
  {
   "id": 2,
@@ -31,7 +31,7 @@
   "print": "none",
   "price": "1400",
   "priceDiscount": "1200",
-  "fecha": "12/05/2020"
+  "date": "12/05/2020"
  },
  {
   "id": 3,
@@ -49,7 +49,7 @@
   "units": 30,
   "price": 650,
   "priceDiscount": 600,
-  "fecha": "07/06/2019"
+  "date": "07/06/2019"
  },
  {
   "id": 4,
@@ -67,7 +67,7 @@
   "units": 10,
   "price": 900,
   "priceDiscount": 850,
-  "fecha": "11/04/2020"
+  "date": "11/04/2020"
  },
  {
   "id": 5,
@@ -85,7 +85,7 @@
   "units": 15,
   "price": 1500,
   "priceDiscount": 1200,
-  "fecha": "30/05/2019"
+  "date": "30/05/2019"
  },
  {
   "id": 6,
@@ -103,7 +103,7 @@
   "units": 25,
   "price": 450,
   "priceDiscount": 400,
-  "fecha": "12/01/2020"
+  "date": "12/01/2020"
  },
  {
   "id": 7,
@@ -121,7 +121,7 @@
   "units": 20,
   "price": 1500,
   "priceDiscount": 1300,
-  "fecha": "01/04/2020"
+  "date": "01/04/2020"
  },
  {
   "id": 8,
@@ -139,7 +139,7 @@
   "units": 10,
   "price": 1900,
   "priceDiscount": 1000,
-  "fecha": "15/03/2020"
+  "date": "15/03/2020"
  },
  {
   "id": 9,
@@ -157,7 +157,7 @@
   "units": 30,
   "price": 400,
   "priceDiscount": 350,
-  "fecha": "13/09/2019"
+  "date": "13/09/2019"
  },
  {
   "id": 10,
@@ -175,6 +175,6 @@
   "unit": "20",
   "price": "400",
   "priceDiscount": "360",
-  "fecha": "2020-05-29"
+  "date": "2020-05-29"
  }
 ]

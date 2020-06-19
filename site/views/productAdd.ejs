@@ -14,8 +14,8 @@
             <form action="/products/create" class="row admin-addproduct" enctype="multipart/form-data" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto-1" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button-1" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -23,8 +23,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto-2" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button-2" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -32,8 +32,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto-3" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button-3" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -102,7 +102,7 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="fecha">Fecha</label>
-                        <input type="text" class="col form-control" placeholder="Seleccione una fecha" name="fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
+                        <input required type="text" class="col form-control" placeholder="Seleccione una fecha" name="date" onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
 
                 </div>
@@ -130,11 +130,29 @@
     <!--Footer de la página-->
     <script>
         // Script para boton de carga de imagenes
-        const realFileBtn = document.getElementById("imagen-producto");
-        const customBtn = document.getElementById("custom-button");
+        const realFileBtn1 = document.getElementById("imagen-producto-1");
+        const customBtn1 = document.getElementById("custom-button-1");
 
-        customBtn.addEventListener("click", function() {
-        realFileBtn.click();
+        customBtn1.addEventListener("click", function() {
+        realFileBtn1.click();
+        });
+    </script>
+    <script>
+        // Script para boton de carga de imagenes
+        const realFileBtn2 = document.getElementById("imagen-producto-2");
+        const customBtn2 = document.getElementById("custom-button-2");
+
+        customBtn2.addEventListener("click", function() {
+        realFileBtn2.click();
+        });
+    </script>
+    <script>
+        // Script para boton de carga de imagenes
+        const realFileBtn3 = document.getElementById("imagen-producto-3");
+        const customBtn3 = document.getElementById("custom-button-3");
+
+        customBtn3.addEventListener("click", function() {
+        realFileBtn3.click();
         });
     </script>
     <%- include('./partials/footer') %>

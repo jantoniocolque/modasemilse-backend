@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
     <!--Head de la página-->
-    <%- include('./partials/head') %>
+    <%- include('partials/head') %>
 <body>
-    <%- include('partials/header') %>
+    <%- include('partials/header')%>
     <div class="container login">
         <p class="intro" ></p>
         
@@ -14,7 +14,30 @@
                         <center><h1>Bienvenido!</h1></center>
                         <p class="intro" >Ingresá a tu cuenta para disfrutar de más beneficios</p>
                     </div>
-
+                    <%if(typeof error!='undefined'){%>
+                        <center>
+                        <p>
+                            <ul style="color:red; font-size:1.4rem; list-style: none;">
+                                <li>
+                                    <%= error %>
+                                </li>
+                            </ul>
+                        </p>
+                        </center>
+                    <%}%>
+                    <%if(typeof errors!='undefined'){%>
+                        <center>
+                        <p>
+                            <ul style="color:red; font-size:1.2rem; list-style: none;">
+                                <%for(let i=0;i<errors.length;i++){%>
+                                <li>
+                                    <%= errors[i].msg %>
+                                </li>
+                                <%}%>
+                            </ul>
+                        </p>
+                        </center>
+                    <%}%>
                     <form action="/users/login" class="row container" method="POST">
 
                         <div class="col-md-12">
@@ -41,5 +64,5 @@
     </div>
 
     <!--Footer de la página-->
-    <%- include('./partials/footer') %></body>
+    <%- include('partials/footer') %></body>
 </html>

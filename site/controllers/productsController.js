@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+const {check,validationResult,body}=require('express-validator');
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
 
@@ -29,9 +29,7 @@ const controller = {
             title: 'Tienda - Emilse',
             titleContent:'Todos los productos',
             products:productsWithoutRepeat,
-        }); 
-        res.render('tienda',{
-            products:products,
+            session:req.session.userLoginSession
         });
     },
     
@@ -41,26 +39,33 @@ const controller = {
             title: 'Tienda - Emilse',
             titleContent: req.params.type[0].toUpperCase()+req.params.type.slice(1),
             products:removeDuplicates(productsFilter,'idArticle'),
+            session:req.session.userLoginSession
         });
     },
 
 
     create:(req,res) => {
         res.render('productAdd',{
-            title:'Carga de Producto'
+            title:'Carga de Producto',
+            session:req.session.userLoginSession
         });
     },
 
     store:(req,res,next) => {
         const newId = products[products.length-1].id + 1;
-		const newProduct = {
-			id:newId,
-			idArticle: req.body.idArticle,
+        
+        const newProduct = {
+            id:newId,
+            idArticle: req.body.idArticle,
             gender: req.body.gender,
             title:req.body.title,
             description:req.body.description,
-			type:req.body.type,
-			image:[req.files[0].filename],
+            type:req.body.type,
+            image:[
+                req.files[0].filename,
+                req.files[1].filename,
+                req.files[2].filename,
+            ],
             talle:req.body.talle,
             colour: req.body.colour,
             print: req.body.print,
@@ -68,11 +73,12 @@ const controller = {
             price: req.body.price,
             priceDiscount: req.body.priceDiscount,
             fecha: req.body.fecha
-		};
+        };
 
         const finalProduct = [...products,newProduct];
-		fs.writeFileSync(productsFilePath,JSON.stringify(finalProduct, null, ' '));
-		res.redirect('/products');
+        fs.writeFileSync(productsFilePath,JSON.stringify(finalProduct, null, ' '));
+        return res.redirect('/products');
+        
     },
 
     edit:(req,res) => {
@@ -86,7 +92,8 @@ const controller = {
 		res.render('productEdit', {
             title:'Editando - Modas Emilse',
 			productEdit:productEdit,
-			idEdit:idEdit,
+            idEdit:idEdit,
+            session:req.session.userLoginSession
         });
     },
 
@@ -106,7 +113,7 @@ const controller = {
                 product.units = req.body.units;
                 product.price = req.body.price;
                 product.priceDiscount = req.body.priceDiscount;
-                product.fecha = req.body.fecha;
+                product.date = req.body.date;
 			}
 			return product;
         });
@@ -137,7 +144,7 @@ const controller = {
                 productDetails = product;
             }
         });
-        res.render('detalleProducto',  {productDetails:productDetails,}
+        res.render('detalleProducto',  {productDetails:productDetails,session:req.session.userLoginSession}
         );
     },
 

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--Head de la página-->
+    <%- include('./partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <div class="container modas-userPanel">
+        <p class="intro" ></p>
+        
+        <div class="mt-3 modas-userPanel-area">
+            <div class="container modas-userPanel-info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3 modas-userPanel-menu">
+                            <p><strong><a href="/users/account" class="modas-userPanel-link">MI CUENTA</a></strong></p>
+                            <ul class="modas-list">
+                                <li><a href="/users/account/orders" class="modas-userPanel-link">Mis pedidos</a></li>
+                                <li><a href="#" class="modas-userPanel-link">Favoritos</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col">
+                            <div>
+                                <h1 class="modas-userPanel-title"><i class="fas fa-chevron-right"></i> Mis pedidos</h1>
+                                <p class="intro" ></p>
+                                <hr>
+                            </div>
+
+                            <div>
+                                  <table class="table">
+                                    <thead class="thead-light">
+                                      <tr>
+                                        <th scope="col">Pedido #</th>
+                                        <th scope="col">Fecha</th>
+                                        <th scope="col">Recibe</th>
+                                        <th scope="col">Valor</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Más</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <th scope="row"> <%= "5485225" //ejemplo # pedido %> </th>
+                                        <td><%= "12/05/2020" //ejemplo Fecha %></td>
+                                        <td><%= nombre %> <%= apellido%></td>
+                                        <td><%= "$6.580,00" //ejemplo  Total pedido %></td>
+                                        <td><i><%= "Enviado" //ejemplo Estado pedido %></i></td>
+                                        <td><a href="#" class="modas-userPanel-link">Ver factura</a></td>
+                                      </tr>
+                                      <tr>
+                                        <th scope="row"> <%= "n/a" //ejemplo # pedido %> </th>
+                                        <td><%= "12/05/2020" //ejemplo Fecha %></td>
+                                        <td><%= nombre %> <%= apellido %></td>
+                                        <td><%= "$6.580,00" //ejemplo  Total pedido %></td>
+                                        <td><i><%= "-Cancelado" //ejemplo Estado pedido %></i></td>
+                                        <td><a href="#" class="modas-userPanel-link"></a></td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                  <hr>
+                            </div>
+
+                            <div>
+                                <p class="modas-userPanel-title">ACCESOS RÁPIDOS</p>
+
+                                <ul class="modas-list">
+                                    <li><a href="#" class="modas-userPanel-link">&raquo; Descargar todas las facturas</a></li>
+                                    <li><a href="#" class="modas-userPanel-link">&raquo; Tengo problemas con un pedido</a></li>
+                                </ul>                           
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer de la página-->
+    <%- include('./partials/footer') %></body>
+</html>
