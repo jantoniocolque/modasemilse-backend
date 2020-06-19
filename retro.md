@@ -30,3 +30,15 @@ atencion finalizando el eje principal de la consigna.
 **LESS OFF** - En esta situacion entendimos que hay muchas formas de complicarnos al momento de plasmar nuestras ideas al codigo, hay distintas funcionalidades que vimos sobresalientes pero aún no contamos con el conocimiento suficiente para realizarlos, por esto dejamos de buscar agregar mas funcionalidades al proyecto.
 
 **STOP DOING** - Algo que decidimos parar de hacer y cambiar a partir del proximo sprint es el trabajo en diferentes ramas individuales pues nos dimos cuenta que esto no explota en su totalidad la herramienta de control de versiones Git.
+
+### Sprint 2 - HTML + CSS
+
+**START DOING** - Empezamos a trabajar con arquitectura de la aplicacion respentando las buenas practicas MVC, con Express en cada una de las ramas.
+
+**MORE OF** - Mejoramos las diferentes vistas que ya cumplian el criterio de aceptacion.
+
+**KEEP DOING** - Por otra parte decidimos seguir trabajando en ramas distintas para una mayor organizacion, como tambien daily weekly.
+
+**LESS OFF** - Dejamos de lado el maquetado para enfocado en la logica del proyecto.
+
+**STOP DOING** - Dejamos de abstraer los codigos individuales para compartirlos y editarlos o tenerlos a disposicion de cada integrante del grupo de trabajo.
