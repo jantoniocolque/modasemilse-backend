@@ -1,8 +1,14 @@
 const fs = require('fs');
 const path = require('path');
 const {check,validationResult,body}=require('express-validator');
+
+/* Dejamos de utilizar el arch JSON
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
+const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8')); */
+
+/* Se requieren los modelos de la base de datos */
+let db = require('../database/models');
+let sequelize = db.sequelize;
 
 function removeDuplicates(originalArray, nameProperty) {
     var newArray = [];
@@ -137,14 +143,11 @@ const controller = {
 		res.redirect('/');
     },
 
-    detail:(req,res) => {
-        const idProduct = req.params.productId;
-        const product = products.filter(product => {
-            if(product.id == idProduct){
-                productDetails = product;
-            }
-        });
-        res.render('detalleProducto',  {productDetails:productDetails,session:req.session.userLoginSession}
+    detail: async(req, res) => {
+        const product = await db.Product.findByPk(req.params.id);
+        console.log(product);
+
+        res.render('detalleProducto',  {product : product, session:req.session.userLoginSession}
         );
     },
 
