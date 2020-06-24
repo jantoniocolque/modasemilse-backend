@@ -8,7 +8,7 @@ const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8')); */
 
 /* Se requieren los modelos de la base de datos */
 let db = require('../database/models');
-let sequelize = db.sequelize;
+// let sequelize = db.sequelize;
 
 function removeDuplicates(originalArray, nameProperty) {
     var newArray = [];
@@ -143,12 +143,27 @@ const controller = {
 		res.redirect('/');
     },
 
-    detail: async(req, res) => {
-        const product = await db.Product.findByPk(req.params.id);
-        console.log(product);
+    detail : function(req, res) {
+        // el await yo no entender :C
+        // const product = await db.Product.findByPk(req.params.id);
+        // console.log(product);
 
-        res.render('detalleProducto',  {product : product, session:req.session.userLoginSession}
-        );
+        /*
+        db.Products.findByPk(req.params.id)
+            .then(function(product){
+                console.log(product)
+                //res.render('detallePelicula', {pelicula : pelicula})
+            })
+
+        */
+
+       db.Products.findAll()
+       .then(function(product){
+           console.log(product)
+           //res.render('detallePelicula', {pelicula : pelicula})
+       })
+
+        //('detalleProducto',  {product : product, session:req.session.userLoginSession});
     },
 
 }
