@@ -1,5 +1,3 @@
-const { sequelize } = require(".");
-
 module.exports = (sequelize, dataTypes) => {
   let alias = 'Products';
   
@@ -48,12 +46,10 @@ module.exports = (sequelize, dataTypes) => {
   };
   
   let config = {
-    tableName: 'productos',
     timestamps: false
   }
   
   const Product = sequelize.define(alias, cols, config);
-  
   
   return Product;
 }
