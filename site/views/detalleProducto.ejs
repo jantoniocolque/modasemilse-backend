@@ -33,18 +33,18 @@
 
                     <section class="col-12 col-sm-12 col-md-5 mt-3">
                         <div class="main-img">
-                            <img src="<%= productDetails.print %>" class="img-responsive" alt="<%= productDetails.type %> <%=productDetails.colour %>" height="700px" width="350px">
+                            <img src="" class="img-responsive" alt="<%= product.type_cloth %> <%=product.colour %>" height="700px" width="350px">
                         </div>
                     </section>
 
                     <section class="col-12 col-sm-12 col-md-5 mt-3">
                         <div class ="clothes-main-title">
-                            <p id=""> <%= productDetails.type %> <%=productDetails.colour %> </p>
+                            <p id=""> <%= product.type_cloth %> <%=product.colour %> </p>
                         </div>
 
                         <div class="">
-                            <div id="price-decoration"> <p> $ <%= productDetails.price %></p> </div>                      
-                            <div id="price"><p> $ <%= productDetails.priceDiscount %></p></div>
+                            <div id="price-decoration"> <p> $ <%= product.price %></p> </div>                      
+                            <div id="price"><p> $ <%= product.price_discount %></p></div>
                         </div>
 
                         <!-- Muestras de los dintos colores de la prenda. Dejamos una imagen como default, porque nuestro arch JSON
@@ -112,8 +112,8 @@
 
                         <div class="details-secondary-level">
                             <div class=""><p>Descripción:</p></div>
-                            <div class=""><p>Material: <%= productDetails.cloth %></p></div>
-                            <div class=""><p>Código del artículo: <%= productDetails.idArticle%></p></div>
+                            <div class=""><p>Material: <%= product.type_cloth %></p></div>
+                            <div class=""><p>Código del artículo: <%= product.code_article%></p></div>
                         </div>
 
                         <div class="complete-look" id="price">
