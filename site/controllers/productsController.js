@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const {check,validationResult,body}=require('express-validator');
 
-/* Dejamos de utilizar el arch JSON
+
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8')); */
+const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
 
 /* Se requieren los modelos de la base de datos */
 let db = require('../database/models');
@@ -147,21 +147,18 @@ const controller = {
         // el await yo no entender :C
         // const product = await db.Product.findByPk(req.params.id);
         // console.log(product);
-
-        /*
-        db.Products.findByPk(req.params.id)
+        db.Products.findByPk(req.params.productId)
             .then(function(product){
                 console.log(product)
                 //res.render('detallePelicula', {pelicula : pelicula})
             })
-
-        */
-
+        /*
        db.Products.findAll()
        .then(function(product){
            console.log(product)
+           
            //res.render('detallePelicula', {pelicula : pelicula})
-       })
+       })*/
 
         //('detalleProducto',  {product : product, session:req.session.userLoginSession});
     },
