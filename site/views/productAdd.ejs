@@ -14,7 +14,7 @@
             <form action="/products/create" class="row admin-addproduct" enctype="multipart/form-data" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
-                        <input required type="file" id="imagen-producto-1" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <input required type="file" id="imagen-producto-1" name="image" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
                         <img id="custom-button-1" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
@@ -45,13 +45,13 @@
                     <div class="form-header">
                         <div class="row form-group new-product-code"> 
                             <label class="col-2" for="codigo">Código |</label>
-                            <input required type="text" class="col-2 form-control" id="codigo" name="idArticle">
+                            <input required type="text" class="col-2 form-control" id="codigo" name="code_article">
                         </div>
 
                         <div class="sex-select">
-                            <input type="checkbox" name="gender" id="mujer">Mujer
-                            <input type="checkbox" name="hombre" id="hombre">Hombre
-                            <input type="checkbox" name="mujer" id="mujer">Unisex
+                            <input type="checkbox" name="Femenino" id="mujer">Mujer
+                            <input type="checkbox" name="Masculino" id="hombre">Hombre
+                            <input type="checkbox" name="Unisex" id="mujer">Unisex
                         </div>
                     </div>
 
@@ -62,17 +62,17 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="detalle">Descripción</label>
-                        <input type="text" class="col form-control" name="description" id="detalle" placeholder="Agregar descripción breve">
+                        <input type="text" class="col form-control" name="description_product" id="detalle" placeholder="Agregar descripción breve">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="tipo">Tipo</label>
-                        <input type="text" class="col form-control" name="type" id="tipo" placeholder="Agregar tipo de artículo">
+                        <input type="text" class="col form-control" name="type_cloth" id="tipo" placeholder="Agregar tipo de artículo">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="talles">Talles</label>
-                        <input type="number" class="col form-control" name="talle" id="talles" placeholder="Talles disponibles, separar con comas">
+                        <input type="number" class="col form-control" name="size" id="talles" placeholder="Talles disponibles, separar con comas">
                     </div>
 
                     <div class="form-group row"> 
@@ -87,22 +87,22 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="unidades">Unidades disponibles</label>
-                        <input required type="number" class="col form-control" id="unidades" name="unit" placeholder="Ingrese unidades disponibles">
+                        <input required type="number" class="col form-control" id="unidades" name="units" placeholder="Ingrese unidades disponibles">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-menor">Precio menor</label>
-                        <input required type="number" class="col form-control" id="precio-menor" name="price" placeholder="Ingrese precio menor">
+                        <input required type="number" class="col form-control" id="precio-menor" name="price_discount" placeholder="Ingrese precio menor">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-mayor">Precio mayor</label>
-                        <input required type="number" class="col form-control" id="precio-mayor" name="priceDiscount" placeholder="Ingrese precio mayor">
+                        <input required type="number" class="col form-control" id="precio-mayor" name="price" placeholder="Ingrese precio mayor">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="fecha">Fecha</label>
-                        <input required type="text" class="col form-control" placeholder="Seleccione una fecha" name="date" onfocus="(this.type='date')" onblur="(this.type='text')">
+                        <input required type="text" class="col form-control" placeholder="Seleccione una fecha" name="date_up" onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
 
                 </div>
