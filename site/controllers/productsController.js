@@ -146,7 +146,7 @@ const controller = {
            console.log(product)
            res.render('detalleProducto', {product : product, session:req.session.userLoginSession})
        })
-    },
-};
+    }
+}
 
 module.exports = controller;
