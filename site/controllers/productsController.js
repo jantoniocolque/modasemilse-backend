@@ -144,6 +144,7 @@ const controller = {
     },
 
     detail : function(req, res) {
+        console.log(req)
         // el await yo no entender :C
         // const product = await db.Product.findByPk(req.params.id);
         // console.log(product);
@@ -160,9 +161,9 @@ const controller = {
            //res.render('detallePelicula', {pelicula : pelicula})
        })*/
 
-        //('detalleProducto',  {product : product, session:req.session.userLoginSession});
-    },
 
-}
+        //('detalleProducto',  {product : product, session:req.session.userLoginSession});
+    }
+};
 
 module.exports = controller;
