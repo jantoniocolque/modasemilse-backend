@@ -18,6 +18,94 @@ CREATE SCHEMA IF NOT EXISTS `emilse_modas` DEFAULT CHARACTER SET latin1 ;
 USE `emilse_modas` ;
 
 -- -----------------------------------------------------
+-- Table `emilse_modas`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`users` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `avatar` VARCHAR(40) NOT NULL,
+  `nombre` VARCHAR(40) NOT NULL,
+  `apellido` VARCHAR(40) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(20) NOT NULL,
+  `nacimiento` DATE NOT NULL,
+  `sexo` VARCHAR(20) NOT NULL,
+  `newsletter` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`shops`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`shops` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `cantidad` INT NOT NULL,
+  `total` DECIMAL(10,0) NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `user_id`),
+  CONSTRAINT `fk_shops_users`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `emilse_modas`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`orders`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`orders` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `estado` VARCHAR(45) NOT NULL,
+  `shop_id` INT NOT NULL,
+  `shop_user_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `shop_id`, `shop_user_id`),
+  CONSTRAINT `fk_orders_shops`
+    FOREIGN KEY (`shop_id`)
+    REFERENCES `emilse_modas`.`shops` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`facturas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`facturas` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `order_id` INT(11) NOT NULL,
+  `order_shop_id` INT NOT NULL,
+  `order_shop_user_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `order_id`, `order_shop_id`, `order_shop_user_id`),
+    CONSTRAINT `fk_facturas_orders`
+    FOREIGN KEY (`order_id` , `order_shop_id` , `order_shop_user_id`)
+    REFERENCES `emilse_modas`.`orders` (`id` , `shop_id` , `shop_user_id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`favorites`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`favorites` (
+  `id` INT NOT NULL,
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `user_id`),
+    CONSTRAINT `fk_favorites_users`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `emilse_modas`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = latin1;
+
+
+-- -----------------------------------------------------
 -- Table `emilse_modas`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`products` (
@@ -34,97 +122,12 @@ CREATE TABLE IF NOT EXISTS `emilse_modas`.`products` (
   `price` DECIMAL(10,0) NOT NULL,
   `price_discount` DECIMAL(10,0) NOT NULL,
   `date_up` DATETIME NOT NULL,
- `image2` VARCHAR(45) NOT NULL, `image3` VARCHAR(45) NOT NULL,  PRIMARY KEY (`id`))
+  `image2` VARCHAR(45) NOT NULL,
+  `image3` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = MyISAM
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `emilse_modas`.`users`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `avatar` VARCHAR(40) NOT NULL,
-  `nombre` VARCHAR(40) NOT NULL,
-  `apellido` VARCHAR(40) NOT NULL,
-  `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
-  `nacimiento` DATE NOT NULL,
-  `sexo` VARCHAR(20) NOT NULL,
-  `newsletter` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `emilse_modas`.`shops`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`shops` (
-  `id` INT NOT NULL,
-  `cantidad` INT NOT NULL,
-  `total` DECIMAL(10,0) NOT NULL,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `user_id`),
-  CONSTRAINT `fk_shops_users1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `emilse_modas`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `emilse_modas`.`favorites`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`favorites` (
-  `id` INT NOT NULL,
-  `users_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `users_id`),
-  CONSTRAINT `fk_favorites_users1`
-    FOREIGN KEY (`users_id`)
-    REFERENCES `emilse_modas`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `emilse_modas`.`orders`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`orders` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `estado` VARCHAR(45) NOT NULL,
-  `shop_id` INT NOT NULL,
-  `shop_user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `shop_id`, `shop_user_id`),
-  CONSTRAINT `fk_orders_shops1`
-    FOREIGN KEY (`shop_id` , `shop_user_id`)
-    REFERENCES `emilse_modas`.`shops` (`id` , `user_id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `emilse_modas`.`facturas`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`facturas` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT NOT NULL,
-  `order_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `user_id`, `order_id`),
-  CONSTRAINT `fk_facturas_users1`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `emilse_modas`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_facturas_orders1`
-    FOREIGN KEY (`order_id`)
-    REFERENCES `emilse_modas`.`orders` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
@@ -134,16 +137,17 @@ CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_shop` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `product_id` INT(255) NOT NULL,
   `shop_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `product_id`, `shop_id`))
+  `shop_user_id` INT NOT NULL,
+  PRIMARY KEY (`id`, `product_id`, `shop_id`, `shop_user_id`))
 ENGINE = MyISAM
 DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `emilse_modas`.`products_has_favorites`
+-- Table `emilse_modas`.`product_favorite`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`products_has_favorites` (
-  `id` VARCHAR(45) NOT NULL,
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_favorite` (
+  `id` INT NOT NULL,
   `product_id` INT(255) NOT NULL,
   `favorite_id` INT NOT NULL,
   `favorite_user_id` INT NOT NULL,
