@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `emilse_modas`.`products` (
   `price` DECIMAL(10,0) NOT NULL,
   `price_discount` DECIMAL(10,0) NOT NULL,
   `date_up` DATETIME NOT NULL,
-  PRIMARY KEY (`id`))
+ `image2` VARCHAR(45) NOT NULL, `image3` VARCHAR(45) NOT NULL,  PRIMARY KEY (`id`))
 ENGINE = MyISAM
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = latin1;
