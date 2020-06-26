@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `emilse_modas`.`users` (
   `nombre` VARCHAR(40) NOT NULL,
   `apellido` VARCHAR(40) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(20) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
   `nacimiento` DATE NOT NULL,
   `sexo` VARCHAR(20) NOT NULL,
   `newsletter` VARCHAR(20) NOT NULL,
