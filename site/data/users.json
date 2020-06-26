@@ -30,5 +30,16 @@
   "nacimiento": "1994-10-27",
   "sexo": "hombre",
   "newsletter": "on"
+ },
+ {
+  "id": 4,
+  "avatar": "avatar-1593141982759.jpg",
+  "nombre": "Jhonnier",
+  "apellido": "Zapata",
+  "email": "contact@jhonnierandrey.com",
+  "password": "$2b$10$uUSby1qjeeu8IBv88u8n4u.dKkmRCbtVzNAc7ZYXVWPwJp9ntqneK",
+  "nacimiento": "2020-06-01",
+  "sexo": "hombre",
+  "newsletter": "on"
  }
 ]

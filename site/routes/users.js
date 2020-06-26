@@ -54,4 +54,11 @@ router.get('/account',authUserLogin, usersController.account);
 router.get('/account/orders',authUserLogin, usersController.orders);
 router.get('/account/favorites',authUserLogin, usersController.favorites);
 
+router.get('/account/update',authUserLogin, usersController.update);
+router.post('/account/update', upload.any(),[
+  check('password').isLength({min:5}).withMessage('Contraseña como minimo 5 caracteres'),
+  check('email').isEmail().withMessage('Correo incorrecto'),
+  check('currentEmail').isEmail().withMessage('Correo incorrecto')
+], usersController.storeUpdate);
+
 module.exports = router;

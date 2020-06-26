@@ -2,9 +2,10 @@ module.exports = {
 
   "development": {
     "username": "root",
-    "password": "",
+    "password": "root",
     "database": "emilse_modas",
     "host": "127.0.0.1",
+    "port": "8889",
     "dialect": "mysql",
     "operatorsAliases": false
   },
