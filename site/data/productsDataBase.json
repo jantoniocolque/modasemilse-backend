@@ -33,7 +33,6 @@
   "priceDiscount": "1200",
   "date": "12/05/2020"
  },
-
  {
   "id": 4,
   "idArticle": "E004",
@@ -159,5 +158,24 @@
   "price": "400",
   "priceDiscount": "360",
   "date": "2020-05-29"
+ },
+ {
+  "id": 11,
+  "idArticle": "AXT",
+  "gender": "on",
+  "title": "Nuevo articulo",
+  "description": "articulo de prueba",
+  "type": "prueba",
+  "image": [
+   "imagen-producto-1593113061875.JPG",
+   "imagen-producto-1593113063087.JPG",
+   "imagen-producto-1593113064668.JPG"
+  ],
+  "talle": "12",
+  "colour": "rojor",
+  "print": "aoskd",
+  "unit": "200",
+  "price": "1200",
+  "priceDiscount": "1400"
  }
 ]

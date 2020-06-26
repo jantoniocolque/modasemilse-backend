@@ -25,6 +25,9 @@ const controller = {
             })
         })
     },
+    support : (req, res) =>{
+        res.render('support', { title: 'Modas Emilse | Atención al cliente'});
+    }
 }
 
 module.exports = controller;
