@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
     }, 
     image: {
       type: dataTypes.STRING,
-    }, 
+    },  
     size: {
       type: dataTypes.STRING,
     },
@@ -42,7 +42,13 @@ module.exports = (sequelize, dataTypes) => {
     },
     date_up: {
       type: dataTypes.DATE,
-    }
+    },
+    image2: {
+      type: dataTypes.STRING,
+    },
+    image3: {
+      type: dataTypes.STRING,
+    } 
   };
   
   let config = {

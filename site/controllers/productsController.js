@@ -2,9 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const {check,validationResult,body}=require('express-validator');
 
-/* Dejamos de utilizar el arch JSON
+/* Dejamos de utilizar el arch JSON*/
 const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8')); */
+const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8')); 
 
 /* Se requieren los modelos de la base de datos */
 let db = require('../database/models');
@@ -26,19 +26,20 @@ function removeDuplicates(originalArray, nameProperty) {
 
 const controller = {
     root:(req,res) => {
-        /*const newPrueba = {a:1,b:5124,c:5,d:613};
-        for(i in newPrueba){
-            console.log(newPrueba[i]);
-        }*/
-        var productsWithoutRepeat = removeDuplicates(products,'idArticle');
-        res.render('tienda', { 
-            title: 'Tienda - Emilse',
-            titleContent:'Todos los productos',
-            products:productsWithoutRepeat,
-            session:req.session.userLoginSession
-        });
+        console.log(req);
+        
+        db.Products.findAll({ where:{ size : 1}})
+        .then(function(products){
+                console.log(products)
+                res.render('tienda',{
+                    title:'Tienda - Emilse',
+                    titleContent:'Todos los productos',
+                    products:products,
+                    session:req.session.userLoginSession
+            })
+        })
     },
-    
+
     filter:(req,res) => {
         const productsFilter = products.filter(product => req.params.type.includes(product.type.toLowerCase()));
         res.render('tienda',{
@@ -58,33 +59,29 @@ const controller = {
     },
 
     store:(req,res,next) => {
-        const newId = products[products.length-1].id + 1;
-        
-        const newProduct = {
-            id:newId,
-            idArticle: req.body.idArticle,
-            gender: req.body.gender,
-            title:req.body.title,
-            description:req.body.description,
-            type:req.body.type,
-            image:[
-                req.files[0].filename,
-                req.files[1].filename,
-                req.files[2].filename,
-            ],
-            talle:req.body.talle,
-            colour: req.body.colour,
-            print: req.body.print,
-            unit: req.body.unit,
-            price: req.body.price,
-            priceDiscount: req.body.priceDiscount,
-            fecha: req.body.fecha
-        };
 
-        const finalProduct = [...products,newProduct];
-        fs.writeFileSync(productsFilePath,JSON.stringify(finalProduct, null, ' '));
-        return res.redirect('/products');
-        
+        console.log('Este es el body')
+        console.log(req.body);
+        console.log('Aca termina el body')
+        db.Products.create({
+            id: null,
+            code_article: req.body.code_article,
+            title: req.body.title,
+            gender: req.body.gender,
+            description_product: req.body.description_product,
+            type_cloth: req.body.type_cloth,
+            image: req.body.image,
+            size: req.body.size,
+            colour: req.body.colour,
+            units: req.body.units,
+            price: req.body.price,
+            price_discount: req.body.price_discount,
+            date_up: req.body.date_up,
+            image2: req.body.image2,
+            image3: req.body.image3,
+
+        }) 
+        return res.redirect('/products');  
     },
 
     edit:(req,res) => {
@@ -144,27 +141,14 @@ const controller = {
     },
 
     detail : function(req, res) {
-        console.log(req)
-        // el await yo no entender :C
-        // const product = await db.Product.findByPk(req.params.id);
-        // console.log(product);
-
-        /*
-        db.Products.findByPk(req.params.id)
-            .then(function(product){
-                console.log(product)
-                //res.render('detallePelicula', {pelicula : pelicula})
-            })
-        */
+        //console.log(req)
 
        db.Products.findByPk(req.params.productId)
        .then(function(product){
            console.log(product)
            res.render('detalleProducto', {product : product, session:req.session.userLoginSession})
        })
-
-        //('detalleProducto',  {product : product, session:req.session.userLoginSession});
-    },
-};
+    }
+}
 
 module.exports = controller;

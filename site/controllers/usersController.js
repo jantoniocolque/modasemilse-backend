@@ -11,8 +11,7 @@ let usersController = {
         res.render('register', { title: 'Modas Emilse | Registro',session:req.session.userLoginSession});
     },
     login : function(req, res){
-        console.log(req.cookies.user);
-        console.log(req.session.userLoginSession);
+        
         res.render('login', { title: 'Modas Emilse | Login',session:req.session.userLoginSession});
     },
     userValidator : function(req, res){
