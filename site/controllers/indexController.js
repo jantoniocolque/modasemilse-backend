@@ -40,6 +40,10 @@ const controller = {
             products:removeDuplicates(findKeywords,'idArticle'),
             session:req.session.userLoginSession
         });
+    },
+
+    support : (req, res) =>{
+        res.render('support', { title: 'Modas Emilse | Atención al cliente'});
     }
 }
 
