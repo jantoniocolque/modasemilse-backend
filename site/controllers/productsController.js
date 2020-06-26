@@ -77,6 +77,8 @@ const controller = {
             price: req.body.price,
             price_discount: req.body.price_discount,
             date_up: req.body.date_up,
+            image2: req.body.image2,
+            image3: req.body.image3,
 
         }) 
         return res.redirect('/products');  
