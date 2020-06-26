@@ -28,7 +28,6 @@ const controller = {
         
         db.Products.findAll({ where:{ size : 1}})
         .then(function(products){
-                console.log(products)
                 res.render('tienda',{
                     title:'Tienda - Emilse',
                     titleContent:'Todos los productos',
