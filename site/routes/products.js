@@ -30,7 +30,7 @@ router.get('/edit/:productId', productsController.edit); /* GET - Form to create
 router.put('/edit/:productId', productsController.update); /* PUT - Update in DB */
 
 /*GET products delete page*/
-router.delete('/delete/:productId', productsController.delete); /* DELETE - Delete from DB */
+router.delete('/delete/:productId', productsController.destroy); /* DELETE - Delete from DB */
 
 /*GET details product by id*/
 router.get('/details/:productId', productsController.detail); /* GET - Show details product by Id*/

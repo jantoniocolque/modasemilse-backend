@@ -121,7 +121,7 @@ const controller = {
 		res.redirect('/products');
     },
 
-    delete:(req,res) => {
+    destroy:(req,res) => {
         const idDelete = req.params.productId;
 		let newID=1;
 		const newProducts=products.filter(product =>{

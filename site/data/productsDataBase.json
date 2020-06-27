@@ -140,41 +140,5 @@
   "price": 1900,
   "priceDiscount": 1000,
   "date": "15/03/2020"
- },
- {
-  "id": 9,
-  "idArticle": "E001",
-  "gender": "Femenino",
-  "title": "Campera Modal",
-  "description": "Entalladas con bosillo",
-  "type": "Campera",
-  "image": [
-   "campera-modal.jpeg"
-  ],
-  "talle": 12,
-  "colour": "Gris Melange",
-  "print": "campera-modal.jpeg",
-  "units": 30,
-  "price": 400,
-  "priceDiscount": 350,
-  "date": "13/09/2019"
- },
- {
-  "id": 10,
-  "idArticle": "E009",
-  "gender": "Femenino",
-  "title": "Remera Morley",
-  "description": "Remera lisa manga corta",
-  "type": "Remera",
-  "image": [
-   "imagen-producto-1590757315423.jpeg"
-  ],
-  "talle": "8",
-  "colour": "Gris Melange",
-  "print": "Liso",
-  "unit": "20",
-  "price": "400",
-  "priceDiscount": "360",
-  "date": "2020-05-29"
  }
 ]
