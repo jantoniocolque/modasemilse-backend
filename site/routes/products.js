@@ -19,6 +19,9 @@ const productsController = require('../controllers/productsController');
 /* GET products page. */
 router.get('/', productsController.root);
 
+/*GET details product by id*/
+router.get('/details/:productId', productsController.detail); /* GET - Show details product by Id*/
+
 router.get('/type/:type',productsController.filter);
 
 /*GET products create page */
@@ -30,9 +33,6 @@ router.get('/edit/:productId', productsController.edit); /* GET - Form to create
 router.put('/edit/:productId', productsController.update); /* PUT - Update in DB */
 
 /*GET products delete page*/
-router.delete('/delete/:productId', productsController.delete); /* DELETE - Delete from DB */
-
-/*GET details product by id*/
-router.get('/details/:productId', productsController.detail); /* GET - Show details product by Id*/
+router.delete('/delete/:productId', productsController.destroy); /* DELETE - Delete from DB */
 
 module.exports = router;

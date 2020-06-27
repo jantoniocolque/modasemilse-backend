@@ -109,14 +109,13 @@ const controller = {
         res.redirect('/products/edit/' + req.params.productId );
     },
 
-    delete : function(req,res) {
+    destroy : function(req,res) {
         db.Products.destroy({
             where:{
                 id: req.params.productId,
             }
-        })
-        res.redirect('/products/');
-        
+        });
+        res.redirect('/products');
     },
 
     detail : function(req, res) {

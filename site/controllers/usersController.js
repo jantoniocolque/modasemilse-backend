@@ -79,8 +79,6 @@ let usersController = {
         });
     },
     storeUpdate : function(req, res){
-        console.log(req.body);
-
         db.Users.update({
             avatar : req.files[0].filename,
             nombre : req.body.firstName,
@@ -102,8 +100,6 @@ let usersController = {
         res.redirect('/users/login');
     },
     account : function(req, res){
-        console.log(req.cookies.user);
-        console.log(req.session.userLoginSession);
         res.render('userPanel', {
             title: 'Modas Emilse | Mi cuenta',
             nombre:req.session.userLoginSession.nombre,
