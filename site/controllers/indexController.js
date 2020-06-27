@@ -1,9 +1,6 @@
 const fs=require('fs');
 const path=require('path');
 
-const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
-
 let db = require('../database/models');
 
 const controller = {
@@ -12,8 +9,6 @@ const controller = {
     },
     
     search:(req,res)=>{
-        console.log(req);
-        
         db.Products.findAll({ where:{ type_cloth: req.query.keywords.toLowerCase(), size : 1}})
         .then(function(products){
                 console.log(products)

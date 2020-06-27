@@ -1,7 +1,8 @@
+const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
-  let alias = 'Products';
+  const alias = 'Products';
   
-  let cols = {
+  const cols = {
     id: {
       type: dataTypes.INTEGER,
       primaryKey: true,
@@ -51,7 +52,8 @@ module.exports = (sequelize, dataTypes) => {
     } 
   };
   
-  let config = {
+  const config = {
+    tableName : "products",
     timestamps: false
   }
   

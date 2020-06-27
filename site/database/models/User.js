@@ -34,10 +34,17 @@ module.exports = (sequelize, dataTypes) => {
     };
     
     let config = {
-      timestamps: false
+        tableName : "users",
+        timestamps: false
     }
     
     const User = sequelize.define(alias, cols, config);
     
+    User.associate = function(models) {
+        User.hasOne(models.Users, {
+            as: 'Users',
+            foreignKey: 'id'
+        })
+    }
     return User;
   }
