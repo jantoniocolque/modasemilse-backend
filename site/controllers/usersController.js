@@ -6,21 +6,23 @@ var {check, validationResult, body} = require('express-validator');
 const usersFilePath = path.join(__dirname, '../data/users.json');
 const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
 
+/* Se requieren los modelos de la base de datos */
+let db = require('../database/models');
+
 let usersController = {
     register : function(req, res) {
         res.render('register', { title: 'Modas Emilse | Registro',session:req.session.userLoginSession});
     },
     login : function(req, res){
-        console.log(req.cookies.user);
-        console.log(req.session.userLoginSession);
+        
         res.render('login', { title: 'Modas Emilse | Login',session:req.session.userLoginSession});
     },
-    userValidator : function(req, res){
+    userValidator : async (req, res) => {
         const errors=validationResult(req);
         if(errors.isEmpty()){
-            let userLogin=users.find(user => {
-                return user.email==req.body.email;
-            })
+
+           let userLogin = await db.Users.findOne({ where: { email : req.body.email } });
+
             if(userLogin !=undefined){
                 if(bcrypt.compareSync(req.body.password,userLogin.password)){
                     req.session.userLoginSession=userLogin;
@@ -51,9 +53,7 @@ let usersController = {
     create : function (req, res){
         const errors=validationResult(req);
         if(errors.isEmpty()){
-            let nuevaId = users.length + 1;
-            let nuevoUsuario = {
-                id: nuevaId,
+            db.Users.create({
                 avatar : req.files[0].filename,
                 nombre : req.body.firstName,
                 apellido : req.body.lastName,
@@ -62,10 +62,7 @@ let usersController = {
                 nacimiento: req.body.nacimiento,
                 sexo: req.body.sexo,
                 newsletter: req.body.newsletter
-            }
-
-            const nuevosUsuarios = [...users, nuevoUsuario];
-            fs.writeFileSync(usersFilePath, JSON.stringify(nuevosUsuarios, null, ' '));
+            });
             
             res.redirect('/users/login');
         }else{
@@ -74,6 +71,35 @@ let usersController = {
                 title:'Modas Emilse | Login'
             })
         }
+    },
+    update : function(req, res){
+        res.render('userUpdate', {
+            title: 'Modas Emilse | Mi cuenta',
+            user: req.session.userLoginSession, errors : "yes"
+        });
+    },
+    storeUpdate : function(req, res){
+        console.log(req.body);
+
+        db.Users.update({
+            avatar : req.files[0].filename,
+            nombre : req.body.firstName,
+            apellido : req.body.lastName,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+            nacimiento: req.body.nacimiento,
+            sexo: req.body.sexo,
+            newsletter: req.body.newsletter
+        }, {
+            where : {
+                email : req.body.currentEmail
+            }
+        });
+
+        req.session.destroy();
+        res.cookie('color',null,{maxAge:-1});
+        
+        res.redirect('/users/login');
     },
     account : function(req, res){
         console.log(req.cookies.user);

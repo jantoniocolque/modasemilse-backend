@@ -34,24 +34,6 @@
   "date": "12/05/2020"
  },
  {
-  "id": 3,
-  "idArticle": "E003",
-  "gender": "Femenino",
-  "title": "Campera Plush",
-  "description": "Camperas juveniles con capucha",
-  "type": "Campera",
-  "image": [
-   "campera-plush.jpeg"
-  ],
-  "talle": 5,
-  "colour": "Negro",
-  "print": "none",
-  "units": 30,
-  "price": 650,
-  "priceDiscount": 600,
-  "date": "07/06/2019"
- },
- {
   "id": 4,
   "idArticle": "E004",
   "gender": "Femenino",
@@ -176,5 +158,24 @@
   "price": "400",
   "priceDiscount": "360",
   "date": "2020-05-29"
+ },
+ {
+  "id": 11,
+  "idArticle": "AXT",
+  "gender": "on",
+  "title": "Nuevo articulo",
+  "description": "articulo de prueba",
+  "type": "prueba",
+  "image": [
+   "imagen-producto-1593113061875.JPG",
+   "imagen-producto-1593113063087.JPG",
+   "imagen-producto-1593113064668.JPG"
+  ],
+  "talle": "12",
+  "colour": "rojor",
+  "print": "aoskd",
+  "unit": "200",
+  "price": "1200",
+  "priceDiscount": "1400"
  }
 ]
