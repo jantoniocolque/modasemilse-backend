@@ -53,7 +53,7 @@ let usersController = {
     create : function (req, res){
         const errors=validationResult(req);
         if(errors.isEmpty()){
-            db.Users.create({
+            db.User.create({
                 avatar : req.files[0].filename,
                 nombre : req.body.firstName,
                 apellido : req.body.lastName,
@@ -79,7 +79,7 @@ let usersController = {
         });
     },
     storeUpdate : function(req, res){
-        db.Users.update({
+        db.User.update({
             avatar : req.files[0].filename,
             nombre : req.body.firstName,
             apellido : req.body.lastName,

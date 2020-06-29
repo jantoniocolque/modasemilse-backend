@@ -1,6 +1,6 @@
 const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
-  let alias = 'Shops';
+  let alias = 'Shop';
   
   let cols = {
     id: {
@@ -11,8 +11,11 @@ module.exports = (sequelize, dataTypes) => {
     cantidad: {
       type: dataTypes.INTEGER,
     },
-    toal: {
-      type: dataTypes.STRING,
+    total: {
+      type: dataTypes.DECIMAL,
+    },
+    user_id: {
+      type: dataTypes.INTEGER,
     }
   };
   
@@ -24,14 +27,23 @@ module.exports = (sequelize, dataTypes) => {
   const Shop = sequelize.define(alias, cols, config);
   
   Shop.associate = function(models) {
-    Shop.belongsTo(models.Users, {
-        as: 'users',
+    Shop.belongsTo(models.User, {
+        as: 'user',
         foreignKey: 'user_id'
     })
-    Shop.hasMany(models.Orders, {
+
+    Shop.hasMany(models.Order, {
         as: 'orders',
-        foreignKey: 'id'
+        foreignKey: 'shop_id'
     })
-    }
+
+    Shop.belongsToMany(models.Product, {
+      as:'products',
+      through:'product_shop',
+      foreignKey: 'shop_id',
+      otherKey:'product_id',
+      timestamps:false
+    })
+  }
   return Shop;
 }

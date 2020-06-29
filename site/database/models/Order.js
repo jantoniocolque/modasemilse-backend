@@ -1,6 +1,6 @@
 const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
-  let alias = 'Orders';
+  let alias = 'Order';
   
   let cols = {
     id: {
@@ -10,6 +10,12 @@ module.exports = (sequelize, dataTypes) => {
     },
     estado: {
       type: dataTypes.STRING,
+    },
+    shop_id: {
+      type: dataTypes.INTEGER,
+    },
+    shop_user_id: {
+      type: dataTypes.INTEGER,
     }
   };
   
@@ -21,10 +27,15 @@ module.exports = (sequelize, dataTypes) => {
   const Order = sequelize.define(alias, cols, config);
   
   Order.associate = function(models) {
-    Order.belongsTo(models.Shops, {
-        as: 'shops',
+    Order.belongsTo(models.Shop, {
+        as: 'shop',
         foreignKey: 'shop_id'
     })
-}
+
+    Order.hasOne(models.Factura, {
+      as: 'factura',
+      foreignKey: 'order_id'
+    })
+  }
   return Order;
 }

@@ -24,13 +24,14 @@ function removeDuplicates(originalArray, nameProperty) {
 
 const controller = {
     root:(req,res) => {
-        db.Products.findAll({ where:{ size : 1}})
-        .then(function(products){
-                res.render('tienda',{
-                    title:'Tienda - Emilse',
-                    titleContent:'Todos los productos',
-                    products:products,
-                    session:req.session.userLoginSession
+        
+        db.Product.findAll()
+        .then(function(product){
+            res.render('tienda',{
+                title:'Tienda - Emilse',
+                titleContent: 'Todos los productos',
+                products:removeDuplicates(product,'code_article'),
+                session:req.session.userLoginSession
             })
         })
     },
@@ -54,7 +55,7 @@ const controller = {
     },
 
     store:(req,res,next) => {
-        db.Products.create({
+        db.Product.create({
             code_article: req.body.code_article,
             title: req.body.title,
             gender: req.body.femenino,
@@ -77,7 +78,7 @@ const controller = {
     },
 
     edit:(req,res) => {
-        db.Products.findByPk(req.params.productId)
+        db.Product.findByPk(req.params.productId)
         .then(function(product) {
             res.render('productEdit', {
                 title:'Editando - Modas Emilse',
@@ -89,7 +90,7 @@ const controller = {
 
     update:function(req,res) {
         console.log(req.body);
-        db.Products.update({
+        db.Product.update({
             code_article: req.body.code_article,
             title: req.body.title,
             gender: req.body.femenino,
@@ -110,7 +111,7 @@ const controller = {
     },
 
     destroy : function(req,res) {
-        db.Products.destroy({
+        db.Product.destroy({
             where:{
                 id: req.params.productId,
             }
@@ -119,7 +120,7 @@ const controller = {
     },
 
     detail : function(req, res) {
-       db.Products.findByPk(req.params.productId)
+       db.Product.findByPk(req.params.productId)
        .then(function(product){
            res.render('detalleProducto', {product : product, session:req.session.userLoginSession})
        });

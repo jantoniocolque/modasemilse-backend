@@ -17,7 +17,7 @@ var storage = multer.diskStorage({
 const productsController = require('../controllers/productsController');
 
 /* GET products page. */
-router.get('/', productsController.root);
+router.get('/:type?', productsController.root);
 
 /*GET details product by id*/
 router.get('/details/:productId', productsController.detail); /* GET - Show details product by Id*/

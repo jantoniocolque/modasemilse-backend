@@ -1,6 +1,6 @@
 const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
-  const alias = 'Products';
+  const alias = 'Product';
   
   const cols = {
     id: {
@@ -9,7 +9,7 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true
     },
     code_article: {
-      type: dataTypes.INTEGER,
+      type: dataTypes.STRING,
     },
     title: {
       type: dataTypes.STRING,
@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
     },  
     size: {
-      type: dataTypes.STRING,
+      type: dataTypes.INTEGER,
     },
     colour: {
       type: dataTypes.STRING,
@@ -59,5 +59,22 @@ module.exports = (sequelize, dataTypes) => {
   
   const Product = sequelize.define(alias, cols, config);
   
+  Product.associate=function(models){
+    Product.belongsToMany(models.Shop, {
+      as:'shops',
+      through:'product_shop',
+      foreignKey: 'product_id',
+      otherKey:'shop_id',
+      timestamps:false
+    })
+
+    Product.belongsToMany(models.Favorite, {
+      as:'favorites',
+      through:'product_favorite',
+      foreignKey: 'product_id',
+      otherKey:'favorite_id',
+      timestamps:false
+  })
+  }
   return Product;
 }
