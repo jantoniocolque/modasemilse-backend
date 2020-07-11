@@ -1,11 +1,9 @@
-const fs = require('fs');
-const path = require('path');
 const db = require('../database/models');
 
 function authUserLogin(req,res,next){
     if(req.session.userLoginSession == undefined){
         if(req.cookies.user){
-            db.Users.findByPk(req.cookies.user)
+            db.User.findByPk(req.cookies.user)
             .then(function(user){
             req.session.userLoginSession=user;
             next();
@@ -17,4 +15,4 @@ function authUserLogin(req,res,next){
     next();
 }
 
-module.exports=authUserLogin;
+module.exports = authUserLogin;

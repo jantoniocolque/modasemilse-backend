@@ -21,7 +21,7 @@ let usersController = {
         const errors=validationResult(req);
         if(errors.isEmpty()){
 
-           let userLogin = await db.Users.findOne({ where: { email : req.body.email } });
+           let userLogin = await db.User.findOne({ where: { email : req.body.email } });
 
             if(userLogin !=undefined){
                 if(bcrypt.compareSync(req.body.password,userLogin.password)){
@@ -52,7 +52,9 @@ let usersController = {
     },
     create : function (req, res){
         const errors=validationResult(req);
+        console.log(errors);
         if(errors.isEmpty()){
+            console.log(errors);
             db.User.create({
                 avatar : req.files[0].filename,
                 nombre : req.body.firstName,
@@ -68,7 +70,7 @@ let usersController = {
         }else{
             return res.render('register',{
                 errors:errors.errors,
-                title:'Modas Emilse | Login'
+                title:'Modas Emilse | Registro'
             })
         }
     },
