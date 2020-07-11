@@ -1,37 +1,37 @@
 module.exports = (sequelize, dataTypes) => {
-  let alias = 'Products';
+  const alias = 'Product';
   
-  let cols = {
+  const cols = {
     id: {
       type: dataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true
     },
     code_article: {
-      type: dataTypes.INTEGER,
+      type: dataTypes.STRING,
     },
     title: {
       type: dataTypes.STRING,
     },
-    gender: {
-      type: dataTypes.STRING,
-    },   
     description_product: {
-      type: dataTypes.STRING,
-    },   
-    type_cloth: {
       type: dataTypes.STRING,
     }, 
     image: {
       type: dataTypes.STRING,
-    },  
-    size: {
+    },
+    image2: {
       type: dataTypes.STRING,
     },
-    colour: {
+    image3: {
       type: dataTypes.STRING,
     },
-    units: {
+    gender: {
+      type: dataTypes.STRING,
+    },
+    date_up: {
+      type: dataTypes.DATE,
+    },
+    category_id: {
       type: dataTypes.INTEGER,
     },
     price: {
@@ -40,22 +40,34 @@ module.exports = (sequelize, dataTypes) => {
     price_discount: {          
       type: dataTypes.DECIMAL,
     },
-    date_up: {
-      type: dataTypes.DATE,
-    },
-    image2: {
+    colour: {
       type: dataTypes.STRING,
-    },
-    image3: {
-      type: dataTypes.STRING,
-    } 
+    }
   };
   
-  let config = {
+  const config = {
+    tableName : "products",
     timestamps: false
   }
   
   const Product = sequelize.define(alias, cols, config);
   
+  Product.associate=function(models){
+    Product.belongsToMany(models.Shop, {
+      as:'shops',
+      through:'product_shop',
+      foreignKey: 'product_id',
+      otherKey:'shop_id',
+      timestamps:false
+    })
+
+    Product.belongsToMany(models.Favorite, {
+      as:'favorites',
+      through:'product_favorite',
+      foreignKey: 'product_id',
+      otherKey:'favorite_id',
+      timestamps:false
+  })
+  }
   return Product;
 }

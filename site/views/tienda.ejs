@@ -32,13 +32,13 @@
                         <% for (product of products) {%>
                         <div class="card-store col-6 col-sm-4 col-lg-3">
                             <section class="product-box">
-                                <a href="#">
+                                <a href="/products/details/<%=product.id%>">
                                     <figure class="product-box_image m-0">
                                         <img src="/images/products/<%= product.image %>" alt="imagen de producto">
                                     </figure>
                                     <article class="product-box_data justify-content-md-between">
                                         <h4>$<%= product.price %></h4>
-                                        <span><b>$<%= product.priceDiscount %></b><br>Precio por mayor</br></span>
+                                        <span><b>$<%= product.price_discount %></b><br>Precio por mayor</br></span>
                                         <p><%= product.title %></p>
                                     </article>
                                 </a>

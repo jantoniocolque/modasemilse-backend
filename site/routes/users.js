@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 var path = require('path');
 const multer = require('multer');
-const fs=require('fs');
-const { check, validationResult, body } = require('express-validator');
 
+const { check, validationResult, body } = require('express-validator');
+const db = require('../database/models');
 
 const authUserLogin = require('../middleware/authUserLogin');
 const guestUserLogin = require('../middleware/guestUserLogin');
@@ -31,15 +31,12 @@ router.get('/register',guestUserLogin, usersController.register);
 router.post('/register',upload.any(),[
   check('password').isLength({min:5}).withMessage('Contraseña como minimo 5 caracteres'),
   check('email').isEmail().withMessage('Correo incorrecto'),
-  body('email').custom(function(value){
-    const usersFilePath = path.join(__dirname, '../data/users.json');
-    const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-    for(let i=0;i<users.length;i++){
-      if(users[i].email==value){
-        return false;
+  body('email').custom(async function(value){
+    const usuario = await db.User.findAll({where : {email:value}});
+      if(usuario.length > 0){
+        
+        return Promise.reject();
       }
-    }
-    return true;
   }).withMessage('Usuario ya existente'),
 ],usersController.create);
 router.get('/login',guestUserLogin,usersController.login);

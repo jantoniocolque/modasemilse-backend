@@ -11,7 +11,7 @@
                 <h1>Edicion de artículos</h1>
                 <img class="logo" src="/images/icons/logo.png" alt="logo-modasemilse" srcset="">
             </div>
-            <form action="/products/edit/<%= product.id %>" class="row admin-addproduct" method="POST" novalidate>
+            <form action="/products/edit/<%= product.id %>?_method=PUT" class="row admin-addproduct" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
                         <input required type="file" id="imagen-producto" name="image" value ='<%= product.image %>' hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
@@ -49,8 +49,8 @@
                         </div>
 
                         <div class="sex-select">
-                            <% if(product.gender == 'Femenino'){%>
-                            <input type="checkbox" name="Femenino"  value ="<%= product.gender %>" id="mujer" checked>Mujer
+                            <% if(product.gender != 'undefined'){%>
+                            <input type="checkbox" name="Femenino"  value ="Femenino" id="mujer" checked>Mujer
                             <input type="checkbox" name="Masculino"  value ="<%= product.gender %>" id="hombre">Hombre
                             <input type="checkbox" name="Unisex"  value ="<%= product.gender %>" id="unisex">Unisex
                             <%}%>
@@ -69,12 +69,12 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="tipo">Tipo</label>
-                        <input type="text" class="col form-control" name="type" id="tipo" placeholder="Agregar tipo de artículo" value= '<%= product.type_cloth %>'>
+                        <input type="text" class="col form-control" name="type_cloth" id="tipo" placeholder="Agregar tipo de artículo" value= '<%= product.type_cloth %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="talles">Talles</label>
-                        <input type="number" class="col form-control" name="talle" id="talles" placeholder="Talles disponibles, separar con comas" value= '<%= product.size %>'>
+                        <input type="number" class="col form-control" name="size" id="talles" placeholder="Talles disponibles, separar con comas" value= '<%= product.size %>'>
                     </div>
 
                     <div class="form-group row"> 
@@ -83,13 +83,8 @@
                     </div>
 
                     <div class="form-group row"> 
-                        <label class="col-4" for="estampados">Estampados</label>
-                        <input type="text" class="col form-control" name="print" id="estampados" placeholder="Ingrese estampados" value="">
-                    </div>
-
-                    <div class="form-group row"> 
                         <label class="col-4" for="unidades">Unidades disponibles</label>
-                        <input required type="number" class="col form-control" id="unidades" name="unit" placeholder="Ingrese unidades disponibles" value= '<%= product.units %>'>
+                        <input required type="number" class="col form-control" id="unidades" name="units" placeholder="Ingrese unidades disponibles" value= '<%= product.units %>'>
                     </div>
 
                     <div class="form-group row"> 
@@ -99,12 +94,12 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-mayor">Precio mayor</label>
-                        <input required type="number" class="col form-control" id="precio-mayor" name="priceDiscount" placeholder="Ingrese precio mayor" value= '<%=product.price %>'>
+                        <input required type="number" class="col form-control" id="precio-mayor" name="price_discount" placeholder="Ingrese precio mayor" value= '<%=product.price %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="fecha">Fecha</label>
-                        <input type="text" class="col form-control" placeholder="Seleccione una fecha" name="fecha" onfocus="(this.type='date')" onblur="(this.type='text')" value='<%= product.date_up %>'>
+                        <input type="text" class="col form-control" placeholder="Seleccione una fecha" name="date_up" onfocus="(this.type='date')" onblur="(this.type='text')" value='<%= product.date_up %>'>
                     </div>
 
                 </div>
@@ -127,7 +122,7 @@
                 </div>
             </form>
             <div class="col-12 text-center">
-                <form action="/products/delete/<%= product.id %>" method="POST" style="display: inline-flex">
+                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
                     <button type="submit" class="form-group btn btn-danger btn-lg" style="border:0">Eliminar</button>
                 </form>
             </div>

@@ -24,15 +24,14 @@ function removeDuplicates(originalArray, nameProperty) {
 
 const controller = {
     root:(req,res) => {
-        console.log(req);
         
-        db.Products.findAll({ where:{ size : 1}})
-        .then(function(products){
-                res.render('tienda',{
-                    title:'Tienda - Emilse',
-                    titleContent:'Todos los productos',
-                    products:products,
-                    session:req.session.userLoginSession
+        db.Product.findAll()
+        .then(function(product){
+            res.render('tienda',{
+                title:'Tienda - Emilse',
+                titleContent: 'Todos los productos',
+                products:removeDuplicates(product,'code_article'),
+                session:req.session.userLoginSession
             })
         })
     },
@@ -56,15 +55,10 @@ const controller = {
     },
 
     store:(req,res,next) => {
-
-        console.log('Este es el body')
-        console.log(req.body);
-        console.log('Aca termina el body')
-        db.Products.create({
-            id: null,
+        db.Product.create({
             code_article: req.body.code_article,
             title: req.body.title,
-            gender: req.body.gender,
+            gender: req.body.femenino,
             description_product: req.body.description_product,
             type_cloth: req.body.type_cloth,
             image: req.files[0].filename,            
@@ -77,12 +71,14 @@ const controller = {
             image2: req.files[1].filename,
             image3: req.files[2].filename,
 
-        }) 
-        return res.redirect('/products');  
+        })
+        .then(function(product){
+            return res.redirect('/products');
+        });
     },
 
     edit:(req,res) => {
-        db.Products.findByPk(req.params.productId)
+        db.Product.findByPk(req.params.productId)
         .then(function(product) {
             res.render('productEdit', {
                 title:'Editando - Modas Emilse',
@@ -92,44 +88,42 @@ const controller = {
         })
     },
 
-    update: function(req,res) {
-        db.Products.update({
+    update:function(req,res) {
+        console.log(req.body);
+        db.Product.update({
             code_article: req.body.code_article,
             title: req.body.title,
-            gender: req.body.gender,
+            gender: req.body.femenino,
             description_product: req.body.description_product,
-            type_cloth: req.body.type_cloth,
-            image: req.body.image,           
+            type_cloth: req.body.type_cloth,       
             size: req.body.size,
             colour: req.body.colour,
             units: req.body.units,
             price: req.body.price,
             price_discount: req.body.price_discount,
             date_up: req.body.date_up,
-            image2: req.body.image2,
-            image3: req.body.image3,
         }, {
             where: {
                 id: req.params.productId,
             }
-        })
-        res.redirect('products/edit/' + req.params.productId )
+        });
+        res.redirect('/products/edit/' + req.params.productId );
     },
 
-    delete : function(req,res) {
-        db.Products.destroy({
+    destroy : function(req,res) {
+        db.Product.destroy({
             where:{
                 id: req.params.productId,
             }
-        }),
+        });
         res.redirect('/products');
     },
 
     detail : function(req, res) {
-       db.Products.findByPk(req.params.productId)
+       db.Product.findByPk(req.params.productId)
        .then(function(product){
            res.render('detalleProducto', {product : product, session:req.session.userLoginSession})
-       })
+       });
     }
 }
 

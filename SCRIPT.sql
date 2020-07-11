@@ -14,43 +14,52 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema emilse_modas
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `emilse_modas` DEFAULT CHARACTER SET latin1 ;
+CREATE SCHEMA IF NOT EXISTS `emilse_modas` DEFAULT CHARACTER SET utf8 ;
 USE `emilse_modas` ;
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`operations`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`operations` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name_operation` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`roles`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`roles` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `name_rol` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 
 -- -----------------------------------------------------
 -- Table `emilse_modas`.`users`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`users` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `avatar` VARCHAR(40) NOT NULL,
   `nombre` VARCHAR(40) NOT NULL,
   `apellido` VARCHAR(40) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(100) NOT NULL,
   `nacimiento` DATE NOT NULL,
-  `sexo` VARCHAR(20) NOT NULL,
-  `newsletter` VARCHAR(20) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
-
-
--- -----------------------------------------------------
--- Table `emilse_modas`.`shops`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`shops` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `cantidad` INT NOT NULL,
-  `total` DECIMAL(10,0) NOT NULL,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `user_id`),
-  CONSTRAINT `fk_shops_users`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `emilse_modas`.`users` (`id`)
+  `sexo` VARCHAR(20) NULL,
+  `newsletter` VARCHAR(20) NULL,
+  `rol_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_privileges_id`
+    FOREIGN KEY (`rol_id`)
+    REFERENCES `emilse_modas`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -59,153 +68,165 @@ DEFAULT CHARACTER SET = latin1;
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`orders` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `estado` VARCHAR(45) NOT NULL,
-  `shop_id` INT NOT NULL,
-  `shop_user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `shop_id`, `shop_user_id`),
-  CONSTRAINT `fk_orders_shops`
-    FOREIGN KEY (`shop_id`)
-    REFERENCES `emilse_modas`.`shops` (`id`)
+  `date` DATE NOT NULL,
+  `user_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_user_id`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `emilse_modas`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `emilse_modas`.`facturas`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`facturas` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `order_id` INT(11) NOT NULL,
-  `order_shop_id` INT NOT NULL,
-  `order_shop_user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `order_id`, `order_shop_id`, `order_shop_user_id`),
-    CONSTRAINT `fk_facturas_orders`
-    FOREIGN KEY (`order_id` , `order_shop_id` , `order_shop_user_id`)
-    REFERENCES `emilse_modas`.`orders` (`id` , `shop_id` , `shop_user_id`)
+  `type_factura` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`order_id`),
+  CONSTRAINT `fk_factura_order`
+    FOREIGN KEY (`order_id`)
+    REFERENCES `emilse_modas`.`orders` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `emilse_modas`.`favorites`
+-- Table `emilse_modas`.`categorys`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`favorites` (
-  `id` INT NOT NULL,
-  `user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `user_id`),
-    CONSTRAINT `fk_favorites_users`
-    FOREIGN KEY (`user_id`)
-    REFERENCES `emilse_modas`.`users` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = latin1;
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`categorys` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `type_cloth` VARCHAR(100) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
 -- Table `emilse_modas`.`products`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`products` (
-  `id` INT(255) NOT NULL AUTO_INCREMENT,
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `code_article` VARCHAR(10) NOT NULL,
   `title` VARCHAR(45) NOT NULL,
-  `gender` VARCHAR(45) NOT NULL,
-  `description_product` VARCHAR(45) NOT NULL,
-  `type_cloth` VARCHAR(45) NOT NULL,
-  `image` VARCHAR(45) NOT NULL,
-  `size` VARCHAR(10) NOT NULL,
-  `colour` VARCHAR(45) NOT NULL,
-  `units` VARCHAR(45) NOT NULL,
+  `description_product` VARCHAR(150) NOT NULL,
+  `image` VARCHAR(50) NOT NULL,
+  `image2` VARCHAR(50) NOT NULL,
+  `image3` VARCHAR(50) NOT NULL,
+  `gender` VARCHAR(45) NULL,
+  `date_up` DATETIME NOT NULL,
+  `category_id` INT(11) NOT NULL,
   `price` DECIMAL(10,0) NOT NULL,
   `price_discount` DECIMAL(10,0) NOT NULL,
-  `date_up` DATETIME NOT NULL,
-  `image2` VARCHAR(45) NOT NULL,
-  `image3` VARCHAR(45) NOT NULL,
+  `colour` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_category_id`
+    FOREIGN KEY (`category_id`)
+    REFERENCES `emilse_modas`.`categorys` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`favorites`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`favorites` (
+  `users_id` INT(11) NOT NULL,
+  `products_id` INT(11) NOT NULL,
+  PRIMARY KEY (`users_id`, `products_id`),
+  CONSTRAINT `fk_favorite_user`
+    FOREIGN KEY (`users_id`)
+    REFERENCES `emilse_modas`.`users` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_favorite_product`
+    FOREIGN KEY (`products_id`)
+    REFERENCES `emilse_modas`.`products` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`order_product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`order_product` (
+  `orders_id` INT(11) NOT NULL,
+  `products_id` INT(11) NOT NULL,
+  PRIMARY KEY (`orders_id`, `products_id`),
+  CONSTRAINT `fk_orders_has_products_orders1`
+    FOREIGN KEY (`orders_id`)
+    REFERENCES `emilse_modas`.`orders` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_orders_has_products_products1`
+    FOREIGN KEY (`products_id`)
+    REFERENCES `emilse_modas`.`products` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`sizes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`sizes` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `size` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = MyISAM
-AUTO_INCREMENT = 2
-DEFAULT CHARACTER SET = latin1;
+ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `emilse_modas`.`product_shop`
+-- Table `emilse_modas`.`product_size`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_shop` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `product_id` INT(255) NOT NULL,
-  `shop_id` INT NOT NULL,
-  `shop_user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `product_id`, `shop_id`, `shop_user_id`))
-ENGINE = MyISAM
-DEFAULT CHARACTER SET = latin1;
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_size` (
+  `product_id` INT(11) NOT NULL,
+  `size_id` INT(11) NOT NULL,
+  `units` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`product_id`, `size_id`),
+  CONSTRAINT `fk_product_size_product`
+    FOREIGN KEY (`product_id`)
+    REFERENCES `emilse_modas`.`products` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_product_size_size`
+    FOREIGN KEY (`size_id`)
+    REFERENCES `emilse_modas`.`sizes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `emilse_modas`.`product_favorite`
+-- Table `emilse_modas`.`rol_operation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_favorite` (
-  `id` INT NOT NULL,
-  `product_id` INT(255) NOT NULL,
-  `favorite_id` INT NOT NULL,
-  `favorite_user_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `product_id`, `favorite_id`, `favorite_user_id`))
-ENGINE = MyISAM
-DEFAULT CHARACTER SET = latin1;
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`rol_operation` (
+  `rol_id` INT(11) NOT NULL,
+  `operation_id` INT(11) NOT NULL,
+  PRIMARY KEY (`rol_id`, `operation_id`),
+  CONSTRAINT `fk_rol_operation_role`
+    FOREIGN KEY (`rol_id`)
+    REFERENCES `emilse_modas`.`roles` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_rol_operation_operation`
+    FOREIGN KEY (`operation_id`)
+    REFERENCES `emilse_modas`.`operations` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
-
--- Poblar la tabla products -- 
-INSERT INTO products VALUES(NULL, 'E001', 'Campera plush', 'Femenino', 'Campera juvenil con capucha', 'Campera', 'campera-plush.jpeg','1', 'Rosa', '30', '1800.00', '1500.00', '2008-7-10', 'campera-plush.jpeg', 'campera-plush.jpeg');
-INSERT INTO products VALUES(NULL, 'E001', 'Campera plush', 'Femenino', 'Campera juvenil con capucha', 'Campera', 'campera-plush.jpeg','2', 'Rosa', '30', '1800.00', '1500.00', '2008-7-10', 'campera-plush.jpeg', 'campera-plush.jpeg');
-INSERT INTO products VALUES(NULL, 'E001', 'Campera plush', 'Femenino', 'Campera juvenil con capucha', 'Campera', 'campera-plush.jpeg','3', 'Rosa', '30', '1800.00', '1500.00', '2008-7-10', 'campera-plush.jpeg', 'campera-plush.jpeg');
-INSERT INTO products VALUES(NULL, 'E001', 'Campera plush', 'Femenino', 'Campera juvenil con capucha', 'Campera', 'campera-plush.jpeg','4', 'Rosa', '30', '1800.00', '1500.00', '2008-7-10', 'campera-plush.jpeg', 'campera-plush.jpeg');
-INSERT INTO products VALUES(NULL, 'E001', 'Campera plush', 'Femenino', 'Campera juvenil con capucha', 'Campera', 'campera-plush.jpeg','5', 'Rosa', '30', '1800.00', '1500.00', '2008-7-10', 'campera-plush.jpeg', 'campera-plush.jpeg');
-INSERT INTO products VALUES(NULL, 'E001', 'Campera plush', 'Femenino', 'Campera juvenil con capucha', 'Campera', 'campera-plush.jpeg','6', 'Rosa', '30', '1800.00', '1500.00', '2008-7-10', 'campera-plush.jpeg', 'campera-plush.jpeg');
-
-INSERT INTO products VALUES	(NULL, 'E002'	, 'Campera modal'	, 'Femenino'	, 'Entallada con bosillo'	, 'Campera'	, 'campera-modal.jpeg'	, '1'	, 'Gris melange'	, 100	, 1800.00	, 1500.00	, '2020-6-10', 'campera-modal.jpeg', 'campera-modal.jpeg');
-INSERT INTO products VALUES	(NULL, 'E002'	, 'Campera modal'	, 'Femenino'	, 'Entallada con bosillo'	, 'Campera'	, 'campera-modal.jpeg'	, '2'	, 'Gris melange'	, 100	, 1800.00	, 1500.00	, '2020-6-10', 'campera-modal.jpeg', 'campera-modal.jpeg');
-INSERT INTO products VALUES	(NULL, 'E002'	, 'Campera modal'	, 'Femenino'	, 'Entallada con bosillo'	, 'Campera'	, 'campera-modal.jpeg'	, '3'	, 'Gris melange'	, 100	, 1800.00	, 1500.00	, '2020-6-10', 'campera-modal.jpeg', 'campera-modal.jpeg');
-INSERT INTO products VALUES	(NULL, 'E002'	, 'Campera modal'	, 'Femenino'	, 'Entallada con bosillo'	, 'Campera'	, 'campera-modal.jpeg'	, '4'	, 'Gris melange'	, 100	, 1800.00	, 1500.00	, '2020-6-10', 'campera-modal.jpeg', 'campera-modal.jpeg');
-INSERT INTO products VALUES	(NULL, 'E002'	, 'Campera modal'	, 'Femenino'	, 'Entallada con bosillo'	, 'Campera'	, 'campera-modal.jpeg'	, '5'	, 'Gris melange'	, 100	, 1800.00	, 1500.00	, '2020-6-10', 'campera-modal.jpeg', 'campera-modal.jpeg');
-INSERT INTO products VALUES	(NULL, 'E002'	, 'Campera modal'	, 'Femenino'	, 'Entallada con bosillo'	, 'Campera'	, 'campera-modal.jpeg'	, '6'	, 'Gris melange'	, 100	, 1800.00	, 1500.00	, '2020-6-10' , 'campera-modal.jpeg', 'campera-modal.jpeg');
-
-INSERT INTO products VALUES	(NULL	, 'E004'	, 'Pulover piel de mono'	, 'Femenino'	, 'Color brillante y frizado por dentro'	, 'Pulover'	, 'pulover-piel-de-mono.jpeg'	, '1'	, 'Negro'	, 150	,  ' 1100.00'	, ' 900.00'	, '2020-6-20', 'pulover-piel-de-mono.jpeg', 'pulover-piel-de-mono.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E004'	, 'Pulover piel de mono'	, 'Femenino'	, 'Color brillante y frizado por dentro'	, 'Pulover'	, 'pulover-piel-de-mono.jpeg'	, '2'	, 'Negro'	, 150	,  ' 1100.00'	, ' 900.00'	, '2020-6-20', 'pulover-piel-de-mono.jpeg', 'pulover-piel-de-mono.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E004'	, 'Pulover piel de mono'	, 'Femenino'	, 'Color brillante y frizado por dentro'	, 'Pulover'	, 'pulover-piel-de-mono.jpeg'	, '3'	, 'Negro'	, 150	,  ' 1100.00'	, ' 900.00'	, '2020-6-20', 'pulover-piel-de-mono.jpeg', 'pulover-piel-de-mono.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E004'	, 'Pulover piel de mono'	, 'Femenino'	, 'Color brillante y frizado por dentro'	, 'Pulover'	, 'pulover-piel-de-mono.jpeg'	, '4'	, 'Negro'	, 150	,  ' 1100.00'	, ' 900.00'	, '2020-6-20', 'pulover-piel-de-mono.jpeg', 'pulover-piel-de-mono.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E004'	, 'Pulover piel de mono'	, 'Femenino'	, 'Color brillante y frizado por dentro'	, 'Pulover'	, 'pulover-piel-de-mono.jpeg'	, '5'	, 'Negro'	, 150	,  ' 1100.00'	, ' 900.00'	, '2020-6-20', 'pulover-piel-de-mono.jpeg', 'pulover-piel-de-mono.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E004'	, 'Pulover piel de mono'	, 'Femenino'	, 'Color brillante y frizado por dentro'	, 'Pulover'	, 'pulover-piel-de-mono.jpeg'	, '6'	, 'Negro'	, 150	,  ' 1100.00'	, ' 900.00'	, '2020-6-20', 'pulover-piel-de-mono.jpeg', 'pulover-piel-de-mono.jpeg');
-
-INSERT INTO products VALUES	(NULL	, 'E005'	, 'Saco de peluche'	, 'Femenino'	, 'Saco con peluche blanco por dentro y botones negros'	, 'Saco'	, 'saco-peluche-con-botones.jpeg'	, '1'	, 'Negro'	, 150	,  ' 1500.00'	,  ' 1200.00'	, '2020-6-20', 'saco-peluche-con-botones.jpeg', 'saco-peluche-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E005'	, 'Saco de peluche'	, 'Femenino'	, 'Saco con peluche blanco por dentro y botones negros'	, 'Saco'	, 'saco-peluche-con-botones.jpeg'	, '2'	, 'Negro'	, 150	,  ' 1500.00'	,  ' 1200.00'	, '2020-6-20', 'saco-peluche-con-botones.jpeg', 'saco-peluche-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E005'	, 'Saco de peluche'	, 'Femenino'	, 'Saco con peluche blanco por dentro y botones negros'	, 'Saco'	, 'saco-peluche-con-botones.jpeg'	, '3'	, 'Negro'	, 150	,  ' 1500.00'	,  ' 1200.00'	, '2020-6-20', 'saco-peluche-con-botones.jpeg', 'saco-peluche-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E005'	, 'Saco de peluche'	, 'Femenino'	, 'Saco con peluche blanco por dentro y botones negros'	, 'Saco'	, 'saco-peluche-con-botones.jpeg'	, '4'	, 'Negro'	, 150	,  ' 1500.00'	,  ' 1200.00'	, '2020-6-20', 'saco-peluche-con-botones.jpeg', 'saco-peluche-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E005'	, 'Saco de peluche'	, 'Femenino'	, 'Saco con peluche blanco por dentro y botones negros'	, 'Saco'	, 'saco-peluche-con-botones.jpeg'	, '5'	, 'Negro'	, 150	,  ' 1500.00'	,  ' 1200.00'	, '2020-6-20', 'saco-peluche-con-botones.jpeg', 'saco-peluche-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E005'	, 'Saco de peluche'	, 'Femenino'	, 'Saco con peluche blanco por dentro y botones negros'	, 'Saco'	, 'saco-peluche-con-botones.jpeg'	, '6'	, 'Negro'	, 150	,  ' 1500.00'	,  ' 1200.00'	, '2020-6-20', 'saco-peluche-con-botones.jpeg', 'saco-peluche-con-botones.jpeg');
-
-INSERT INTO products VALUES	(NULL	, 'E006'	, 'Pantalon modal'	, 'Femenino'	, 'Pantalon tipo babucha con puño abajo'	, 'Pantalon'	, 'pantalon-modal.jpg'	, '1'	, 'Azul marino'	, 150	, ' 900.00'	, ' 600.00'	, '2020-6-20', 'pantalon-modal.jpg', 'pantalon-modal.jpg');
-INSERT INTO products VALUES	(NULL	, 'E006'	, 'Pantalon modal'	, 'Femenino'	, 'Pantalon tipo babucha con puño abajo'	, 'Pantalon'	, 'pantalon-modal.jpg'	, '2'	, 'Azul marino'	, 150	, ' 900.00'	, ' 600.00'	, '2020-6-20', 'pantalon-modal.jpg', 'pantalon-modal.jpg');
-INSERT INTO products VALUES	(NULL	, 'E006'	, 'Pantalon modal'	, 'Femenino'	, 'Pantalon tipo babucha con puño abajo'	, 'Pantalon'	, 'pantalon-modal.jpg'	, '3'	, 'Azul marino'	, 150	, ' 900.00'	, ' 600.00'	, '2020-6-20', 'pantalon-modal.jpg', 'pantalon-modal.jpg');
-INSERT INTO products VALUES	(NULL	, 'E006'	, 'Pantalon modal'	, 'Femenino'	, 'Pantalon tipo babucha con puño abajo'	, 'Pantalon'	, 'pantalon-modal.jpg'	, '4'	, 'Azul marino'	, 150	, ' 900.00'	, ' 600.00'	, '2020-6-20', 'pantalon-modal.jpg', 'pantalon-modal.jpg');
-INSERT INTO products VALUES	(NULL	, 'E006'	, 'Pantalon modal'	, 'Femenino'	, 'Pantalon tipo babucha con puño abajo'	, 'Pantalon'	, 'pantalon-modal.jpg'	, '5'	, 'Azul marino'	, 150	, ' 900.00'	, ' 600.00'	, '2020-6-20', 'pantalon-modal.jpg', 'pantalon-modal.jpg');
-INSERT INTO products VALUES	(NULL	, 'E006'	, 'Pantalon modal'	, 'Femenino'	, 'Pantalon tipo babucha con puño abajo'	, 'Pantalon'	, 'pantalon-modal.jpg'	, '6'	, 'Azul marino'	, 150	, ' 900.00'	, ' 600.00'	, '2020-6-20' , 'pantalon-modal.jpg', 'pantalon-modal.jpg');
-
-INSERT INTO products VALUES	(NULL	, 'E007'	, 'Saco de polar anteepiling'	, 'Femenino'	, 'Con cinturon y botones perfectos para invierno'	, 'Saco'	, 'saco-polar-con-botones.jpeg'	, '1'	, 'Negro'	, 150	,  ' 1200.00'	, ' 900.00'	, '2020-6-20', 'saco-polar-con-botones.jpeg', 'saco-polar-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E007'	, 'Saco de polar anteepiling'	, 'Femenino'	, 'Con cinturon y botones perfectos para invierno'	, 'Saco'	, 'saco-polar-con-botones.jpeg'	, '2'	, 'Negro'	, 150	,  ' 1200.00'	, ' 900.00'	, '2020-6-20', 'saco-polar-con-botones.jpeg', 'saco-polar-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E007'	, 'Saco de polar anteepiling'	, 'Femenino'	, 'Con cinturon y botones perfectos para invierno'	, 'Saco'	, 'saco-polar-con-botones.jpeg'	, '3'	, 'Negro'	, 150	,  ' 1200.00'	, ' 900.00'	, '2020-6-20', 'saco-polar-con-botones.jpeg', 'saco-polar-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E007'	, 'Saco de polar anteepiling'	, 'Femenino'	, 'Con cinturon y botones perfectos para invierno'	, 'Saco'	, 'saco-polar-con-botones.jpeg'	, '4'	, 'Negro'	, 150	,  ' 1200.00'	, ' 900.00'	, '2020-6-20', 'saco-polar-con-botones.jpeg', 'saco-polar-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E007'	, 'Saco de polar anteepiling'	, 'Femenino'	, 'Con cinturon y botones perfectos para invierno'	, 'Saco'	, 'saco-polar-con-botones.jpeg'	, '5'	, 'Negro'	, 150	,  ' 1200.00'	, ' 900.00'	, '2020-6-20', 'saco-polar-con-botones.jpeg', 'saco-polar-con-botones.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E007'	, 'Saco de polar anteepiling'	, 'Femenino'	, 'Con cinturon y botones perfectos para invierno'	, 'Saco'	, 'saco-polar-con-botones.jpeg'	, '6'	, 'Negro'	, 150	,  ' 1200.00'	, ' 900.00'	, '2020-6-20', 'saco-polar-con-botones.jpeg', 'saco-polar-con-botones.jpeg');
-
-INSERT INTO products VALUES	(NULL	, 'E008'	, 'Remera morley'	, 'Femenino'	, 'Remera lisa manga corta'	, 'Remera'	, 'remera-morley.jpeg'	, '1'	, 'Gris melange'	, 150	, ' 800.00'	, ' 500.00'	, '2020-6-20' , 'remera-morley.jpeg' , 'remera-morley.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E008'	, 'Remera morley'	, 'Femenino'	, 'Remera lisa manga corta'	, 'Remera'	, 'remera-morley.jpeg'	, '2'	, 'Gris melange'	, 151	, ' 800.00'	, ' 500.00'	, '2020-6-20' , 'remera-morley.jpeg' , 'remera-morley.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E008'	, 'Remera morley'	, 'Femenino'	, 'Remera lisa manga corta'	, 'Remera'	, 'remera-morley.jpeg'	, '3'	, 'Gris melange'	, 152	, ' 800.00'	, ' 500.00'	, '2020-6-20' , 'remera-morley.jpeg' , 'remera-morley.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E008'	, 'Remera morley'	, 'Femenino'	, 'Remera lisa manga corta'	, 'Remera'	, 'remera-morley.jpeg'	, '4'	, 'Gris melange'	, 153	, ' 800.00'	, ' 500.00'	, '2020-6-20' , 'remera-morley.jpeg', 'remera-morley.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E008'	, 'Remera morley'	, 'Femenino'	, 'Remera lisa manga corta'	, 'Remera'	, 'remera-morley.jpeg'	, '5'	, 'Gris melange'	, 154	, ' 800.00'	, ' 500.00'	, '2020-6-20', 'remera-morley.jpeg', 'remera-morley.jpeg');
-INSERT INTO products VALUES	(NULL	, 'E008'	, 'Remera morley'	, 'Femenino'	, 'Remera lisa manga corta'	, 'Remera'	, 'remera-morley.jpeg'	, '6'	, 'Gris melange'	, 155	, ' 800.00'	, ' 500.00'	, '2020-6-20', 'remera-morley.jpeg', 'remera-morley.jpeg');

@@ -1,18 +1,13 @@
-const fs = require('fs');
-const path = require('path');
+const db = require('../database/models');
 
 function authUserLogin(req,res,next){
     if(req.session.userLoginSession == undefined){
         if(req.cookies.user){
-            const usersFilePath = path.join(__dirname, '../data/users.json');
-            const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
-            let userLogin=users.find(user => {
-                return user.id==req.cookies.user;
-            })
-
-            req.session.userLoginSession=userLogin;
+            db.User.findByPk(req.cookies.user)
+            .then(function(user){
+            req.session.userLoginSession=user;
             next();
+            });
         }else{
             return res.redirect('/users/login');
         }
@@ -20,4 +15,4 @@ function authUserLogin(req,res,next){
     next();
 }
 
-module.exports=authUserLogin;
+module.exports = authUserLogin;
