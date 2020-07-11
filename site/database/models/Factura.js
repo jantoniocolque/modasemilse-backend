@@ -1,21 +1,12 @@
-const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
   let alias = 'Factura';
   
   let cols = {
-    id: {
-      type: dataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
-    },
     order_id: {
       type: dataTypes.INTEGER,
     },
-    order_shop_id: {
-        type: dataTypes.INTEGER,
-    },
-    order_shop_user_id:{
-        type:dataTypes.INTEGER,
+    type_factura:{
+        type:dataTypes.STRING,
     }
   };
   

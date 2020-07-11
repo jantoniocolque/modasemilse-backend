@@ -1,14 +1,11 @@
-const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
   const alias = 'Favorite';
   
   const cols = {
-    id: {
+    users_id: {
       type: dataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true
     },
-    user_id: {
+    products_id: {
       type: dataTypes.INTEGER,
     }
   };

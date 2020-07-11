@@ -30,6 +30,9 @@ module.exports = (sequelize, dataTypes) => {
       },
       newsletter: {
         type: dataTypes.STRING,
+      },
+      roles_id: {
+        type: dataTypes.INTEGER,
       }
     };
     

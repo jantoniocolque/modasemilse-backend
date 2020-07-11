@@ -1,4 +1,3 @@
-const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
   const alias = 'Product';
   
@@ -14,25 +13,25 @@ module.exports = (sequelize, dataTypes) => {
     title: {
       type: dataTypes.STRING,
     },
-    gender: {
-      type: dataTypes.STRING,
-    },   
     description_product: {
-      type: dataTypes.STRING,
-    },   
-    type_cloth: {
       type: dataTypes.STRING,
     }, 
     image: {
       type: dataTypes.STRING,
-    },  
-    size: {
-      type: dataTypes.INTEGER,
     },
-    colour: {
+    image2: {
       type: dataTypes.STRING,
     },
-    units: {
+    image3: {
+      type: dataTypes.STRING,
+    },
+    gender: {
+      type: dataTypes.STRING,
+    },
+    date_up: {
+      type: dataTypes.DATE,
+    },
+    category_id: {
       type: dataTypes.INTEGER,
     },
     price: {
@@ -41,15 +40,9 @@ module.exports = (sequelize, dataTypes) => {
     price_discount: {          
       type: dataTypes.DECIMAL,
     },
-    date_up: {
-      type: dataTypes.DATE,
-    },
-    image2: {
+    colour: {
       type: dataTypes.STRING,
-    },
-    image3: {
-      type: dataTypes.STRING,
-    } 
+    }
   };
   
   const config = {

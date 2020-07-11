@@ -22,7 +22,7 @@ USE `emilse_modas` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`operations` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(45) NOT NULL,
+  `name_operation` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
@@ -33,14 +33,8 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`roles` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(20) NOT NULL,
-  `operation_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_roles_operation_id`
-    FOREIGN KEY (`operation_id`)
-    REFERENCES `emilse_modas`.`operations` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `name_rol` VARCHAR(20) NOT NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
@@ -57,10 +51,10 @@ CREATE TABLE IF NOT EXISTS `emilse_modas`.`users` (
   `nacimiento` DATE NOT NULL,
   `sexo` VARCHAR(20) NULL,
   `newsletter` VARCHAR(20) NULL,
-  `roles_id` INT(11) NOT NULL,
+  `rol_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_privileges_id`
-    FOREIGN KEY (`roles_id`)
+    FOREIGN KEY (`rol_id`)
     REFERENCES `emilse_modas`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -195,22 +189,42 @@ ENGINE = InnoDB;
 -- Table `emilse_modas`.`product_size`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_size` (
-  `products_id` INT(11) NOT NULL,
-  `sizes_id` INT(11) NOT NULL,
+  `product_id` INT(11) NOT NULL,
+  `size_id` INT(11) NOT NULL,
   `units` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`products_id`, `sizes_id`),
+  PRIMARY KEY (`product_id`, `size_id`),
   CONSTRAINT `fk_product_size_product`
-    FOREIGN KEY (`products_id`)
+    FOREIGN KEY (`product_id`)
     REFERENCES `emilse_modas`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_product_size_size`
-    FOREIGN KEY (`sizes_id`)
+    FOREIGN KEY (`size_id`)
     REFERENCES `emilse_modas`.`sizes` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `emilse_modas`.`rol_operation`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `emilse_modas`.`rol_operation` (
+  `rol_id` INT(11) NOT NULL,
+  `operation_id` INT(11) NOT NULL,
+  PRIMARY KEY (`rol_id`, `operation_id`),
+  CONSTRAINT `fk_rol_operation_role`
+    FOREIGN KEY (`rol_id`)
+    REFERENCES `emilse_modas`.`roles` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_rol_operation_operation`
+    FOREIGN KEY (`operation_id`)
+    REFERENCES `emilse_modas`.`operations` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

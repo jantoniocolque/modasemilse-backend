@@ -1,4 +1,3 @@
-const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
   let alias = 'Order';
   
@@ -11,10 +10,10 @@ module.exports = (sequelize, dataTypes) => {
     estado: {
       type: dataTypes.STRING,
     },
-    shop_id: {
-      type: dataTypes.INTEGER,
+    date: {
+      type: dataTypes.DATE,
     },
-    shop_user_id: {
+    user_id: {
       type: dataTypes.INTEGER,
     }
   };
