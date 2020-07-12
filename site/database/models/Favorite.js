@@ -2,12 +2,6 @@ module.exports = (sequelize, dataTypes) => {
   const alias = 'Favorite';
   
   const cols = {
-    users_id: {
-      type: dataTypes.INTEGER,
-    },
-    products_id: {
-      type: dataTypes.INTEGER,
-    }
   };
   
   const config = {
@@ -19,16 +13,13 @@ module.exports = (sequelize, dataTypes) => {
   
   Favorite.associate=function(models){
     Favorite.belongsTo(models.User, {
-      as:'user',
-      foreignKey: 'user_id',
+      as: 'favorite_user',
+      foreignKey: 'users_id'
     })
 
-    Favorite.belongsToMany(models.Product, {
-        as:'products',
-        through:'product_favorite',
-        foreignKey: 'favorite_id',
-        otherKey:'product_id',
-        timestamps:false
+    Favorite.belongsTo(models.Product, {
+        as: 'favorite_product',
+        foreignKey: 'products_id'
     })
   }
   return Favorite;

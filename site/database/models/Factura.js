@@ -2,9 +2,6 @@ module.exports = (sequelize, dataTypes) => {
   let alias = 'Factura';
   
   let cols = {
-    order_id: {
-      type: dataTypes.INTEGER,
-    },
     type_factura:{
         type:dataTypes.STRING,
     }

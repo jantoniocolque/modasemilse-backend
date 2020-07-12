@@ -31,9 +31,6 @@ module.exports = (sequelize, dataTypes) => {
       newsletter: {
         type: dataTypes.STRING,
       },
-      roles_id: {
-        type: dataTypes.INTEGER,
-      }
     };
     
     let config = {
@@ -44,15 +41,28 @@ module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define(alias, cols, config);
     
     User.associate = function(models) {
-        User.hasOne(models.Shop, {
-            as: 'shop',
-            foreignKey: 'user_id'
-        })
+      User.belongsToMany(models.Product, {
+        as: 'user_products',
+        through:models.Favorite,
+        foreignKey: 'users_id',
+        otherKey:'products_id',
+        timestamps:false
+      })
 
-        User.hasOne(models.Favorite, {
-          as:'favorite',
-          foreignKey: 'user_id',
-        })
+      User.hasMany(models.Favorite, {
+        as: 'user_favorites',
+        foreignKey: 'users_id'
+      })
+
+      User.belongsTo(models.Rol,{
+        as:'rol',
+        foreignKey:'rol_id'
+      })
+
+      User.hasMany(models.Order,{
+        as:'user_orders',
+        foreignKey:'user_id'
+      })
     }
     return User;
   }
