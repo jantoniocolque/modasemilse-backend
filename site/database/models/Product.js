@@ -31,9 +31,6 @@ module.exports = (sequelize, dataTypes) => {
     date_up: {
       type: dataTypes.DATE,
     },
-    category_id: {
-      type: dataTypes.INTEGER,
-    },
     price: {
       type: dataTypes.DECIMAL,
     },
@@ -52,22 +49,50 @@ module.exports = (sequelize, dataTypes) => {
   
   const Product = sequelize.define(alias, cols, config);
   
-  Product.associate=function(models){
-    Product.belongsToMany(models.Shop, {
-      as:'shops',
-      through:'product_shop',
+  Product.associate = function(models){
+    Product.belongsTo(models.Category, {
+      as:'category',
+      foreignKey: 'category_id'
+    })
+
+    Product.belongsToMany(models.Size, {
+      as:'sizes',
+      through:models.Product_Size,
       foreignKey: 'product_id',
-      otherKey:'shop_id',
+      otherKey:'size_id',
       timestamps:false
     })
 
-    Product.belongsToMany(models.Favorite, {
-      as:'favorites',
-      through:'product_favorite',
-      foreignKey: 'product_id',
-      otherKey:'favorite_id',
+    Product.hasMany(models.Product_Size,{
+      as: 'products_sizes',
+      foreignKey: 'product_id'
+    })
+
+    Product.belongsToMany(models.Order, {
+      as: 'orders',
+      through:models.Order_Product,
+      foreignKey: 'products_id',
+      otherKey:'orders_id',
       timestamps:false
-  })
+    })
+
+    Product.hasMany(models.Order_Product, {
+      as: 'orders_products',
+      foreignKey: 'products_id'
+    })
+
+    Product.belongsToMany(models.User, {
+      as: 'users',
+      through:models.Favorite,
+      foreignKey: 'products_id',
+      otherKey:'users_id',
+      timestamps:false
+    })
+
+    Product.hasMany(models.Favorite, {
+      as: 'favorites',
+      foreignKey: 'products_id'
+    })
   }
   return Product;
 }

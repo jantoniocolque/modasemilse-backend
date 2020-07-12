@@ -191,7 +191,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_size` (
   `product_id` INT(11) NOT NULL,
   `size_id` INT(11) NOT NULL,
-  `units` VARCHAR(45) NOT NULL,
+  `units` INT NOT NULL,
   PRIMARY KEY (`product_id`, `size_id`),
   CONSTRAINT `fk_product_size_product`
     FOREIGN KEY (`product_id`)
@@ -211,16 +211,16 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `emilse_modas`.`rol_operation`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`rol_operation` (
-  `rol_id` INT(11) NOT NULL,
-  `operation_id` INT(11) NOT NULL,
-  PRIMARY KEY (`rol_id`, `operation_id`),
-  CONSTRAINT `fk_rol_operation_role`
-    FOREIGN KEY (`rol_id`)
+  `roles_id` INT(11) NOT NULL,
+  `operations_id` INT(11) NOT NULL,
+  PRIMARY KEY (`roles_id`, `operations_id`),
+  CONSTRAINT `fk_rol_operation_roles`
+    FOREIGN KEY (`roles_id`)
     REFERENCES `emilse_modas`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_rol_operation_operation`
-    FOREIGN KEY (`operation_id`)
+  CONSTRAINT `fk_rol_operation_operations`
+    FOREIGN KEY (`operations_id`)
     REFERENCES `emilse_modas`.`operations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
