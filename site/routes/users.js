@@ -32,8 +32,8 @@ router.post('/register',upload.any(),[
   check('password').isLength({min:5}).withMessage('Contraseña como minimo 5 caracteres'),
   check('email').isEmail().withMessage('Correo incorrecto'),
   body('email').custom(async function(value){
-    const usuario = await db.User.findAll({where : {email:value}});
-      if(usuario.length > 0){
+    const usuario = await db.User.findOne({where : {email:value}});
+      if(usuario !=  null){
         
         return Promise.reject();
       }

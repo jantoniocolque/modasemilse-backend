@@ -52,9 +52,7 @@ let usersController = {
     },
     create : function (req, res){
         const errors=validationResult(req);
-        console.log(errors);
         if(errors.isEmpty()){
-            console.log(errors);
             db.User.create({
                 avatar : req.files[0].filename,
                 nombre : req.body.firstName,
@@ -63,7 +61,8 @@ let usersController = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 nacimiento: req.body.nacimiento,
                 sexo: req.body.sexo,
-                newsletter: req.body.newsletter
+                newsletter: req.body.newsletter,
+                rol_id:2,
             });
             
             res.redirect('/users/login');
