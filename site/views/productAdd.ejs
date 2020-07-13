@@ -67,22 +67,36 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="tipo">Tipo</label>
-                        <input type="text" class="col form-control" name="type_cloth" id="tipo" placeholder="Agregar tipo de artículo">
+                        <select name='type_cloth' class="col form-control" id= "tipo">
+                            <option disabled selected>Selecciona una categoria</option>
+                            <% for( let i = 0; i < categorys.length; i++) {%>
+                            <option value="<%= categorys[i].id %>">
+                                <%= categorys[i].type_cloth %>
+                            </option>
+                            <% } %>
+                        </select>
                     </div>
 
                     <div class="form-group row"> 
-                        <label class="col-4" for="talles">Talles</label>
-                        <input type="number" class="col form-control" name="size" id="talles" placeholder="Talles disponibles, separar con comas">
+                        <label class="col-4" for="talles">Talle</label>
+                        <select name='size_id' class="col form-control" id= "talles">
+                            <option disabled selected>Selecciona un talle</option>
+                            <% for( let i = 0; i < sizes.length; i++) {%>
+                            <option value="<%= sizes[i].id %>">
+                                <%= sizes[i].size %>
+                            </option>
+                            <% } %>
+                        </select>
+                    </div>
+
+                    <div class="form-group row"> 
+                        <label class="col-4" for="unidades">Cantidad</label>
+                        <input required type="number" class="col form-control" id="unidades" name="units" placeholder="Unidades de ese talle">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="colores">Colores</label>
                         <input type="text" class="col form-control" name="colour" id="colores" placeholder="Colores disponibles, separar con comas">
-                    </div>
-
-                    <div class="form-group row"> 
-                        <label class="col-4" for="unidades">Unidades disponibles</label>
-                        <input required type="number" class="col form-control" id="unidades" name="units" placeholder="Ingrese unidades disponibles">
                     </div>
 
                     <div class="form-group row"> 

@@ -69,12 +69,20 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="tipo">Tipo</label>
-                        <input type="text" class="col form-control" name="type_cloth" id="tipo" placeholder="Agregar tipo de artículo" value= '<%= product.type_cloth %>'>
-                    </div>
-
-                    <div class="form-group row"> 
-                        <label class="col-4" for="talles">Talles</label>
-                        <input type="number" class="col form-control" name="size" id="talles" placeholder="Talles disponibles, separar con comas" value= '<%= product.size %>'>
+                        <select name='type_cloth' class="col form-control" id= "tipo">
+                            <option disabled>Selecciona una categoria</option>
+                            <% for( let i = 0; i < categorys.length; i++) {%>
+                                <%if(product.category_id == categorys[i].id){%>
+                                    <option value="<%= categorys[i].id %>" selected>
+                                        <%= categorys[i].type_cloth %>
+                                    </option>
+                                <% } else { %>
+                                    <option value="<%= categorys[i].id %>">
+                                        <%= categorys[i].type_cloth %>
+                                    </option>
+                                <%}%>
+                            <% } %>
+                        </select>
                     </div>
 
                     <div class="form-group row"> 

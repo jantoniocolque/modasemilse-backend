@@ -2,9 +2,14 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Product_Size';
     
     let cols = {
-      units: {
-        type: dataTypes.INTEGER,
-      }
+        id:{
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        units: {
+            type: dataTypes.INTEGER,
+        }
     };
     
     let config = {
@@ -16,13 +21,13 @@ module.exports = (sequelize, dataTypes) => {
 
     Product_Size.associate = function(models) {
         Product_Size.belongsTo(models.Product,{
-            as: 'product_size_product',
+            as: 'size_products',
             foreignKeys: 'product_id'
-        })
+        });
         Product_Size.belongsTo(models.Size,{
-            as: 'product_size_size',
+            as: 'sizes',
             foreignKeys: 'size_id'
-        })
+        });
     }
     
     return Product_Size;

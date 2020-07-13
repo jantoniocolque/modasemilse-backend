@@ -53,28 +53,28 @@ module.exports = (sequelize, dataTypes) => {
     Product.belongsTo(models.Category, {
       as:'category',
       foreignKey: 'category_id'
-    })
+    });
 
     Product.belongsToMany(models.Size, {
       as:'sizes',
-      through:models.Product_Size,
-      foreignKey: 'product_id',
+      through:'product_size',
+      foreignKey:'product_id',
       otherKey:'size_id',
       timestamps:false
-    })
+    });
 
     Product.hasMany(models.Product_Size,{
       as: 'products_sizes',
       foreignKey: 'product_id'
-    })
+    });
 
     Product.belongsToMany(models.Order, {
       as: 'orders',
-      through:models.Order_Product,
+      through:'order_product',
       foreignKey: 'products_id',
       otherKey:'orders_id',
       timestamps:false
-    })
+    });
 
     Product.hasMany(models.Order_Product, {
       as: 'orders_products',
@@ -83,16 +83,16 @@ module.exports = (sequelize, dataTypes) => {
 
     Product.belongsToMany(models.User, {
       as: 'users',
-      through:models.Favorite,
+      through:'favorites',
       foreignKey: 'products_id',
       otherKey:'users_id',
       timestamps:false
-    })
+    });
 
     Product.hasMany(models.Favorite, {
       as: 'favorites',
       foreignKey: 'products_id'
-    })
+    });
   }
   return Product;
 }

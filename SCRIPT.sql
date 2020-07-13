@@ -15,6 +15,9 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema emilse_modas
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `emilse_modas` DEFAULT CHARACTER SET utf8 ;
+-- -----------------------------------------------------
+-- Schema movies_db
+-- -----------------------------------------------------
 USE `emilse_modas` ;
 
 -- -----------------------------------------------------
@@ -158,9 +161,10 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `emilse_modas`.`order_product`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`order_product` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `orders_id` INT(11) NOT NULL,
   `products_id` INT(11) NOT NULL,
-  PRIMARY KEY (`orders_id`, `products_id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_orders_has_products_orders1`
     FOREIGN KEY (`orders_id`)
     REFERENCES `emilse_modas`.`orders` (`id`)
@@ -189,10 +193,11 @@ ENGINE = InnoDB;
 -- Table `emilse_modas`.`product_size`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_size` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `units` VARCHAR(45) NOT NULL,
   `product_id` INT(11) NOT NULL,
   `size_id` INT(11) NOT NULL,
-  `units` INT NOT NULL,
-  PRIMARY KEY (`product_id`, `size_id`),
+  PRIMARY KEY (`id`),
   CONSTRAINT `fk_product_size_product`
     FOREIGN KEY (`product_id`)
     REFERENCES `emilse_modas`.`products` (`id`)
@@ -211,16 +216,17 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `emilse_modas`.`rol_operation`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`rol_operation` (
-  `roles_id` INT(11) NOT NULL,
-  `operations_id` INT(11) NOT NULL,
-  PRIMARY KEY (`roles_id`, `operations_id`),
-  CONSTRAINT `fk_rol_operation_roles`
-    FOREIGN KEY (`roles_id`)
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `rol_id` INT(11) NOT NULL,
+  `operation_id` INT(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_rol_operation_role`
+    FOREIGN KEY (`rol_id`)
     REFERENCES `emilse_modas`.`roles` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_rol_operation_operations`
-    FOREIGN KEY (`operations_id`)
+  CONSTRAINT `fk_rol_operation_operation`
+    FOREIGN KEY (`operation_id`)
     REFERENCES `emilse_modas`.`operations` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)

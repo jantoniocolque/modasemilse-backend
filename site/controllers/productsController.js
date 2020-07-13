@@ -47,45 +47,54 @@ const controller = {
     },
 
 
-    create:(req,res) => {
+    create:async (req,res) => {
+        const sizes = await db.Size.findAll();
+        const categorys = await db.Category.findAll();
         res.render('productAdd',{
             title:'Carga de Producto',
+            sizes:sizes,
+            categorys:categorys,
             session:req.session.userLoginSession
         });
     },
 
-    store:(req,res,next) => {
-        db.Product.create({
+    store:async (req,res,next) => {
+        await db.Product.create({
             code_article: req.body.code_article,
             title: req.body.title,
-            gender: req.body.femenino,
             description_product: req.body.description_product,
-            type_cloth: req.body.type_cloth,
-            image: req.files[0].filename,            
-            size: req.body.size,
-            colour: req.body.colour,
-            units: req.body.units,
-            price: req.body.price,
-            price_discount: req.body.price_discount,
-            date_up: req.body.date_up,
+            image: req.files[0].filename,
             image2: req.files[1].filename,
             image3: req.files[2].filename,
-
-        })
-        .then(function(product){
-            return res.redirect('/products');
+            gender: req.body.femenino,
+            date_up: req.body.date_up,
+            price: req.body.price,
+            price_discount: req.body.price_discount,
+            colour: req.body.colour,
+            category_id: req.body.type_cloth,
+            products_sizes:[{
+                size_id:req.body.size_id,
+                units:req.body.units,
+            }]
+        },{
+            include:[{
+                association:'products_sizes'
+            }]
         });
+
+        return res.redirect('/products');;
     },
 
-    edit:(req,res) => {
-        db.Product.findByPk(req.params.productId)
-        .then(function(product) {
-            res.render('productEdit', {
-                title:'Editando - Modas Emilse',
-                product:product,
-                session:req.session.userLoginSession,
-            });
-        })
+    edit: async (req,res) => {
+        const product = await db.Product.findByPk(req.params.productId);
+        const categorys = await db.Category.findAll();
+
+        res.render('productEdit', {
+            title:'Editando - Modas Emilse',
+            product:product,
+            categorys:categorys,
+            session:req.session.userLoginSession,
+        });
     },
 
     update:function(req,res) {

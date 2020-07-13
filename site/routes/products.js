@@ -27,11 +27,11 @@ router.get('/details/:productId', productsController.detail); /* GET - Show deta
 router.get('/type/:type',productsController.filter);
 
 /*GET products create page */
-router.get('/create',adminUser,productsController.create);
+router.get('/create',productsController.create);
 router.post('/create',upload.any(),productsController.store);
 
 /*GET products edit page*/
-router.get('/edit/:productId',adminUser, productsController.edit); /* GET - Form to create */
+router.get('/edit/:productId', productsController.edit); /* GET - Form to create */
 router.put('/edit/:productId', productsController.update); /* PUT - Update in DB */
 
 /*GET products delete page*/
