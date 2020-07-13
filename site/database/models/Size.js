@@ -24,7 +24,7 @@ module.exports = (sequelize, dataTypes) => {
             as: 'size_products_sizes',
             foreignKey: 'size_id'
         });
-        
+
         Size.belongsToMany(models.Product, {
             as:'size_products',
             through: models.Product_Size,
