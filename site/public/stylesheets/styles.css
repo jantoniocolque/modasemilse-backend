@@ -56,6 +56,20 @@ p.intro {
     text-align: center;
 }
 
+/* estilo errores en formulario*/
+
+div.errors-feedback {
+    display: none;
+    justify-content: space-evenly;
+    color: red;
+}
+
+div.errors-feedback ul {
+    list-style: none;
+    border-style: dashed;
+    padding: 10px;
+}
+
 /* area de registro */
 .register-area {
     max-width: 1024px;
