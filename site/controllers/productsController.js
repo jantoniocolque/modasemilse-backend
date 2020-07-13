@@ -82,44 +82,60 @@ const controller = {
             }]
         });
 
-        return res.redirect('/products');;
+        return res.redirect('/products');
     },
 
     edit: async (req,res) => {
-        const product = await db.Product.findByPk(req.params.productId);
+        const product = await db.Product.findByPk(req.params.productId,{
+            include:[{
+                association:'products_sizes'
+            }]
+        });
+        const sizes = await db.Size.findAll();
         const categorys = await db.Category.findAll();
-
         res.render('productEdit', {
             title:'Editando - Modas Emilse',
             product:product,
+            sizes:sizes,
             categorys:categorys,
             session:req.session.userLoginSession,
         });
     },
 
-    update:function(req,res) {
-        console.log(req.body);
+    update: function(req,res) {
         db.Product.update({
             code_article: req.body.code_article,
             title: req.body.title,
-            gender: req.body.femenino,
             description_product: req.body.description_product,
-            type_cloth: req.body.type_cloth,       
-            size: req.body.size,
-            colour: req.body.colour,
-            units: req.body.units,
+            gender: req.body.femenino,
+            date_up: req.body.date_up,
             price: req.body.price,
             price_discount: req.body.price_discount,
-            date_up: req.body.date_up,
-        }, {
+            colour: req.body.colour,
+            category_id: req.body.type_cloth,
+        },{
             where: {
                 id: req.params.productId,
             }
         });
-        res.redirect('/products/edit/' + req.params.productId );
+        db.Product_Size.update({
+            size_id: req.body.size_id,
+            units:req.body.units
+        },{
+            where:{
+                product_id: req.params.productId
+            }
+        })
+         res.redirect('/products/edit/' + req.params.productId );
     },
 
-    destroy : function(req,res) {
+    destroy :function(req,res) {
+        db.Product_Size.destroy({
+            where:{
+                product_id: req.params.productId,
+            }
+        });
+
         db.Product.destroy({
             where:{
                 id: req.params.productId,
