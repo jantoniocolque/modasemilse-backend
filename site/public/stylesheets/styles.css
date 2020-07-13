@@ -604,7 +604,6 @@ button .btn-primary p{
 
 div .align-right-icon i{
     margin-right: 10px;
-   /**justify-content: space-between; **/
 }
 
 #price-decoration{
@@ -801,6 +800,9 @@ div .design-to-size{
 
 /*Estilos para notebook*/
 @media(min-width:1024px) {
+    .form-details{
+        padding: 10px 50px 0px;
+    }
 
     .btn-primary-violet p{
         font-size: 13px;
@@ -818,10 +820,6 @@ div .design-to-size{
         color: black;
         text-decoration: none;
         border-radius: 15px;
-    }
-
-    .form-details{
-        padding: 0px 50px 0px;
     }
 
     div .box-in-middle{
@@ -861,5 +859,6 @@ div .design-to-size{
         background-size: 100% auto;
         background-color: #7952B3  ;
         color: white;
-    }
+    }    
+    
 }
