@@ -55,7 +55,7 @@ atencion finalizando el eje principal de la consigna.
 
 **STOP DOING** - Lo que tuvimos que parar de hacer fue mirar en diferentes paginas para considerar nuestra propia creatividad y dejar una parte de cada uno en este proyecto.
 
-### Sprint 4 - Validaciones
+### Sprint 5 - Validaciones
 
 **START DOING** - Iniciamos estudiando la documentacion de Sequelize para entender su funcionamiento sobre todo en las Asociaciones.
 
