@@ -14,11 +14,17 @@
                     <div class="row">
                         <div class="col-3 modas-userPanel-menu">
                             <p><strong><a href="/users/account" class="modas-userPanel-link">MI CUENTA</a></strong></p>
-                            <ul class="modas-list">
-                                <li><a href="/users/account/orders" class="modas-userPanel-link">Mis pedidos</a></li>
-                                <li><a href="/users/account/favorites" class="modas-userPanel-link">Favoritos</a></li>
-                                <li><a href="/users/account/update" class="modas-userPanel-link">Mis datos</a></li>
-                            </ul>
+                                <%if(session.rol_id != 1){%>
+                                <ul class="modas-list">
+                                    <li><a href="/users/account/orders" class="modas-userPanel-link">Mis pedidos</a></li>
+                                    <li><a href="/users/account/favorites" class="modas-userPanel-link">Favoritos</a></li>
+                                    <li><a href="/users/account/update" class="modas-userPanel-link">Mis datos</a></li>
+                                </ul>
+                                <%}else{%>
+                                    <ul>
+                                        <li><a href="/users/account/update" class="modas-userPanel-link">Mis datos</a></li>
+                                    </ul>
+                                <%}%>
                         </div>
                         
                         <div class="col">

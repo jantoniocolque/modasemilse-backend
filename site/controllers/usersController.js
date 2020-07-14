@@ -14,7 +14,6 @@ let usersController = {
         res.render('register', { title: 'Modas Emilse | Registro',session:req.session.userLoginSession});
     },
     login : function(req, res){
-        
         res.render('login', { title: 'Modas Emilse | Login',session:req.session.userLoginSession});
     },
     userValidator : async (req, res) => {
@@ -22,12 +21,19 @@ let usersController = {
         if(errors.isEmpty()){
 
            let userLogin = await db.User.findOne({ where: { email : req.body.email } });
-
+           let password = userLogin.password;
+           if(userLogin.rol_id == 1){
+               
+            password = bcrypt.hashSync(userLogin.password,10);
+           }
             if(userLogin !=undefined){
-                if(bcrypt.compareSync(req.body.password,userLogin.password)){
+                if(bcrypt.compareSync(req.body.password,password)){
                     req.session.userLoginSession=userLogin;
                     if(req.body.newsletter){
                         res.cookie('user',userLogin.id,{maxAge:60000});
+                    }
+                    if(userLogin.rol_id==1){
+                        res.redirect('/users/account/update');
                     }
                     res.redirect('/users/account');
                 }
@@ -76,7 +82,8 @@ let usersController = {
     update : function(req, res){
         res.render('userUpdate', {
             title: 'Modas Emilse | Mi cuenta',
-            user: req.session.userLoginSession, errors : "yes"
+            user: req.session.userLoginSession, errors : "yes",
+            session:req.session.userLoginSession
         });
     },
     storeUpdate : function(req, res){

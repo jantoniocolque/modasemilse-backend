@@ -22,24 +22,27 @@
                         </p>
                         </center>
                     <%}%>
-                    <form action="/users/register" class="row container" method="POST" enctype="multipart/form-data">
+                    <div class="errors-feedback row">
+                        
+                    </div>
+                    <form action="/users/register" class="row container user-register-form" method="POST" enctype="multipart/form-data">
                         <div class="col-md-3"> 
-                            <input required type="file" id="avatar" name="avatar" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                            <input class="avatar" type="file" id="avatar" name="avatar" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
                             <button type="button" id="custom-button"><img src="../images/icons/user-circle.png" title="Selecciona tu avatar" width="100%"></button>
                         </div>
 
                         <div class="col-md-9">
                             <div class="form-group row"> 
-                                <input required type="text" class="col-5 form-control" id="formInput29" name="firstName" placeholder="Nombre">
-                                <input required type="text" class="col-5 form-control" id="formInput29" name="lastName" placeholder="Apellido"> 
+                                <input type="text" class="col-5 form-control firstName" id="firstName" name="firstName" placeholder="Nombre">
+                                <input type="text" class="col-5 form-control lastName" id="lastName" name="lastName" placeholder="Apellido"> 
                             </div>
                             <div class="form-group row"> 
-                                <input  type="email" class="col-5 form-control" name="email" id="email" placeholder="Correo">
-                                <input required type="password" class="col-5 form-control" name="password" id="password" placeholder="Contraseña">
+                                <input  type="email" class="col-5 form-control email" name="email" id="email" placeholder="Correo">
+                                <input type="password" class="col-5 form-control password" name="password" id="password" placeholder="Contraseña">
                             </div>
                             <div class="form-group row"> 
-                                <input required type="text" class="col-5 form-control" name="nacimiento" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
-                                <select required class="col-5 form-control" id="sexo" name="sexo">
+                                <input type="text" class="col-5 form-control birth" name="nacimiento" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
+                                <select class="col-5 form-control sex" id="sexo" name="sexo">
                                     <option value="" disabled selected hidden>Sexo</option>
                                     <option value="mujer">Mujer</option>
                                     <option value="hombre">Hombre</option>

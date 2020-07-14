@@ -41,6 +41,31 @@
                 <h1>Alta de artículos nuevos</h1>
                 <img class="logo" src="/images/icons/logo.png" alt="logo-modasemilse" srcset="">
             </div>
+            
+            <%if(typeof errors!='undefined'){%>
+                <center>
+                <p>
+                    <ul style="color:red; font-size:1.8rem; list-style: none;">
+                        <li>
+                            <%= errors %>
+                        </li>
+                    </ul>
+                </p>
+                </center>
+            <%}%>
+            <%if(typeof error!='undefined'){%>
+                <center>
+                <p>
+                    <ul style="color:red; font-size:1.2rem; list-style: none;">
+                        <%for(let i=0;i < error.length;i++){%>
+                        <li>
+                            <%= error[i].msg %>
+                        </li>
+                        <%}%>
+                    </ul>
+                </p>
+                </center>
+            <%}%>
             <form action="/products/create" class="row admin-addproduct" enctype="multipart/form-data" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
