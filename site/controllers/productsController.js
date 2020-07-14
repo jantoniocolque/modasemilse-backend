@@ -59,7 +59,9 @@ const controller = {
     },
 
     store:async (req,res,next) => {
+
         await db.Product.create({
+            id:null,
             code_article: req.body.code_article,
             title: req.body.title,
             description_product: req.body.description_product,
@@ -73,8 +75,10 @@ const controller = {
             colour: req.body.colour,
             category_id: req.body.type_cloth,
             products_sizes:[{
-                size_id:req.body.size_id,
+                id:null,
                 units:req.body.units,
+                product_id:1,
+                size_id:req.body.size_id,
             }]
         },{
             include:[{
