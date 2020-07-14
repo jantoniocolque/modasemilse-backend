@@ -56,6 +56,20 @@ p.intro {
     text-align: center;
 }
 
+/* estilo errores en formulario*/
+
+div.errors-feedback {
+    display: none;
+    justify-content: space-evenly;
+    color: red;
+}
+
+div.errors-feedback ul {
+    list-style: none;
+    border-style: dashed;
+    padding: 10px;
+}
+
 /* area de registro */
 .register-area {
     max-width: 1024px;
@@ -604,7 +618,6 @@ button .btn-primary p{
 
 div .align-right-icon i{
     margin-right: 10px;
-   /**justify-content: space-between; **/
 }
 
 #price-decoration{
@@ -801,6 +814,9 @@ div .design-to-size{
 
 /*Estilos para notebook*/
 @media(min-width:1024px) {
+    .form-details{
+        padding: 10px 50px 0px;
+    }
 
     .btn-primary-violet p{
         font-size: 13px;
@@ -818,10 +834,6 @@ div .design-to-size{
         color: black;
         text-decoration: none;
         border-radius: 15px;
-    }
-
-    .form-details{
-        padding: 0px 50px 0px;
     }
 
     div .box-in-middle{
@@ -861,5 +873,6 @@ div .design-to-size{
         background-size: 100% auto;
         background-color: #7952B3  ;
         color: white;
-    }
+    }    
+    
 }

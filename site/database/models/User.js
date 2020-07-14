@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Users';
+    let alias = 'User';
     
     let cols = {
       id: {
@@ -30,7 +30,7 @@ module.exports = (sequelize, dataTypes) => {
       },
       newsletter: {
         type: dataTypes.STRING,
-      }
+      },
     };
     
     let config = {
@@ -41,10 +41,28 @@ module.exports = (sequelize, dataTypes) => {
     const User = sequelize.define(alias, cols, config);
     
     User.associate = function(models) {
-        User.hasOne(models.Users, {
-            as: 'Users',
-            foreignKey: 'id'
-        })
+      User.belongsToMany(models.Product, {
+        as: 'user_products',
+        through:models.Favorite,
+        foreignKey: 'users_id',
+        otherKey:'products_id',
+        timestamps:false
+      })
+
+      User.hasMany(models.Favorite, {
+        as: 'user_favorites',
+        foreignKey: 'users_id'
+      })
+
+      User.belongsTo(models.Rol,{
+        as:'rol',
+        foreignKey:'rol_id'
+      })
+
+      User.hasMany(models.Order,{
+        as:'user_orders',
+        foreignKey:'user_id'
+      })
     }
     return User;
   }

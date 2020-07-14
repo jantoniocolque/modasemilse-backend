@@ -1,6 +1,5 @@
-const { sequelize } = require(".");
 module.exports = (sequelize, dataTypes) => {
-  const alias = 'Products';
+  const alias = 'Product';
   
   const cols = {
     id: {
@@ -9,31 +8,28 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true
     },
     code_article: {
-      type: dataTypes.INTEGER,
+      type: dataTypes.STRING,
     },
     title: {
       type: dataTypes.STRING,
     },
-    gender: {
-      type: dataTypes.STRING,
-    },   
     description_product: {
-      type: dataTypes.STRING,
-    },   
-    type_cloth: {
       type: dataTypes.STRING,
     }, 
     image: {
       type: dataTypes.STRING,
-    },  
-    size: {
+    },
+    image2: {
       type: dataTypes.STRING,
     },
-    colour: {
+    image3: {
       type: dataTypes.STRING,
     },
-    units: {
-      type: dataTypes.INTEGER,
+    gender: {
+      type: dataTypes.STRING,
+    },
+    date_up: {
+      type: dataTypes.DATE,
     },
     price: {
       type: dataTypes.DECIMAL,
@@ -41,15 +37,9 @@ module.exports = (sequelize, dataTypes) => {
     price_discount: {          
       type: dataTypes.DECIMAL,
     },
-    date_up: {
-      type: dataTypes.DATE,
-    },
-    image2: {
+    colour: {
       type: dataTypes.STRING,
-    },
-    image3: {
-      type: dataTypes.STRING,
-    } 
+    }
   };
   
   const config = {
@@ -59,5 +49,50 @@ module.exports = (sequelize, dataTypes) => {
   
   const Product = sequelize.define(alias, cols, config);
   
+  Product.associate = function(models){
+    Product.belongsTo(models.Category, {
+      as:'category',
+      foreignKey: 'category_id'
+    });
+
+    Product.belongsToMany(models.Size, {
+      as:'sizes',
+      through:'product_size',
+      foreignKey:'product_id',
+      otherKey:'size_id',
+      timestamps:false
+    });
+
+    Product.hasMany(models.Product_Size,{
+      as: 'products_sizes',
+      foreignKey: 'product_id'
+    });
+
+    Product.belongsToMany(models.Order, {
+      as: 'orders',
+      through:'order_product',
+      foreignKey: 'products_id',
+      otherKey:'orders_id',
+      timestamps:false
+    });
+
+    Product.hasMany(models.Order_Product, {
+      as: 'orders_products',
+      foreignKey: 'products_id'
+    })
+
+    Product.belongsToMany(models.User, {
+      as: 'users',
+      through:'favorites',
+      foreignKey: 'products_id',
+      otherKey:'users_id',
+      timestamps:false
+    });
+
+    Product.hasMany(models.Favorite, {
+      as: 'favorites',
+      foreignKey: 'products_id'
+    });
+  }
   return Product;
 }

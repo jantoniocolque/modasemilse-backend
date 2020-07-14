@@ -14,20 +14,26 @@ let usersController = {
         res.render('register', { title: 'Modas Emilse | Registro',session:req.session.userLoginSession});
     },
     login : function(req, res){
-        
         res.render('login', { title: 'Modas Emilse | Login',session:req.session.userLoginSession});
     },
     userValidator : async (req, res) => {
         const errors=validationResult(req);
         if(errors.isEmpty()){
 
-           let userLogin = await db.Users.findOne({ where: { email : req.body.email } });
-
+           let userLogin = await db.User.findOne({ where: { email : req.body.email } });
+           let password = userLogin.password;
+           if(userLogin.rol_id == 1){
+               
+            password = bcrypt.hashSync(userLogin.password,10);
+           }
             if(userLogin !=undefined){
-                if(bcrypt.compareSync(req.body.password,userLogin.password)){
+                if(bcrypt.compareSync(req.body.password,password)){
                     req.session.userLoginSession=userLogin;
                     if(req.body.newsletter){
                         res.cookie('user',userLogin.id,{maxAge:60000});
+                    }
+                    if(userLogin.rol_id==1){
+                        res.redirect('/users/account/update');
                     }
                     res.redirect('/users/account');
                 }
@@ -53,7 +59,7 @@ let usersController = {
     create : function (req, res){
         const errors=validationResult(req);
         if(errors.isEmpty()){
-            db.Users.create({
+            db.User.create({
                 avatar : req.files[0].filename,
                 nombre : req.body.firstName,
                 apellido : req.body.lastName,
@@ -61,27 +67,27 @@ let usersController = {
                 password: bcrypt.hashSync(req.body.password, 10),
                 nacimiento: req.body.nacimiento,
                 sexo: req.body.sexo,
-                newsletter: req.body.newsletter
+                newsletter: req.body.newsletter,
+                rol_id:2,
             });
             
             res.redirect('/users/login');
         }else{
             return res.render('register',{
                 errors:errors.errors,
-                title:'Modas Emilse | Login'
+                title:'Modas Emilse | Registro'
             })
         }
     },
     update : function(req, res){
         res.render('userUpdate', {
             title: 'Modas Emilse | Mi cuenta',
-            user: req.session.userLoginSession, errors : "yes"
+            user: req.session.userLoginSession, errors : "yes",
+            session:req.session.userLoginSession
         });
     },
     storeUpdate : function(req, res){
-        console.log(req.body);
-
-        db.Users.update({
+        db.User.update({
             avatar : req.files[0].filename,
             nombre : req.body.firstName,
             apellido : req.body.lastName,
@@ -102,8 +108,6 @@ let usersController = {
         res.redirect('/users/login');
     },
     account : function(req, res){
-        console.log(req.cookies.user);
-        console.log(req.session.userLoginSession);
         res.render('userPanel', {
             title: 'Modas Emilse | Mi cuenta',
             nombre:req.session.userLoginSession.nombre,

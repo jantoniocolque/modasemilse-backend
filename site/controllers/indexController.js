@@ -9,7 +9,7 @@ const controller = {
     },
     
     search:(req,res)=>{
-        db.Products.findAll({ where:{ type_cloth: req.query.keywords.toLowerCase(), size : 1}})
+        db.Product.findAll({ where:{ type_cloth: req.query.keywords.toLowerCase(), size : 1}})
         .then(function(products){
                 console.log(products)
                 res.render('tienda',{

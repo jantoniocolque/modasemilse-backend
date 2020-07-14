@@ -1,13 +1,7 @@
 [
  {
   "id": 1,
-  "avatar": "avatar-1590708190211.png",
-  "nombre": "Andrea",
-  "apellido": "Rodrigues",
   "email": "andrea@gmail.com",
-  "password": "$2b$10$8vFrPivL0OX4vN.yTuW15.iN764Sa8nFRdHzOLSfVSxL1h5AiKMn2",
-  "nacimiento": "1998-05-05",
-  "sexo": "mujer",
-  "newsletter": "on"
+  "password": "andrea"
  }
 ]

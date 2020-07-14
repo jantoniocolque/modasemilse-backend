@@ -69,32 +69,58 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="tipo">Tipo</label>
-                        <input type="text" class="col form-control" name="type_cloth" id="tipo" placeholder="Agregar tipo de artículo" value= '<%= product.type_cloth %>'>
-                    </div>
-
-                    <div class="form-group row"> 
-                        <label class="col-4" for="talles">Talles</label>
-                        <input type="number" class="col form-control" name="size" id="talles" placeholder="Talles disponibles, separar con comas" value= '<%= product.size %>'>
+                        <select name='type_cloth' class="col form-control" id= "tipo">
+                            <option disabled>Selecciona una categoria</option>
+                            <% for( let i = 0; i < categorys.length; i++) {%>
+                                <%if(product.category_id == categorys[i].id){%>
+                                    <option value="<%= categorys[i].id %>" selected>
+                                        <%= categorys[i].type_cloth %>
+                                    </option>
+                                <% } else { %>
+                                    <option value="<%= categorys[i].id %>">
+                                        <%= categorys[i].type_cloth %>
+                                    </option>
+                                <%}%>
+                            <% } %>
+                        </select>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="colores">Colores</label>
                         <input type="text" class="col form-control" name="colour" id="colores" placeholder="Colores disponibles, separar con comas" value= '<%= product.colour %>'>
                     </div>
+                    
+                    <div class="form-group row"> 
+                        <label class="col-4" for="talles">Talle</label>
+                        <select name='size_id' class="col form-control" id= "talles">
+                            <option disabled>Selecciona un talle</option>
+                            <% for( let i = 0; i < sizes.length; i++) {%>
+                                <%if(product.products_sizes[0].size_id == sizes[i].id){%>
+                                    <option value="<%= sizes[i].id %>" selected>
+                                        <%= sizes[i].size %>
+                                    </option>
+                                <% } else { %>
+                                    <option value="<%= sizes[i].id %>">
+                                        <%= sizes[i].size %>
+                                    </option>
+                                <%}%>
+                            <% } %>
+                        </select>
+                    </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="unidades">Unidades disponibles</label>
-                        <input required type="number" class="col form-control" id="unidades" name="units" placeholder="Ingrese unidades disponibles" value= '<%= product.units %>'>
+                        <input required type="number" class="col form-control" id="unidades" name="units" placeholder="Ingrese unidades disponibles" value= '<%= product.products_sizes[0].units %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-menor">Precio menor</label>
-                        <input required type="number" class="col form-control" id="precio-menor" name="price" placeholder="Ingrese precio menor" value= '<%= product.price_discount %>'>
+                        <input required type="number" class="col form-control" id="precio-menor" name="price" placeholder="Ingrese precio menor" value= '<%= product.price %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-mayor">Precio mayor</label>
-                        <input required type="number" class="col form-control" id="precio-mayor" name="price_discount" placeholder="Ingrese precio mayor" value= '<%=product.price %>'>
+                        <input required type="number" class="col form-control" id="precio-mayor" name="price_discount" placeholder="Ingrese precio mayor" value= '<%=product.price_discount %>'>
                     </div>
 
                     <div class="form-group row"> 
@@ -122,7 +148,7 @@
                 </div>
             </form>
             <div class="col-12 text-center">
-                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="DELETE" style="display: inline-flex">
+                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
                     <button type="submit" class="form-group btn btn-danger btn-lg" style="border:0">Eliminar</button>
                 </form>
             </div>
@@ -133,7 +159,6 @@
         // Script para boton de carga de imagenes
         const realFileBtn = document.getElementById("imagen-producto");
         const customBtn = document.getElementById("custom-button");
-
         customBtn.addEventListener("click", function() {
         realFileBtn.click();
         });
