@@ -104,6 +104,7 @@ const controller = {
                 association:'products_sizes'
             }]
         });
+        console.log(product);
         const sizes = await db.Size.findAll();
         const categorys = await db.Category.findAll();
         if(product != undefined){
