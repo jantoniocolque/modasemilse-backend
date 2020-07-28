@@ -1,10 +1,4 @@
-const fs = require('fs');
-const path = require('path');
 const {check,validationResult,body}=require('express-validator');
-
-/* Dejamos de utilizar el arch JSON*/
-const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8')); 
 
 /* Se requieren los modelos de la base de datos */
 let db = require('../database/models');
@@ -23,25 +17,33 @@ function removeDuplicates(originalArray, nameProperty) {
 }
 
 const controller = {
-    root:(req,res) => {
-        
+    root: async (req,res) => {
+        const categorias = await db.Category.findAll();
         db.Product.findAll()
         .then(function(product){
             res.render('tienda',{
                 title:'Tienda - Emilse',
                 titleContent: 'Todos los productos',
                 products:removeDuplicates(product,'code_article'),
-                session:req.session.userLoginSession
+                categorias: categorias,
+                session:req.session.userLoginSession,
             })
         })
     },
 
-    filter:(req,res) => {
-        const productsFilter = products.filter(product => req.params.type.includes(product.type.toLowerCase()));
+    filter:async(req,res) => {
+        const categorias = await db.Category.findAll();
+        const productsFilter = await db.Product.findAll({
+            include: [{
+                association:'category',
+                where: { type_cloth: req.params.type } 
+              }]
+        });
         res.render('tienda',{
             title: 'Tienda - Emilse',
             titleContent: req.params.type[0].toUpperCase()+req.params.type.slice(1),
-            products:removeDuplicates(productsFilter,'idArticle'),
+            categorias: categorias,
+            products:removeDuplicates(productsFilter,'code_article'),
             session:req.session.userLoginSession
         });
     },
@@ -60,6 +62,13 @@ const controller = {
 
     store:async (req,res,next) => {
         const sizes = await db.Size.findAll();
+        if(!Number.isInteger(req.body.type_cloth)){
+            await db.Category.create({
+                type_cloth:req.body.type_cloth
+            });
+            const newCategory = await db.Category.findOne({where:{type_cloth:req.body.type_cloth}});
+            req.body.type_cloth = newCategory.id;
+        }
         const categorys = await db.Category.findAll();
         const errors=validationResult(req);
         if(errors.isEmpty()){
@@ -70,12 +79,12 @@ const controller = {
                 image: req.files[0].filename,
                 image2: req.files[1].filename,
                 image3: req.files[2].filename,
-                gender: req.body.femenino,
+                gender: req.body.gender,
                 date_up: req.body.date_up,
                 price: req.body.price,
                 price_discount: req.body.price_discount,
                 colour: req.body.colour,
-                category_id: req.body.type_cloth,
+                category_id:req.body.type_cloth,
                 products_sizes:[{
                     size_id:req.body.size_id,
                     units:req.body.units,
@@ -104,7 +113,6 @@ const controller = {
                 association:'products_sizes'
             }]
         });
-        console.log(product);
         const sizes = await db.Size.findAll();
         const categorys = await db.Category.findAll();
         if(product != undefined){

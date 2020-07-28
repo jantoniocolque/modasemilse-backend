@@ -29,8 +29,7 @@
                         <% if(typeof session != 'undefined'){%>
                             <%if(session.rol_id == 1){%>
                                 <a class="dropdown-item" href="/products/create">Crear</a>
-                                <a class="dropdown-item" href="/products/edit/4">Editar</a>
-                                <a class="dropdown-item" href="/products/edit/4">Borrar</a>
+                                <a class="dropdown-item" id='editar' href="/products/">Listar productos</a>
                                 <a class="dropdown-item" href="/users/account/update">Configuracion</a>
                             <%}else{%>
                                 <a class="dropdown-item" href="/users/account">Mi Cuenta</a>

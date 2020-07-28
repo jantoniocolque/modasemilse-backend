@@ -117,9 +117,6 @@ img.logo {
     width: 85%;
 }
 
-.admin-addphotos {
-
-}
 
 .card {
     padding: 0px;
@@ -286,6 +283,9 @@ li i.fas {
     color: black;
     font-size: xx-large;
     padding-right: 10px;
+}
+.fa, .fas{
+    line-height: 1.4;
 }
 
 /* barra copyright */

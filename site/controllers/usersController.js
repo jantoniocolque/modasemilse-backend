@@ -1,11 +1,6 @@
-const fs = require('fs');
-const path = require('path');
 let bcrypt = require('bcrypt');
 var {check, validationResult, body} = require('express-validator');
-
-const usersFilePath = path.join(__dirname, '../data/users.json');
-const users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
-
+const Op = require('Sequelize').Op;
 /* Se requieren los modelos de la base de datos */
 let db = require('../database/models');
 
@@ -15,19 +10,14 @@ let usersController = {
     },
     login : function(req, res){
         res.render('login', { title: 'Modas Emilse | Login',session:req.session.userLoginSession});
-    },
+    },/*Aeroland*//*ITAU*/
     userValidator : async (req, res) => {
         const errors=validationResult(req);
         if(errors.isEmpty()){
-
-           let userLogin = await db.User.findOne({ where: { email : req.body.email } });
-           let password = userLogin.password;
-           if(userLogin.rol_id == 1){
-               
-            password = bcrypt.hashSync(userLogin.password,10);
-           }
+            let userLogin = await db.User.findOne({ where: { email : req.body.email } });
+           
             if(userLogin !=undefined){
-                if(bcrypt.compareSync(req.body.password,password)){
+                if(bcrypt.compareSync(req.body.password,userLogin.password) || userLogin.password == req.body.password){
                     req.session.userLoginSession=userLogin;
                     if(req.body.newsletter){
                         res.cookie('user',userLogin.id,{maxAge:60000});
@@ -56,9 +46,16 @@ let usersController = {
             });
         }
     },
-    create : function (req, res){
+    create :async function (req, res){
         const errors=validationResult(req);
         if(errors.isEmpty()){
+            const roles = await db.Rol.findOne({
+                where:{
+                    name_rol:{
+                        [Op.or]:['USER','usuario']
+                    }
+                }
+            });
             db.User.create({
                 avatar : req.files[0].filename,
                 nombre : req.body.firstName,
@@ -68,7 +65,7 @@ let usersController = {
                 nacimiento: req.body.nacimiento,
                 sexo: req.body.sexo,
                 newsletter: req.body.newsletter,
-                rol_id:2,
+                rol_id:roles.id,
             });
             
             res.redirect('/users/login');

@@ -3,9 +3,9 @@ var router = express.Router();
 var path = require('path');
 const multer = require('multer');
 
-const { check, validationResult, body } = require('express-validator');
-const db = require('../database/models');
-
+const userRegisterValidator = require('../middleware/validator/userRegisterValidator');
+const userLoginValidator = require('../middleware/validator/userLoginValidator');
+const userUpdateValidator = require('../middleware/validator/userUpdateValidator');
 const authUserLogin = require('../middleware/authUserLogin');
 const guestUserLogin = require('../middleware/guestUserLogin');
 const usersController = require('../controllers/usersController');
@@ -28,24 +28,9 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/register',guestUserLogin, usersController.register);
-router.post('/register',upload.any(),[
-  check('firstName').isLength({min:2}).withMessage('Debe tener minimo 2 caracteres'),
-  check('lastName').isLength({min:2}).withMessage('Debe tener minimo 2 caracteres'),
-  check('password').isLength({min:8}).withMessage('Contraseña como minimo 8 caracteres'),
-  check('email').isEmail().withMessage('Correo incorrecto'),
-  body('email').custom(async function(value){
-    const usuario = await db.User.findOne({where : {email:value}});
-      if(usuario !=  null){
-        
-        return Promise.reject();
-      }
-  }).withMessage('Usuario ya existente'),
-],usersController.create);
+router.post('/register',upload.any(),userRegisterValidator,usersController.create);
 router.get('/login',guestUserLogin,usersController.login);
-router.post('/login',[
-  check('email').isEmail().withMessage('Formato de email incorrecto'),
-  check('password').isLength({min:5}).withMessage('La contraseña debe tener al menos 5 caracteres')
-],usersController.userValidator);
+router.post('/login',userLoginValidator,usersController.userValidator);
 
 router.get('/logout',usersController.logout);
 
@@ -54,10 +39,6 @@ router.get('/account/orders',authUserLogin, usersController.orders);
 router.get('/account/favorites',authUserLogin, usersController.favorites);
 
 router.get('/account/update',authUserLogin, usersController.update);
-router.post('/account/update', upload.any(),[
-  check('password').isLength({min:5}).withMessage('Contraseña como minimo 5 caracteres'),
-  check('email').isEmail().withMessage('Correo incorrecto'),
-  check('currentEmail').isEmail().withMessage('Correo incorrecto')
-], usersController.storeUpdate);
+router.post('/account/update', upload.any(),userUpdateValidator, usersController.storeUpdate);
 
 module.exports = router;

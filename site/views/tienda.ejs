@@ -17,10 +17,9 @@
             </div>
             <div class="sidebar col-2 d-none d-lg-block">
                 <ul>
-                    <li><a href="/products/type/camperas">Camperas</a></li>
-                    <li><a href="/products/type/pantalones">Pantalones</a></li>
-                    <li><a href="/products/type/sacos">Sacos</a></li>
-                    <li><a href="/products/type/remeras">Remeras</a></li>
+                    <%for(category of categorias){%>
+                        <li><a href="/products/type/<%= category.type_cloth %>"><%= category.type_cloth%></a></li>
+                    <%}%>
                 </ul>
             </div>
             <div class="page-content d-lg-flex">
