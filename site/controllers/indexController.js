@@ -6,7 +6,8 @@ const controller = {
         res.render('index', { title: 'Modas Emilse | Inicio',session:req.session.userLoginSession});
     },
     
-    search:(req,res)=>{
+    search:async (req,res)=>{
+        const categorias = await db.Category.findAll();
         db.Product.findAll({
             include:[{
                 association:'category',
@@ -18,9 +19,11 @@ const controller = {
             }]
         })
         .then(function(products){
+            console.log(products);
                 res.render('tienda',{
                     title:'Tienda - Emilse',
                     titleContent: 'Resultados de busqueda',
+                    categorias:categorias,
                     products:products,
                     session:req.session.userLoginSession
             })
