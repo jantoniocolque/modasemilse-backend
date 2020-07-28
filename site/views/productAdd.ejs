@@ -7,18 +7,6 @@
     <!--Area de administración/alta de artículos-->
     <%- include('partials/header') %>
     <div class="contents-box">
-
-        <%if(typeof error!='undefined'){%>
-            <center>
-            <p>
-                <ul style="color:red; font-size:1.4rem; list-style: none;">
-                    <li>
-                        <%= error %>
-                    </li>
-                </ul>
-            </p>
-            </center>
-        <%}%>
         <%if(typeof errors!='undefined'){%>
             <center>
             <p>
@@ -35,42 +23,16 @@
         <div class="errors-feedback row">
             
         </div>
-
         <div class="container admin">
             <div class="adm-title">
                 <h1>Alta de artículos nuevos</h1>
                 <img class="logo" src="/images/icons/logo.png" alt="logo-modasemilse" srcset="">
             </div>
-            
-            <%if(typeof errors!='undefined'){%>
-                <center>
-                <p>
-                    <ul style="color:red; font-size:1.8rem; list-style: none;">
-                        <li>
-                            <%= errors %>
-                        </li>
-                    </ul>
-                </p>
-                </center>
-            <%}%>
-            <%if(typeof error!='undefined'){%>
-                <center>
-                <p>
-                    <ul style="color:red; font-size:1.2rem; list-style: none;">
-                        <%for(let i=0;i < error.length;i++){%>
-                        <li>
-                            <%= error[i].msg %>
-                        </li>
-                        <%}%>
-                    </ul>
-                </p>
-                </center>
-            <%}%>
             <form action="/products/create" class="row admin-addproduct" enctype="multipart/form-data" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
                         <input required type="file" id="imagen-producto-1" name="image" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button-1" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <img id="custom-button-1" src="/images/placeholder.png" class="card-img-top imagen1" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -100,7 +62,7 @@
                     <div class="form-header">
                         <div class="row form-group new-product-code"> 
                             <label class="col-2" for="codigo">Código |</label>
-                            <input required type="text" class="col-2 form-control" id="codigo" name="code_article">
+                            <input required type="text" class="col-2 form-control code" id="codigo" name="code_article">
                         </div>
 
                         <div class="sex-select">
@@ -113,17 +75,17 @@
                     <div class="form-group row">
                         <p class="error-name"></p> 
                         <label class="col-4" for="titulo">Nuevo título</label>
-                        <input type="text" class="col form-control new-titulo" name="title" id="title" placeholder="Titulo del producto">
+                        <input type="text" class="col form-control new_title" name="title" id="title" placeholder="Titulo del producto">
                     </div>
 
                     <div class="form-group row"> 
-                        <label class="col-4 description" for="detalle">Descripción</label>
-                        <input type="text" class="col form-control description" name="description_product" id="detalle" placeholder="Agregar descripción breve">
+                        <label class="col-4" for="detalle">Descripción</label>
+                        <input type="text" class="col form-control description_product" name="description_product" id="detalle" placeholder="Agregar descripción breve">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="tipo">Tipo</label>
-                        <select name='type_cloth' class="col form-control" id= "tipo">
+                        <select name='type_cloth' class="col form-control type_clothe" id= "tipo">
                             <option disabled selected>Selecciona una categoria</option>
                             <% for( let i = 0; i < categorys.length; i++) {%>
                             <option value="<%= categorys[i].id %>">
@@ -134,7 +96,7 @@
                     </div>
                     <div class="form-group row"> 
                         <label class="col-4" for="talles">Talle</label>
-                        <select name='size_id' class="col form-control" id= "talles">
+                        <select name='size_id' class="col form-control sizes" id= "talles">
                             <option disabled selected>Selecciona un talle</option>
                             <% for( let i = 0; i < sizes.length; i++) {%>
                             <option value="<%= sizes[i].id %>">
@@ -146,27 +108,27 @@
 
                     <div class="form-group row"> 
                         <label class="col-4" for="unidades">Cantidad</label>
-                        <input required type="number" class="col form-control" id="unidades" name="units" placeholder="Unidades de ese talle">
+                        <input required type="number" class="col form-control units" id="unidades" name="units" placeholder="Unidades de ese talle">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="colores">Colores</label>
-                        <input type="text" class="col form-control" name="colour" id="colores" placeholder="Colores disponibles, separar con comas">
+                        <input type="text" class="col form-control colour" name="colour" id="colores" placeholder="Colores disponibles, separar con comas">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-menor">Precio menor</label>
-                        <input required type="number" class="col form-control" id="precio-menor" name="price" placeholder="Ingrese precio menor">
+                        <input required type="number" class="col form-control precio_menor" id="precio-menor" name="price" placeholder="Ingrese precio menor">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-mayor">Precio mayor</label>
-                        <input required type="number" class="col form-control" id="precio-mayor" name="price_discount" placeholder="Ingrese precio mayor">
+                        <input required type="number" class="col form-control precio_mayor" id="precio-mayor" name="price_discount" placeholder="Ingrese precio mayor">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="fecha">Fecha</label>
-                        <input required type="text" class="col form-control" placeholder="Seleccione una fecha" name="date_up" onfocus="(this.type='date')" onblur="(this.type='text')">
+                        <input required type="text" class="col form-control fecha" placeholder="Seleccione una fecha" name="date_up" onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
 
                 </div>
