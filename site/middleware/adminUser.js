@@ -4,7 +4,6 @@ async function adminUser(req,res,next){
     
     if(req.session.userLoginSession != undefined){
         const rol = await db.Rol.findOne({where:{id : req.session.userLoginSession.rol_id}});
-        console.log(rol);
         if(rol.name_rol == 'administrador' || rol.name_rol == 'ADMIN')
         {
             next();
