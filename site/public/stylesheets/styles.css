@@ -297,6 +297,7 @@ a.modas-userPanel-link:hover {
     height: 60px;
     line-height: 60px;
     border-top: 1px solid #000000;
+    float:left;
 }
 
 .footer > .container {

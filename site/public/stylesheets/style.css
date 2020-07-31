@@ -292,6 +292,9 @@ li i.fas {
     font-size: xx-large;
     padding-right: 10px;
 }
+.fa, .fas{
+    line-height: 1.4;
+}
 
 /* barra copyright */
 div.copyright {

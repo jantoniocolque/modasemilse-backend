@@ -381,6 +381,7 @@ main .second-row-photo .promo-photo{
   position: sticky;
   top:60px;
   float:left;
+  overflow: hidden;
 }
 .container-store .sidebar ul{
   list-style:none;

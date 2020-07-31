@@ -65,10 +65,10 @@
                             <input required type="text" class="col-2 form-control code" id="codigo" name="code_article">
                         </div>
 
-                        <div class="sex-select sex">
-                            <input type="checkbox" name="Femenino" value="Femenino" id="mujer" required>Mujer
-                            <input type="checkbox" name="Masculino" value="Masculino" id="hombre">Hombre
-                            <input type="checkbox" name="Unisex" value="Unisex" id="unisex">Unisex
+                        <div class="sex-select">
+                            <input type="checkbox" name="gender" value="Femenino" id="mujer" required>Mujer
+                            <input type="checkbox" name="gender" value="Masculino" id="hombre">Hombre
+                            <input type="checkbox" name="gender" value="Unisex" id="unisex">Unisex
                         </div>
                     </div>
 
@@ -94,7 +94,6 @@
                             <% } %>
                         </select>
                     </div>
-
                     <div class="form-group row"> 
                         <label class="col-4" for="talles">Talle</label>
                         <select name='size_id' class="col form-control sizes" id= "talles">
@@ -135,10 +134,11 @@
                 </div>
 
                 <div class="col-12 row form-group admin-form-options">
-                    <button type="button" class="col-3">
-                        Agregar más fotos
+                    <button id="modal-prueba" type="button" data-toggle="modal" data-target="#modalcategory" class="col-3">
+                        Nueva categoria
                     </button>
 
+                    
                     <button type="button" class="col-3">
                         <b>Vista previa <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
                     </button>

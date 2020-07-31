@@ -45,7 +45,6 @@ window.addEventListener('load', function() {
         if(productName.value == "" || productName.value.length < 5) {
             errors.push("Debe ingresar un título con al menos 5 caracteres");
         }
-
         // No funciona, se deberá arreglar.
         if(description.value == "" || description.value.length < 20) {
             errors.push("Debe ingresar una descripción con al menos 20 caracteres");
@@ -89,7 +88,6 @@ window.addEventListener('load', function() {
 
         if(errors.length > 0){
             e.preventDefault();
-            
             document.querySelector('div.errors-feedback').style.display = 'flex';
 
             document.querySelector('div.errors-feedback').innerHTML = '<ul></ul>'

@@ -1,20 +1,29 @@
-const fs=require('fs');
-const path=require('path');
-
-let db = require('../database/models');
+const db = require('../database/models');
+const Op = require('Sequelize').Op;
 
 const controller = {
     root:(req,res)=>{
         res.render('index', { title: 'Modas Emilse | Inicio',session:req.session.userLoginSession});
     },
     
-    search:(req,res)=>{
-        db.Product.findAll({ where:{ type_cloth: req.query.keywords.toLowerCase(), size : 1}})
+    search:async (req,res)=>{
+        const categorias = await db.Category.findAll();
+        db.Product.findAll({
+            include:[{
+                association:'category',
+                where:{ 
+                    type_cloth:{
+                        [Op.like]:'%'+req.query.keywords+'%'
+                    }
+                }
+            }]
+        })
         .then(function(products){
-                console.log(products)
+            console.log(products);
                 res.render('tienda',{
                     title:'Tienda - Emilse',
                     titleContent: 'Resultados de busqueda',
+                    categorias:categorias,
                     products:products,
                     session:req.session.userLoginSession
             })
