@@ -27,7 +27,7 @@
                                 En un futuro se recorrera un array con un for-->
                             <div class=""><img src="/images/products/<%= product.image2%>" alt="" height="120" width="80"></div>
                             <div class=""><img src="/images/products/<%= product.image3%>" alt="" height="120" width="80"></div>
-                            <div class=""><img src="/images/products/default.png" alt="" height="120" width="80"></div>
+                            <div class=""><img src="/images/tablaMedidas.jpg" alt="" height="120" width="80"></div>
                         </section>    
                     </div>
 
@@ -51,8 +51,9 @@
                             no contiene estos datos. Dejamos como default la posibilidad de 3, pero se recorrería un array de 
                             muestras con un for-->
                         <div class="row">
+                            <!--
                             <div>
-                                <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
+                                <img id="circle-cloth" src="/images/products/<%= product.image%>" alt="muestra de tela" height="65" width="65">
                             </div>
                             <div>
                                 <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
@@ -60,6 +61,7 @@
                             <div>
                                 <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
                             </div>
+                            -->
                         </div>               
 
                         <div class="design-to-size" id="price align-left-subtitle">
@@ -110,9 +112,9 @@
                             </div>
                         </div>
 
-                        <div class="details-secondary-level">
-                            <div class=""><p>Descripción:</p></div>
-                            <div class=""><p>Material: <%= product.type_cloth %></p></div>
+                        <div class="details-secondary-level mt-2">
+                            <div class=""><p>Descripción: <%= product.description_product %></p></div>
+                            <div class=""><p>Categoria: <%= product.type_cloth %></p></div>
                             <div class=""><p>Código del artículo: <%= product.code_article%></p></div>
                         </div>
 
@@ -126,7 +128,7 @@
 
                                 <div class="row">
                                     <div class="container-items">
-                                        <div id="price"><p>$ 0.000, 00</p></div>
+                                        <div id="price"><p></p></div>
                                     </div>
                                 </div>
                             </div>                   
