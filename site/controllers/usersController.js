@@ -11,7 +11,7 @@ let usersController = {
     login : function(req, res){
         res.render('login', { title: 'Modas Emilse | Login',session:req.session.userLoginSession});
     },
-    userValidator : async (req, res,next) => {
+    userValidator : async (req, res) => {
         const errors=validationResult(req);
         if(errors.isEmpty()){
             let userLogin = await db.User.findOne({ where: { email : req.body.email } });

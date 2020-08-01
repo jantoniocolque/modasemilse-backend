@@ -60,9 +60,10 @@ const controller = {
         });
     },
 
-    store:async (req,res,next) => {
+    store:async (req,res) => {
         const sizes = await db.Size.findAll();
-        if(!Number.isInteger(req.body.type_cloth)){
+        
+        if(parseInt(req.body.type_cloth,10)== NaN){
             await db.Category.create({
                 type_cloth:req.body.type_cloth
             });
