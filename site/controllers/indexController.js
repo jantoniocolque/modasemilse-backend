@@ -29,6 +29,10 @@ const controller = {
             })
         })
     },
+    cartView : (req, res) => {
+        res.render('carrito', { title: 'Modas Emilse | Carrito'});
+    },
+
     support : (req, res) =>{
         res.render('support', { title: 'Modas Emilse | Atención al cliente'});
     }
