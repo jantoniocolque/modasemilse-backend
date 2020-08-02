@@ -8,5 +8,6 @@ router.get('/', indexController.root);
 /*GET search page*/
 router.get('/search',indexController.search);
 router.get('/support',indexController.support);
+router.get('/cart', indexController.cartView);
 
 module.exports = router;
