@@ -33,13 +33,13 @@
 
                     <section class="col-12 col-sm-12 col-md-5 mt-3">
                         <div class="main-img">
-                            <img src="/images/products/<%= product.image %>" class="img-responsive" alt="<%= product.type_cloth %> <%=product.colour %>" height="700px" width="350px">
+                            <img class="product-img" src="/images/products/<%= product.image %>" name="<%= product.image %>" class="img-responsive" alt="<%= product.type_cloth %> <%=product.colour %>" height="700px" width="350px">
                         </div>
                     </section>
 
                     <section class="col-12 col-sm-12 col-md-5 mt-3">
                         <div class ="clothes-main-title">
-                            <p id=""> <%= product.title %> <%=product.colour %> </p>
+                            <p id="product-title"> <%= product.title %> <%=product.colour %> </p>
                         </div>
 
                         <div class="">
@@ -70,8 +70,8 @@
                             <div class="form-row align-items-center" id="align-to-size">
                                 <div class="col-auto my-1 size-to-botton">
                                     <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                            <option selected>Talle</option>
+                                        <select class="custom-select mr-sm-2 product-size" id="inlineFormCustomSelect">
+                                            <option selected disabled hidden>Talle</option>
                                             <option value="1">M</option>
                                             <option value="2">L</option>
                                             <option value="3">XL</option>
@@ -83,8 +83,8 @@
                             <div class="form-row align-items-center" id="align-to-size">
                                 <div class="col-auto my-1">
                                     <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                            <option selected>Cantidad</option>
+                                        <select class="custom-select mr-sm-2 product-quantity" id="inlineFormCustomSelect">
+                                            <option selected disabled hidden>Cantidad</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
                                             <option value="3">3</option>
@@ -106,7 +106,7 @@
                             </div>
 
                             <div class="col-auto my-1 boton-color-add">
-                                <button type="submit" class="btn btn-primary"><p>Añadir al carrito</p></button>
+                                <button class="btn btn-primary add-to-cart"><p>Añadir al carrito</p></button>
                             </div>
                         </div>
 
