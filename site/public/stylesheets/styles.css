@@ -613,6 +613,18 @@ body > .container-details{
 
 div .main-img img{
     align-self: left;
+    cursor:pointer;
+}
+.images-photos .image2{
+    cursor:pointer;
+}
+
+.images-photos .image3{
+    cursor:pointer;
+}
+
+.images-photos .tablaMedidas{
+    cursor:pointer;
 }
 
 button .btn-primary p{

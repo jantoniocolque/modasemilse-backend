@@ -21,7 +21,7 @@
             </center>
         <%}%>
         <div class="errors-feedback row">
-            
+           
         </div>
         <div class="container admin">
             <div class="adm-title">
@@ -60,7 +60,10 @@
                 </div>
                 <div class="col-8 admin-form">
                     <div class="form-header">
-                        <div class="row form-group new-product-code"> 
+                        <div class="row form-group new-product-code">
+                            <%if(typeof error!='undefined'){%>
+                                <h3 class="m-auto text-danger font-size-xl"><%= error %></h3>
+                            <%}%>
                             <label class="col-2" for="codigo">Código |</label>
                             <input required type="text" class="col-2 form-control code" id="codigo" name="code_article">
                         </div>

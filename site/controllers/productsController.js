@@ -101,7 +101,7 @@ const controller = {
             return res.render('productAdd',{
                 sizes:sizes,
                 categorys:categorys,
-                error:errors.errors,
+                errors:errors.errors,
                 title:'Carga de productos',
                 session:req.session.userLoginSession
             })
@@ -116,7 +116,7 @@ const controller = {
         });
         const sizes = await db.Size.findAll();
         const categorys = await db.Category.findAll();
-        if(product != undefined){
+        if(product != null){
             res.render('productEdit', {
                 title:'Editando - Modas Emilse',
                 product:product,
@@ -125,16 +125,13 @@ const controller = {
                 session:req.session.userLoginSession,
             });
         }
-        else{
-            res.render('productAdd', {
-                title:'Crear producto - Modas Emilse',
-                sizes:sizes,
-                errors:'No existe ese producto',
-                categorys:categorys,
-                session:req.session.userLoginSession,
-            });
-        }
-        
+        res.render('productAdd', {
+            title:'Crear producto - Modas Emilse',
+            sizes:sizes,
+            error:'No existe ese producto',
+            categorys:categorys,
+            session:req.session.userLoginSession,
+        });
     },
 
     update: function(req,res) {

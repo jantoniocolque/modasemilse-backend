@@ -22,18 +22,18 @@
             <div class="container form-details mt-5">
                 <div class="row">
                     <div class="col-2 mt-3 secondary-img d-none d-sm-none d-md-block">
-                        <section>
+                        <section class="images-photos">
                             <!-- Dejamos como default, al menos 3 imagenes adicionales del producto.
                                 En un futuro se recorrera un array con un for-->
-                            <div class=""><img src="/images/products/<%= product.image2%>" alt="" height="120" width="80"></div>
-                            <div class=""><img src="/images/products/<%= product.image3%>" alt="" height="120" width="80"></div>
-                            <div class=""><img src="/images/tablaMedidas.jpg" alt="" height="120" width="80"></div>
+                            <div class=""><img class ="image2" src="/images/products/<%= product.image2%>" alt="" height="120" width="80"></div>
+                            <div class=""><img class ="image3" src="/images/products/<%= product.image3%>" alt="" height="120" width="80"></div>
+                            <div class=""><img class ="tablaMedidas" src="/images/tablaMedidas.jpg" alt="" height="120" width="80"></div>
                         </section>    
                     </div>
 
                     <section class="col-12 col-sm-12 col-md-5 mt-3">
                         <div class="main-img">
-                            <img src="/images/products/<%= product.image %>" class="img-responsive" alt="<%= product.type_cloth %> <%=product.colour %>" height="700px" width="350px">
+                            <img data-src="/images/products/<%= product.image%>" src="/images/products/<%= product.image %>" data-zoom-image="/images/products/<%= product.image%>"  class="img-responsive image zoom" alt="<%= product.type_cloth %> <%=product.colour %>" height="700px" width="350px">
                         </div>
                     </section>
 
@@ -199,10 +199,5 @@
         </div>
 
         <%- include('partials/footer')%>
-     
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://
-        stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </body>
 </html>

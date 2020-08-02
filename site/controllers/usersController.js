@@ -20,7 +20,8 @@ let usersController = {
                 if(bcrypt.compareSync(req.body.password,userLogin.password) || userLogin.password == req.body.password){
                     req.session.userLoginSession = userLogin.dataValues;
                     if(req.body.remember != undefined){
-                        res.cookie('user',userLogin.dataValues.id,{maxAge:60000});
+                        res.cookie('user',userLogin.id,{ maxAge: 60000 });
+                        console.log(req.cookies.user);
                     }
                     if(userLogin.rol_id==1){
                         res.redirect('/users/account/update');
@@ -107,17 +108,12 @@ let usersController = {
     account : function(req, res){
         res.render('userPanel', {
             title: 'Modas Emilse | Mi cuenta',
-            nombre:req.session.userLoginSession.nombre,
-            apellido:req.session.userLoginSession.apellido,
-            email:req.session.userLoginSession.email,
             session:req.session.userLoginSession
         });
     },
     orders : function(req, res){
         res.render('userOrders', { 
             title: 'Modas Emilse | Mis pedidos',
-            nombre:req.session.userLoginSession.nombre,
-            apellido:req.session.userLoginSession.apellido,
             session:req.session.userLoginSession
         });
     },
@@ -126,7 +122,7 @@ let usersController = {
     },
     logout:function(req, res) {
         req.session.destroy();
-        res.cookie('color',null,{maxAge:-1});
+        res.cookie('user',null,{maxAge:-1});
         res.redirect('/users/login');
     }
 }
