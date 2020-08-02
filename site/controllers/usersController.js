@@ -10,7 +10,7 @@ let usersController = {
     },
     login : function(req, res){
         res.render('login', { title: 'Modas Emilse | Login',session:req.session.userLoginSession});
-    },/*Aeroland*//*ITAU*/
+    },
     userValidator : async (req, res) => {
         const errors=validationResult(req);
         if(errors.isEmpty()){
@@ -18,9 +18,9 @@ let usersController = {
            
             if(userLogin !=undefined){
                 if(bcrypt.compareSync(req.body.password,userLogin.password) || userLogin.password == req.body.password){
-                    req.session.userLoginSession=userLogin;
-                    if(req.body.newsletter){
-                        res.cookie('user',userLogin.id,{maxAge:60000});
+                    req.session.userLoginSession = userLogin.dataValues;
+                    if(req.body.remember != undefined){
+                        res.cookie('user',userLogin.dataValues.id,{maxAge:60000});
                     }
                     if(userLogin.rol_id==1){
                         res.redirect('/users/account/update');

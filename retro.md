@@ -54,3 +54,15 @@ atencion finalizando el eje principal de la consigna.
 **LESS OFF** - Dejamos de agregar mas funcionalidad a la pagina para concentrarnos sobre las que ya existen y explotar el funcionamiento de cada una.
 
 **STOP DOING** - Lo que tuvimos que parar de hacer fue mirar en diferentes paginas para considerar nuestra propia creatividad y dejar una parte de cada uno en este proyecto.
+
+### Sprint 5 - Validaciones
+
+**START DOING** - Iniciamos estudiando la documentacion de Sequelize para entender su funcionamiento sobre todo en las Asociaciones.
+
+**MORE OF** - Adaptamos una nueva estructura de la base de datos v3.1 que pensamos que cumplía mejor con los requerimientos de la aplicacion.
+
+**KEEP DOING** - En esta oportunidad nos comunicamos completamente a cada instante que realizabamos un cambio en el codigo pues establecimos seguir trabajando en una rama. Ademas se repartieron las tareas mejor definidas del lado del Front-end y del lado del Back-end.
+
+**LESS OFF** - Sin embargo pensamos que es complicado agregar muchas funcionalidades cuando carecemos de usuarios en el equipo de desarrollo.
+
+**STOP DOING** - Decidimos no dedicarnos mas tiempo en el diseño que en la lógica para asegurar el funcionamiento correcto de todas las herramientas de la aplicación.
