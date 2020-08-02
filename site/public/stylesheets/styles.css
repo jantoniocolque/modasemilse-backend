@@ -24,7 +24,7 @@ body {
 }
 
 body > .container {
-    padding: 60px 15px 120px;   
+    padding: 60px 15px 120px;
 }
 
 /* ASPECTOS DE LOS BOTONES/LINKS ¿? */
@@ -44,6 +44,7 @@ a:hover {
 }
 
 div.register {
+    margin-top: 50px;
     background-image: url(../images/register-bigwall.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -53,6 +54,20 @@ div.register {
 p.intro {
     font-weight: bold;
     text-align: center;
+}
+
+/* estilo errores en formulario*/
+
+div.errors-feedback {
+    display: none;
+    justify-content: space-evenly;
+    color: red;
+}
+
+div.errors-feedback ul {
+    list-style: none;
+    border-style: dashed;
+    padding: 10px;
 }
 
 /* area de registro */
@@ -110,6 +125,7 @@ div.form-group button {
 div.admin {
     background-color:  rgba(238, 238, 238, 0.75);
     border-radius: 20px;
+    margin-top: 50px;
 }
 
 .adm-title {
@@ -124,6 +140,11 @@ img.logo {
 }
 
 .admin-addproduct {
+    margin: auto;
+    width: 85%;
+}
+
+.admin-editproduct{
     margin: auto;
     width: 85%;
 }
@@ -189,12 +210,94 @@ div.login {
     background-size: cover;
 }
 
+/* estilos error 404 */
+
+div.main-error {
+    height: 80vh;
+    background-image: url(../images/404.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.main-error-msg {
+    color: firebrick;
+    margin: 50px 0px 50px 0px;
+    padding: 30px 30px 30px;
+    width: 50%;
+    border-radius: 21px;
+    background-image: linear-gradient(to right, rgba(255,0,0,0), rgba(121, 82, 179, 0.5));
+}
+/* estilos para support */
+
+div.modas-support {
+    margin-top: 50px;
+    /*background-image: url(../images/register-bigwall.png);*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.modas-support-area {
+    max-width: 1024px;
+    margin: auto;
+}
+
+.modas-support-panel {
+    padding: 30px 30px 30px;
+    width: 80%;
+    border-radius: 21px;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(238,238,238));
+}
+
+/* estilos para userPanel */ 
+
+div.modas-userPanel {
+    background-image: url(../images/login-bigwall.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+div.modas-userPanel-area {
+    max-width: 1024px;
+    margin: auto;
+}
+
+div.modas-userPanel-info {
+    padding: 30px 30px 30px;
+    border-radius: 21px;
+    background-color: rgba(0, 187, 212, 0.7);
+}
+
+div.modas-userPanel-menu {
+    border-right: 2px solid rgb(121, 82, 179);
+}
+
+ul.modas-list {
+    list-style-type: none;
+}
+
+.modas-userPanel-title {
+    font-weight: 400;
+    color: rgb(121, 82, 179);
+}
+
+a.modas-userPanel-link {
+    color: #000000;
+}
+
+a.modas-userPanel-link:hover {
+    color: #7952B3;
+}
+
 /* estilos para el footer */
 .footer {
     width: 100%;
     height: 60px;
     line-height: 60px;
     border-top: 1px solid #000000;
+    float:left;
 }
 
 .footer > .container {
@@ -476,11 +579,10 @@ div.quick {
         width: 95%;
         border: 1px solid #000000;
         border-radius: 21px;
-    }    
+    }
 }
 
-
-
+/* Estilos de Amalia */
 
 body {
     margin-bottom: 60px;
@@ -511,6 +613,18 @@ body > .container-details{
 
 div .main-img img{
     align-self: left;
+    cursor:pointer;
+}
+.images-photos .image2{
+    cursor:pointer;
+}
+
+.images-photos .image3{
+    cursor:pointer;
+}
+
+.images-photos .tablaMedidas{
+    cursor:pointer;
 }
 
 button .btn-primary p{
@@ -522,7 +636,6 @@ button .btn-primary p{
 
 div .align-right-icon i{
     margin-right: 10px;
-   /**justify-content: space-between; **/
 }
 
 #price-decoration{
@@ -720,7 +833,25 @@ div .design-to-size{
 /*Estilos para notebook*/
 @media(min-width:1024px) {
     .form-details{
-        padding: 0px 50px 0px;
+        padding: 10px 50px 0px;
+    }
+
+    .btn-primary-violet p{
+        font-size: 13px;
+        color: white;
+        width: 120px;
+        height: 25px;
+        background-color: black;
+        border-color: white;
+        border-radius: 15px;
+    }
+
+    .btn-link {
+        width: 120px;
+        height: 25px;
+        color: black;
+        text-decoration: none;
+        border-radius: 15px;
     }
 
     div .box-in-middle{
@@ -760,6 +891,6 @@ div .design-to-size{
         background-size: 100% auto;
         background-color: #7952B3  ;
         color: white;
-    }
+    }    
+    
 }
-

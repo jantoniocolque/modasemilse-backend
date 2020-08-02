@@ -1,10 +1,24 @@
-.details-secondary-level p{
+body {
+    margin-bottom: 60px;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: rgb(238, 238, 238);
+}
+
+body > .container-details-cart{
+    padding: 0px 15px 89px;
+}
+
+.form-details-cart{
+    padding: 60px 120px 89px;
+}
+
+.details-secondary-level-cart p{
     font-size: 10px;
     color: gray;
     margin-bottom: 2px;
 }
 
-#price-decoration{
+#price-decoration-cart{
     margin-bottom: -14px;
     font-size: 13px;
     text-decoration:line-through;
@@ -18,8 +32,16 @@ p{
 /*Estilos para celulares */
 @media(min-width:320px){
 
+    body > .container-details-cart{
+        padding: 0px 0px 0px;
+    }
+
+    .form-details-cart{
+        padding: 25px 10px 20px;
+    }
+
     .align-price-details{
-        margin-left: 30px;
+        margin-left: 10px;
     }
     
     div .align-size-title p{
@@ -49,17 +71,17 @@ p{
         color: gray;
     } 
 
-    div .size-color-icon i{
+    div .size-color-icon-cart i{
         font-size: 10px;
         color: black;
     }
 
-    #align-to-shop i {
+    #align-to-shop-cart i {
         margin-top: 12px;
         margin: 2px auto;
     }
 
-    .details-secondary-level p{
+    .details-secondary-level-cart p{
         font-size: 10px;
         color: gray;
         margin-bottom: 2px;
@@ -82,11 +104,9 @@ p{
     .boton-color-buy button{
         height: 25px;
         width: 320px;
-        font-size: 10px;
-    
+        font-size: 10px; 
         background-repeat: no-repeat;
         background-position: 50%;
-       
         background-size: 100% auto;
         background-color: #7952B3  ;
         color: white;
@@ -132,7 +152,7 @@ p{
         color: #7952B3;
     }
 
-    .details-secondary-level p{
+    .details-secondary-level-cart p{
         font-size: 7px;
         color: gray;
         margin-bottom: 2px;
@@ -161,6 +181,14 @@ p{
 /*Estilos para tablet*/
 @media(min-width:768px) {
 
+    body > .container-details-cart{
+        padding: 0px 0px 0px;
+    }
+
+    .form-details-cart{
+        padding: 25px 10px 50px;
+    }
+
     /*Botones Bs*/
     .form-row>.col, .form-row>[class*=col-] {
         padding-right: 0px;
@@ -182,7 +210,7 @@ p{
         max-width: 100%;
     }
 
-    #price-decoration p{
+    #price-decoration-cart p{
         margin-bottom: 33px;
         font-size: 13px;
         text-decoration: line-through;
@@ -193,12 +221,12 @@ p{
         margin-left: 35px;
     }
 
-    div .size-color-icon i{
+    div .size-color-icon-cart i{
         font-size: 15px;
         color: black;
     }
 
-    #align-to-shop i {
+    #align-to-shop-cart i {
         margin-top: 7px;
         margin: 11px 3px;
     }
@@ -218,7 +246,7 @@ p{
         margin-left: 35px;
     }
 
-    .details-secondary-level p{
+    .details-secondary-level-cart p{
         font-size: 10px;
         color: gray;
         margin-bottom: 0px;
@@ -301,6 +329,14 @@ p{
 /*Estilos para notebook*/
 @media(min-width:1024px) {
 
+    body > .container-details-cart{
+        padding: 0px 0px 0px;
+    }
+
+    .form-details-cart{
+        padding: 60px 80px 50px;
+    }
+
     div .banner-bank img{
         width: 91%;
         height: 110%;
@@ -308,17 +344,17 @@ p{
         margin-left: 35px;
     }
 
-    div .size-color-icon i{
+    div .size-color-icon-cart i{
         font-size: 15px;
         color: black;
     }
 
-    #align-to-shop i {
+    #align-to-shop-cart i {
         margin-top: 7px;
         margin: 11px 3px;
     }
 
-    .details-secondary-level p{
+    .details-secondary-level-cart p{
         font-size: 14px;
         color: gray;
         margin-bottom: 0px;

@@ -3,18 +3,35 @@
     <!--Head de la página-->
     <%- include('partials/head') %>
 <body>
+    <script src="/javascripts/validator-products.js"></script>
     <!--Area de administración/alta de artículos-->
     <%- include('partials/header') %>
     <div class="contents-box">
+        <%if(typeof errors!='undefined'){%>
+            <center>
+            <p>
+                <ul style="color:red; font-size:1.2rem; list-style: none;">
+                    <%for(let i=0;i<errors.length;i++){%>
+                    <li>
+                        <%= errors[i].msg %>
+                    </li>
+                    <%}%>
+                </ul>
+            </p>
+            </center>
+        <%}%>
+        <div class="errors-feedback row">
+            
+        </div>
         <div class="container admin">
             <div class="adm-title">
                 <h1>Edicion de artículos</h1>
                 <img class="logo" src="/images/icons/logo.png" alt="logo-modasemilse" srcset="">
             </div>
-            <form action="/products/edit/<%= idEdit %>?_method=PUT" class="row admin-addproduct" method="POST" novalidate>
+            <form action="/products/edit/<%= product.id %>?_method=PUT" class="row admin-editproduct" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <input required type="file" id="imagen-producto" name="image" value ='<%= product.image %>' hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
                         <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
@@ -23,7 +40,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <input required type="file" id="imagen-producto" name="image2" value ="<%= product.image2 %>" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
                         <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
@@ -32,7 +49,7 @@
                         </div>
                     </div>
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <input required type="file" id="imagen-producto" name="image3"  value ="<%= product.image3 %>" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
                         <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
@@ -45,66 +62,87 @@
                     <div class="form-header">
                         <div class="row form-group new-product-code"> 
                             <label class="col-2" for="codigo">Código |</label>
-                            <input required type="text" class="col-2 form-control" id="codigo" name="idArticle" value=<%= productEdit.idArticle%>>
+                            <input required type="text" class="col-2 form-control code" id="codigo" name="code_article" value='<%= product.code_article%>'>
                         </div>
 
-                        <div class="sex-select">
-                            <% if(productEdit.gender == 'Femenino'){%>
-                            <input type="checkbox" name="Female" id="mujer" checked>Mujer
-                            <input type="checkbox" name="hombre" id="hombre">Hombre
-                            <input type="checkbox" name="mujer" id="mujer">Unisex
+                        <div class="sex-select sex">
+                            <% if(product.gender != 'undefined'){%>
+                            <input type="checkbox" name="Femenino"  value ="Femenino" id="mujer" checked>Mujer
+                            <input type="checkbox" name="Masculino"  value ="<%= product.gender %>" id="hombre">Hombre
+                            <input type="checkbox" name="Unisex"  value ="<%= product.gender %>" id="unisex">Unisex
                             <%}%>
                         </div>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="titulo">Nuevo título</label>
-                        <input type="text" class="col form-control" name="title" id="title" placeholder="Titulo del producto" value='<%= productEdit.title %>'>
+                        <input type="text" class="col form-control new_title" name="title" id="title" placeholder="Titulo del producto" value='<%= product.title %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="detalle">Descripción</label>
-                        <input type="text" class="col form-control" name="description" id="detalle" placeholder="Agregar descripción breve" value='<%= productEdit.description %>'>
+                        <input type="text" class="col form-control description_product" name="description_product" id="detalle" placeholder="Agregar descripción breve" value='<%= product.description_product %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="tipo">Tipo</label>
-                        <input type="text" class="col form-control" name="type" id="tipo" placeholder="Agregar tipo de artículo" value= '<%= productEdit.type %>'>
-                    </div>
-
-                    <div class="form-group row"> 
-                        <label class="col-4" for="talles">Talles</label>
-                        <input type="number" class="col form-control" name="talle" id="talles" placeholder="Talles disponibles, separar con comas" value= '<%= productEdit.talle %>'>
+                        <select name='type_cloth' class="col form-control type_clothe" id= "tipo">
+                            <option disabled>Selecciona una categoria</option>
+                            <% for( let i = 0; i < categorys.length; i++) {%>
+                                <%if(product.category_id == categorys[i].id){%>
+                                    <option value="<%= categorys[i].id %>" selected>
+                                        <%= categorys[i].type_cloth %>
+                                    </option>
+                                <% } else { %>
+                                    <option value="<%= categorys[i].id %>">
+                                        <%= categorys[i].type_cloth %>
+                                    </option>
+                                <%}%>
+                            <% } %>
+                        </select>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="colores">Colores</label>
-                        <input type="text" class="col form-control" name="colour" id="colores" placeholder="Colores disponibles, separar con comas" value= '<%= productEdit.colour %>'>
+                        <input type="text" class="col form-control colour" name="colour" id="colores" placeholder="Colores disponibles, separar con comas" value= '<%= product.colour %>'>
                     </div>
-
+                    
                     <div class="form-group row"> 
-                        <label class="col-4" for="estampados">Estampados</label>
-                        <input type="text" class="col form-control" name="print" id="estampados" placeholder="Ingrese estampados" value= '<%= productEdit.print %>'>
+                        <label class="col-4" for="talles">Talle</label>
+                        <select name='size_id' class="col form-control sizes" id= "talles">
+                            <option disabled>Selecciona un talle</option>
+                            <% for( let i = 0; i < sizes.length; i++) {%>
+                                <%if(product.products_sizes[0].size_id == sizes[i].id){%>
+                                    <option value="<%= sizes[i].id %>" selected>
+                                        <%= sizes[i].size %>
+                                    </option>
+                                <% } else { %>
+                                    <option value="<%= sizes[i].id %>">
+                                        <%= sizes[i].size %>
+                                    </option>
+                                <%}%>
+                            <% } %>
+                        </select>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="unidades">Unidades disponibles</label>
-                        <input required type="number" class="col form-control" id="unidades" name="unit" placeholder="Ingrese unidades disponibles" value= '<%= productEdit.units %>'>
+                        <input required type="number" class="col form-control units" id="unidades" name="units" placeholder="Ingrese unidades disponibles" value= '<%= product.products_sizes[0].units %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-menor">Precio menor</label>
-                        <input required type="number" class="col form-control" id="precio-menor" name="price" placeholder="Ingrese precio menor" value= '<%= productEdit.price %>'>
+                        <input required type="number" class="col form-control precio_menor" id="precio-menor" name="price" placeholder="Ingrese precio menor" value= '<%= product.price %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-mayor">Precio mayor</label>
-                        <input required type="number" class="col form-control" id="precio-mayor" name="priceDiscount" placeholder="Ingrese precio mayor" value= '<%=productEdit.priceDiscount %>'>
+                        <input required type="number" class="col form-control precio_mayor" id="precio-mayor" name="price_discount" placeholder="Ingrese precio mayor" value= '<%=product.price_discount %>'>
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="fecha">Fecha</label>
-                        <input type="text" class="col form-control" placeholder="Seleccione una fecha" name="fecha" onfocus="(this.type='date')" onblur="(this.type='text')" value=<%= productEdit.fecha %>>
+                        <input type="text" class="col form-control fecha" placeholder="Seleccione una fecha" name="date_up" onfocus="(this.type='date')" onblur="(this.type='text')" value='<%= product.date_up %>'>
                     </div>
 
                 </div>
@@ -119,7 +157,7 @@
                     </button>
 
                     <button type="submit" class="col-3">
-                        <b>Editar<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
+                        <b>Enviar<i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
                     </button>
                     <button type="reset" class="col-3">
                         <b>Cancelar <i class="fas fa-times"></i></b>
@@ -127,22 +165,23 @@
                 </div>
             </form>
             <div class="col-12 text-center">
-                <form action="/products/delete/<%= idEdit %>?_method=DELETE" method="POST" style="display: inline-flex">
+                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="POST" style="display: inline-flex">
                     <button type="submit" class="form-group btn btn-danger btn-lg" style="border:0">Eliminar</button>
                 </form>
             </div>
         </div>
     </div>
     <!--Footer de la página-->
+    
     <script>
         // Script para boton de carga de imagenes
         const realFileBtn = document.getElementById("imagen-producto");
         const customBtn = document.getElementById("custom-button");
-
         customBtn.addEventListener("click", function() {
         realFileBtn.click();
         });
     </script>
+    
     <%- include('./partials/footer') %>
 </body>
 </html>

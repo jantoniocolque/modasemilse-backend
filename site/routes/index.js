@@ -7,4 +7,6 @@ router.get('/', indexController.root);
 
 /*GET search page*/
 router.get('/search',indexController.search);
+router.get('/support',indexController.support);
+
 module.exports = router;

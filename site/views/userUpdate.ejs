@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+    <!--Head de la página-->
+    <%- include('./partials/head') %>
+<body>
+    <%- include('partials/header') %>
+
+    <div class="container modas-userPanel">
+        <p class="intro" ></p>
+        
+        <div class="mt-3 modas-userPanel-area">
+            <div class="container modas-userPanel-info">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3 modas-userPanel-menu">
+                            <p><strong><a href="/users/account" class="modas-userPanel-link">MI CUENTA</a></strong></p>
+                                <%if(session.rol_id != 1){%>
+                                <ul class="modas-list">
+                                    <li><a href="/users/account/orders" class="modas-userPanel-link">Mis pedidos</a></li>
+                                    <li><a href="/users/account/favorites" class="modas-userPanel-link">Favoritos</a></li>
+                                    <li><a href="/users/account/update" class="modas-userPanel-link">Mis datos</a></li>
+                                </ul>
+                                <%}else{%>
+                                    <ul>
+                                        <li><a href="/users/account/update" class="modas-userPanel-link">Mis datos</a></li>
+                                    </ul>
+                                <%}%>
+                        </div>
+                        
+                        <div class="col">
+                            <div>
+                                <h1 class="modas-userPanel-title"><i class="fas fa-chevron-right"></i> Mis datos</h1>
+                                <p class="intro" ></p>
+                                <p>Hola, <%= user.nombre %> <%= user.apellido %></p>
+                                <p>Recuerda mantener tus datos de contacto al día para no perderte ninguna novedad</p>
+                                <hr>
+                            </div>
+
+                            <div>
+                                <%if(typeof errors!='undefined'){%>
+                                    <center>
+                                    <p>
+                                        <ul style="color:red; font-size:1.2rem; list-style: none;">
+                                            <%for(let i=0;i<errors.length;i++){%>
+                                            <li>
+                                                <%= errors[i].msg %>
+                                            </li>
+                                            <%}%>
+                                        </ul>
+                                    </p>
+                                    </center>
+                                <%}%>
+                                <form action="/users/account/update" class="row container" method="POST" enctype="multipart/form-data">
+                                    <div class="col">
+                                        <p class="modas-userPanel-title">AVATAR DE LA CUENTA </p>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-3"> 
+                                                <input required type="file" id="avatar" name="avatar" hidden="hidden" accept="image/x-png,image/gif,image/jpeg">
+                                                <button type="button" id="custom-button"><img src="/images/user-avatars/<%= user.avatar %>" title="Cambiar tu avatar" width="100%"></button>
+                                            </div>
+                                        </div>
+                                        <hr>
+
+                                        <p class="modas-userPanel-title">DATOS PERSONALES</p>
+                                        <div class="form-group row"> 
+                                            <input required type="text" class="col-5 form-control" id="formInput29" name="firstName" placeholder="Nombre" value="<%= user.nombre %>">
+                                            <input required type="text" class="col-5 form-control" id="formInput29" name="lastName" placeholder="Apellido" value="<%= user.apellido %>"> 
+                                        </div>
+                                        <div class="form-group row"> 
+                                            <input required type="text" class="col-5 form-control" name="nacimiento" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" value="<%= user.nacimiento %>">
+                                            <select required class="col-5 form-control" id="sexo" name="sexo">
+                                                <% if(user.sexo == "mujer") { %>
+                                                    <option value="" disabled>Sexo</option>
+                                                    <option value="mujer" selected>Mujer</option>
+                                                    <option value="hombre">Hombre</option>
+                                                <% }else{ %>
+                                                    <option value="" disabled>Sexo</option>
+                                                    <option value="mujer">Mujer</option>
+                                                    <option value="hombre" selected>Hombre</option>
+                                                <% } %>
+                                            </select>
+                                        </div>
+                                        <hr>
+
+                                        <p class="modas-userPanel-title">DATOS DE ACCESO</p>
+                                        <div class="form-group row"> 
+                                            <input required type="email" class="col-5 form-control" name="currentEmail" id="currentEmail" placeholder="Correo actual" value="<%= user.email %>">
+                                            <input required type="email" class="col-5 form-control" name="email" id="email" placeholder="Nuevo correo">
+                                        </div>
+                                        <div class="form-group row"> 
+                                            <input required type="password" class="col-5 form-control" id="current-password" placeholder="Contraseña actual">
+                                            <input required type="password" class="col-5 form-control" name="password" id="password" placeholder="Nueva ontraseña">
+                                        </div>
+                                        <hr>
+                                        
+                                        <center>
+                                            <% if(typeof user.newsletter!='undefined'){ %>
+                                                <input type="checkbox" name="newsletter" id="newsletter" checked> Deseo recibir ofertas personalizadas
+                                            <% }else{ %> 
+                                                <input type="checkbox" name="newsletter" id="newsletter"> Deseo recibir ofertas personalizadas
+                                            <% }  %> 
+                                        </center>
+                                        <br/>
+                                        <p><i class="fas fa-arrow-circle-right"></i> Por seguridad deberás iniciar sesión de nuevo si actualizas tus datos.</p>
+                                        <div class="form-group row">
+                                            <button type="submit" class="col-12" data-toggle="modal" data-target="#exampleModal">
+                                                Actualizar <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+                                
+                            </div>
+
+                            <div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="modas-userPanel-title">INFORMACION ACTUAL</p>
+
+                                    <ul class="modas-list">
+                                        <li><%= user.nombre %> <%= user.apellido%></li>
+                                        <li><%= user.email %></li>
+                                        <li><a href="#" class="modas-userPanel-link">&raquo; Agregar un teléfono</a></li>
+                                    </ul>
+                                    </div>
+                                    <div class="col">
+                                        <p class="modas-userPanel-title">INFORMACION DE FACTURACIÓN</p>
+
+                                    <ul class="modas-list">
+                                        <li><a href="#" class="modas-userPanel-link">&raquo; Agregar DNI</a></li>
+                                        <li><a href="#" class="modas-userPanel-link">&raquo; Agregar Método de pago</a></li>
+                                        <li><a href="#" class="modas-userPanel-link">&raquo; Agregar una dirección de envío</a></li>
+                                    </ul>
+                                    </div>
+                                </div>                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer de la página-->
+    <script>
+        // Script para boton de carga de avatar
+
+        const realFileBtn = document.getElementById("avatar");
+        const customBtn = document.getElementById("custom-button");
+
+        customBtn.addEventListener("click", function() {
+        realFileBtn.click();
+        });
+    </script>
+    <%- include('./partials/footer') %></body>
+</html>

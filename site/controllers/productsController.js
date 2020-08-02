@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
+const {check,validationResult,body}=require('express-validator');
 
-const productsFilePath = path.join(__dirname,'../data/productsDataBase.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath,'utf-8'));
+/* Se requieren los modelos de la base de datos */
+let db = require('../database/models');
+// let sequelize = db.sequelize;
 
 function removeDuplicates(originalArray, nameProperty) {
     var newArray = [];
@@ -16,131 +16,174 @@ function removeDuplicates(originalArray, nameProperty) {
      return newArray;
 }
 
-//function productDetails(originalArray, productId){}
-
 const controller = {
-    root:(req,res) => {
-        /*const newPrueba = {a:1,b:5124,c:5,d:613};
-        for(i in newPrueba){
-            console.log(newPrueba[i]);
-        }*/
-        var productsWithoutRepeat = removeDuplicates(products,'idArticle');
-        res.render('tienda', { 
-            title: 'Tienda - Emilse',
-            titleContent:'Todos los productos',
-            products:productsWithoutRepeat,
-        }); 
-        res.render('tienda',{
-            products:products,
-        });
+    root: async (req,res) => {
+        const categorias = await db.Category.findAll();
+        db.Product.findAll()
+        .then(function(product){
+            res.render('tienda',{
+                title:'Tienda - Emilse',
+                titleContent: 'Todos los productos',
+                products:removeDuplicates(product,'code_article'),
+                categorias: categorias,
+                session:req.session.userLoginSession,
+            })
+        })
     },
-    
-    filter:(req,res) => {
-        const productsFilter = products.filter(product => req.params.type.includes(product.type.toLowerCase()));
+
+    filter:async(req,res) => {
+        const categorias = await db.Category.findAll();
+        const productsFilter = await db.Product.findAll({
+            include: [{
+                association:'category',
+                where: { type_cloth: req.params.type } 
+              }]
+        });
         res.render('tienda',{
             title: 'Tienda - Emilse',
             titleContent: req.params.type[0].toUpperCase()+req.params.type.slice(1),
-            products:removeDuplicates(productsFilter,'idArticle'),
+            categorias: categorias,
+            products:removeDuplicates(productsFilter,'code_article'),
+            session:req.session.userLoginSession
         });
     },
 
 
-    create:(req,res) => {
+    create:async (req,res) => {
+        const sizes = await db.Size.findAll();
+        const categorys = await db.Category.findAll();
         res.render('productAdd',{
-            title:'Carga de Producto'
+            title:'Carga de Producto',
+            sizes:sizes,
+            categorys:categorys,
+            session:req.session.userLoginSession
         });
     },
 
-    store:(req,res,next) => {
-        const newId = products[products.length-1].id + 1;
-		const newProduct = {
-			id:newId,
-			idArticle: req.body.idArticle,
-            gender: req.body.gender,
-            title:req.body.title,
-            description:req.body.description,
-			type:req.body.type,
-			image:[req.files[0].filename],
-            talle:req.body.talle,
-            colour: req.body.colour,
-            print: req.body.print,
-            unit: req.body.unit,
-            price: req.body.price,
-            priceDiscount: req.body.priceDiscount,
-            fecha: req.body.fecha
-		};
-
-        const finalProduct = [...products,newProduct];
-		fs.writeFileSync(productsFilePath,JSON.stringify(finalProduct, null, ' '));
-		res.redirect('/products');
+    store:async (req,res,next) => {
+        const sizes = await db.Size.findAll();
+        if(!Number.isInteger(req.body.type_cloth)){
+            await db.Category.create({
+                type_cloth:req.body.type_cloth
+            });
+            const newCategory = await db.Category.findOne({where:{type_cloth:req.body.type_cloth}});
+            req.body.type_cloth = newCategory.id;
+        }
+        const categorys = await db.Category.findAll();
+        const errors=validationResult(req);
+        if(errors.isEmpty()){
+            await db.Product.create({
+                code_article: req.body.code_article,
+                title: req.body.title,
+                description_product: req.body.description_product,
+                image: req.files[0].filename,
+                image2: req.files[1].filename,
+                image3: req.files[2].filename,
+                gender: req.body.gender,
+                date_up: req.body.date_up,
+                price: req.body.price,
+                price_discount: req.body.price_discount,
+                colour: req.body.colour,
+                category_id:req.body.type_cloth,
+                products_sizes:[{
+                    size_id:req.body.size_id,
+                    units:req.body.units,
+                }]
+            },{
+                include:[{
+                    association:'products_sizes'
+                }]
+            });
+    
+            return res.redirect('/products');
+        }else{
+            return res.render('productAdd',{
+                sizes:sizes,
+                categorys:categorys,
+                error:errors.errors,
+                title:'Carga de productos',
+                session:req.session.userLoginSession
+            })
+        }
     },
 
-    edit:(req,res) => {
-        let idEdit = req.params.productId;
-		let productEdit;
-		products.forEach(product => {
-			if(idEdit == product.id){
-				productEdit=product;
-			}
+    edit: async (req,res) => {
+        const product = await db.Product.findByPk(req.params.productId,{
+            include:[{
+                association:'products_sizes'
+            }]
         });
-		res.render('productEdit', {
-            title:'Editando - Modas Emilse',
-			productEdit:productEdit,
-			idEdit:idEdit,
-        });
-    },
-
-    update: (req,res) => {
-        let idEdit = req.params.productId;
-		const newProducts = products.map(product =>{
-			if(product.id == idEdit)
-			{
-                product.idArticle = req.body.idArticle;
-                product.gender = req.body.gender;
-                product.title = req.body.title;
-                product.description = req.body.description;
-                product.type = req.body.type;
-                product.talle = req.body.talle;
-                product.colour = req.body.colour;
-                product.print = req.body.print;
-                product.units = req.body.units;
-                product.price = req.body.price;
-                product.priceDiscount = req.body.priceDiscount;
-                product.fecha = req.body.fecha;
-			}
-			return product;
-        });
-		fs.writeFileSync(productsFilePath,JSON.stringify(newProducts,null, ' '));
-		res.redirect('/products');
-    },
-
-    delete:(req,res) => {
-        const idDelete = req.params.productId;
-		let newID=1;
-		const newProducts=products.filter(product =>{
-			if(product.id != idDelete){
-				product.id=newID;
-				newID+=1;
-				return product;
-			}
-        });
+        const sizes = await db.Size.findAll();
+        const categorys = await db.Category.findAll();
+        if(product != undefined){
+            res.render('productEdit', {
+                title:'Editando - Modas Emilse',
+                product:product,
+                sizes:sizes,
+                categorys:categorys,
+                session:req.session.userLoginSession,
+            });
+        }
+        else{
+            res.render('productAdd', {
+                title:'Crear producto - Modas Emilse',
+                sizes:sizes,
+                errors:'No existe ese producto',
+                categorys:categorys,
+                session:req.session.userLoginSession,
+            });
+        }
         
-		fs.writeFileSync(productsFilePath,JSON.stringify(newProducts,null, ' '));
-
-		res.redirect('/');
     },
 
-    detail:(req,res) => {
-        const idProduct = req.params.productId;
-        const product = products.filter(product => {
-            if(product.id == idProduct){
-                productDetails = product;
+    update: function(req,res) {
+        db.Product.update({
+            code_article: req.body.code_article,
+            title: req.body.title,
+            description_product: req.body.description_product,
+            gender: req.body.femenino,
+            date_up: req.body.date_up,
+            price: req.body.price,
+            price_discount: req.body.price_discount,
+            colour: req.body.colour,
+            category_id: req.body.type_cloth,
+        },{
+            where: {
+                id: req.params.productId,
             }
         });
-        res.render('detalleProducto',  {productDetails:productDetails,}
-        );
+        db.Product_Size.update({
+            size_id: req.body.size_id,
+            units:req.body.units
+        },{
+            where:{
+                product_id: req.params.productId
+            }
+        })
+         res.redirect('/products/edit/' + req.params.productId );
     },
 
+    destroy :function(req,res) {
+        db.Product_Size.destroy({
+            where:{
+                product_id: req.params.productId,
+            }
+        });
+
+        db.Product.destroy({
+            where:{
+                id: req.params.productId,
+            }
+        });
+        res.redirect('/products');
+    },
+
+    detail : function(req, res) {
+       db.Product.findByPk(req.params.productId)
+       .then(function(product){
+           res.render('detalleProducto', {product : product, session:req.session.userLoginSession})
+       });
+    }
 }
 
 module.exports = controller;

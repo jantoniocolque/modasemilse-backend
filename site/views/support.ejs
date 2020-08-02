@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--Head de la página-->
+<%- include('./partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <div class="container modas-support">
+        <p class="intro" ></p>
+        <div class="mt-3 modas-support-area">
+            <div class="container modas-support-panel">
+                <div class="container">
+                    <div>
+                        <h1>Hola !</h1>
+                        <p>¿Con qué podemos ayudarte?</p>
+                        <hr>
+                    </div>
+                    <div class="support-panel">
+                        <p>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#support-shops">
+                                Locales
+                            </button>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#support-faqs">
+                                Preguntas frecuentes
+                            </button>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#support-about">
+                                ¿Quiénes somos?
+                            </button>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#support-tips">
+                                Consejos
+                            </button>
+                            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#support-contact">
+                                Contacto
+                            </button>
+                        </p>
+                        <div class="collapse" id="support-shops" name="support-shops">
+                            <div class="card card-body">
+                                <div style="margin: 10px;">
+                                    <div class="support-box-title">
+                                        <h2><i class="fas fa-store"></i> Locales:</h2>
+                                        <p>Nuestro local está en Joaquin V Gonzales, CABA, BSAS; Visitanos !</p>
+                                    </div>
+                                    <div>
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13136.400955681667!2d-58.3957107!3d-34.6016267!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x35ec9c4f292d3f99!2sI.S.P%20%22Dr.%20J.V.%20Gonz%C3%A1lez%22!5e0!3m2!1sen!2sar!4v1593118916852!5m2!1sen!2sar" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="collapse" id="support-faqs">
+                            <div class="card card-body">
+                                <div style="margin: 10px;">
+                                    <div class="support-box-title">
+                                        <h2><i class="far fa-question-circle"></i> Preguntas frecuentes:</h2>
+                                        <p>Aquí algunas respuestas para que puedas mejorar tu experiencia en Modas Emilse</p>
+                                    </div>
+                                    <div>
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">¿COMO COMPRAR EN MODAS EMILSE?</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse1" class="panel-collapse collapse in">
+                                                    <div class="panel-body">
+                                                        <strong>1. ELEGÍ LOS PRODUCTOS.</strong> Podés buscar productos desde el menú lateral izquierdo de categorías. Una vez que ingresaste a la grilla de productos, podés filtrar la búsqueda por marca, género, disciplina, etc desde el menú lateral izquierdo. Si buscás un producto en particular, podés ingresar el nombre o código en el buscador principal que se encuentra en el sector superior derecho.
+                                                        <br>
+                                                        <strong>2. SELECCIONÁ LO QUE QUERÉS Y AGREGALO A TU CARRITO.</strong> Hace click sobre el producto que querés comprar. Seleccioná el color, talle y cantidad deseada. Presioná el botón "Comprar". Podés agregar más productos a la compra o clickear en el botón del carrito en el sector superior derecho para finalizar tu compra.
+                                                        <br>
+                                                        <strong>3. TU CARRITO.</strong> Una vez en el carrito chequeá que los productos que están son los que elegiste y avanzá al checkout presionando el botón "Finalizar Compra".
+                                                        <br>
+                                                        <strong>4. DATOS DE FACTURACIÓN.</strong> Finalmente deberás completar los datos que te vamos solicitando: datos personales, dirección de entrega, modo de envío, forma de pago.
+                                                        <br>
+                                                        Y listo! Ahora solo resta esperar a que llegue tu pedido.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">¿CUÁLES SON LAS FORMAS DE ENVÍO?</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse2" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        <strong>Envíos a domicilio:</strong> Envíos a cualquier punto del país a excepción de la provincia de Tierra del Fuego.
+                                                        <br>
+                                                        <strong>Retiro en sucursal:</strong> Podés elegir retirar tu pedido en cualquiera de las sucursales de <b>Modas Emilse</b> disponibles al momento de realizar tu compra. Buscá la más cercana a tu domicilio en <a href="">Locales</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h4 class="panel-title">
+                                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">¿CUÁNTO TARDA EN LLEGAR MI PEDIDO?</a>
+                                                    </h4>
+                                                </div>
+                                                <div id="collapse3" class="panel-collapse collapse">
+                                                    <div class="panel-body">
+                                                        El tiempo de entrega depende de la disponibilidad del producto, del tiempo de envío y de la aprobación del medio de pago. Los días que se indiquen son estimativos, y corren siempre a partir del momento en que el pedido se despacha. Los envíos se realizan en toda la República Argentina, excepto la provincia de Tierra del Fuego.
+                                                        <br>
+                                                        <strong>ENTREGAS A DOMICILIO:</strong>
+                                                        CF y GBA: Hasta 7 días
+                                                        Interior Capitales: Hasta 10 días
+                                                        Centro Interior: Hasta 15 días
+                                                        NOA Interior: Hasta 15 días
+                                                        NEA Interior: Hasta 15 días
+                                                        Patagonia Interior: Hasta 15 días
+                                                        <br>
+                                                        <strong>ENTREGAS A SUCURSAL:</strong>
+                                                        CF y GBA: Hasta 7 días
+                                                        Interior Capitales: Hasta 10 días
+                                                        Centro Interior: Hasta 15 días
+                                                        NOA Interior: Hasta 15 días
+                                                        NEA Interior: Hasta 15 días
+                                                        Patagonia Interior: Hasta 15 días
+                                                        <br>
+                                                        Aclaración: Por el alto volumen de ventas que se genera durante las fechas de Hot Sale y Cyber Monday, los pedidos tendrán una demora de entrega de hasta 10 días hábiles adicionales (aplica a compras realizadas durante estos eventos y hasta 20 días posteriores a los mismos).
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="collapse" id="support-about">
+                            <div class="card card-body">
+                                <div style="margin: 10px;">
+                                    <div class="support-box-title">
+                                        <h2><i class="far fa-address-card"></i> ¿Quiénes somos?:</h2>
+                                        <p><i>ModasEmilse</i> es una tienda online de venta por catálogo tanto al por mayor como al detalle.</p>
+                                        <p>Ve a nuestra tienda y descubre más sobre nosotros: </p>
+                                    </div>
+                                    <div>
+                                        <center>
+                                            <a href="/products"><img src="/images/logo-borde-blanco.png" alt="" srcset="" width="50%"></a>
+                                        </center>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="collapse" id="support-tips">
+                            <div class="card card-body">
+                                <div style="margin: 10px;">
+                                    <div class="support-box-title">
+                                        <h2><i class="fas fa-exclamation-circle"></i> Consejos:</h2>
+                                        <p>Tenemos unos cuantos consejos para tu seguridad mientras compras en linea:</p>
+                                    </div>
+                                    <div>
+                                        <p><i class="fas fa-arrow-circle-right"></i> Utiliza siempre una Wi-Fi o conexión  a internet segura.</p>
+                                        <p><i class="fas fa-arrow-circle-right"></i> Mantén tu equipo actualizado y protegido.</p>
+                                        <p><i class="fas fa-arrow-circle-right"></i> Compra en sitios web conocidos y con buena reputación.</p>
+                                        <p><i class="fas fa-arrow-circle-right"></i> Revisa periodicamente los movimientos de tu tarjeta de crédito/débito</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="collapse" id="support-contact">
+                            <div class="card card-body">
+                                <div style="margin: 10px;">
+                                    <div class="support-box-title">
+                                        <h2><i class="fas fa-headset"></i> Contacto comercial:</h2>
+                                        <p>Para información comercial dejanos tus datos y los de tu empresa. Uno de nuestros asesores te contactará: </p>
+                                    </div>
+                                    <div>
+                                        <form>
+                                            <div class="form-group">
+                                              <label for="name">Tu nombre:</label>
+                                              <input type="text" class="form-control" id="name" placeholder="Catalina García">
+
+                                              <label for="email">Tu Email</label>
+                                              <input type="email" class="form-control" id="email" placeholder="empresas@modasemilse.com">
+
+                                              <label for="company-name">Nombre de tu empresa</label>
+                                              <input type="text" class="form-control" id="company-name" placeholder="Modas Emilse">
+
+                                              <label for="phone">Tu teléfono</label>
+                                              <input type="tel" class="form-control" id="phone" placeholder="4442 6950">
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="call-time">¿En que horario prefieres ser contactado?</label>
+                                              <select class="form-control" id="call-time">
+                                                <option>En la mañana</option>
+                                                <option>Al medio día</option>
+                                                <option>En la tarde</option>
+                                                <option>En la noche</option>
+                                              </select>
+                                            </div>
+                                            <div class="form-group">
+                                              <label for="message">Dejanos un mensaje (opcional)</label>
+                                              <textarea class="form-control" id="message" rows="3"></textarea>
+                                            </div>
+                                            <br>
+                                            <button class="btn btn-primary col" type="submit">
+                                                Enviar
+                                            </button>
+                                          </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <hr>
+                        <h4>Atención al cliente:</h4>
+                        <br>
+                            <p>
+                                <i class="fas fa-phone-alt"></i> <a href="tel:+4442-6950">4442-6950</a> - 24hrs
+                            </p>
+                            <p>
+                                <i class="fas fa-envelope"></i> <a href="mailto:modasemilse@gmail.com">modasemilse@gmail.com</a> -24hrs
+                            </p>
+                            <p>
+                                <i class="fas fa-map-marker-alt"></i> <a href="https://goo.gl/maps/83qyLz1vowkC9u9n6" target="_blank">Joaquin V Gonzales</a> - Lunes a Viernes de 10 a 16hs
+                            </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Footer de la página-->
+    <script>
+        // Script para boton de carga de avatar
+        
+        const realFileBtn = document.getElementById("avatar");
+        const customBtn = document.getElementById("custom-button");
+        
+        customBtn.addEventListener("click", function() {
+            realFileBtn.click();
+        });
+    </script>
+    <%- include('./partials/footer') %></body>
+    </html>
+    

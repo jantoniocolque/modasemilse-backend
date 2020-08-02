@@ -3,9 +3,26 @@
     <!--Head de la página-->
     <%- include('./partials/head') %>
 <body>
+    <script src="/javascripts/validator-products.js"></script>
     <!--Area de administración/alta de artículos-->
     <%- include('partials/header') %>
     <div class="contents-box">
+        <%if(typeof errors!='undefined'){%>
+            <center>
+            <p>
+                <ul style="color:red; font-size:1.2rem; list-style: none;">
+                    <%for(let i=0;i<errors.length;i++){%>
+                    <li>
+                        <%= errors[i].msg %>
+                    </li>
+                    <%}%>
+                </ul>
+            </p>
+            </center>
+        <%}%>
+        <div class="errors-feedback row">
+            
+        </div>
         <div class="container admin">
             <div class="adm-title">
                 <h1>Alta de artículos nuevos</h1>
@@ -14,8 +31,8 @@
             <form action="/products/create" class="row admin-addproduct" enctype="multipart/form-data" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto-1" name="image" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button-1" src="/images/placeholder.png" class="card-img-top imagen1" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -23,8 +40,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto-2" name="image2" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button-2" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -32,8 +49,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="imagen-producto" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto-3" name="image3" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button-3" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -45,78 +62,88 @@
                     <div class="form-header">
                         <div class="row form-group new-product-code"> 
                             <label class="col-2" for="codigo">Código |</label>
-                            <input required type="text" class="col-2 form-control" id="codigo" name="idArticle">
+                            <input required type="text" class="col-2 form-control code" id="codigo" name="code_article">
                         </div>
 
                         <div class="sex-select">
-                            <input type="checkbox" name="gender" id="mujer">Mujer
-                            <input type="checkbox" name="hombre" id="hombre">Hombre
-                            <input type="checkbox" name="mujer" id="mujer">Unisex
+                            <input type="checkbox" name="gender" value="Femenino" id="mujer" required>Mujer
+                            <input type="checkbox" name="gender" value="Masculino" id="hombre">Hombre
+                            <input type="checkbox" name="gender" value="Unisex" id="unisex">Unisex
                         </div>
                     </div>
 
-                    <div class="form-group row"> 
+                    <div class="form-group row">
+                        <p class="error-name"></p> 
                         <label class="col-4" for="titulo">Nuevo título</label>
-                        <input type="text" class="col form-control" name="title" id="title" placeholder="Titulo del producto">
+                        <input type="text" class="col form-control new_title" name="title" id="title" placeholder="Titulo del producto">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="detalle">Descripción</label>
-                        <input type="text" class="col form-control" name="description" id="detalle" placeholder="Agregar descripción breve">
+                        <input type="text" class="col form-control description_product" name="description_product" id="detalle" placeholder="Agregar descripción breve">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="tipo">Tipo</label>
-                        <input type="text" class="col form-control" name="type" id="tipo" placeholder="Agregar tipo de artículo">
+                        <select name='type_cloth' class="col form-control type_clothe" id= "tipo">
+                            <option disabled selected>Selecciona una categoria</option>
+                            <% for( let i = 0; i < categorys.length; i++) {%>
+                            <option value="<%= categorys[i].id %>">
+                                <%= categorys[i].type_cloth %>
+                            </option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="form-group row"> 
+                        <label class="col-4" for="talles">Talle</label>
+                        <select name='size_id' class="col form-control sizes" id= "talles">
+                            <option disabled selected>Selecciona un talle</option>
+                            <% for( let i = 0; i < sizes.length; i++) {%>
+                            <option value="<%= sizes[i].id %>">
+                                <%= sizes[i].size %>
+                            </option>
+                            <% } %>
+                        </select>
                     </div>
 
                     <div class="form-group row"> 
-                        <label class="col-4" for="talles">Talles</label>
-                        <input type="number" class="col form-control" name="talle" id="talles" placeholder="Talles disponibles, separar con comas">
+                        <label class="col-4" for="unidades">Cantidad</label>
+                        <input required type="number" class="col form-control units" id="unidades" name="units" placeholder="Unidades de ese talle">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="colores">Colores</label>
-                        <input type="text" class="col form-control" name="colour" id="colores" placeholder="Colores disponibles, separar con comas">
-                    </div>
-
-                    <div class="form-group row"> 
-                        <label class="col-4" for="estampados">Estampados</label>
-                        <input type="text" class="col form-control" name="print" id="estampados" placeholder="Ingrese estampados">
-                    </div>
-
-                    <div class="form-group row"> 
-                        <label class="col-4" for="unidades">Unidades disponibles</label>
-                        <input required type="number" class="col form-control" id="unidades" name="unit" placeholder="Ingrese unidades disponibles">
+                        <input type="text" class="col form-control colour" name="colour" id="colores" placeholder="Colores disponibles, separar con comas">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-menor">Precio menor</label>
-                        <input required type="number" class="col form-control" id="precio-menor" name="price" placeholder="Ingrese precio menor">
+                        <input required type="number" class="col form-control precio_menor" id="precio-menor" name="price" placeholder="Ingrese precio menor">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="precio-mayor">Precio mayor</label>
-                        <input required type="number" class="col form-control" id="precio-mayor" name="priceDiscount" placeholder="Ingrese precio mayor">
+                        <input required type="number" class="col form-control precio_mayor" id="precio-mayor" name="price_discount" placeholder="Ingrese precio mayor">
                     </div>
 
                     <div class="form-group row"> 
                         <label class="col-4" for="fecha">Fecha</label>
-                        <input type="text" class="col form-control" placeholder="Seleccione una fecha" name="fecha" onfocus="(this.type='date')" onblur="(this.type='text')">
+                        <input required type="text" class="col form-control fecha" placeholder="Seleccione una fecha" name="date_up" onfocus="(this.type='date')" onblur="(this.type='text')">
                     </div>
 
                 </div>
 
                 <div class="col-12 row form-group admin-form-options">
-                    <button type="button" class="col-3">
-                        Agregar más fotos
+                    <button id="modal-prueba" type="button" data-toggle="modal" data-target="#modalcategory" class="col-3">
+                        Nueva categoria
                     </button>
 
+                    
                     <button type="button" class="col-3">
                         <b>Vista previa <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
                     </button>
 
-                    <button type="submit" class="col-3">
+                    <button type="submit" class="col-3 agregar">
                         <b>Agregar <i class="fas fa-chevron-right"></i><i class="fas fa-chevron-right"></i></b>
                     </button>
 
@@ -130,11 +157,29 @@
     <!--Footer de la página-->
     <script>
         // Script para boton de carga de imagenes
-        const realFileBtn = document.getElementById("imagen-producto");
-        const customBtn = document.getElementById("custom-button");
+        const realFileBtn1 = document.getElementById("imagen-producto-1");
+        const customBtn1 = document.getElementById("custom-button-1");
 
-        customBtn.addEventListener("click", function() {
-        realFileBtn.click();
+        customBtn1.addEventListener("click", function() {
+        realFileBtn1.click();
+        });
+    </script>
+    <script>
+        // Script para boton de carga de imagenes
+        const realFileBtn2 = document.getElementById("imagen-producto-2");
+        const customBtn2 = document.getElementById("custom-button-2");
+
+        customBtn2.addEventListener("click", function() {
+        realFileBtn2.click();
+        });
+    </script>
+    <script>
+        // Script para boton de carga de imagenes
+        const realFileBtn3 = document.getElementById("imagen-producto-3");
+        const customBtn3 = document.getElementById("custom-button-3");
+
+        customBtn3.addEventListener("click", function() {
+        realFileBtn3.click();
         });
     </script>
     <%- include('./partials/footer') %>

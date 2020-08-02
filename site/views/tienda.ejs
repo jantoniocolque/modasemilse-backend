@@ -17,28 +17,31 @@
             </div>
             <div class="sidebar col-2 d-none d-lg-block">
                 <ul>
-                    <li><a href="/products/type/camperas">Camperas</a></li>
-                    <li><a href="/products/type/pantalones">Pantalones</a></li>
-                    <li><a href="/products/type/sacos">Sacos</a></li>
-                    <li><a href="/products/type/remeras">Remeras</a></li>
+                    <%for(category of categorias){%>
+                        <li><a href="/products/type/<%= category.type_cloth %>"><%= category.type_cloth%></a></li>
+                    <%}%>
                 </ul>
             </div>
             <div class="page-content d-lg-flex">
                 <div class="container-photos col-12 col-lg-12">
                     <div class="row col-12 p-lg-0">
-                        <h2 class="products-title"><%= titleContent %></h2>
+                        <% if (products != ''){%>
+                            <h2 class="products-title"><%= titleContent %></h2>
+                        <%}else{%>
+                            <h2 class="products-title color-red">No se encontraron resultados</h2>
+                        <%}%>
                     </div>
                     <div class="row">
                         <% for (product of products) {%>
                         <div class="card-store col-6 col-sm-4 col-lg-3">
                             <section class="product-box">
-                                <a href="#">
+                                <a href="/products/details/<%=product.id%>">
                                     <figure class="product-box_image m-0">
-                                        <img src="/images/products/<%= product.image[0] %>" alt="imagen de producto">
+                                        <img src="/images/products/<%= product.image %>" alt="imagen de producto">
                                     </figure>
                                     <article class="product-box_data justify-content-md-between">
                                         <h4>$<%= product.price %></h4>
-                                        <span><b>$<%= product.priceDiscount %></b><br>Precio por mayor</br></span>
+                                        <span><b>$<%= product.price_discount %></b><br>Precio por mayor</br></span>
                                         <p><%= product.title %></p>
                                     </article>
                                 </a>
