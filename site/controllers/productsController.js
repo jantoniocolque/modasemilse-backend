@@ -179,11 +179,18 @@ const controller = {
         res.redirect('/products');
     },
 
-    detail : function(req, res) {
-       db.Product.findByPk(req.params.productId)
-       .then(function(product){
-           res.render('detalleProducto', {product : product, session:req.session.userLoginSession})
-       });
+    detail :async function(req, res) {
+        const product= await db.Product.findByPk(req.params.productId);
+        /*const sizes =await db.Product_Size.findAll({
+            where:{product_id:req.params.productId}
+        });*/
+        const sizes = await db.Size.findAll();
+        console.log(sizes);
+        res.render('detalleProducto', {
+            product : product,
+            sizes: sizes,
+            session:req.session.userLoginSession
+        });
     }
 }
 

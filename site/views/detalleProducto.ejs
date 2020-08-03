@@ -51,6 +51,7 @@
                             no contiene estos datos. Dejamos como default la posibilidad de 3, pero se recorrería un array de 
                             muestras con un for-->
                         <div class="row">
+                            <div class=""><p>Color: <%= product.colour %></p></div>
                             <!--
                             <div>
                                 <img id="circle-cloth" src="/images/products/<%= product.image%>" alt="muestra de tela" height="65" width="65">
@@ -60,8 +61,7 @@
                             </div>
                             <div>
                                 <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
-                            </div>
-                            -->
+                            </div>-->
                         </div>               
 
                         <div class="design-to-size" id="price align-left-subtitle">
@@ -74,26 +74,18 @@
                                     <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
                                         <select class="custom-select mr-sm-2 product-size" id="inlineFormCustomSelect">
                                             <option selected disabled hidden>Talle</option>
-                                            <option value="1">M</option>
-                                            <option value="2">L</option>
-                                            <option value="3">XL</option>
-                                            <option value="4">XXL</option>
+                                            <% for( let i = 0; i < sizes.length; i++) {%>
+                                            <option value="<%= sizes[i].id %>">
+                                                <%= sizes[i].size %>
+                                            </option>
+                                            <% } %>
                                         </select>
                                 </div>
                             </div>
 
                             <div class="form-row align-items-center" id="align-to-size">
                                 <div class="col-auto my-1">
-                                    <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-                                        <select class="custom-select mr-sm-2 product-quantity" id="inlineFormCustomSelect">
-                                            <option selected disabled hidden>Cantidad</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                        </select>
+                                    <input type="text" class="custom-select mr-sm-2 mt-2 product-quantity col-3" id="inlineFormCustomSelect"> 
                                 </div>
                             </div>
                         </div>
@@ -199,10 +191,5 @@
         </div>
 
         <%- include('partials/footer')%>
-     
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://
-        stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </body>
 </html>

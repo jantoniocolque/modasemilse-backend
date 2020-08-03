@@ -1,7 +1,7 @@
 const db = require('../database/models');
 
 function authUserLogin(req,res,next){
-    if(req.session.user == undefined){
+    if(req.session.userLoginSession == undefined){
         if(req.cookies.user){
             db.User.findByPk(req.cookies.user)
             .then(function(user){
@@ -11,8 +11,9 @@ function authUserLogin(req,res,next){
         }else{
             return res.redirect('/users/login');
         }
+    }else{
+        next();
     }
-    next();
 }
 
 module.exports = authUserLogin;
