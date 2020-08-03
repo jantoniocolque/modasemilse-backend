@@ -20,6 +20,4 @@ router.get('/', productsAPIController.list);
 
 router.get('/:id', productsAPIController.find);
 
-router.post('/create',upload.any(),productsAPIController.store);
-
 module.exports = router;

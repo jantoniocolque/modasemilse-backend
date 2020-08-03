@@ -3,7 +3,7 @@ const db = require('../../database/models');
 const controller = {
     list: async (req,res) => {
         const products = await db.Product.findAll()
-
+        
         for( let i=0; i<products.length;i++){
             products[i].setDataValue("endpoints","https://localhost/api/products/"+products[i].id);
         }
