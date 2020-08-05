@@ -99,6 +99,10 @@ div.errors-feedback ul {
 
 /* Estilos para la vista carrito*/
 
+.modas-hide {
+    display: none;
+}
+
 .modas-cart-box {
     padding: 30px 30px 30px;
     width: 90%;
