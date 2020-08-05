@@ -20,7 +20,6 @@ window.addEventListener('load', function(){
 
     if(cartView){
         updateCartView();
-        cartStandBy();
     }
 
     // re directs to /cart onClick
@@ -46,29 +45,27 @@ window.addEventListener('load', function(){
     if(addBtn){
 
         addBtn.addEventListener('click', function(){
-            //addItemToCart(title, price, imageSrc)
-            ///updateCartTotal()
     
             var productTitle = document.querySelector('#product-title').innerText;
             var productPrice = document.querySelector('#price').innerText;
             var productSize = document.querySelector('select.product-size').value;
             var productQuantity = document.querySelector('select.product-quantity').value;
             var productImg = document.querySelector('img.product-img').name;
+            var productColor = document.querySelector('.product-color').innerText;
+            var productCode = document.querySelector('.product-code').innerText;
     
             var newItem = {
                 name : productTitle,
                 price : productPrice,
                 size : productSize,
                 quantity : productQuantity,
-                img : productImg
+                img : productImg,
+                color : productColor,
+                code : productCode
             }
     
             shoppingCart.push(newItem);
-    
-            console.log(shoppingCart);
-    
-            //var shoppingCart = JSON.parse(localStorage.getItem("shoppingCart"));
-    
+
             updateCartPreview();
             updateCartStored();
     
@@ -108,27 +105,36 @@ window.addEventListener('load', function(){
     }
 
     function updateCartView(){
-        cartView.innerHTML = `<div></div>`;
+        console.log(shoppingCart);
 
-        var cartViewItems = document.querySelector('div.cart-view div');
+        if(shoppingCart.length === 0){
+            document.querySelector('section.modas-empty-cart').classList.remove('modas-hide');
+        }else{
+            document.querySelector('section.content-section').classList.remove('modas-hide');
 
-        for(var i = 0; i < shoppingCart.length; i++){
-            cartViewItems.innerHTML += `
-            <div class="row cart-view-item">
-                <div class="cart-item-image" style="background-image: url(/images/products/${shoppingCart[i].img})"></div>
-                <div class="cart-item-title">${shoppingCart[i].name}</div>
+            cartView.innerHTML = `<div></div>`;
 
-                <span class="cart-price cart-column">${shoppingCart[i].price}</span>
-                
-                <div class="cart-quantity cart-column">
-                    <input class="cart-quantity-input" type="number" value="1">
-                    <button class="btn btn-danger" type="button"><i class="far fa-trash-alt"></i></button>
-                </div>
-            </div>`;
+            var cartViewItems = document.querySelector('div.cart-view div');
+
+            for(var i = 0; i < shoppingCart.length; i++){
+                cartViewItems.innerHTML += `
+                <div class="row cart-view-item">
+                    <div class="cart-item-image" style="background-image: url(/images/products/${shoppingCart[i].img})"></div>
+                    <div class="cart-item-title">${shoppingCart[i].name}</div>
+
+                    <span class="cart-price cart-column">${shoppingCart[i].price}</span>
+                    
+                    <div class="cart-quantity cart-column">
+                        <input class="cart-quantity-input" type="number" value="${shoppingCart[i].quantity}">
+                        <button class="btn btn-danger" type="button" id="${i}"><i class="far fa-trash-alt" id="${i}"></i></button>
+                    </div>
+                </div>`;
+            }
+
+            cartStandBy();
+            updateCartTotal();
         }
 
-        updateCartTotal();
-    
     }
 
     function updateCartStored(){
@@ -154,12 +160,6 @@ window.addEventListener('load', function(){
         for (var i = 0; i < quantityInputs.length; i++) {
             var input = quantityInputs[i]
             input.addEventListener('change', quantityChanged)
-        }
-    
-        var addToCartButtons = document.getElementsByClassName('shop-item-button')
-        for (var i = 0; i < addToCartButtons.length; i++) {
-            var button = addToCartButtons[i]
-            button.addEventListener('click', addToCartClicked)
         }
     }
 
@@ -191,12 +191,16 @@ window.addEventListener('load', function(){
     }
 
     function removeCartItem(e) {
-        var buttonClicked = e.target
-        buttonClicked.parentElement.parentElement.remove();
-        updateCartTotal()
-        //optionals...
-        //updateCartView();
-        //updateCartPreview();
-        //updateCartStored();
+        shoppingCart.splice(e.target.id, 1);
+        console.log(shoppingCart.length);
+
+        if(shoppingCart.length >= 1){
+            updateCartStored();
+            updateCartPreview();
+            updateCartView();
+        }else{
+            updateCartStored();
+            location.reload();
+        }
     }
 })
