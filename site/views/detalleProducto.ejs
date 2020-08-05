@@ -51,7 +51,7 @@
                             no contiene estos datos. Dejamos como default la posibilidad de 3, pero se recorrería un array de 
                             muestras con un for-->
                         <div class="row">
-                            <div class=""><p>Color: <%= product.colour %></p></div>
+                            <div><p>Color: <span class="product-color"><%= product.colour %></span></p></div>
                             <!--
                             <div>
                                 <img id="circle-cloth" src="/images/products/<%= product.image%>" alt="muestra de tela" height="65" width="65">
@@ -85,7 +85,16 @@
 
                             <div class="form-row align-items-center" id="align-to-size">
                                 <div class="col-auto my-1">
-                                    <input type="text" class="custom-select mr-sm-2 mt-2 product-quantity col-3" id="inlineFormCustomSelect"> 
+                                    <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                                        <select class="custom-select mr-sm-2 product-quantity" id="inlineFormCustomSelect">
+                                            <option selected disabled hidden>Cantidad</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                        </select>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +116,7 @@
                         <div class="details-secondary-level mt-2">
                             <div class=""><p>Descripción: <%= product.description_product %></p></div>
                             <div class=""><p>Categoria: <%= product.type_cloth %></p></div>
-                            <div class=""><p>Código del artículo: <%= product.code_article%></p></div>
+                            <div><p>Código del artículo: <span class="product-code"><%= product.code_article%></span></p></div>
                         </div>
 
                         <div class="complete-look" id="price">
