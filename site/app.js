@@ -34,8 +34,8 @@ app.use(methodOverride('_method'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productsRouter);
-app.use('/api/products',apiProductsRouter);
-app.use('/api/users',apiUsersRouter);
+app.use('/v1/products',apiProductsRouter);
+app.use('/v1/users',apiUsersRouter);
 
 
 // catch 404 and forward to error handler
