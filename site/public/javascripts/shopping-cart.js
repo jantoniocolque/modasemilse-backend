@@ -57,6 +57,8 @@ window.addEventListener('load', function(){
                 var productImg = document.querySelector('img.product-img').name;
                 var productColor = document.querySelector('.product-color').innerText;
                 var productCode = document.querySelector('.product-code').innerText;
+                var price = parseFloat(productPrice.replace('$', ''));
+                total = (price * productQuantity);
                 
                 var newItem = {
                     product_id:product_id,
@@ -64,6 +66,7 @@ window.addEventListener('load', function(){
                     price : productPrice,
                     size : productSize,
                     quantity : productQuantity,
+                    total: total.toString(10),
                     img : productImg,
                     color : productColor,
                     code : productCode
@@ -83,17 +86,29 @@ window.addEventListener('load', function(){
 
     if(purchaseBtn){
         purchaseBtn.addEventListener('click', function(){
-            fetch("http://localhost:3000/v1/products/shop",{
-                method:'POST',
-                body: localStorage.shoppingCart,
-                headers:{'Content-Type':'application/json'}
-            }).then((response)=>{
-                return response.json();
-            }).then((info)=>{
-                localStorage.clear();
-                shoppingCart=[];
-                location.href='/';
-            })
+            var session = document.querySelector('.session-front-end');
+
+            if(session == null){
+                fetch("http://localhost:3000/v1/products/shop",{
+                    method:'POST',
+                    body: localStorage.shoppingCart,
+                    headers:{'Content-Type':'application/json'}
+                }).then((response)=>{
+                    return response.json();
+                }).then((info)=>{
+                    localStorage.clear();
+                    shoppingCart=[];
+                    location.href='/';
+                }).catch((e)=>{
+                    Swal.fire({
+                        icon: 'error',
+                        text: e,
+                    });
+                })
+            }
+            else{
+                Swal.fire('Debe iniciar sesion para realizar la compra!');
+            }
         })
     }
 
@@ -190,7 +205,7 @@ window.addEventListener('load', function(){
         }
         total = Math.round(total * 100) / 100
         document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total;
-
+        
         cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
         cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
     }

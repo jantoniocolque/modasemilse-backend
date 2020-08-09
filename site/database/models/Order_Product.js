@@ -6,6 +6,15 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
+        },
+        products_id: {
+            type: dataTypes.INTEGER,
+        },
+        orders_id: {
+            type: dataTypes.INTEGER,
+        },
+        units: {
+            type: dataTypes.INTEGER,
         }
     };
     

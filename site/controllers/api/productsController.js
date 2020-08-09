@@ -57,10 +57,33 @@ const controller = {
           status: 200,
         });
     },
-    orders:(req,res)=>{
+    orders:async (req,res)=>{
+        let totalFinal = 0;
+        let date = new Date();
+        date = date.getFullYear() + "-" + (date.getMonth() +1) + "-" + date.getDate();
         console.log(req.body);
+        for(product of req.body){
+            totalFinal += parseInt(product.total,10);
+        }
+        await db.Order.create({
+            total:totalFinal,
+            estado:'pendiente',
+            date: date,
+            user_id:req.session.userLoginSession.id
+        });
+
+        const order = await db.Order.findOne({where:{total:totalFinal}});
+
+        for(product of (req.body)){
+            await db.Order_Product.create({
+                products_id: parseInt(product.product_id,10),
+                orders_id: order.id,
+                units: parseInt(product.quantity,10),
+            })
+        }
+        
         res.json({
-          status: 200,
+            status:200
         });
     }
 }
