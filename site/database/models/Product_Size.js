@@ -15,6 +15,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         size_id: {
             type: dataTypes.INTEGER,
+        },
+        code:{
+            type: dataTypes.STRING,
         }
     };
     

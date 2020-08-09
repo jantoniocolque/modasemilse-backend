@@ -2,6 +2,11 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Order_Product';
     
     let cols = {
+        id:{
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        }
     };
     
     let config = {

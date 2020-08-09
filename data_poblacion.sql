@@ -3,7 +3,7 @@ INSERT INTO emilse_modas.roles VALUES (NULL, 'ADMIN');
 INSERT INTO emilse_modas.roles VALUES (NULL, 'USER');
 
 -- SCRIPT PARA EL ADMIN --
-INSERT INTO emilse_modas.users VALUES (NULL,'avatar-admin','Emilse','Modas','emilse@modas.com','emilsemodas','2006-07-27','mujer','on','1');
+INSERT INTO emilse_modas.users VALUES (NULL,'avatar-admin.png','Emilse','Modas','emilse@modas.com','emilsemodas','2006-07-27','mujer','on','1');
 
 -- SCRIPT PARA LA TABLA SIZES --
 INSERT INTO emilse_modas.sizes VALUES(NULL,'M');

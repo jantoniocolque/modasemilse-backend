@@ -62,8 +62,8 @@ const controller = {
 
     store:async (req,res) => {
         const sizes = await db.Size.findAll();
-        
-        if(parseInt(req.body.type_cloth,10)== NaN){
+        if(isNaN(parseInt(req.body.type_cloth,10))){
+            console.log('entre');
             await db.Category.create({
                 type_cloth:req.body.type_cloth
             });
@@ -89,6 +89,7 @@ const controller = {
                 products_sizes:[{
                     size_id:req.body.size_id,
                     units:req.body.units,
+                    code:req.body.code_article,
                 }]
             },{
                 include:[{
@@ -181,15 +182,13 @@ const controller = {
 
     detail :async function(req, res) {
         const product= await db.Product.findByPk(req.params.productId);
-        /*const sizes =await db.Product_Size.findAll({
-            where:{product_id:req.params.productId}
-        });*/
+        const productsForArticle = await db.Product_Size.findAll({where:{code:product.code_article}});
         const sizes = await db.Size.findAll();
-        console.log(sizes);
         res.render('detalleProducto', {
             product : product,
             sizes: sizes,
-            session:req.session.userLoginSession
+            productsForArticle:productsForArticle,
+            session:req.session.userLoginSession,
         });
     }
 }

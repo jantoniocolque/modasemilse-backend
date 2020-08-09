@@ -57,30 +57,8 @@ const controller = {
           status: 200,
         });
     },
-    orders:async(req,res)=>{
-        await db.Order.create({
-            code_article: req.body.code_article,
-            title: req.body.title,
-            description_product: req.body.description_product,
-            image: req.files[0].filename,
-            image2: req.files[1].filename,
-            image3: req.files[2].filename,
-            gender: req.body.gender,
-            date_up: req.body.date_up,
-            price: req.body.price,
-            price_discount: req.body.price_discount,
-            colour: req.body.colour,
-            category_id:req.body.type_cloth,
-            products_sizes:[{
-                size_id:req.body.size_id,
-                units:req.body.units,
-            }]
-        },{
-            include:[{
-                association:'products_sizes'
-            }]
-        });
-  
+    orders:(req,res)=>{
+        console.log(req.body);
         res.json({
           status: 200,
         });
