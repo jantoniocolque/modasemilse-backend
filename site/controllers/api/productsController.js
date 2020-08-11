@@ -2,18 +2,37 @@ const db = require('../../database/models');
 
 const controller = {
     list: async (req,res) => {
-        const products = await db.Product.findAll()
-        
+        const products = await db.Product.findAll();
+        const categorys = await db.Category.findAll();
+        let categoryAcc = {}
+        let acc;
+        let data = [];
         for( let i=0; i<products.length;i++){
-            products[i].setDataValue("endpoints","https://localhost/api/products/"+products[i].id);
+            data[i] = {
+                id : products[i].id,
+                name : products[i].title,
+                description : products[i].description_product,
+                endpoints : "https://localhost/api/products/"+products[i].id,
+            };
+        }
+        for(let i=0; i<categorys.length; i++){
+            acc = 0;
+            for(let j=0; j<products.length;j++){
+                if(products[j].category_id == categorys[i].id){
+                    acc++;
+                }
+            }
+            let nombre = categorys[i].type_cloth;
+            categoryAcc[nombre] = acc;
         }
 
         const respuesta = {
             meta:{
                 status:200,
                 total: products.length,
+                categorys:categoryAcc,
             },
-            data:products,
+            data:data,
         }
         res.json(respuesta);
     },
@@ -81,7 +100,7 @@ const controller = {
                 units: parseInt(product.quantity,10),
             })
         }
-        
+
         res.json({
             status:200
         });
