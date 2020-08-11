@@ -39,11 +39,11 @@
 
                     <section class="col-12 col-sm-12 col-md-5 mt-3">
                         <div class ="clothes-main-title">
-                            <p id="product-title"> <%= product.title %> <%=product.colour %> </p>
+                            <p id="product-title"> <%= product.title %></p>
                         </div>
 
                         <div class="">
-                            <div id="price-decoration"> <p> $ <%= product.price %></p> </div>                      
+                            <span>$</span><div id="price-decoration"><p><%= product.price %></p> </div>                      
                             <div id="price"><p> $ <%= product.price_discount %></p></div>
                         </div>
 
@@ -74,10 +74,14 @@
                                     <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
                                         <select class="custom-select mr-sm-2 product-size" id="inlineFormCustomSelect">
                                             <option selected disabled hidden>Talle</option>
-                                            <% for( let i = 0; i < sizes.length; i++) {%>
-                                            <option value="<%= sizes[i].id %>">
-                                                <%= sizes[i].size %>
-                                            </option>
+                                            <% for( let i = 0; i < productsForArticle.length; i++) {%>
+                                                <% for(let j=0; j < sizes.length; j++){%>
+                                                    <% if(productsForArticle[i].size_id == sizes[j].id) {%>
+                                                        <option value="<%= sizes[j].id %>">
+                                                            <%= sizes[j].size %>
+                                                        </option>
+                                                    <% } %>
+                                                <% } %>
                                             <% } %>
                                         </select>
                                 </div>
@@ -85,16 +89,7 @@
 
                             <div class="form-row align-items-center" id="align-to-size">
                                 <div class="col-auto my-1">
-                                    <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-                                        <select class="custom-select mr-sm-2 product-quantity" id="inlineFormCustomSelect">
-                                            <option selected disabled hidden>Cantidad</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                        </select>
+                                    <input type="number" class="custom-select mr-sm-2 product-quantity" id="inlineFormCustomSelect">
                                 </div>
                             </div>
                         </div>

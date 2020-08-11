@@ -7,6 +7,9 @@ module.exports = (sequelize, dataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
+    total:{
+      type: dataTypes.DECIMAL,
+    },
     estado: {
       type: dataTypes.STRING,
     },

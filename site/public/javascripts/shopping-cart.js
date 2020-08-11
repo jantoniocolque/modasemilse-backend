@@ -45,42 +45,70 @@ window.addEventListener('load', function(){
     if(addBtn){
 
         addBtn.addEventListener('click', function(){
-    
-            var productTitle = document.querySelector('#product-title').innerText;
-            var productPrice = document.querySelector('#price').innerText;
             var productSize = document.querySelector('select.product-size').value;
-            var productQuantity = document.querySelector('select.product-quantity').value;
-            var productImg = document.querySelector('img.product-img').name;
-            var productColor = document.querySelector('.product-color').innerText;
-            var productCode = document.querySelector('.product-code').innerText;
-    
-            var newItem = {
-                name : productTitle,
-                price : productPrice,
-                size : productSize,
-                quantity : productQuantity,
-                img : productImg,
-                color : productColor,
-                code : productCode
-            }
-    
-            shoppingCart.push(newItem);
+            var productQuantity = document.querySelector('.product-quantity').value;
+            var actual = window.location.pathname;
+            var split = actual.split('/');
+            var product_id = split[split.length-1];
 
-            updateCartPreview();
-            updateCartStored();
-    
+            if(productSize != 'Talle' && productQuantity != ''){
+                var productTitle = document.querySelector('#product-title').innerText;
+                var productPrice = document.querySelector('#price').innerText;
+                var productImg = document.querySelector('img.product-img').name;
+                var productColor = document.querySelector('.product-color').innerText;
+                var productCode = document.querySelector('.product-code').innerText;
+                var price = parseFloat(productPrice.replace('$', ''));
+                total = (price * productQuantity);
+                
+                var newItem = {
+                    product_id:product_id,
+                    name : productTitle,
+                    price : productPrice,
+                    size : productSize,
+                    quantity : productQuantity,
+                    total: total.toString(10),
+                    img : productImg,
+                    color : productColor,
+                    code : productCode
+                }
+        
+                shoppingCart.push(newItem);
+
+                updateCartPreview();
+                updateCartStored();
+            }
+            else{
+                Swal.fire('Debe elegir un talle y/o cantidad');
+            }
         })
 
     }
 
     if(purchaseBtn){
         purchaseBtn.addEventListener('click', function(){
-            alert('Gracias por tu compra ! Att. Modas Emilse');
+            var session = document.querySelector('.session-front-end');
 
-            localStorage.clear();
-            shoppingCart = [];
-
-            location.href = '/';
+            if(session == null){
+                fetch("http://localhost:3000/v1/products/shop",{
+                    method:'POST',
+                    body: localStorage.shoppingCart,
+                    headers:{'Content-Type':'application/json'}
+                }).then((response)=>{
+                    return response.json();
+                }).then((info)=>{
+                    localStorage.clear();
+                    shoppingCart=[];
+                    location.href='/';
+                }).catch((e)=>{
+                    Swal.fire({
+                        icon: 'error',
+                        text: e,
+                    });
+                })
+            }
+            else{
+                Swal.fire('Debe iniciar sesion para realizar la compra!');
+            }
         })
     }
 
@@ -105,8 +133,6 @@ window.addEventListener('load', function(){
     }
 
     function updateCartView(){
-        console.log(shoppingCart);
-
         if(shoppingCart.length === 0){
             document.querySelector('section.modas-empty-cart').classList.remove('modas-hide');
         }else{
@@ -121,6 +147,8 @@ window.addEventListener('load', function(){
                 <div class="row cart-view-item">
                     <div class="cart-item-image" style="background-image: url(/images/products/${shoppingCart[i].img})"></div>
                     <div class="cart-item-title">${shoppingCart[i].name}</div>
+
+                    <div class="cart-item-size">${shoppingCart[i].size}</div>
 
                     <span class="cart-price cart-column">${shoppingCart[i].price}</span>
                     
@@ -177,7 +205,7 @@ window.addEventListener('load', function(){
         }
         total = Math.round(total * 100) / 100
         document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total;
-
+        
         cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
         cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
     }

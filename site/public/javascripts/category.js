@@ -13,7 +13,6 @@ window.addEventListener('load', function(){
             var option = document.createElement("option");
             option.text = text;
             option.value = text;
-            console.log(option.value);
             option.selected='selected';
             var listCategory = document.querySelector('#tipo');
             listCategory.appendChild(option);

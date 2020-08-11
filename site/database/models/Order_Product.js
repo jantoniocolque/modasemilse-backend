@@ -2,6 +2,20 @@ module.exports = (sequelize, dataTypes) => {
     let alias = 'Order_Product';
     
     let cols = {
+        id:{
+            type: dataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        products_id: {
+            type: dataTypes.INTEGER,
+        },
+        orders_id: {
+            type: dataTypes.INTEGER,
+        },
+        units: {
+            type: dataTypes.INTEGER,
+        }
     };
     
     let config = {

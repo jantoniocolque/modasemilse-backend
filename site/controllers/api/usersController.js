@@ -7,7 +7,6 @@ const controller = {
     login: async (req,res) =>{
         let userLogin = await db.User.findOne({ where: { email : req.body.email } });
         if(userLogin !=undefined){
-            console.log(req.body.password);
             if(bcrypt.compareSync(req.body.password,userLogin.password)){
                 const payload = {
                     email: req.body.email
