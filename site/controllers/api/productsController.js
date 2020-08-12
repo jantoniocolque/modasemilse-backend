@@ -12,7 +12,7 @@ const controller = {
                 id : products[i].id,
                 name : products[i].title,
                 description : products[i].description_product,
-                endpoints : "https://localhost/api/products/"+products[i].id,
+                endpoints : "http://localhost:3000/v1/products/"+products[i].id,
             };
         }
         for(let i=0; i<categorys.length; i++){
@@ -39,8 +39,40 @@ const controller = {
 
     find : async function(req, res) {
         const product = await db.Product.findByPk(req.params.id);
-        res.json(product);
+        const productsForArticle = await db.Product.findAll({where:{code_article:product.code_article}});
+        const sizesForArticle = await db.Product_Size.findAll({where:{code:product.code_article}});
+        const sizes = await db.Size.findAll();
+        const category = await db.Category.findByPk(product.id);
+        let colours = [];
+        let sizesArray = [];
+        let cantidad = 0;
+
+        for(productForArticle of productsForArticle){
+            colours.push(productForArticle.colour);
+        }
+
+        for( let i = 0; i < sizesForArticle.length; i++) {
+            for(let j=0; j < sizes.length; j++){
+                if(sizesForArticle[i].size_id == sizes[j].id) {
+                    sizesArray.push(sizes[j].size);
+                    cantidad += sizesForArticle[i].units;
+                }
+            }
+        }
+
+        const respuesta = {
+            code_article : product.code_article,
+            title : product.title,
+            description_product : product.description_product,
+            price : product.price,
+            category : category.type_cloth,
+            colour : colours,
+            sizes : sizesArray,
+            stockTotal: cantidad
+        }
+        res.json(respuesta);
     },
+
     store: async function(req, res) {
         if(parseInt(req.body.type_cloth,10)== NaN){
             await db.Category.create({
@@ -76,7 +108,7 @@ const controller = {
           status: 200,
         });
     },
-    orders:async (req,res)=>{
+    orders : async (req,res)=>{
         let totalFinal = 0;
         let date = new Date();
         date = date.getFullYear() + "-" + (date.getMonth() +1) + "-" + date.getDate();
