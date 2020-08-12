@@ -34,23 +34,31 @@ const controller = {
         }
     },
     list: async (req,res) => {
+        let data = [];
         const rol = await db.Rol.findOne({where:{name_rol:{[Op.or]:["USER","usuario"]}}});
         const users = await db.User.findAll({
             where: {
                 rol_id:rol.id
             }
         });
-        for( let i=0; i<users.length;i++){
-            users[i].setDataValue("endpoints","https://localhost/api/users/"+users[i].id);
+        for (let i=0; i<users.length; i++){
+            data[i] = {
+                id : users[i].id,
+                name : users[i].nombre,
+                email : users[i].email,
+                detail : "http://localhost:3000/v1/users/" + users[i].id
+            }
         }
+        
 
         const respuesta = {
             meta:{
                 status:200,
                 total: users.length,
             },
-            data:users,
+            data:data,
         }
+
         res.json(respuesta);
     },
     find: async (req,res) => {
@@ -59,7 +67,16 @@ const controller = {
             res.json("No existe ese usuario");
         }
 
-        res.json(user);
+        let respuesta = {
+            id : user.id,
+            nombre : user.nombre,
+            apellido : user.apellido,
+            email : user.email,
+            nacimiento : user.nacimiento,
+            sexo : user.sexo,
+        }
+
+        res.json(respuesta);
     }
 }
 
