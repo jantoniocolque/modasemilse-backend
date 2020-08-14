@@ -17,8 +17,8 @@ var storage = multer.diskStorage({
    
 var upload = multer({ storage: storage });
 
-router.get('/',authenticationMiddleware,productsAPIController.list);
+router.get('/',productsAPIController.list);
 router.post('/shop',productsAPIController.orders);
-router.get('/:id',authenticationMiddleware, productsAPIController.find);
+router.get('/:id', productsAPIController.find);
 
 module.exports = router;
