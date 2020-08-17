@@ -5,29 +5,37 @@ let db = require('../../database/models');
 
 const controller = {
     login: async (req,res) =>{
-        let userLogin = await db.User.findOne({ where: { email : req.body.email } });
+        console.log(req.body);
+        let userLogin = await db.User.findOne({ where: {email: req.body.email }});
+        
         if(userLogin !=undefined){
-            if(bcrypt.compareSync(req.body.password,userLogin.password)){
-                const payload = {
-                    email: req.body.email
-                };
-                return jwt.sign(payload, "secret", {
-                    expiresIn: 3600
-                }, 
-                (err, token) => {
-                    if (err) {
-                        return res.json({
-                            mensaje: err
-                        })
-                    }
-                    res.status(200).json({
-                        token: token,
+            if(userLogin.rol_id == 1){
+                if(req.body.password == userLogin.password){
+                    const payload = {
+                        email: req.body.email
+                    };
+                    return jwt.sign(payload, "secret", {
+                        expiresIn: 3600
+                    }, 
+                    (err, token) => {
+                        if (err) {
+                            return res.json({
+                                mensaje: err
+                            })
+                        }
+                        res.status(200).json({
+                            token: token,
+                        });
                     });
-                });
+                }
+                else{
+                    res.json('Usuario o contraseña incorrecta');
+                }
             }
             else{
-                res.json('Usuario o contraseña incorrecta');
+                res.json("No tiene autorizacion para ingresar");
             }
+            
         }
         else{
             res.json('Usuario o contraseña incorrecta');

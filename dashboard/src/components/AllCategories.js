@@ -10,7 +10,11 @@ class AllCategories extends Component {
     }
     
     apiCall(url, consecuencia){
-        fetch(url)
+        let store = JSON.parse(localStorage.getItem('login'));
+        fetch(url,{
+            method : 'GET',
+            headers : {'token':store.store},
+        })
         .then( response => response.json())
         .then( data => consecuencia(data))
         .catch( e => console.log(e))
@@ -46,8 +50,8 @@ class AllCategories extends Component {
             let contenido;
             
             if(this.state.categoriesTotal === ""){
-                contenido = <div class="spinner-border text-info" role="status">
-                                <span class="sr-only"></span>
+                contenido = <div className="spinner-border text-info" role="status">
+                                <span className="sr-only"></span>
                             </div>
             }else{
                 contenido = this.state.categoriesTotal

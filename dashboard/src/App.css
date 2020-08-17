@@ -69,3 +69,7 @@
 .navbar a:hover {
   color: #ffffff;
 }
+
+.navbar .logout a{
+  background-color: red;
+}
