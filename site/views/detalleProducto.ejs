@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="">
-                            <span>$</span><div id="price-decoration"><p><%= product.price %></p> </div>                      
+                            <div id="price-decoration"><p> $ <%= product.price %></p> </div>                      
                             <div id="price"><p> $ <%= product.price_discount %></p></div>
                         </div>
 
@@ -51,7 +51,7 @@
                             no contiene estos datos. Dejamos como default la posibilidad de 3, pero se recorrería un array de 
                             muestras con un for-->
                         <div class="row">
-                            <div><p>Color: <span class="product-color"><%= product.colour %></span></p></div>
+                            <div><span class="product-color">Color: <%= product.colour %></span></div>
                             <!--
                             <div>
                                 <img id="circle-cloth" src="/images/products/<%= product.image%>" alt="muestra de tela" height="65" width="65">
@@ -74,9 +74,9 @@
                                     <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
                                         <select class="custom-select mr-sm-2 product-size" id="inlineFormCustomSelect">
                                             <option selected disabled hidden>Talle</option>
-                                            <% for( let i = 0; i < productsForArticle.length; i++) {%>
-                                                <% for(let j=0; j < sizes.length; j++){%>
-                                                    <% if(productsForArticle[i].size_id == sizes[j].id) {%>
+                                            <% for( let i = 0; i < productsForArticle.length; i++) { %>
+                                                <% for(let j=0; j < sizes.length; j++) { %>
+                                                    <% if(productsForArticle[i].size_id == sizes[j].id) { %>
                                                         <option value="<%= sizes[j].id %>">
                                                             <%= sizes[j].size %>
                                                         </option>
@@ -116,12 +116,14 @@
 
                         <div class="complete-look" id="price">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <div id="align-left-subtitle"><p>COMPLETA EL LOOK</p></div>
+                                <% if(productsOtherColors.length > 1) {%>
+                                <div id="align-left-subtitle"><p>OTROS COLORES</p></div>     
                                 <div class="row">
-                                    <div class=""><img src="/images/products/default.png" alt="" height="115" width="75"></div>            
-                                    <div class=""><a href=""><img src="/images/products/default.png" alt="" height="115" width="75"></a></div>
+                                    <% for (product of productsOtherColors) {%>
+                                    <div class=""><a href="/products/details/<%=product.id%>"><img src="/images/products/<%= product.image %>" alt="" height="100" width="70"></a></div>                                                   
+                                    <%}%>
                                 </div>
-
+                                <% } %>
                                 <div class="row">
                                     <div class="container-items">
                                         <div id="price"><p></p></div>
@@ -132,34 +134,24 @@
                     </section>
                 </div>
                 
-
-
-                <!-- Los dejamos como muestra de lo que se vería-->
+                <!-- Los dejamos como muestra de lo que se vería -->
 
                 <div class="row">
                     <div class="situate-left">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box-in-middle d-none d-sm-none d-md-block">
-                            <div id="align-center-subtitle"><p>VISTOS RECIENTEMENTE</p></div>                               
+                            <div id="align-center-subtitle"><p>RECOMENDADOS</p></div>                               
                             <div class="row">
-                                <div class=""><img src="/images/products/pict10.jpg" alt="" height="115" width="75"></div>
-                                <div class=""><img src="/images/products/pict11.jpg" alt="" height="115" width="75"></div>
-                                <div class=""><img src="/images/products/pict12.jpg" alt="" height="115" width="75"></div>                               
+                                <% for(product of recomended) { %>
+                                <div class=""><a href="/products/details/<%=product.id%>"><img src="/images/products/<%=product.image%>" alt="" height="115" width="75"></a></div>
+                                <%}%>                            
                             </div>
                             <div class="row">
+                                <% for(product of recomended) { %>
                                 <div>
-                                    <div id="price-decoration"><p>$ 2.999, 99</p></div>
-                                    <div><p>$ 2.499, 99</p></div>
+                                    <div id="price-decoration"><p><%= product.price%></p></div>
+                                    <div><p><%= product.price_discount%></p></div>
                                 </div>
-                                
-                                <div>
-                                    <div id="price-decoration"><p>$ 1.299, 99</p></div>
-                                    <div><p>$ 899, 99</p></div>   
-                                </div>
-
-                                <div>
-                                    <div id="price-decoration"><p>$ 1.699, 99</p></div>
-                                    <div><p>$ 1.299, 99</p></div>   
-                                </div>
+                                <%}%>  
                             </div> 
                         </div>                  
                     </div>
