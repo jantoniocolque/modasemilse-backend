@@ -796,7 +796,7 @@ div .complete-look{
 }
 
 div .complete-look div img{
-    margin: 0px 15px;
+    margin: 0px 5px;
 }
 
 div #align-center-subtitle p{
@@ -815,7 +815,7 @@ div .design-to-size{
 /*Estilos para celulares*/
 @media(min-width:320px){
     .form-details{
-        padding: 0px 40px 0px;
+        padding: 0px 25px 0px;
     }
 
     section .main-img img { 
