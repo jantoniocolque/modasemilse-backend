@@ -15,7 +15,7 @@ class navBar extends Component{
 					</li>
 					<div className="topbar-divider d-none d-sm-block"></div>
 					<li className="nav-item dropdown no-arrow">
-					<a className="nav-link dropdown-toggle" href="/" id="userDropdown">
+					<a className="nav-link dropdown-toggle" href="http://localhost:3000/" id="userDropdown" target="blank">
 						<span className="mr-2 d-none d-lg-inline small">ir a ModasEmilse.com</span>
 						<i className="fas fa-arrow-circle-right"></i>
 					</a>
