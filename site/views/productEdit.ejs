@@ -31,8 +31,8 @@
             <form action="/products/edit/<%= product.id %>?_method=PUT" class="row admin-editproduct" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="image" value ='<%= product.image %>' hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto" name="image" value ='' hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button" src="/images/products/<%= product.image %>" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -40,8 +40,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="image2" value ="<%= product.image2 %>" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto" name="image2" value ="" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button" src="/images/products/<%= product.image2 %>" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
@@ -49,8 +49,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <input required type="file" id="imagen-producto" name="image3"  value ="<%= product.image3 %>" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
-                        <img id="custom-button" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
+                        <input required type="file" id="imagen-producto" name="image3"  value ="" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <img id="custom-button" src="/images/products/<%= product.image3 %>" class="card-img-top" alt="..." title="Selecciona una foto">
                         <div class="photo-menu">
                             <i class="far fa-trash-alt"></i>
                             |
