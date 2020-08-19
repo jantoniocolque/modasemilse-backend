@@ -1,18 +1,50 @@
 const {check,validationResult,body}=require('express-validator');
+const { Op } = require("sequelize");
 
 /* Se requieren los modelos de la base de datos */
 let db = require('../database/models');
 // let sequelize = db.sequelize;
 
-function removeDuplicates(originalArray, nameProperty) {
+function removeDuplicatesProducts(originalArray, codeProduct, nameProperty){
     var newArray = [];
     var objectProcess  = {};
     for(var i=0; i<originalArray.length ; i++){
         objectProcess[originalArray[i][nameProperty]] = originalArray[i];
     }
     for(var object in objectProcess) {
+        console.log("Object propiedad"+ object);
+        if( object != codeProduct) {
+            newArray.push(objectProcess[object]);
+        }       
+    }
+    console.log("Recomendados" + newArray);
+     return newArray;
+}
+
+function removeDuplicates(originalArray, nameProperty, colour) {
+    var newArray = [];
+    var objectProcess  = {};
+    for(var i=0; i<originalArray.length ; i++){
+        objectProcess[originalArray[i][nameProperty, colour]] = originalArray[i];
+    }
+    for(var object in objectProcess) {
         newArray.push(objectProcess[object]);
     }
+     return newArray;
+}
+
+function removeSameColor(products, colourProduct, nameProperty){
+    var newArray = [];
+    var objectProcess  = {};
+    for(var i=0; i<products.length ; i++){
+        objectProcess[products[i][nameProperty]] = products[i];
+    }
+    for(var object in objectProcess) {
+        if( object != colourProduct) {
+            newArray.push(objectProcess[object]);
+        }       
+    }
+    console.log("1 new array" + newArray);
      return newArray;
 }
 
@@ -24,7 +56,7 @@ const controller = {
             res.render('tienda',{
                 title:'Tienda - Emilse',
                 titleContent: 'Todos los productos',
-                products:removeDuplicates(product,'code_article'),
+                products:removeDuplicates(product,'code_article', 'colour'),
                 categorias: categorias,
                 session:req.session.userLoginSession,
             })
@@ -43,7 +75,7 @@ const controller = {
             title: 'Tienda - Emilse',
             titleContent: req.params.type[0].toUpperCase()+req.params.type.slice(1),
             categorias: categorias,
-            products:removeDuplicates(productsFilter,'code_article'),
+            products:productsFilter,
             session:req.session.userLoginSession
         });
     },
@@ -182,14 +214,30 @@ const controller = {
 
     detail :async function(req, res) {
         const product= await db.Product.findByPk(req.params.productId);
-        const productsForArticle = await db.Product_Size.findAll({where:{code:product.code_article}});
+        const productsForArticle = await db.Product_Size.findAll({where: {code: product.code_article}});
+        const productsOtherColors = await db.Product.findAll(
+            {where: {
+                code_article: product.code_article, 
+                    }
+            }, {limit:3});
+
+        const recomended = await db.Product.findAll({where:{category_id:product.category_id}},{limit:3});
+
+        console.log("recomendado");
+        console.log(recomended);
+        console.log(removeSameColor(productsOtherColors, product.colour, 'colour'));
+        
         const sizes = await db.Size.findAll();
         res.render('detalleProducto', {
             product : product,
             sizes: sizes,
-            productsForArticle:productsForArticle,
-            session:req.session.userLoginSession,
+            productsForArticle: productsForArticle,
+            productsOtherColors: removeSameColor(productsOtherColors, product.colour, 'colour'),
+            recomended : removeDuplicatesProducts(recomended, product.code_article, 'code_article'),
+            session: req.session.userLoginSession,
         });
+        console.log("PROD DE LISTA");
+        console.log(productsOtherColors);
     }
 }
 
