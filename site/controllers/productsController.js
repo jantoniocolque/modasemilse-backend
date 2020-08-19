@@ -13,7 +13,7 @@ function removeDuplicates(originalArray, nameProperty) {
     for(var object in objectProcess) {
         newArray.push(objectProcess[object]);
     }
-     return newArray;
+    return newArray;
 }
 
 const controller = {
@@ -63,7 +63,6 @@ const controller = {
     store:async (req,res) => {
         const sizes = await db.Size.findAll();
         if(isNaN(parseInt(req.body.type_cloth,10))){
-            console.log('entre');
             await db.Category.create({
                 type_cloth:req.body.type_cloth
             });
@@ -117,7 +116,7 @@ const controller = {
         });
         const sizes = await db.Size.findAll();
         const categorys = await db.Category.findAll();
-        if(product != undefined){
+        if(product != null){
             res.render('productEdit', {
                 title:'Editando - Modas Emilse',
                 product:product,

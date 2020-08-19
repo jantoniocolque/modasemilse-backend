@@ -267,6 +267,51 @@ img.logo {
     border-radius: 25px;
 }
 
+.upload-image-1{
+    position:absolute;
+    top:-25px;
+}
+.upload-image-2{
+    position:absolute;
+    top:-25px;
+}
+.upload-image-3{
+    position:absolute;
+    top:-25px;
+}
+.upload-image-1 .upload-1{
+    width:100%;
+    height:250px;
+    cursor:default;
+    z-index:0;
+}
+.upload-image-2 .upload-2{
+    width:100%;
+    height:250px;
+    cursor:default;
+    z-index:0;
+}
+.upload-image-3 .upload-3{
+    width:100%;
+    height:250px;
+    cursor:default;
+    z-index:0;
+}
+.upload-4{
+    width: 100%;
+    position: absolute;
+    top: -13px;
+    border-radius: 50%;
+    height: 76%;
+    left:0;
+}
+.upload-avatar .photo-menu{
+    position: absolute;
+    top: 121px;
+    right: -14px;
+    font-size:1.5rem;
+}
+
 div.card img {
     cursor: pointer;
 }

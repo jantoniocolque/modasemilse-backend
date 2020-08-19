@@ -33,14 +33,13 @@ button:focus{
 }
 /*estilos de la barra superior donde se encuentra el logo, el icono de carrito y de usuario*/
 header #menu{
-  background-color: transparent;
-  border-radius: 14px;
-  top:18px;
+  background-color: rgba(0, 188, 212,0.96);
+  top:25px;
 }
 /*Background dinamico de la barra superior con JQuery*/
 .bg-primary{
   transition: all 0.8s ease;
-  background-color: rgba(0, 188, 212,0.96) !important;
+  background-color: transparent !important;
   position:fixed;
   top:0px !important;
 }
@@ -71,7 +70,7 @@ header .form-control::placeholder {
   color:white;
 }
 header #menu .logo img{
-    width: 55%;
+    width: 40%;
 }
 header #menu .logo{
   text-align: center;
@@ -513,7 +512,7 @@ main .second-row-photo .promo-photo{
   }
   header #menu .logo img{
     transition: all 1s ease;
-    width: 30%;
+    width: 25%;
   }
   header #menu .icono-shop-user #cart-shop{
     top: 6px;
@@ -583,7 +582,7 @@ main .second-row-photo .promo-photo{
   }
   header #menu .logo img{
     transition: all 1s ease;
-    width: 30%;
+    width: 23%;
   }
   header #menu .icono-shop-user #cart-shop{
     top: 10px;
