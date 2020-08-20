@@ -7,12 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -28,16 +22,8 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 #content {
+  background-color: #ffffff;
   width: 100%;
 }
 
@@ -70,6 +56,6 @@
   color: #ffffff;
 }
 
-.navbar .logout a{
-  background-color: red;
+.notFound {
+  color : rgb(255,0,0)
 }

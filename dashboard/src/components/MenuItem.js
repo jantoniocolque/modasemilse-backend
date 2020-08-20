@@ -10,7 +10,7 @@ function MenuItem(proper){
     }
     return(
         <li className={activo}>
-			<a className={colapsado} href="/">
+			<a className={colapsado} href={proper.to}>
 				<i className={proper.icon}></i>
 				<span className={estiloSpan}>{proper.name}</span>
 			</a>
