@@ -11,7 +11,6 @@ function Lastest(props){
                     {/*<img className="img-fluid px-3 px-sm-4 mt-3 mb-4" alt="img-preview"/ > */}
                     <i className="far fa-clock"></i>
                 </div>
-                <a target="_blank" rel="nofollow" href="/">Ver {props.detail}</a>
             </div>
         </div>
     )
