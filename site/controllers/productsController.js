@@ -222,11 +222,8 @@ const controller = {
             }, {limit:3});
 
         const recomended = await db.Product.findAll({where:{category_id:product.category_id}},{limit:3});
-
-        console.log("recomendado");
-        console.log(recomended);
-        console.log(removeSameColor(productsOtherColors, product.colour, 'colour'));
-        
+        const hotSale = await db.Product.findAll({order:[['discount', 'DESC'],],},{limit:3});
+        console.log('hola' + hotSale);
         const sizes = await db.Size.findAll();
         res.render('detalleProducto', {
             product : product,
@@ -234,6 +231,7 @@ const controller = {
             productsForArticle: productsForArticle,
             productsOtherColors: removeSameColor(productsOtherColors, product.colour, 'colour'),
             recomended : removeDuplicatesProducts(recomended, product.code_article, 'code_article'),
+            hotSale: hotSale,
             session: req.session.userLoginSession,
         });
         console.log("PROD DE LISTA");
