@@ -148,8 +148,8 @@
                             <div class="row">
                                 <% for(product of recomended) { %>
                                 <div>
-                                    <div id="price-decoration"><p><%= product.price%></p></div>
-                                    <div><p><%= product.price_discount%></p></div>
+                                    <div id="price-decoration"><p>$<%= product.price%></p></div>
+                                    <div><p>$<%= product.price_discount%></p></div>
                                 </div>
                                 <%}%>  
                             </div> 
@@ -160,25 +160,17 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box-in-middle d-none d-sm-none d-md-block">
                             <div id="align-center-subtitle"><p>¡HOT SALE!</p></div>
                             <div class="row">
-                                <div class=""><img src="/images/products/pict13.jpg" alt="" height="115" width="75"></div>            
-                                <div class=""><img src="/images/products/pict14.jpg" alt="" height="115" width="75"></div>
-                                <div class=""><img src="/images/products/pict15.jpg" alt="" height="115" width="75"></div>
+                                <% for(let i=0; i< 3 ; i++) { %>
+                                <div class=""><img src="/images/products/<%=hotSale[i].image%>" alt="" height="115" width="75"></div>            
+                                <%}%> 
                             </div>
                             <div class="row">
-                                <div>
-                                    <div id="price-decoration"><p>$ 999, 99</p></div>
-                                    <div><p>$ 499, 99</p></div>
+                                <% for(let i=0; i< 3 ; i++) { %>
+                                <div> 
+                                    <div id="price-decoration"><p>$<%= product.price%></p></div>
+                                    <div><p>$<%= product.price_discount%></p></div>
                                 </div>
-                                
-                                <div>
-                                    <div id="price-decoration"><p>$ 1.199, 99</p></div>
-                                    <div><p>$ 999, 99</p></div>   
-                                </div>
-
-                                <div>
-                                    <div id="price-decoration"><p>$ 1.899, 99</p></div>
-                                    <div><p>$ 999, 99</p></div>   
-                                </div>
+                                <%}%> 
                             </div> 
                         </div>                   
                     </div>
