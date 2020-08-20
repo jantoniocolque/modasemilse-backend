@@ -31,7 +31,7 @@ class formulario extends Component{
         }).then((response)=>{
             return response.json();
         }).then((result)=>{
-            if(result.token != undefined){
+            if(result.token !== undefined){
                 localStorage.setItem('login',JSON.stringify({
                     login:true,
                     store:result.token
@@ -54,7 +54,7 @@ class formulario extends Component{
                     {
                         (localStorage.getItem('login') != null)?
                         <div>
-                            {window.location.href="http://localhost:3001/home"}
+                            {window.location.href="/"}
                         </div>
                         :
                         <div>

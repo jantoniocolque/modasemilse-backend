@@ -1,9 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
 
+  
+@keyframes colorchange {
+    0% {background-color: rgba(0, 187, 212);}
+    25% {background-color: rgba(121, 82, 179, 0.5);}
+    50% {background-color: rgba(0, 187, 212);}
+    75% {background-color: rgba(0, 187, 212, 0.329);}
+    100% {background-color: rgba(0, 187, 212);}
+}
+
+body {
+    background-repeat: repeat;
+    animation-name: colorchange;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+}
+/*
 #wrapper{
     background-color: rgb(238, 238, 238);
 }
-
+*/
 .login{
     width:100vw;
     text-align: center;
