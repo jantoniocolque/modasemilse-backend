@@ -70,6 +70,113 @@ div.errors-feedback ul {
     padding: 10px;
 }
 
+/* estilos para carrito preview */ 
+
+.cart-preview {
+    position: absolute;
+    margin-right: 5px;
+    background-color: rgba(0, 187, 212, 0.6);
+    border-radius: 10px;
+    border: 1px solid #FFFFFF;
+}
+
+.cart-preview-item {
+    font-size: medium;
+    flex-wrap: nowrap;
+    margin: 10px;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.cart-preview-item div {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.cart-preview-item img {
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+
+/* Estilos para la vista carrito*/
+
+.modas-hide {
+    display: none;
+}
+
+.modas-cart-box {
+    padding: 30px 30px 30px;
+    width: 90%;
+    border-radius: 21px;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgba(0, 187, 212, 0.6));
+}
+
+.modas-cart {
+    background-image: url(../images/login-bigwall.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.cart-view {
+    width: 80%;
+    margin: auto;
+}
+
+.cart-view-item {
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    text-align: end;
+    border-bottom: 1px solid #FFFFFF;
+}
+
+.cart-item-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-size: cover;
+}
+
+.cart-item-title {
+    color: #000000;
+    font-size: 1.2em;
+}
+
+.cart-price {
+    width: 20%;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000000;
+}
+
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #56CCF2;
+    background-color: #eee;
+    color: #000000;
+    padding: 0;
+    text-align: center;
+    font-size: 1.2em;
+    margin-right: 25px;
+}
+
+.cart-total {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #000000;
+}
+
+.btn-purchase {
+    display: block;
+    margin: 40px auto 80px auto;
+    font-size: 1.75em;
+}
+
 /* area de registro */
 .register-area {
     max-width: 1024px;
@@ -160,6 +267,51 @@ img.logo {
     border-radius: 25px;
 }
 
+.upload-image-1{
+    position:absolute;
+    top:-25px;
+}
+.upload-image-2{
+    position:absolute;
+    top:-25px;
+}
+.upload-image-3{
+    position:absolute;
+    top:-25px;
+}
+.upload-image-1 .upload-1{
+    width:100%;
+    height:250px;
+    cursor:default;
+    z-index:0;
+}
+.upload-image-2 .upload-2{
+    width:100%;
+    height:250px;
+    cursor:default;
+    z-index:0;
+}
+.upload-image-3 .upload-3{
+    width:100%;
+    height:250px;
+    cursor:default;
+    z-index:0;
+}
+.upload-4{
+    width: 100%;
+    position: absolute;
+    top: -13px;
+    border-radius: 50%;
+    height: 76%;
+    left:0;
+}
+.upload-avatar .photo-menu{
+    position: absolute;
+    top: 121px;
+    right: -14px;
+    font-size:1.5rem;
+}
+
 div.card img {
     cursor: pointer;
 }
@@ -213,7 +365,6 @@ div.login {
 /* estilos error 404 */
 
 div.main-error {
-    height: 80vh;
     background-image: url(../images/404.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -291,6 +442,23 @@ a.modas-userPanel-link:hover {
     color: #7952B3;
 }
 
+.table td, .table th {
+    padding: .48rem !important;
+}
+
+.shops .view-shop{
+    padding: 3px;
+    border-radius: 9px;
+}
+.shops .finish-shop{
+    border-radius: 12px;
+    padding: 1.5px;
+}
+
+table.products .image-shop-modal{
+    width: 100%;
+    height: 100px;
+}
 /* estilos para el footer */
 .footer {
     width: 100%;
@@ -696,12 +864,12 @@ div .situate-right{
     margin: 0px 35px;
 }
 
-div .complete-look{
+div .other-colour{
     margin-top: 10px;    
 }
 
-div .complete-look div img{
-    margin: 0px 15px;
+div .other-colour div img{
+    margin: 0px 10px;
 }
 
 div #align-center-subtitle p{
@@ -720,7 +888,7 @@ div .design-to-size{
 /*Estilos para celulares*/
 @media(min-width:320px){
     .form-details{
-        padding: 0px 40px 0px;
+        padding: 0px 25px 0px;
     }
 
     section .main-img img { 
@@ -776,6 +944,10 @@ div .design-to-size{
         background-size: 100% auto;
         background-color: #7952B3  ;
         color: white;
+    }
+
+    div .other-colour div img{
+        margin: 0px 5px;
     }
 
 }
