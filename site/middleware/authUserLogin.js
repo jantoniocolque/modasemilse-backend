@@ -7,12 +7,12 @@ function authUserLogin(req,res,next){
             .then(function(user){
                 req.session.userLoginSession = user.dataValues;
                 next();
+            });
         }else{
             return res.redirect('/users/login');
         }
     }else{
         next();
     }
-}
-
+    }
 module.exports = authUserLogin;
