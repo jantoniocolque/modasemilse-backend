@@ -28,34 +28,28 @@
                             </div>
 
                             <div>
-                                  <table class="table">
+                                  <table class="table shops">
                                     <thead class="thead-light">
                                       <tr>
-                                        <th scope="col">Pedido #</th>
+                                        <th scope="col">Orden #</th>
                                         <th scope="col">Fecha</th>
-                                        <th scope="col">Recibe</th>
                                         <th scope="col">Valor</th>
                                         <th scope="col">Estado</th>
-                                        <th scope="col">Más</th>
+                                        <th scope="col">Mas...</th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <th scope="row"> <%= "5485225" //ejemplo # pedido %> </th>
-                                        <td><%= "12/05/2020" //ejemplo Fecha %></td>
-                                        <td><%= session.nombre %> <%= session.apellido%></td>
-                                        <td><%= "$6.580,00" //ejemplo  Total pedido %></td>
-                                        <td><i><%= "Enviado" //ejemplo Estado pedido %></i></td>
-                                        <td><a href="#" class="modas-userPanel-link">Ver factura</a></td>
-                                      </tr>
-                                      <tr>
-                                        <th scope="row"> <%= "n/a" //ejemplo # pedido %> </th>
-                                        <td><%= "12/05/2020" //ejemplo Fecha %></td>
-                                        <td><%= session.nombre %> <%= session.apellido %></td>
-                                        <td><%= "$6.580,00" //ejemplo  Total pedido %></td>
-                                        <td><i><%= "-Cancelado" //ejemplo Estado pedido %></i></td>
-                                        <td><a href="#" class="modas-userPanel-link"></a></td>
-                                      </tr>
+                                    <% for(let i=0; i< orders.length; i++){%>
+                                        <% if(session.email == orders[i].order_user.email){%>
+                                            <tr id="fila-pedidos" class="fila-<%= orders[i].id %>">
+                                                <th scope="row"><%= orders[i].id %></th>
+                                                <td><%= orders[i].date %></td>
+                                                <td>$<%= orders[i].total %></td>
+                                                <td><%= orders[i].estado %></td>
+                                                <td><button hidden="true" id="<%= orders[i].id %>" type="button" data-toggle="modal" data-target="#myModal" class="view-shop">Ver</button></td> 
+                                            </tr>
+                                        <%}%>
+                                    <%}%>
                                     </tbody>
                                   </table>
                                   <hr>
@@ -69,7 +63,53 @@
                                     <li><a href="#" class="modas-userPanel-link">&raquo; Tengo problemas con un pedido</a></li>
                                 </ul>                           
                             </div>
-
+                            <div class="modal fade" id="myModal" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="orden_id"></h2>
+                                        </div>
+                                        <div class="modal-body p-0">
+                                            <table class="table products">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">Imagen</th>
+                                                    <th scope="col">Codigo</th>
+                                                    <th scope="col">Talle</th>
+                                                    <th scope="col">Precio</th>
+                                                    <th scope="col">Unidades</th>
+                                                    <th scope="col">Subtotal</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody class="">
+                                                    <% for(let j=0; j< order_products.length; j++){%>
+                                                        <tr id="<%= order_products[j].orders_id %>" class="tabla-shop">
+                                                            <th scope="row"><img class="image-shop-modal" src="/images/products/<%= order_products[j].order_product_product.image %>" alt=""></th>
+                                                            <td><%= order_products[j].order_product_product.code_article %></td>
+                                                            <% for(let i=0; i < products.length ; i++){%>
+                                                                <% if(products[i].id == order_products[j].order_product_product.id){%>
+                                                                    <% if(products[i].products_sizes[0].size_id == products[i].sizes[0].id){%>
+                                                                        <td><%= products[i].sizes[0].size %></td>
+                                                                        <td><strong>$</strong><%= products[i].price_discount %></td>
+                                                                        <td><%= order_products[j].units %></td>
+                                                                        <td><%= parseInt(products[i].price_discount,10)*order_products[j].units %></td>
+                                                                    <%}%>
+                                                                <%}%>
+                                                            <%}%>
+                                                        </tr>
+                                                    <%}%>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer justify-content-between">
+                                            <div class="row">
+                                                <p class="total-shop m-auto"></p>
+                                            </div>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

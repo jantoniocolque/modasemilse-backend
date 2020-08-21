@@ -37,7 +37,7 @@ router.get('/logout',usersController.logout);
 router.get('/account',authUserLogin, usersController.account);
 router.get('/account/orders',authUserLogin, usersController.orders);
 router.get('/account/favorites',authUserLogin, usersController.favorites);
-
+router.get('/account/shops',authUserLogin,usersController.shops);
 router.get('/account/update',authUserLogin, usersController.update);
 router.post('/account/update', upload.any(),userUpdateValidator, usersController.storeUpdate);
 

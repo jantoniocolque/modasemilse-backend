@@ -15,9 +15,6 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- Schema emilse_modas
 -- -----------------------------------------------------
 CREATE SCHEMA IF NOT EXISTS `emilse_modas` DEFAULT CHARACTER SET utf8 ;
--- -----------------------------------------------------
--- Schema movies_db
--- -----------------------------------------------------
 USE `emilse_modas` ;
 
 -- -----------------------------------------------------
@@ -70,6 +67,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`orders` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `total` DECIMAL(10,0) NOT NULL,
   `estado` VARCHAR(45) NOT NULL,
   `date` DATE NOT NULL,
   `user_id` INT(11) NOT NULL,
@@ -126,6 +124,7 @@ CREATE TABLE IF NOT EXISTS `emilse_modas`.`products` (
   `price` DECIMAL(10,0) NOT NULL,
   `price_discount` DECIMAL(10,0) NOT NULL,
   `colour` VARCHAR(45) NOT NULL,
+  `discount` DECIMAL(45) NOT NULL,	
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_category_id`
     FOREIGN KEY (`category_id`)
@@ -164,6 +163,7 @@ CREATE TABLE IF NOT EXISTS `emilse_modas`.`order_product` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
   `orders_id` INT(11) NOT NULL,
   `products_id` INT(11) NOT NULL,
+  `units` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_orders_has_products_orders1`
     FOREIGN KEY (`orders_id`)
@@ -194,9 +194,10 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`product_size` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `units` VARCHAR(45) NOT NULL,
   `product_id` INT(11) NOT NULL,
   `size_id` INT(11) NOT NULL,
+  `units` INT NOT NULL,
+  `code` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_product_size_product`
     FOREIGN KEY (`product_id`)
@@ -216,10 +217,9 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `emilse_modas`.`rol_operation`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `emilse_modas`.`rol_operation` (
-  `id` INT(11) NOT NULL AUTO_INCREMENT,
   `rol_id` INT(11) NOT NULL,
   `operation_id` INT(11) NOT NULL,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`rol_id`, `operation_id`),
   CONSTRAINT `fk_rol_operation_role`
     FOREIGN KEY (`rol_id`)
     REFERENCES `emilse_modas`.`roles` (`id`)

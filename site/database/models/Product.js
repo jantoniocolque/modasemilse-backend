@@ -39,6 +39,9 @@ module.exports = (sequelize, dataTypes) => {
     },
     colour: {
       type: dataTypes.STRING,
+    },
+    discount: {
+      type:dataTypes.DECIMAL,
     }
   };
   
@@ -70,11 +73,12 @@ module.exports = (sequelize, dataTypes) => {
 
     Product.belongsToMany(models.Order, {
       as: 'orders',
-      through:'order_product',
+      through:models.Order_Product,
       foreignKey: 'products_id',
       otherKey:'orders_id',
       timestamps:false
     });
+    
 
     Product.hasMany(models.Order_Product, {
       as: 'orders_products',

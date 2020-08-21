@@ -26,8 +26,10 @@
                         
                     </div>
                     <form action="/users/register" class="row container user-register-form" method="POST" enctype="multipart/form-data">
-                        <div class="col-md-3"> 
-                            <input class="avatar" type="file" id="avatar" name="avatar" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
+                        <div class="col-md-3">
+                            <div class = "upload-avatar">
+                            </div>
+                            <input class="avatar" type="file" id="avatar" name="avatar" hidden="hidden" accept="image/png,image/x-png,image/gif,image/jpeg"/>
                             <button type="button" id="custom-button"><img src="../images/icons/user-circle.png" title="Selecciona tu avatar" width="100%"></button>
                         </div>
 
@@ -94,5 +96,6 @@
         realFileBtn.click();
         });
     </script>
-    <%- include('./partials/footer') %></body>
+    <%- include('./partials/footer') %>
+</body>
 </html>

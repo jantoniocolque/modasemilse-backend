@@ -1,134 +1,145 @@
 <div class="banner-dinamic-news"><p class="mb-0">AQUI TENDREMOS LAS NOTICIAS MAS ACTUALIZADAS CON DIFERENTES EFECTOS PARA SU FUNCIONAMIENTO</p></div>
-        <header class="cover">
-        <!--Aqui inicia la barra de navegacion responsive, donde use tres secciones, la del boton del menu, la del logo y la de los iconos de la derecha. Ademas tiene un script dinamico que permite capturar el scroll de la pagina y asi cambiar el background de la barra de navegacion, el script esta escrito abajo de todo.-->
-        <nav class="navbar fixed-top p-0" id="menu">
-            <div class="row justify-content-between align-items-center m-0">
-                <!--boton del menu y el input que solamente aparecera en paginas de PC, por el momento solo use opciones de visibilidad para ocultarlo en dispositivos más pequeños-->
-                <div class="navbar col-3 col-lg-5 pl-1 pl-lg-4 justify-content-start">
-                    <button class="line-menu border-0 pl-3 pl-lg-4 pr-lg-4" type="button" data-toggle="modal" data-target="#examplemodal">
+<header class="cover">
+    <!--Aqui inicia la barra de navegacion responsive, donde use tres secciones, la del boton del menu, la del logo y la de los iconos de la derecha. Ademas tiene un script dinamico que permite capturar el scroll de la pagina y asi cambiar el background de la barra de navegacion, el script esta escrito abajo de todo.-->
+    <nav class="navbar fixed-top p-0" id="menu">
+        <div class="row justify-content-between align-items-center m-0">
+            <!--boton del menu y el input que solamente aparecera en paginas de PC, por el momento solo use opciones de visibilidad para ocultarlo en dispositivos más pequeños-->
+            <div class="navbar col-3 col-lg-5 pl-1 pl-lg-4 justify-content-start">
+                <button class="line-menu border-0 pl-3 pl-lg-4 pr-lg-4" type="button" data-toggle="modal" data-target="#examplemodal">
                     <span class="fas fa-align-justify"></span>
-                    </button>
-                    <div class="input-button-navbar d-lg-block col-lg-8 col-xl-7 px-0">
-                        <form action="/search" method="GET" class="search-form">
-                            <input type="text" class="form-control" placeholder="Buscar" name="keywords">
-                            <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
+                </button>
+                <div class="input-button-navbar d-lg-block col-lg-8 col-xl-7 px-0">
+                    <form action="/search" method="GET" class="search-form">
+                        <input type="text" class="form-control" placeholder="Buscar" name="keywords">
+                        <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
+                    </form>
                 </div>
-                <!--En esta seccion aparece el logo que cambia su tamaño de acuerdo al tipo de dispositivo, ademas será un link al mismo Home de la pagina web-->
-                <div class="navbar logo col-5 col-lg-4 text-lg-left">
-                    <a class="" href="/">
-                        <img class="" src="/images/logo-borde-blanco.png" alt="Logo de la empresa">
-                    </a>
-                </div>
-                <!--Aqui tenemos los iconos que llevaran a las paginas de Registro o Inicio de Sesion y carrito de compras. IMPORTANTE! En dispositivos pequeños como celulares y tablets unicamente estara disponible el icono de carrito, ademas la idea es que funcionen al igual que el menu apareciendo una pequeña ventana en la misma pagina que se encuentra el usuario-->
-                
-                <div class="icono-shop-user col-3 col-lg-2 mb-1 pr-lg-5 pr-3 text-right">
-                    <a class="dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user-circle"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <% if(typeof session != 'undefined'){%>
-                            <%if(session.rol_id == 1){%>
-                                <a class="dropdown-item" href="/products/create">Crear</a>
-                                <a class="dropdown-item" id='editar' href="/products/">Listar productos</a>
-                                <a class="dropdown-item" href="/users/account/update">Configuracion</a>
+            </div>
+            <!--En esta seccion aparece el logo que cambia su tamaño de acuerdo al tipo de dispositivo, ademas será un link al mismo Home de la pagina web-->
+            <div class="navbar logo col-5 col-lg-4 text-lg-left">
+                <a class="" href="/">
+                    <img class="" src="/images/logo-borde-blanco.png" alt="Logo de la empresa">
+                </a>
+            </div>
+            <!--Aqui tenemos los iconos que llevaran a las paginas de Registro o Inicio de Sesion y carrito de compras. IMPORTANTE! En dispositivos pequeños como celulares y tablets unicamente estara disponible el icono de carrito, ademas la idea es que funcionen al igual que el menu apareciendo una pequeña ventana en la misma pagina que se encuentra el usuario-->
+            <% if(typeof session != 'undefined'){%>
+                <h2 class ="welcome-user">Hola <%=session.nombre%>!</h2>
+            <%}%>
+            <div class="icono-shop-user col-3 col-lg-2 mb-1 pr-lg-5 pr-3 text-right">
+                <a class="dropdown" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="far fa-user-circle"></i></a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <% if(typeof session != 'undefined'){%>
+                        <%if(session.rol_id == 1){%>
+                            <a class="dropdown-item" href="/products/create">Crear</a>
+                            <a class="dropdown-item" id='editar' href="/products/">Listar productos</a>
+                            <a class="dropdown-item" href="/users/account/update">Configuracion</a>
                             <%}else{%>
                                 <a class="dropdown-item" href="/users/account">Mi Cuenta</a>
                                 <a class="dropdown-item" href="/users/account/orders">Mis pedidos</a>
-                                <a class="dropdown-item" href="/users/account/favorites">Favoritos</a>
+                                <a class="dropdown-item" href="/users/account/favorites">Mis favoritos</a>
                                 <a class="dropdown-item" href="/users/account/update">Configuracion</a>
-                            <%}%>
-                        
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/users/logout">Cerrar Sesion</a>
-                        <%}else{%>
-                            <a class="dropdown-item" href="/users/account">Mi Cuenta</a>
-                                <a class="dropdown-item" href="/users/account/orders">Mis pedidos</a>
-                                <a class="dropdown-item" href="/users/account/favorites">Favoritos</a>
-                        <%}%>
-                    </div>
-                    <i class="line">|</i>
-                    <a href="#"><i class="fas fa-shopping-cart"></i></a><i class="fas fa-circle" id="cart-shop"><span class="text-white">0</span></i>
-                </div>
-            </div>
-        </nav>
-        
-        <!--Aqui inicia el codigo de la ventana modal, es decir el menu de navegacion de nuestra pagina, con un buscador que unicamente aparecera en pantallas moviles-->
-        <div class="modal fade" id="examplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable" role="document">
-            <div class="modal-content modal-setup">
-                <!--aqui inicia la cabecera del menu de navegacion con los iconos y el boton de cerrado del menu-->
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                                <%}%>
+                                
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/users/logout">Cerrar Sesion</a>
+                                <%}else{%>
+                                    <a class="dropdown-item" href="/users/account">Mi Cuenta</a>
+                                    <a class="dropdown-item" href="/users/account/orders">Mis pedidos</a>
+                                    <a class="dropdown-item" href="/users/account/favorites">Favoritos</a>
+                                    <%}%>
+                                </div>
+                                <i class="line">|</i>
 
-                    <div class="row icons-navbar mb-lg-5">
-                        <a href="#"><img src="/images/icons/facebook.ico" alt="logo facebook"></a>
-                        <a href="#"><img src="/images/icons/instagram.ico" alt="logo de instagram"></a>
-                        <a href="#"><img src="/images/icons/twitter.ico" alt="logo de twitter"></a>
-                    </div>
-                    <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
-                    <div class="row input-navbar d-lg-none">
-                        <form action="/search" method="GET" class="search-form">
-                            <input type="text" class="form-control-navbar" placeholder="Buscar" name="keywords">
-                            <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
-                    <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
-                            <%if(typeof session == 'undefined'){%>
-                            <a class="d-block col-6 text-center p-0" href="/users/login"><i class="fas fa-user"></i>  Iniciar sesión</a>
-                            <a class ="d-block col-6 text-center p-0" href="/users/register">Crear cuenta</a>
-                            <%}%>
-                    </div>
-                </div>
-                <!--por otro lado tenemos en esta área los links de navegacion-->
-                <div class="modal-body pr-0 mt-2">
-                    <div class="row container pr-0 mr-0 links-navbar">
-                        <ul>
-                            <a href="/"><li>INICIO</li></a>
-                            <li class="item-list-accordion">
-                                <div class="accordion" id="accordionExample">
-                                <div class="card border-0 mb-0">
-                                    <div class="card-header p-0" id="headingOne">
-                                        <a href="/products">TIENDA</a>
-                                        <button class="arrows-navbar p-0 btn shadow-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i>
-                                        </button>
+                                <a href="#">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </a><i class="fas fa-circle" id="cart-shop">
+                                    <span class="text-white cart-shop-counter">0</span>
+                                </i>
+                                <div class="cart-preview" style="display: none;">
+                                    
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </nav>
+                    
+                    <!--Aqui inicia el codigo de la ventana modal, es decir el menu de navegacion de nuestra pagina, con un buscador que unicamente aparecera en pantallas moviles-->
+                    <div class="modal fade" id="examplemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content modal-setup">
+                                <!--aqui inicia la cabecera del menu de navegacion con los iconos y el boton de cerrado del menu-->
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    
+                                    <div class="row icons-navbar mb-lg-5">
+                                        <a href="#"><img src="/images/icons/facebook.ico" alt="logo facebook"></a>
+                                        <a href="#"><img src="/images/icons/instagram.ico" alt="logo de instagram"></a>
+                                        <a href="#"><img src="/images/icons/twitter.ico" alt="logo de twitter"></a>
                                     </div>
-                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body py-0"><a href="/products/camperas">CAMPERAS</a>
+                                    <!--en esta seccion tenemos la barra input antes mencionada que desaparecera en pantalla de escritorio-->
+                                    <div class="row input-navbar d-lg-none">
+                                        <form action="/search" method="GET" class="search-form">
+                                            <input type="text" class="form-control-navbar" placeholder="Buscar" name="keywords">
+                                            <button id="search" type="submit" class="search-input-submit"><i class="fas fa-search"></i></button>
+                                        </form>
+                                    </div>
+                                    <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
+                                        <%if(typeof session == 'undefined'){%>
+                                            <a class="session-front-end d-block col-6 text-center p-0" href="/users/login"><i class="fas fa-user"></i>  Iniciar sesión</a>
+                                            <a class ="d-block col-6 text-center p-0" href="/users/register">Crear cuenta</a>
+                                            <%}%>
                                         </div>
                                     </div>
-                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body py-0">
-                                            <a href="/products/type/pantalones">PANTALONES</a>
+                                    <!--por otro lado tenemos en esta área los links de navegacion-->
+                                    <div class="modal-body pr-0 mt-2">
+                                        <div class="row container pr-0 mr-0 links-navbar">
+                                            <ul>
+                                                <a href="/"><li>INICIO</li></a>
+                                                <li class="item-list-accordion">
+                                                    <div class="accordion" id="accordionExample">
+                                                        <div class="card border-0 mb-0">
+                                                            <div class="card-header p-0" id="headingOne">
+                                                                <a href="/products">TIENDA</a>
+                                                                <button class="arrows-navbar p-0 btn shadow-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-long-arrow-alt-down"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                                <div class="card-body py-0"><a href="/products/camperas">CAMPERAS</a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                                <div class="card-body py-0">
+                                                                    <a href="/products/type/pantalones">PANTALONES</a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                                <div class="card-body py-0">
+                                                                    <a href="/products/type/sacos">SACOS</a>
+                                                                </div>
+                                                            </div>
+                                                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                                <div class="card-body py-0">
+                                                                    <a href="/products/type/remeras">REMERAS</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div></li>
+                                                    <a href="#"><li>CONTACTO</li></a>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body py-0">
-                                            <a href="/products/type/sacos">SACOS</a>
-                                        </div>
-                                    </div>
-                                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                                        <div class="card-body py-0">
-                                            <a href="/products/type/remeras">REMERAS</a>
+                                        <!--y por ultimo tenemos el área de registro, aunque aun falta agregar un icono. El mismo aparece en la parte posterior del modal en dispositivos moviles y tablets. Mientras que en escritorio pasa a tomar lugar en el header-->
+                                        <div class="modal-footer justify-content-center d-lg-none">
+                                            <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
+                                                <%if(typeof session == 'undefined'){%>
+                                                    <a class="d-block col-12 col-sm-6 text-center p-0 my-2 my-sm-0" href="/users/login"><i class="fas fa-user"></i>  Iniciar sesión</a>
+                                                    <a class ="d-block col-12 col-sm-6 text-center p-0" href="/users/register">Crear cuenta</a>
+                                                    <%}%>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div></li>
-                            <a href="/support/"><li>CONTACTO</li></a>
-                        </ul>
-                    </div>
-                </div>
-                <!--y por ultimo tenemos el área de registro, aunque aun falta agregar un icono. El mismo aparece en la parte posterior del modal en dispositivos moviles y tablets. Mientras que en escritorio pasa a tomar lugar en el header-->
-                <div class="modal-footer justify-content-center d-lg-none">
-                    <div class="row login-navbar d-lg-inline-flex justify-content-between w-100 m-auto">
-                        <%if(typeof session == 'undefined'){%>
-                        <a class="d-block col-12 col-sm-6 text-center p-0 my-2 my-sm-0" href="/users/login"><i class="fas fa-user"></i>  Iniciar sesión</a>
-                        <a class ="d-block col-12 col-sm-6 text-center p-0" href="/users/register">Crear cuenta</a>
-                        <%}%>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-</header>
+                            </header>

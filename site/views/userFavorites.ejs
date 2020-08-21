@@ -21,55 +21,61 @@
                                 <li><a href="/users/account/update" class="modas-userPanel-link">Mis datos</a></li>
                             </ul>
                         </div>
-
+                        
                         <div class="col">
                             <div>
                                 <h1 class="modas-userPanel-title"><i class="fas fa-chevron-right"></i> Favoritos</h1>
                                 <p class="intro" ></p>
                                 <hr>
                             </div>
-
                             <div>
-                                <table class="table">
+                                <table class="table favorite">
                                     <thead class="thead-light">
                                       <tr>
                                         <th scope="col">Producto</th>
-                                        <th scope="col">Detalle</th>
-                                        <th scope="col">Valor</th>
+                                        <th scope="col">Precio</th>
                                         <th scope="col">Talle</th>
-                                        <th scope="col">Ver</th>
+                                        <th scope="col">Cantidad</th>
                                         <th scope="col">Comprar</th>
                                         <th scope="col">Eliminar</th>
                                       </tr>
                                     </thead>
                                     <tbody>
-                                      <tr>
-                                        <th scope="row"> <img src="/images/products/pict1.jpg" class="img-responsive" alt="" height="100" width="80"> </th>
-                                        <td><p>Vestido estampado</p></td>
-                                        <td>$1.299</td>
-                                        <td>
+                                    
+                                        <% for(let i=0;i < favorites.length;i++){%>
+                                            <p hidden="true" id="product-title"> <%= favorites[i].favorite_product.title %></p>
+                                            <div hidden="true" id="price"><p> $<%= favorites[i].favorite_product.price_discount %></p></div>
+                                            <span hidden="true" class="product-color"><%= favorites[i].favorite_product.colour %></span>
+                                            <span hidden="true" class="product-code"><%= favorites[i].favorite_product.code_article%></span>
+                                        <tr id="<%= favorites[i].favorite_product.id %>">
+                                        <td hidden="true"><%= favorites[i].favorite_product.id %></td>
+                                        <th scope="row"><a href="/products/details/<%= favorites[i].favorite_product.id%>"><img name="<%= favorites[i].favorite_product.image %>" src="/images/products/<%= favorites[i].favorite_product.image%>" class="img-responsive product-img" alt="" height="100" width="80"></th></a>
+                                        <td class="align-middle h4">$<%= favorites[i].favorite_product.price_discount%></td>
+                                        <td class="align-middle">
                                             <div class="form-row align-items-center" id="align-to-size">
                                                 <div class="col-auto my-1 size-to-botton">
                                                     <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-                                                        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                                            <option selected>Talle</option>
-                                                            <option value="1">M</option>
-                                                            <option value="2">L</option>
-                                                            <option value="3">XL</option>
-                                                            <option value="4">XXL</option>
+                                                        <select class="custom-select mr-sm-2 product-size" id="inlineFormCustomSelect">
+                                                            <option selected disabled hidden>Talle</option>
+                                                                <% for(let j=0 ; j < products_sizes.length;j++){%>
+                                                                    <% if(favorites[i].favorite_product.code_article == products_sizes[j].code){%>
+                                                                        <option value="<%= products_sizes[j].talles.id %>"><%= products_sizes[j].talles.size %></option>
+                                                                    <%}%>
+                                                                <%}%>
                                                         </select>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td>
-                                            <button type="submit" class="btn btn-link"><p>Detalle</p></button>               
+                                        <td class="align-middle" width="100px">
+                                            <input type="number" class="custom-select mr-sm-2 product-quantity" id="inlineFormCustomSelect">
                                         </td>
-                                        <td>
-                                            <button type="submit" class="btn btn-primary-violet"><p>Añadir al carrito</p></button>
+                                        <td class="align-middle">
+                                            <button class="btn btn-primary add-to-cart p-1"><p style="margin:auto;padding:3px;">Añadir a carrito</p></button>
                                         </td>
-                                        <td>
-                                            <a href="#"><img src="/images/icons/tachobasura.png" class="img-responsive" alt="" height="20" width="20"></a>
-                                        </td>                                    
+                                        <td class="align-middle">
+                                            <a id="tachobasura" href="#"><img src="/images/icons/tachobasura.png" class="img-responsive fa-heart" alt="" height="20" width="20"></a>
+                                        </td>   
+                                        <%}%>                                 
                                     </tbody>
                                 </table>
                             </div>

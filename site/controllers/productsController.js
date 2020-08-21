@@ -13,7 +13,7 @@ function removeDuplicates(originalArray, nameProperty) {
     for(var object in objectProcess) {
         newArray.push(objectProcess[object]);
     }
-     return newArray;
+    return newArray;
 }
 
 const controller = {
@@ -62,8 +62,7 @@ const controller = {
 
     store:async (req,res) => {
         const sizes = await db.Size.findAll();
-        
-        if(parseInt(req.body.type_cloth,10)== NaN){
+        if(isNaN(parseInt(req.body.type_cloth,10))){
             await db.Category.create({
                 type_cloth:req.body.type_cloth
             });
@@ -89,6 +88,7 @@ const controller = {
                 products_sizes:[{
                     size_id:req.body.size_id,
                     units:req.body.units,
+                    code:req.body.code_article,
                 }]
             },{
                 include:[{
@@ -176,11 +176,18 @@ const controller = {
         res.redirect('/products');
     },
 
-    detail : function(req, res) {
-       db.Product.findByPk(req.params.productId)
-       .then(function(product){
-           res.render('detalleProducto', {product : product, session:req.session.userLoginSession})
-       });
+    detail :async function(req, res) {
+        const product= await db.Product.findByPk(req.params.productId,{
+            include:[{association:'users'}]
+        });
+        const productsForArticle = await db.Product_Size.findAll({where:{code:product.code_article}});
+        const sizes = await db.Size.findAll();
+        res.render('detalleProducto', {
+            product : product,
+            sizes: sizes,
+            productsForArticle:productsForArticle,
+            session:req.session.userLoginSession,
+        });
     }
 }
 

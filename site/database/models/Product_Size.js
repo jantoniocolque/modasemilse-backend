@@ -15,6 +15,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         size_id: {
             type: dataTypes.INTEGER,
+        },
+        code:{
+            type: dataTypes.STRING,
         }
     };
     
@@ -30,6 +33,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'product_id'
         });
         Product_Size.belongsTo(models.Size,{
+            as:'talles',
             foreignKey: 'size_id'
         });
     }

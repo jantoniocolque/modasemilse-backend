@@ -1,192 +1,56 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Emilse | Carrito</title>
-        <!-- Font Awesome Stylesheet -->
-    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	    <!-- Bootstrap Grid Stylesheet -->
-	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
-        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-        <!-- Own Stylesheet -->
-        <!-- <link rel="stylesheet"href="/stylesheets/carrito.css"> -->
-        <link rel="stylesheet" href="/stylesheets/styles.css">   
-        <link rel="stylesheet" href="/stylesheets/index.css">
-
+<!DOCTYPE html>
+<html lang="es">
+    <!--Head de la página-->
+    <%- include('./partials/head') %>
+<body>
+    <%- include('partials/header') %>
+    <div class="container modas-cart">
+        <p class="intro" ></p>
         
-    </head>
+        <div class="mt-3 register-area">
+            <div class="container modas-cart-box">
+                <div class="container">
+                                      
+                    <div class="container-details-cart">
+                        <section class="container content-section modas-hide">
+                
+                            <h1>Tu carrito</h1>
+                            <hr>
+                            <div class="cart-view">
 
-    <body>
-        <div class="container-details-cart">
-            <%- include('./partials/header') %>
-            <div class="container form-details-cart">
-                <div class="row">    
-                    <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4">
-                        <div class="">
-                            <p>Productos en tu carrito <i class="fas fa-lock"></i></p>
-                        </div>
+                            </div>
 
-                        <section>
-                            <img src="../public/images/pict1.jpg" alt="" height="120" width="80">
+                            <br>
+                            <div class="cart-total">
+                                <strong class="cart-total-title">Total:</strong>
+                                <span class="cart-total-price">$0</span>
+                            </div>
+
+                            <button class="btn btn-primary btn-purchase" type="button">Comprar</button>
+
                         </section>
-
-                        <div class="">
-                            <div id="price-decoration-cart"> <p> $ 1899, 99</p> </div>                      
-                            <div class=""><p> $ 999,99</p></div>
-                        </div>
-
-                        <div class="details-secondary-level-cart">
-                            <div class=""><p class="">Vestido de algodón color azul</p></div>
-                            <div class=""><p class="">Código del artículo: AR1105X890</p></div>
-                        </div>
-                    </div>
-
-                <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" id="">
-                    <div class="d-none d-sm-none d-md-block align-size-title">
-                        <p>TALLES</p>
-                    </div>
-
-                    <div class="row">
-                    <div class="row d-none d-sm-none d-md-block">
-                        <div class="form-row">
-                            <div class="col-auto my-1">
-                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected>Talle</option>
-                                        <option value="1">M</option>
-                                        <option value="2">L</option>
-                                        <option value="3">XL</option>
-                                        <option value="4">XXL</option>
-                                    </select>
+                        <section class="modas-empty-cart modas-hide">
+                            <br>
+                            <div class="cart-view">
+                                <hr>
+                                <center><h1>Tu carrito está vacío</h1></center>
+                                <hr>
                             </div>
-                        </div>
 
-                        <div class="form-row">
-                            <div class="col-auto my-1">
-                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected>Cantidad</option>
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
-                                        <option value="3">3</option>
-                                        <option value="4">4</option>
-                                        <option value="5">5</option>
-                                        <option value="6">6</option>
-                                    </select>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-                    
-                    <div class="d-none d-sm-none d-md-block">
-                        <div class="form-row">
-                            <div class="col-auto my-1">
-                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
-                                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                        <option selected>Color</option>
-                                        <option value="1">Azul</option>
-                                        <option value="2">Rosa</option>
-                                        <option value="3">Verde</option>
-                                    </select>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-4 d-block d-sm-block d-md-none align-size-title">
-                        <select class="boton-only-mobile" name="Talle">
-                            <option value="1">M</option> 
-                            <option value="2">L</option>
-                            <option value="3">XL</option>
-                            <option value="3">XXL</option>
-                        </select>
-
-                        <select class="boton-only-mobile" name="Cantidad">
-                            <option value="1">1</option> 
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">Más de 6</option>
-                        </select>
-
-                        <select class="boton-only-mobile" name="Color">
-                            <option value="1">Azul</option> 
-                            <option value="2">Rosa</option>
-                            <option value="3">Verde</option>
-                        </select> 
-                    </div>
-
-                    <div class="row size-color-icon-cart" id="align-to-shop-cart">
-                        <a target="" href="https://www.facebook.com/Farmacity/" size=30px></a><i class="fas fa-heart"></i></a>
-                        <a target="" href="https://www.facebook.com/Farmacity/"><i class="fas fa-share-alt"></i></a>
-                        <a target="" href="https://www.facebook.com/Farmacity/"></a><i class="far fa-trash-alt"></i></a>
-
-                        <div class="boton-color-buyfast d-none d-sm-none d-md-block">
-                            <a class=""><button type="button">Compra rápida</button></a> 
-                        </div>
-                    </div>
-                </div> 
-
-                <section class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 box-container-format">
-                    <p>Subtotal</p>
-                    <div class="row">
-                        <div class="">
-                            <div class="d-none d-sm-none d-md-block"><p>Precio unitario:</p></div>
-                            <div class="d-none d-sm-none d-md-block"><p>Descuento:</p></div>
-                            <div class=""><p>Precio:</p></div>
-                        </div>
-
-                        <div class="">
-                            <div class="d-none d-sm-none d-md-block align-price-details" id="price-decoration-cart"><p>$1899,99</p></div>
-                            <div class="d-none d-sm-none d-md-block align-price-details"><p>-$900</p></div>
-                            <div class="align-price-details"><p>$999,99</p></div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <form class="boton-lightcolor-discount" action="" method="GET" class="search-form">
-							<input type="text" name="search" placeholder="Cód. de descuento" class="search-form_input">
-						</form>
-                        <a class="boton-lightcolor-addDiscount"><button type="button">Agregar</button></a> 
-                    </div>
-                </section>
-            </div>
-        
-            <div class="row">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 d-none d-sm-none d-md-block">
-                    <div class="banner-bank">
-                        <img src="https://institucional.centraloeste.com.ar/wp-content/uploads/2019/08/Promos-bancos-01.jpg" class="img-responsive"
-                        alt="Promoción Visa" height="150" width="550">
-                    </div>
-                </div>
-
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                    <div class="row align-left-title">
-                        <p >Total:</p>
-                        <p>$999,99</p>
-                    </div>
-
-                    <div class="cuotas">
-                        <div class=""><p>Ver cuotas</p></div>
-                    </div>
-
-                    <div class="boton-color-buy">
-                        <a class=""><button type="button">Finalizar compra</button></a> 
-                    </div>
-
-                    <div class="boton-lightcolor-goBuy">
-                        <a class=""><button type="button">Seguir comprando</button></a> 
+                            <br>
+                            
+                            <button onclick="location.href = '/products';" class="btn btn-primary btn-purchase" type="button">Empezar a comprar</button>
+                        </section>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <%- include('partials/footer')%>
 
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    </body>
-
+    
+    
+    <!--Footer de la página-->
+    <%- include('./partials/footer') %>
+</body>
 </html>
