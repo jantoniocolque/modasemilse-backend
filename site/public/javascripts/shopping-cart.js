@@ -1,5 +1,7 @@
 window.addEventListener('load', function(){
     // required variables 
+    var url = location.pathname;
+    if(url!='/users/account/favorites'){
     var shoppingCart;
     var cartView = document.querySelector('div.cart-view');
     var cartBtn = document.querySelector('i.fa-shopping-cart');
@@ -100,9 +102,10 @@ window.addEventListener('load', function(){
                     shoppingCart=[];
                     Swal.fire('Gracias por su compra!').then((result) => {
                         if (result.value) {
-                            location.href='/';
+                        location.href='/';
                         }
-                    });
+                      });
+                    
                 }).catch((e)=>{
                     Swal.fire({
                         icon: 'error',
@@ -234,5 +237,6 @@ window.addEventListener('load', function(){
             updateCartStored();
             location.reload();
         }
+    }
     }
 })

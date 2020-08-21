@@ -1,4 +1,5 @@
 const db = require('../../database/models');
+const Op = require('Sequelize').Op;
 
 const controller = {
     list: async (req,res) => {
@@ -157,6 +158,27 @@ const controller = {
         res.json({
             status:200
         });
+    },
+    favoriteAdd:async(req,res)=>{    
+        await db.Favorite.create({
+            users_id: req.session.userLoginSession.id,
+            products_id: req.body.product_id,
+        });
+
+        res.json({
+            status:200
+        })
+    },
+    favoriteRemove:async(req,res)=>{
+        await db.Favorite.destroy({
+            where:{
+                [Op.and]: [{users_id: req.session.userLoginSession.id}, {products_id: req.body.product_id}]
+            }
+        })
+
+        res.json({
+            status:200
+        })
     }
 }
 

@@ -33,6 +33,7 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'product_id'
         });
         Product_Size.belongsTo(models.Size,{
+            as:'talles',
             foreignKey: 'size_id'
         });
     }

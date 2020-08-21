@@ -142,8 +142,20 @@ let usersController = {
             products:products,
         });
     },
-    favorites:function(req, res){
-        res.render('userFavorites', { title: 'Modas Emilse | Favoritos',session:req.session.userLoginSession});
+    favorites:async function(req, res){
+        const favorites = await db.Favorite.findAll({
+            include:[{association:'favorite_product'}],
+            where:{users_id:req.session.userLoginSession.id}
+        });
+        const products_sizes= await db.Product_Size.findAll({
+            include:[{association:'talles'}]
+        });
+        res.render('userFavorites', { 
+            title: 'Modas Emilse | Favoritos',
+            favorites:favorites,
+            products_sizes:products_sizes,
+            session:req.session.userLoginSession,
+        });
     },
     logout:function(req, res) {
         req.session.destroy();

@@ -180,7 +180,9 @@ const controller = {
     },
 
     detail :async function(req, res) {
-        const product= await db.Product.findByPk(req.params.productId);
+        const product= await db.Product.findByPk(req.params.productId,{
+            include:[{association:'users'}]
+        });
         const productsForArticle = await db.Product_Size.findAll({where:{code:product.code_article}});
         const sizes = await db.Size.findAll();
         res.render('detalleProducto', {
