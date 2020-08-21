@@ -136,6 +136,27 @@ const controller = {
         res.json({
             status:200
         });
+    },
+    confirm:async(req,res) =>{
+        const order_products = await db.Order_Product.findAll({where:{orders_id:req.body.order_id}});
+        for(product of order_products){
+            let units = await db.Product_Size.findOne({where:{product_id:product.products_id}});
+            let unitTotal = units.units - product.units;
+            await db.Product_Size.update({
+                units: unitTotal
+            },{
+                where:{product_id:product.products_id}
+            });
+        }
+        await db.Order.update({
+            estado: "Finalizado"
+        },{
+            where:{id:req.body.order_id}
+        });
+
+        res.json({
+            status:200
+        });
     }
 }
 

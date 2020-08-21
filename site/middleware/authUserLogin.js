@@ -5,8 +5,8 @@ function authUserLogin(req,res,next){
         if(req.cookies.user){
             db.User.findByPk(req.cookies.user)
             .then(function(user){
-            req.session.userLoginSession=user.dataValues;
-            next();
+                req.session.userLoginSession = user.dataValues;
+                next();
             });
         }else{
             return res.redirect('/users/login');

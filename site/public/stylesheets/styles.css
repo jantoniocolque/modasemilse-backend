@@ -365,7 +365,6 @@ div.login {
 /* estilos error 404 */
 
 div.main-error {
-    height: 80vh;
     background-image: url(../images/404.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -443,6 +442,23 @@ a.modas-userPanel-link:hover {
     color: #7952B3;
 }
 
+.table td, .table th {
+    padding: .48rem !important;
+}
+
+.shops .view-shop{
+    padding: 3px;
+    border-radius: 9px;
+}
+.shops .finish-shop{
+    border-radius: 12px;
+    padding: 1.5px;
+}
+
+table.products .image-shop-modal{
+    width: 100%;
+    height: 100px;
+}
 /* estilos para el footer */
 .footer {
     width: 100%;

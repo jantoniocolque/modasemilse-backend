@@ -98,7 +98,11 @@ window.addEventListener('load', function(){
                 }).then((info)=>{
                     localStorage.clear();
                     shoppingCart=[];
-                    location.href='/';
+                    Swal.fire('Gracias por su compra!').then((result) => {
+                        if (result.value) {
+                            location.href='/';
+                        }
+                    });
                 }).catch((e)=>{
                     Swal.fire({
                         icon: 'error',
