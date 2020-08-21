@@ -124,6 +124,7 @@ CREATE TABLE IF NOT EXISTS `emilse_modas`.`products` (
   `price` DECIMAL(10,0) NOT NULL,
   `price_discount` DECIMAL(10,0) NOT NULL,
   `colour` VARCHAR(45) NOT NULL,
+  `discount` DECIMAL(45) NOT NULL,	
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_category_id`
     FOREIGN KEY (`category_id`)

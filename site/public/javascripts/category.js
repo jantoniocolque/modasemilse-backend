@@ -1,5 +1,5 @@
 window.addEventListener('load', function(){
-    var url = location.pathname;
+var url = location.pathname;
     if(url == "/products/create"){
         var newCategory = document.querySelector("#modal-prueba");
         newCategory.addEventListener('click',async function(){

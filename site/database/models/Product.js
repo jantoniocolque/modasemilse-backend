@@ -39,6 +39,9 @@ module.exports = (sequelize, dataTypes) => {
     },
     colour: {
       type: dataTypes.STRING,
+    },
+    discount: {
+      type:dataTypes.DECIMAL,
     }
   };
   

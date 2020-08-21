@@ -852,12 +852,12 @@ div .situate-right{
     margin: 0px 35px;
 }
 
-div .complete-look{
+div .other-colour{
     margin-top: 10px;    
 }
 
-div .complete-look div img{
-    margin: 0px 15px;
+div .other-colour div img{
+    margin: 0px 10px;
 }
 
 div #align-center-subtitle p{
@@ -876,7 +876,7 @@ div .design-to-size{
 /*Estilos para celulares*/
 @media(min-width:320px){
     .form-details{
-        padding: 0px 40px 0px;
+        padding: 0px 25px 0px;
     }
 
     section .main-img img { 
@@ -932,6 +932,10 @@ div .design-to-size{
         background-size: 100% auto;
         background-color: #7952B3  ;
         color: white;
+    }
+
+    div .other-colour div img{
+        margin: 0px 5px;
     }
 
 }
