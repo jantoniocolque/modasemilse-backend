@@ -18,7 +18,7 @@ function removeDuplicatesProducts(originalArray, codeProduct, nameProperty){
         }       
     }
     console.log("Recomendados" + newArray);
-     return newArray;
+    return newArray;
 }
 
 function removeDuplicates(originalArray, nameProperty, colour) {
@@ -221,7 +221,12 @@ const controller = {
                     }
             }, {limit:3});
 
-        const recomended = await db.Product.findAll({where:{category_id:product.category_id}},{limit:3});
+        const recomended = await db.Product.findAll(
+            {where: {
+                category_id: product.category_id,
+                }
+            },{limit:3});
+        
         const hotSale = await db.Product.findAll({order:[['discount', 'DESC'],],},{limit:3});
         console.log('hola' + hotSale);
         const sizes = await db.Size.findAll();
