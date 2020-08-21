@@ -108,9 +108,6 @@ let usersController = {
 
         res.render('userPanel', {
             title: 'Modas Emilse | Mi cuenta',
-            nombre:req.session.userLoginSession.nombre,
-            apellido:req.session.userLoginSession.apellido,
-            email:req.session.userLoginSession.email,
             session:req.session.userLoginSession
         });
     },
@@ -159,7 +156,7 @@ let usersController = {
     },
     logout:function(req, res) {
         req.session.destroy();
-        res.cookie('color',null,{maxAge:-1});
+        res.cookie('user',null,{maxAge:-1});
         res.redirect('/users/login');
     },
     shops: async function(req,res){

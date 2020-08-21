@@ -24,18 +24,19 @@
                             <div>
                                 <h1 class="modas-userPanel-title"><i class="fas fa-chevron-right"></i> Resumen</h1>
                                 <p class="intro" ></p>
-                                <p>Hola, <%= nombre %> <%= apellido%></p>
+                                <p>Hola, <%= session.nombre %> <%= session.apellido%></p>
                                 <p>Aquí podrás ver un resumen de tus compras, así como ver y descargar tus facturas.</p>
                                 <hr>
                             </div>
+
                             <div>
                                 <div class="row">
                                     <div class="col">
                                         <p class="modas-userPanel-title">INFORMACION DE LA CUENTA</p>
 
                                     <ul class="modas-list">
-                                        <li><%= nombre %> <%= apellido%></li>
-                                        <li><%= email %></li>
+                                        <li><%= session.nombre %> <%= session.apellido%></li>
+                                        <li><%= session.email %></li>
                                         <li><a href="#" class="modas-userPanel-link">&raquo; Agregar un teléfono</a></li>
                                     </ul>
                                     </div>

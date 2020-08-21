@@ -22,18 +22,18 @@
             <div class="container form-details mt-5">
                 <div class="row">
                     <div class="col-2 mt-3 secondary-img d-none d-sm-none d-md-block">
-                        <section>
+                        <section class="images-photos">
                             <!-- Dejamos como default, al menos 3 imagenes adicionales del producto.
                                 En un futuro se recorrera un array con un for-->
-                            <div class=""><img src="/images/products/<%= product.image2%>" alt="" height="120" width="80"></div>
-                            <div class=""><img src="/images/products/<%= product.image3%>" alt="" height="120" width="80"></div>
-                            <div class=""><img src="/images/tablaMedidas.jpg" alt="" height="120" width="80"></div>
+                            <div class=""><img class ="image2" src="/images/products/<%= product.image2%>" alt="" height="120" width="80"></div>
+                            <div class=""><img class ="image3" src="/images/products/<%= product.image3%>" alt="" height="120" width="80"></div>
+                            <div class=""><img class ="tablaMedidas" src="/images/tablaMedidas.jpg" alt="" height="120" width="80"></div>
                         </section>    
                     </div>
 
                     <section class="col-12 col-sm-12 col-md-5 mt-3">
                         <div class="main-img">
-                            <img class="product-img" src="/images/products/<%= product.image %>" name="<%= product.image %>" class="img-responsive" alt="<%= product.type_cloth %> <%=product.colour %>" height="700px" width="350px">
+                            <img data-src="/images/products/<%= product.image%>" src="/images/products/<%= product.image %>" data-zoom-image="/images/products/<%= product.image%>"  class="img-responsive image zoom" alt="<%= product.type_cloth %> <%=product.colour %>" height="700px" width="350px">
                         </div>
                     </section>
 

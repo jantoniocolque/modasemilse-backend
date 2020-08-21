@@ -101,7 +101,7 @@ const controller = {
             return res.render('productAdd',{
                 sizes:sizes,
                 categorys:categorys,
-                error:errors.errors,
+                errors:errors.errors,
                 title:'Carga de productos',
                 session:req.session.userLoginSession
             })
@@ -125,16 +125,13 @@ const controller = {
                 session:req.session.userLoginSession,
             });
         }
-        else{
-            res.render('productAdd', {
-                title:'Crear producto - Modas Emilse',
-                sizes:sizes,
-                errors:'No existe ese producto',
-                categorys:categorys,
-                session:req.session.userLoginSession,
-            });
-        }
-        
+        res.render('productAdd', {
+            title:'Crear producto - Modas Emilse',
+            sizes:sizes,
+            error:'No existe ese producto',
+            categorys:categorys,
+            session:req.session.userLoginSession,
+        });
     },
 
     update: function(req,res) {
