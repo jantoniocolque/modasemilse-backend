@@ -46,8 +46,6 @@ function removeSameColor(products, colourProduct, nameProperty){
     console.log("1 new array" + newArray);
      return newArray;
 }
-
-
 const controller = {
     root: async (req,res) => {
         const categorias = await db.Category.findAll();
@@ -56,7 +54,7 @@ const controller = {
             res.render('tienda',{
                 title:'Tienda - Emilse',
                 titleContent: 'Todos los productos',
-                products:removeDuplicates(product,'code_article'),
+                products:removeDuplicates(product,'code_article', 'colour'),
                 categorias: categorias,
                 session:req.session.userLoginSession,
             })
@@ -117,6 +115,7 @@ const controller = {
                 price_discount: req.body.price_discount,
                 colour: req.body.colour,
                 category_id:req.body.type_cloth,
+                discount:(req.body.price - req.body.price_discount ),
                 products_sizes:[{
                     size_id:req.body.size_id,
                     units:req.body.units,
