@@ -791,12 +791,12 @@ div .situate-right{
     margin: 0px 35px;
 }
 
-div .complete-look{
+div .other-colour{
     margin-top: 10px;    
 }
 
-div .complete-look div img{
-    margin: 0px 5px;
+div .other-colour div img{
+    margin: 0px 10px;
 }
 
 div #align-center-subtitle p{
@@ -871,6 +871,10 @@ div .design-to-size{
         background-size: 100% auto;
         background-color: #7952B3  ;
         color: white;
+    }
+
+    div .other-colour div img{
+        margin: 0px 5px;
     }
 
 }
