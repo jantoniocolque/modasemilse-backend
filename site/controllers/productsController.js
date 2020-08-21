@@ -118,6 +118,7 @@ const controller = {
                 price_discount: req.body.price_discount,
                 colour: req.body.colour,
                 category_id:req.body.type_cloth,
+                discount: (req.body.price - req.body.price_discount),
                 products_sizes:[{
                     size_id:req.body.size_id,
                     units:req.body.units,
@@ -213,6 +214,7 @@ const controller = {
     },
 
     detail :async function(req, res) {
+
         const product= await db.Product.findByPk(req.params.productId);
         const productsForArticle = await db.Product_Size.findAll({where: {code: product.code_article}});
         const productsOtherColors = await db.Product.findAll(
@@ -230,6 +232,7 @@ const controller = {
         const hotSale = await db.Product.findAll({order:[['discount', 'DESC'],],},{limit:3});
         console.log('hola' + hotSale);
         const sizes = await db.Size.findAll();
+
         res.render('detalleProducto', {
             product : product,
             sizes: sizes,
@@ -238,9 +241,11 @@ const controller = {
             recomended : removeDuplicatesProducts(recomended, product.code_article, 'code_article'),
             hotSale: hotSale,
             session: req.session.userLoginSession,
+
+            rol: req.session.userLoginSession!=undefined? req.session.userLoginSession.rol_id :undefined,
         });
         console.log("PROD DE LISTA");
-        console.log(productsOtherColors);
+        console.log(req.session.userLoginSession.rol_id);
     }
 }
 
