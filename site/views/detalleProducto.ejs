@@ -47,23 +47,6 @@
                             <div id="price"><p> $ <%= product.price_discount %></p></div>
                         </div>
 
-                        <!-- Muestras de los dintos colores de la prenda. Dejamos una imagen como default, porque nuestro arch JSON
-                            no contiene estos datos. Dejamos como default la posibilidad de 3, pero se recorrería un array de 
-                            muestras con un for-->
-                        <div class="row">
-                            <div><span class="product-color">Color: <%= product.colour %></span></div>
-                            <!--
-                            <div>
-                                <img id="circle-cloth" src="/images/products/<%= product.image%>" alt="muestra de tela" height="65" width="65">
-                            </div>
-                            <div>
-                                <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
-                            </div>
-                            <div>
-                                <img id="circle-cloth" src="/images/products/default.png" alt="muestra de tela" height="65" width="65">
-                            </div>-->
-                        </div>               
-
                         <div class="design-to-size" id="price align-left-subtitle">
                             <p> TALLES</p>
                         </div>
@@ -109,13 +92,13 @@
                         </div>
 
                         <div class="details-secondary-level mt-2">
+                            <div><p>Color: <span><%= product.colour%></span></p></div>
                             <div class=""><p>Descripción: <%= product.description_product %></p></div>
-                            <div class=""><p>Categoria: <%= product.type_cloth %></p></div>
                             <div><p>Código del artículo: <span class="product-code"><%= product.code_article%></span></p></div>
                         </div>
 
-                        <div class="complete-look" id="price">
-                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="other-colour" id="price">
+                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-md-12 mt-12">
                                 <% if(productsOtherColors.length > 1) {%>
                                 <div id="align-left-subtitle"><p>OTROS COLORES</p></div>     
                                 <div class="row">
@@ -138,30 +121,30 @@
 
                 <div class="row">
                     <div class="situate-left">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box-in-middle d-none d-sm-none d-md-block">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-md-12 mt-12 box-in-middle">
                             <div id="align-center-subtitle"><p>RECOMENDADOS</p></div>                               
                             <div class="row">
-                                <% for(product of recomended) { %>
-                                <div class=""><a href="/products/details/<%=product.id%>"><img src="/images/products/<%=product.image%>" alt="" height="115" width="75"></a></div>
+                                <% for(let i=0; i< 3 ; i++) { %>
+                                <div class=""><a href="/products/details/<%=recomended[i].id%>"><img src="/images/products/<%=recomended[i].image%>" alt="" height="115" width="75"></a></div>
                                 <%}%>                            
                             </div>
                             <div class="row">
-                                <% for(product of recomended) { %>
+                                <% for(let i=0; i< 3 ; i++) { %>
                                 <div>
-                                    <div id="price-decoration"><p>$<%= product.price%></p></div>
-                                    <div><p>$<%= product.price_discount%></p></div>
+                                    <div id="price-decoration"><p>$<%= recomended[i].price%></p></div>
+                                    <div><p>$<%= recomended[i].price_discount%></p></div>
                                 </div>
-                                <%}%>  
-                            </div> 
+                                <%}%>
+                            </div>
                         </div>                  
                     </div>
 
                     <div class="situate-right">
-                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box-in-middle d-none d-sm-none d-md-block">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 box-in-middle">
                             <div id="align-center-subtitle"><p>¡HOT SALE!</p></div>
                             <div class="row">
                                 <% for(let i=0; i< 3 ; i++) { %>
-                                <div class=""><img src="/images/products/<%=hotSale[i].image%>" alt="" height="115" width="75"></div>            
+                                <div class=""><a href="/products/details/<%=product.id%>"><img src="/images/products/<%=hotSale[i].image%>" alt="" height="115" width="75"></a></div>            
                                 <%}%> 
                             </div>
                             <div class="row">
