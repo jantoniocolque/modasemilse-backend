@@ -89,6 +89,12 @@
                             <div class="col-auto my-1 boton-color-add">
                                 <button class="btn btn-primary add-to-cart"><p>Añadir al carrito</p></button>
                             </div>
+
+                            <% if (rol == 1) { %>
+                            <div class="col-auto my-1 boton-color-add">
+                                <a href="/products/edit/<%=product.id%>"><buttonclass="btn btn-primary add-to-cart"><p>Editar</p></button></a>
+                            </div>
+                            <% } %>
                         </div>
 
                         <div class="details-secondary-level mt-2">
