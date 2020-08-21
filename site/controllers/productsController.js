@@ -54,7 +54,7 @@ const controller = {
             res.render('tienda',{
                 title:'Tienda - Emilse',
                 titleContent: 'Todos los productos',
-                products:removeDuplicates(product,'code_article'),
+                products:removeDuplicates(product,'code_article', 'colour'),
                 categorias: categorias,
                 session:req.session.userLoginSession,
             })
