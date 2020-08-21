@@ -7,19 +7,7 @@
     <!--Area de administración/alta de artículos-->
     <%- include('partials/header') %>
     <div class="contents-box">
-        <%if(typeof errors!='undefined'){%>
-            <center>
-            <p>
-                <ul style="color:red; font-size:1.2rem; list-style: none;">
-                    <%for(let i=0;i<errors.length;i++){%>
-                    <li>
-                        <%= errors[i].msg %>
-                    </li>
-                    <%}%>
-                </ul>
-            </p>
-            </center>
-        <%}%>
+        
         <div class="errors-feedback row">
             
         </div>
@@ -28,34 +16,39 @@
                 <h1>Alta de artículos nuevos</h1>
                 <img class="logo" src="/images/icons/logo.png" alt="logo-modasemilse" srcset="">
             </div>
+            <%if(typeof errors!='undefined'){%>
+                <center>
+                <p>
+                    <ul style="color:red; font-size:1.5rem; list-style: none;">
+                        <li><%= errors %></li>
+                        <%for(let i=0;i < errors.length;i++){%>
+                        <li>
+                            <%= errors[i].msg %>
+                        </li>
+                        <%}%>
+                    </ul>
+                </p>
+                </center>
+            <%}%>    
             <form action="/products/create" class="row admin-addproduct" enctype="multipart/form-data" method="POST" novalidate>
                 <div class="col-3 admin-addphotos">
                     <div class="card">
+                        <div class="upload-image-1">
+                        </div>
                         <input required type="file" id="imagen-producto-1" name="image" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
                         <img id="custom-button-1" src="/images/placeholder.png" class="card-img-top imagen1" alt="..." title="Selecciona una foto">
-                        <div class="photo-menu">
-                            <i class="far fa-trash-alt"></i>
-                            |
-                            <i class="fas fa-camera"></i>
-                        </div>
                     </div>
                     <div class="card">
+                        <div class="upload-image-2">
+                        </div>
                         <input required type="file" id="imagen-producto-2" name="image2" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
                         <img id="custom-button-2" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
-                        <div class="photo-menu">
-                            <i class="far fa-trash-alt"></i>
-                            |
-                            <i class="fas fa-camera"></i>
-                        </div>
                     </div>
                     <div class="card">
+                        <div class="upload-image-3">
+                        </div>
                         <input required type="file" id="imagen-producto-3" name="image3" hidden="hidden" accept="image/x-png,image/gif,image/jpeg"/>
                         <img id="custom-button-3" src="/images/placeholder.png" class="card-img-top" alt="..." title="Selecciona una foto">
-                        <div class="photo-menu">
-                            <i class="far fa-trash-alt"></i>
-                            |
-                            <i class="fas fa-camera"></i>
-                        </div>
                     </div>
                 </div>
                 <div class="col-8 admin-form">

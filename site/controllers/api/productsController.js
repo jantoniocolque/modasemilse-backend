@@ -1,4 +1,5 @@
 const db = require('../../database/models');
+const Op = require('Sequelize').Op;
 
 const controller = {
     list: async (req,res) => {
@@ -136,6 +137,48 @@ const controller = {
         res.json({
             status:200
         });
+    },
+    confirm:async(req,res) =>{
+        const order_products = await db.Order_Product.findAll({where:{orders_id:req.body.order_id}});
+        for(product of order_products){
+            let units = await db.Product_Size.findOne({where:{product_id:product.products_id}});
+            let unitTotal = units.units - product.units;
+            await db.Product_Size.update({
+                units: unitTotal
+            },{
+                where:{product_id:product.products_id}
+            });
+        }
+        await db.Order.update({
+            estado: "Finalizado"
+        },{
+            where:{id:req.body.order_id}
+        });
+
+        res.json({
+            status:200
+        });
+    },
+    favoriteAdd:async(req,res)=>{    
+        await db.Favorite.create({
+            users_id: req.session.userLoginSession.id,
+            products_id: req.body.product_id,
+        });
+
+        res.json({
+            status:200
+        })
+    },
+    favoriteRemove:async(req,res)=>{
+        await db.Favorite.destroy({
+            where:{
+                [Op.and]: [{users_id: req.session.userLoginSession.id}, {products_id: req.body.product_id}]
+            }
+        })
+
+        res.json({
+            status:200
+        })
     }
 }
 

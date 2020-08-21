@@ -20,12 +20,12 @@ let usersController = {
                 if(bcrypt.compareSync(req.body.password,userLogin.password) || userLogin.password == req.body.password){
                     req.session.userLoginSession = userLogin.dataValues;
                     if(req.body.remember != undefined){
-                        res.cookie('user',userLogin.dataValues.id,{maxAge:60000});
+                        res.cookie('user',userLogin.dataValues.id,{maxAge:120000});
                     }
                     if(userLogin.rol_id==1){
-                        res.redirect('/users/account/update');
+                        return res.redirect('/users/account/update');
                     }
-                    res.redirect('/users/account');
+                    return res.redirect('/users/account');
                 }
                 else{
                     res.render('login',{
@@ -105,6 +105,7 @@ let usersController = {
         res.redirect('/users/login');
     },
     account : function(req, res){
+
         res.render('userPanel', {
             title: 'Modas Emilse | Mi cuenta',
             nombre:req.session.userLoginSession.nombre,
@@ -113,21 +114,78 @@ let usersController = {
             session:req.session.userLoginSession
         });
     },
-    orders : function(req, res){
+    orders : async function(req,res){
+        const orders = await db.Order.findAll({
+            include:[{
+                association:'order_user'
+            }]
+        });
+
+        const order_products = await db.Order_Product.findAll({
+            include:[
+                {association: 'order_product_product'},
+            ]
+        });
+
+        const products = await db.Product.findAll({
+            include:[
+                {association:'products_sizes'},
+                {association:'sizes'}
+            ]
+        });
+
         res.render('userOrders', { 
             title: 'Modas Emilse | Mis pedidos',
-            nombre:req.session.userLoginSession.nombre,
-            apellido:req.session.userLoginSession.apellido,
-            session:req.session.userLoginSession
+            session:req.session.userLoginSession,
+            orders:orders,
+            order_products:order_products,
+            products:products,
         });
     },
-    favorites:function(req, res){
-        res.render('userFavorites', { title: 'Modas Emilse | Favoritos',session:req.session.userLoginSession});
+    favorites:async function(req, res){
+        const favorites = await db.Favorite.findAll({
+            include:[{association:'favorite_product'}],
+            where:{users_id:req.session.userLoginSession.id}
+        });
+        const products_sizes= await db.Product_Size.findAll({
+            include:[{association:'talles'}]
+        });
+        res.render('userFavorites', { 
+            title: 'Modas Emilse | Favoritos',
+            favorites:favorites,
+            products_sizes:products_sizes,
+            session:req.session.userLoginSession,
+        });
     },
     logout:function(req, res) {
         req.session.destroy();
         res.cookie('color',null,{maxAge:-1});
         res.redirect('/users/login');
+    },
+    shops: async function(req,res){
+        const orders = await db.Order.findAll({
+            include:[{
+                association:'order_user'
+            }]
+        });
+        const order_products = await db.Order_Product.findAll({
+            include:[
+                {association: 'order_product_product'},
+            ]
+        });
+        const products = await db.Product.findAll({
+            include:[
+                {association:'products_sizes'},
+                {association:'sizes'}
+            ]
+        });
+        res.render('adminShops',{
+            title:'Modas Emisle | Compras',
+            session:req.session.userLoginSession,
+            orders:orders,
+            order_products:order_products,
+            products:products,
+        });
     }
 }
 

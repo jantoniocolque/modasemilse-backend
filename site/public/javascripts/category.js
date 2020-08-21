@@ -1,7 +1,7 @@
 window.addEventListener('load', function(){
-    var newCategory = document.querySelector("#modal-prueba");
-
-    if(newCategory != null) {
+var url = location.pathname;
+    if(url == "/products/create"){
+        var newCategory = document.querySelector("#modal-prueba");
         newCategory.addEventListener('click',async function(){
             var {value : text } = await Swal.fire({
                 title: 'Agregar nueva categoria',
@@ -21,5 +21,4 @@ window.addEventListener('load', function(){
             }
         });
     }
-    
 });

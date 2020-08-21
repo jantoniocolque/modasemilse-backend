@@ -30,7 +30,7 @@ function removeDuplicates(originalArray, nameProperty, colour) {
     for(var object in objectProcess) {
         newArray.push(objectProcess[object]);
     }
-     return newArray;
+    return newArray;
 }
 
 function removeSameColor(products, colourProduct, nameProperty){
@@ -95,7 +95,6 @@ const controller = {
     store:async (req,res) => {
         const sizes = await db.Size.findAll();
         if(isNaN(parseInt(req.body.type_cloth,10))){
-            console.log('entre');
             await db.Category.create({
                 type_cloth:req.body.type_cloth
             });
@@ -150,7 +149,7 @@ const controller = {
         });
         const sizes = await db.Size.findAll();
         const categorys = await db.Category.findAll();
-        if(product != undefined){
+        if(product != null){
             res.render('productEdit', {
                 title:'Editando - Modas Emilse',
                 product:product,
@@ -214,8 +213,9 @@ const controller = {
     },
 
     detail :async function(req, res) {
-
-        const product= await db.Product.findByPk(req.params.productId);
+        const product= await db.Product.findByPk(req.params.productId,{
+            include:[{association:'users'}]
+        });
         const productsForArticle = await db.Product_Size.findAll({where: {code: product.code_article}});
         const productsOtherColors = await db.Product.findAll(
             {where: {

@@ -83,7 +83,15 @@
                             </div>
 
                             <div id="align-to-shop">
-                                <a class ="size-color-icon align-right-icon" target="" href=""><i class="fas fa-heart situate-icons"></i></a>
+                                <% if(typeof session !='undefined'){%>
+                                <% if(product.users.length > 0){%>
+                                    <a class ="favorite-user size-color-icon align-right-icon" target="" href=""><i style="color:rgb(121, 82, 179);" class="fas fa-heart situate-icons"></i></a>
+                                <%}else{%>
+                                    <a class ="favorite-user size-color-icon align-right-icon" target="" href=""><i style="color:rgb(0, 0, 0);" class="fas fa-heart situate-icons"></i></a>
+                                <%}%>
+                                <%}else{%>
+                                    <a class ="favorite-user size-color-icon align-right-icon" target="" href=""><i style="color:rgb(0, 0, 0);" class="fas fa-heart situate-icons"></i></a>
+                                <%}%>
                             </div>
 
                             <div class="col-auto my-1 boton-color-add">

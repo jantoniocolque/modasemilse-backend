@@ -23,6 +23,7 @@
                                 <%}else{%>
                                     <ul>
                                         <li><a href="/users/account/update" class="modas-userPanel-link">Mis datos</a></li>
+                                        <li><a href="/users/account/shops" class="modas-userPanel-link">Mis ventas</a></li>
                                     </ul>
                                 <%}%>
                         </div>
@@ -64,7 +65,7 @@
                                         <p class="modas-userPanel-title">DATOS PERSONALES</p>
                                         <div class="form-group row"> 
                                             <input required type="text" class="col-5 form-control" id="formInput29" name="firstName" placeholder="Nombre" value="<%= user.nombre %>">
-                                            <input required type="text" class="col-5 form-control" id="formInput29" name="lastName" placeholder="Apellido" value="<%= user.apellido %>"> 
+                                            <input required type="text" class="col-5 form-control" id="formInput30" name="lastName" placeholder="Apellido" value="<%= user.apellido %>"> 
                                         </div>
                                         <div class="form-group row"> 
                                             <input required type="text" class="col-5 form-control" name="nacimiento" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')" value="<%= user.nacimiento %>">

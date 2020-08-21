@@ -1,6 +1,18 @@
 const db = require('../database/models');
 const Op = require('Sequelize').Op;
 
+function removeDuplicates(originalArray, nameProperty) {
+    var newArray = [];
+    var objectProcess  = {};
+    for(var i=0; i<originalArray.length ; i++){
+        objectProcess[originalArray[i][nameProperty]] = originalArray[i];
+    }
+    for(var object in objectProcess) {
+        newArray.push(objectProcess[object]);
+    }
+    return newArray;
+}
+
 const controller = {
     root:(req,res)=>{
         res.render('index', { title: 'Modas Emilse | Inicio',session:req.session.userLoginSession});
@@ -19,12 +31,11 @@ const controller = {
             }]
         })
         .then(function(products){
-            console.log(products);
                 res.render('tienda',{
                     title:'Tienda - Emilse',
                     titleContent: 'Resultados de busqueda',
                     categorias:categorias,
-                    products:products,
+                    products:removeDuplicates(products,'code_article'),
                     session:req.session.userLoginSession
             })
         })
