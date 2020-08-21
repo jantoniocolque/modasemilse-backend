@@ -107,11 +107,6 @@
                                     <%}%>
                                 </div>
                                 <% } %>
-                                <div class="row">
-                                    <div class="container-items">
-                                        <div id="price"><p></p></div>
-                                    </div>
-                                </div>
                             </div>                   
                         </div>
                     </section>
@@ -144,14 +139,14 @@
                             <div id="align-center-subtitle"><p>¡HOT SALE!</p></div>
                             <div class="row">
                                 <% for(let i=0; i< 3 ; i++) { %>
-                                <div class=""><a href="/products/details/<%=product.id%>"><img src="/images/products/<%=hotSale[i].image%>" alt="" height="115" width="75"></a></div>            
+                                <div class=""><a href="/products/details/<%=hotSale[i].id%>"><img src="/images/products/<%=hotSale[i].image%>" alt="" height="115" width="75"></a></div>            
                                 <%}%> 
                             </div>
                             <div class="row">
                                 <% for(let i=0; i< 3 ; i++) { %>
                                 <div> 
-                                    <div id="price-decoration"><p>$<%= product.price%></p></div>
-                                    <div><p>$<%= product.price_discount%></p></div>
+                                    <div id="price-decoration"><p>$<%= hotSale[i].price%></p></div>
+                                    <div><p>$<%= hotSale[i].price_discount%></p></div>
                                 </div>
                                 <%}%> 
                             </div> 
