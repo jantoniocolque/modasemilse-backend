@@ -603,8 +603,8 @@ main .second-row-photo .promo-photo{
     right: 37px;
   }
   header #menu .icono-shop-user #cart-shop span{
-  top:1px;
-  right: 5px;
+    top:1px;
+    right: 5px;
   }
   header .welcome-user{
     font-size: 1.5rem;
@@ -642,7 +642,7 @@ main .second-row-photo .promo-photo{
     font-size:1.5rem;
   }
   .container-store .container-photos .product-box img{
-    height: 35vw;
+    height: 30vw;
   }
   .container-store .page-content .card-store:nth-child(4n+3){
     padding-left:0;

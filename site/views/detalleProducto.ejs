@@ -39,12 +39,12 @@
 
                     <section class="col-12 col-sm-12 col-md-5 mt-3">
                         <div class ="clothes-main-title">
-                            <p id="product-title"> <%= product.title %></p>
+                            <p id="product-title"><h2><%= product.title %></h2></p>
                         </div>
 
                         <div class="">
-                            <div id="price-decoration"><p> $ <%= product.price %></p> </div>                      
-                            <div id="price"><p> $ <%= product.price_discount %></p></div>
+                            <div id="price-decoration"><p><h4>$ <%= product.price %> </h4></p> </div>                      
+                            <div id="price"><p> <h3>$ <%= product.price_discount %></h3></p></div>
                         </div>
 
                         <div class="design-to-size" id="price align-left-subtitle">
@@ -72,7 +72,7 @@
 
                             <div class="form-row align-items-center" id="align-to-size">
                                 <div class="col-auto my-1">
-                                    <input type="number" class="custom-select mr-sm-2 product-quantity" id="inlineFormCustomSelect">
+                                    <input type="" class="custom-select mr-sm-2 col-5 ml-3 mt-2 product-quantity" id="inlineFormCustomSelect">
                                 </div>
                             </div>
                         </div>
@@ -97,27 +97,28 @@
                             <div class="col-auto my-1 boton-color-add">
                                 <button class="btn btn-primary add-to-cart"><p>Añadir al carrito</p></button>
                             </div>
-
-                            <% if (product.rol_id == 1) { %>
-                            <div class="col-auto my-1 boton-color-add">
-                                <a href="/products/edit/<%=product.id%>"><button class="btn btn-primary add-to-cart"><p>Editar</p></button></a>
-                            </div>
-                            <% } %>
+                            <% if(typeof session != 'undefined'){%>
+                                <% if (session.rol_id == 1) { %>
+                                <div class="col-auto my-1 boton-color-add">
+                                    <a href="/products/edit/<%=product.id%>"><button class="btn btn-primary add-to-cart"><p>Editar</p></button></a>
+                                </div>
+                                <% } %>
+                            <%}%>
                         </div>
 
                         <div class="details-secondary-level mt-2">
-                            <div><p>Color: <span><%= product.colour%></span></p></div>
-                            <div class=""><p>Descripción: <%= product.description_product %></p></div>
-                            <div><p>Código del artículo: <span class="product-code"><%= product.code_article%></span></p></div>
+                            <div><p> <h6>Color: <span><%= product.colour%></span></h6></p></div>
+                            <div class=""><p><h6>Descripción: <%= product.description_product %></h6></p></div>
+                            <div><p><h6>Código del artículo: <span class="product-code"><%= product.code_article%></span></h6></p></div>
                         </div>
 
-                        <div class="other-colour" id="price">
+                        <div class="other-colour mt-5" id="price">
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-md-12 mt-12">
                                 <% if(productsOtherColors.length > 1) {%>
                                 <div id="align-left-subtitle"><p>OTROS COLORES</p></div>     
                                 <div class="row">
                                     <% for (product of productsOtherColors) {%>
-                                    <div class=""><a href="/products/details/<%=product.id%>"><img src="/images/products/<%= product.image %>" alt="" height="100" width="70"></a></div>                                                   
+                                    <div class=""><a href="/products/details/<%=product.id%>"><img src="/images/products/<%= product.image %>" alt="" height="100" width="70"></a><p><%= product.colour %></p></div>
                                     <%}%>
                                 </div>
                                 <% } %>
@@ -133,12 +134,12 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 col-md-12 mt-12 box-in-middle">
                             <div id="align-center-subtitle"><p>RECOMENDADOS</p></div>                               
                             <div class="row">
-                                <% for(let i=0; i< 3 ; i++) { %>
+                                <% for(let i=0; i< recomended.length ; i++) { %>
                                 <div class=""><a href="/products/details/<%=recomended[i].id%>"><img src="/images/products/<%=recomended[i].image%>" alt="" height="115" width="75"></a></div>
                                 <%}%>                            
                             </div>
                             <div class="row">
-                                <% for(let i=0; i< 3 ; i++) { %>
+                                <% for(let i=0; i< recomended.length ; i++) { %>
                                 <div>
                                     <div id="price-decoration"><p>$<%= recomended[i].price%></p></div>
                                     <div><p>$<%= recomended[i].price_discount%></p></div>

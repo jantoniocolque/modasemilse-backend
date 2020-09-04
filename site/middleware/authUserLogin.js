@@ -14,10 +14,5 @@ function authUserLogin(req,res,next){
     }else{
         next();
     }
-<<<<<<< HEAD
 }
 module.exports = authUserLogin;
-=======
-    }
-module.exports = authUserLogin;
->>>>>>> 804d57c2b27df8081e1facb0ddfacb152f1d34a7

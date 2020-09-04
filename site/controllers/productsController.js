@@ -11,20 +11,18 @@ function removeDuplicatesProducts(originalArray, codeProduct, nameProperty){
         objectProcess[originalArray[i][nameProperty]] = originalArray[i];
     }
     for(var object in objectProcess) {
-        console.log("Object propiedad"+ object);
         if( object != codeProduct) {
             newArray.push(objectProcess[object]);
         }       
     }
-    console.log("Recomendados" + newArray);
     return newArray;
 }
 
-function removeDuplicates(originalArray, nameProperty, colour) {
+function removeDuplicates(originalArray, nameProperty) {
     var newArray = [];
     var objectProcess  = {};
     for(var i=0; i<originalArray.length ; i++){
-        objectProcess[originalArray[i][nameProperty, colour]] = originalArray[i];
+        objectProcess[originalArray[i][nameProperty]] = originalArray[i];
     }
     for(var object in objectProcess) {
         newArray.push(objectProcess[object]);
@@ -43,8 +41,7 @@ function removeSameColor(products, colourProduct, nameProperty){
             newArray.push(objectProcess[object]);
         }       
     }
-    console.log("1 new array" + newArray);
-     return newArray;
+    return newArray;
 }
 const controller = {
     root: async (req,res) => {
@@ -54,7 +51,7 @@ const controller = {
             res.render('tienda',{
                 title:'Tienda - Emilse',
                 titleContent: 'Todos los productos',
-                products:removeDuplicates(product,'code_article', 'colour'),
+                products:removeDuplicates(product,'code_article'),
                 categorias: categorias,
                 session:req.session.userLoginSession,
             })
@@ -223,24 +220,18 @@ const controller = {
                 category_id: product.category_id,
                 }
             },{limit:3});
-        
         const hotSale = await db.Product.findAll({order:[['discount', 'DESC'],],},{limit:3});
-        console.log('hola' + hotSale);
         const sizes = await db.Size.findAll();
 
         res.render('detalleProducto', {
             product : product,
             sizes: sizes,
             productsForArticle: productsForArticle,
-            productsOtherColors: removeSameColor(productsOtherColors, product.colour, 'colour'),
-            recomended : removeDuplicatesProducts(recomended, product.code_article, 'code_article'),
+            productsOtherColors: removeSameColor(productsOtherColors, productsOtherColors.colour, 'colour'),
+            recomended : removeDuplicatesProducts(recomended, recomended.code_article, 'code_article'),
             hotSale: hotSale,
             session: req.session.userLoginSession,
-
-            rol: req.session.userLoginSession!=undefined? req.session.userLoginSession.rol_id :undefined,
         });
-        console.log("PROD DE LISTA");
-        console.log(req.session.userLoginSession.rol_id);
     }
 }
 
