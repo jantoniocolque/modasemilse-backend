@@ -16,10 +16,10 @@ module.exports = {
     "operatorsAliases": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "b0acd82c584f25",
+    "password": '8cacf131',
+    "database": "heroku_f664146ec9e7081",
+    "host": "us-cdbr-east-02.cleardb.com",
     "dialect": "mysql",
     "operatorsAliases": false
   }
