@@ -21,6 +21,5 @@ module.exports = {
     "database": "heroku_f664146ec9e7081",
     "host": "us-cdbr-east-02.cleardb.com",
     "dialect": "mysql",
-    "operatorsAliases": false
   }
 }
