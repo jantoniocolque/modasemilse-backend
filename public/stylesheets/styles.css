@@ -672,7 +672,26 @@ div.quick {
         border-left: none;
     }
 }
-
+@media (max-width: 375px) {
+    button#custom-button {
+        border-radius: 90px;
+        margin-block-start: 0px;
+        width: 100%;
+        margin-inline-start: 0px;
+    }
+    .upload-4 {
+        width: 100%;
+        position: absolute;
+        top: -2px;
+        border-radius: 50%;
+        height: 90%;
+        left: -5px;
+    }
+    .upload-avatar .photo-menu {
+        top: 147px;
+        right: 1px;
+    }
+}
 @media (max-width: 320px) {
     body {
         font-size: small;
