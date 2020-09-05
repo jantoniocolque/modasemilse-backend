@@ -1,5 +1,5 @@
 const db = require('../../database/models');
-const Op = require('Sequelize').Op;
+const {Op} = require('sequelize');
 
 const controller = {
     list: async (req,res) => {

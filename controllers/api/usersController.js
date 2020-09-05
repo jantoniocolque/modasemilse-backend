@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const Op = require('Sequelize').Op;
+const {Op}= require('sequelize');
 const bcrypt = require('bcrypt');
 let db = require('../../database/models');
 

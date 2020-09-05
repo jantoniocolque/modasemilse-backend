@@ -1,6 +1,6 @@
 let bcrypt = require('bcrypt');
 var {check, validationResult, body} = require('express-validator');
-const Op = require('Sequelize').Op;
+const {Op} = require('sequelize');
 /* Se requieren los modelos de la base de datos */
 let db = require('../database/models');
 
