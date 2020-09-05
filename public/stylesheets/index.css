@@ -34,7 +34,7 @@ button:focus{
 /*estilos de la barra superior donde se encuentra el logo, el icono de carrito y de usuario*/
 header #menu{
   background-color: rgba(0, 188, 212,0.96);
-  top:25px;
+  top:13px;
 }
 /*Background dinamico de la barra superior con JQuery*/
 .bg-primary{
@@ -609,7 +609,7 @@ main .second-row-photo .promo-photo{
   header .welcome-user{
     font-size: 1.5rem;
     position: absolute;
-    right: 10%;
+    right: 135px;
     color: white;
     font-weight: bold;
   }

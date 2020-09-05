@@ -273,11 +273,11 @@ img.logo {
 }
 .upload-image-2{
     position:absolute;
-    top:-25px;
+    top:-16px;
 }
 .upload-image-3{
     position:absolute;
-    top:-25px;
+    top:-7px;
 }
 .upload-image-1 .upload-1{
     width:100%;
@@ -581,8 +581,8 @@ ul.bottom li {
 
 li i.fas {
     color: black;
-    font-size: xx-large;
-    padding-right: 10px;
+    font-size: x-large;
+    padding-right: 4px;
 }
 
 /* barra copyright */
