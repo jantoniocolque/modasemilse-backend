@@ -672,7 +672,34 @@ div.quick {
         border-left: none;
     }
 }
+@media (max-width: 425px) {
+    button#custom-button {
+        border-radius: 111px;
+        margin-block-start: 0px;
+        width: 100%;
+        margin-inline-start: 0px;
+    }
+    .upload-4 {
+        width: 96%;
+        position: absolute;
+        top: -6px;
+        border-radius: 50%;
+        height: 93%;
+        left: 2px;
+    }
+    .upload-avatar .photo-menu {
+        top: 182px;
+        right: 2px;
+    }
+}
+
 @media (max-width: 375px) {
+    button#custom-button {
+        border-radius: 111px;
+        /* margin-block-start: -3px; */
+        width: 100%;
+        /* margin-inline-start: -44px; */
+    }
     button#custom-button {
         border-radius: 90px;
         margin-block-start: 0px;
