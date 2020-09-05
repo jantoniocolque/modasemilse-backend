@@ -154,15 +154,19 @@
                             <div id="align-center-subtitle"><p>¡HOT SALE!</p></div>
                             <div class="row">
                                 <% for(let i=0; i< hotSale.length; i++) { %>
-                                <div class=""><a href="/products/details/<%=hotSale[i].id%>"><img src="/images/products/<%=hotSale[i].image%>" alt="" height="115" width="75"></a></div>            
+                                    <%if(i< 3){%>
+                                        <div class=""><a href="/products/details/<%=hotSale[i].id%>"><img src="/images/products/<%=hotSale[i].image%>" alt="" height="115" width="75"></a></div>            
+                                    <%}%>
                                 <%}%> 
                             </div>
                             <div class="row">
                                 <% for(let i=0; i< hotSale.length ; i++) { %>
-                                <div> 
-                                    <div id="price-decoration"><p>$<%= hotSale[i].price%></p></div>
-                                    <div><p>$<%= hotSale[i].price_discount%></p></div>
-                                </div>
+                                    <%if(i< 3){%>
+                                        <div> 
+                                            <div id="price-decoration"><p>$<%= hotSale[i].price%></p></div>
+                                            <div><p>$<%= hotSale[i].price_discount%></p></div>
+                                        </div>
+                                    <%}%>
                                 <%}%> 
                             </div> 
                         </div>                   
