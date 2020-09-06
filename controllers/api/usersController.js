@@ -54,7 +54,7 @@ const controller = {
                 id : users[i].id,
                 name : users[i].nombre,
                 email : users[i].email,
-                detail : "http://modasemilse.herokuapp.com/v1/users/" + users[i].id
+                detail : "https://modasemilse.herokuapp.com/v1/users/" + users[i].id
             }
         }
         

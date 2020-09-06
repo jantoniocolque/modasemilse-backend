@@ -14,7 +14,7 @@ window.addEventListener('load',function(){
             }
 
             if(iconHeart.style.color == "rgb(121, 82, 179)"){
-                fetch("http://modasemilse.herokuapp.com/v1/products/delete/favorite",{
+                fetch("https://modasemilse.herokuapp.com/v1/products/delete/favorite",{
                     method:'POST',
                     body: JSON.stringify(data),
                     headers:{'Content-Type':'application/json'}
@@ -29,7 +29,7 @@ window.addEventListener('load',function(){
                     });
                 })
             }else{
-                fetch("http://modasemilse.herokuapp.com/v1/products/add/favorite",{
+                fetch("https://modasemilse.herokuapp.com/v1/products/add/favorite",{
                     method:'POST',
                     body: JSON.stringify(data),
                     headers:{'Content-Type':'application/json'}
