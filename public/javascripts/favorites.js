@@ -8,7 +8,8 @@ window.addEventListener('load',function(){
             Swal.fire('Debe logearse para almacenar favoritos');
         }else{
             var url= location.pathname;
-            var productId=url[url.length-1];
+            var split = url.split('/');
+            var productId=split[split.length-1];
             var data={
                 product_id : productId,
             }
@@ -29,7 +30,8 @@ window.addEventListener('load',function(){
                     });
                 })
             }else{
-                fetch("https://modasemilse.herokuapp.com/v1/products/add/favorite",{
+                console.log(data);
+                fetch("http://localhost:3000/v1/products/add/favorite",{
                     method:'POST',
                     body: JSON.stringify(data),
                     headers:{'Content-Type':'application/json'}

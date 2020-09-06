@@ -159,7 +159,9 @@ const controller = {
             status:200
         });
     },
-    favoriteAdd:async(req,res)=>{    
+    favoriteAdd:async(req,res)=>{
+        console.log(req.session.userLoginSession);
+        console.log(req.body);
         await db.Favorite.create({
             users_id: req.session.userLoginSession.id,
             products_id: req.body.product_id,

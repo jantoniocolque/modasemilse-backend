@@ -5,7 +5,6 @@ let db = require('../../database/models');
 
 const controller = {
     login: async (req,res) =>{
-        console.log(req.body);
         let userLogin = await db.User.findOne({ where: {email: req.body.email }});
         
         if(userLogin !=undefined){
