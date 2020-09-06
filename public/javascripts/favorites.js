@@ -31,7 +31,7 @@ window.addEventListener('load',function(){
                 })
             }else{
                 console.log(data);
-                fetch("http://localhost:3000/v1/products/add/favorite",{
+                fetch("https://modasemilse.herokuapp.com/v1/products/add/favorite",{
                     method:'POST',
                     body: JSON.stringify(data),
                     headers:{'Content-Type':'application/json'}
