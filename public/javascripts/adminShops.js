@@ -30,7 +30,7 @@ window.addEventListener('load', function(){
                     order_id:this.id
                 }
                 
-                fetch("http://localhost:3000/v1/products/shop/confirm",{
+                fetch("http://modasemilse.herokuapp.com/v1/products/shop/confirm",{
                     method:'POST',
                     body:JSON.stringify(data),
                     headers:{'Content-Type':'application/json'}

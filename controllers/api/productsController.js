@@ -13,7 +13,7 @@ const controller = {
                 id : products[i].id,
                 name : products[i].title,
                 description : products[i].description_product,
-                endpoints : "http://localhost:3000/v1/products/"+products[i].id,
+                endpoints : "http://modasemilse.herokuapp.com/v1/products/"+products[i].id,
             };
         }
         for(let i=0; i<categorys.length; i++){

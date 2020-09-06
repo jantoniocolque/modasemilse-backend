@@ -91,7 +91,7 @@ window.addEventListener('load', function(){
             var session = document.querySelector('.session-front-end');
 
             if(session == null){
-                fetch("http://localhost:3000/v1/products/shop",{
+                fetch("http://modasemilse.herokuapp.com/v1/products/shop",{
                     method:'POST',
                     body: localStorage.shoppingCart,
                     headers:{'Content-Type':'application/json'}
